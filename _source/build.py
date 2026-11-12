@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import html, random
-from cases import INTRO, CASES, WHAT, HOW, SYSTEMS, RULES, FAQ
+from cases import INTRO, SERVICES_INTRO, CASES, WHAT, HOW, SYSTEMS, RULES, FAQ
 import re, json
 from parts import AGENTS, FLOW_TRIGGER, FLOW_STEPS, FLOW_END, NUMBERS
 from icons import svg
@@ -107,14 +107,15 @@ LD = json.dumps({"@context":"https://schema.org","@graph":[
   "address":PLACE,
   "areaServed":["United States","Europe","Tunisia"],
   "availableLanguage":LANGS,
-  "knowsAbout":["website design and build","booking systems","invoice and quote follow-up","candidate scoring for recruiting firms","content systems","answer engine optimisation","branding"],
+  "knowsAbout":["website design and build","booking systems","dashboards","process automation","invoice and quote follow-up","candidate scoring for recruiting firms","integrations with email, Slack, Loxo and BrightHire","newsletter automation","content systems","social media content","video editing","motion graphics","answer engine optimisation","branding"],
   "hasOfferCatalog":{"@type":"OfferCatalog","name":"Services","itemListElement":[
     {"@type":"Offer","itemOffered":{"@type":"Service","name":t,"description":d,"provider":{"@id":SITE+"#studio"}}} for _,_,t,d in WHAT]}},
  {"@type":"Person","@id":SITE+"#person","name":"Houssem Gabsi","url":SITE,"email":EMAIL,
   "worksFor":{"@id":SITE+"#studio"},"knowsLanguage":LANGS,"address":PLACE},
  {"@type":"ItemList","@id":SITE+"#work","name":"Selected work","itemListElement":[
     {"@type":"ListItem","position":i+1,"item":{"@type":"CreativeWork","@id":SITE+"#case-%d" % i,"url":SITE+"#case-%d" % i,
-      "name":c["who"],"description":c["did"],"creator":{"@id":SITE+"#person"}}} for i,c in enumerate(CASES)]},
+      "name":c["who"],"description":c["did"],"creator":{"@id":SITE+"#person"},
+      **({"sameAs":c["link"],"image":SITE+"media/"+c["img"]} if c.get("link") else {})}} for i,c in enumerate(CASES)]},
  {"@type":"FAQPage","@id":SITE+"#faq","isPartOf":{"@id":SITE+"#webpage"},"mainEntity":[
     {"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in FAQ]}
 ]}, ensure_ascii=False, indent=1)
@@ -127,10 +128,10 @@ def _llms():
     L += ["- %s: %s" % (t, d) for _,_,t,d in WHAT]
     L += ["", "## Systems", ""]
     L += ["- %s: %s %s Status: %s" % (a, b, c, d) for a,b,c,d in SYSTEMS]
-    L += ["", "## Selected work", "", "Clients are not named."]
+    L += ["", "## Selected work", "", "Clients are not named. Own products are named and linked."]
     for c in CASES:
         L += ["", "### " + c["who"], "", c["kind"], "",
-              "- Challenge: " + c["before"], "- Work delivered: " + c["did"], "- Status: " + c["now"]]
+              "- Challenge: " + c["before"], "- Work delivered: " + c["did"], "- Status: " + c["now"]] + (["- Link: " + c["link"]] if c.get("link") else [])
     L += ["", "## How I work", ""]
     L += ["- %s %s" % (a, b) for a,b in RULES]
     L += ["", "## Process", ""]
@@ -560,6 +561,11 @@ section[id]{scroll-margin-top:64px}
 .band.dark .cases{margin-top:0}
 .band.dark .case{grid-template-columns:1fr;gap:20px;border-top-color:rgba(233,231,222,.16);scroll-margin-top:96px}
 .band.dark .case h3{max-width:24ch}
+.shot{display:block;max-width:640px;text-decoration:none;color:var(--wall)}
+.shot img{display:block;width:100%;height:auto;border-radius:6px;border:1px solid rgba(233,231,222,.16);transition:border-color .3s}
+.shot span{display:inline-block;margin-top:12px;font-size:15px;border-bottom:1px solid rgba(233,231,222,.5);padding-bottom:2px;transition:border-color .3s,color .3s}
+@media(hover:hover){.shot:hover img{border-color:var(--ochre)}.shot:hover span{color:var(--ochre);border-color:var(--ochre)}}
+.shot:focus-visible{outline:2px solid var(--ochre);outline-offset:3px}
 .band.dark .case .meta,.band.dark .arc span{color:rgba(233,231,222,.55)}
 .band.dark .arc > div:nth-child(2) p{color:var(--wall)}
 .band.dark .arc > div:nth-child(1) p,.band.dark .arc > div:nth-child(3) p{color:rgba(233,231,222,.7)}
@@ -677,7 +683,7 @@ DIVHERE
 
 <section id="services"><div class="wrap">
   <h2>Services</h2>
-  <p class="intro-l">Most engagements combine all three.</p>
+  <p class="intro-l">SERVINTRO</p>
   <div class="offer">WHATHERE</div>
 </div></section>
 
@@ -830,15 +836,21 @@ DIVHERE
 </body></html>"""
 
 what = "\n".join('<div><div class="card">%s<span class="pl">%s</span><h3>%s</h3><p>%s</p></div></div>' % (mark(m), e(k), e(a), e(b)) for m,k,a,b in WHAT)
+def shot(c):
+    if not c.get("img"): return ""
+    host = c["link"].split("//")[1].strip("/")
+    return ('<a class="shot" href="%s" target="_blank" rel="noopener">'
+            '<img src="/media/%s" width="1440" height="900" loading="lazy" decoding="async" alt="%s">'
+            '<span>Visit %s</span></a>') % (e(c["link"]), e(c["img"]), e(c["alt"]), e(host))
 cases = "\n".join(
  """<article class="case" id="case-%d">
   <div class="chd"><h3>%s</h3><p class="meta">%s</p></div>
-  <div class="arc">
+  %s<div class="arc">
     <div><span>Challenge</span>%s</div>
     <div><span>Work delivered</span>%s</div>
     <div><span>Status</span>%s</div>
   </div>
- </article>""" % (i, e(c["who"]), e(c["kind"]), P(c["before"]), P(c["did"]), P(c["now"]))
+ </article>""" % (i, e(c["who"]), e(c["kind"]), shot(c), P(c["before"]), P(c["did"]), P(c["now"]))
  for i,c in enumerate(CASES))
 windex = "\n".join('<li><a href="#case-%d">%s<small>%s</small></a></li>' % (i, e(c["who"]), e(c["kind"])) for i,c in enumerate(CASES))
 systems = "\n".join(
@@ -851,7 +863,7 @@ faq = "\n".join(
  % (" open" if i==0 else "", "true" if i==0 else "false", e(q), e(a)) for i,(q,a) in enumerate(FAQ))
 
 HEAD_HTML = " ".join('<span style="--w:%d">%s</span>' % (i, e(w)) for i,w in enumerate(HEAD.split()))
-HTML = (HTML.replace("HEADLINE", HEAD_HTML).replace("INTROHERE", e(INTRO)).replace("WEEKHERE", WEEK)
+HTML = (HTML.replace("HEADLINE", HEAD_HTML).replace("INTROHERE", e(INTRO)).replace("SERVINTRO", e(SERVICES_INTRO)).replace("WEEKHERE", WEEK)
             .replace("DAYSHERE", DAYLBL).replace("HOURSCOL", HOURS_COL).replace("WHATHERE", what)
             .replace("CASESHERE", cases).replace("WINDEXHERE", windex).replace("HOWHERE", how)
             .replace("AGENTSHERE", agents).replace("FLOWHERE", flow).replace("RULESHERE", rules).replace("SYSHERE", systems).replace("FAQHERE", faq).replace("ENSOHERE", HEROMARK).replace("LDHERE", LD).replace("OGTITLEHERE", e(OG_TITLE)).replace("OGDESCHERE", e(OG_DESC)).replace("OGALTHERE", e(OG_ALT)).replace("TITLEHERE", e(TITLE)).replace("DESCHERE", e(DESC)).replace("SITEHERE", SITE).replace("HOURSVAL", str(HOURS)))

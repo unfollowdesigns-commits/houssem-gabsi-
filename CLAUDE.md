@@ -9,7 +9,7 @@ Vercel serves the site from the top level of this repo. The Root Directory setti
 ## How it is built
 `index.html` is generated. Do not edit it by hand.
 
-- `_source/cases.py`: all the wording. Hero line, services, the four cases, systems, working rules, process, questions.
+- `_source/cases.py`: all the wording. Hero line, services, the cases (client work and own products), systems, working rules, process, questions.
 - `_source/parts.py`: the capacity grid and the enquiry diagram wording.
 - `_source/icons.py`: the small line icons.
 - `_source/build.py`: layout, styles, motion, and the script that writes `index.html`.

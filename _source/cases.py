@@ -1,16 +1,20 @@
 # -*- coding: utf-8 -*-
 # v3.2 content. Professional register, plain language. Clients unnamed. Nothing invented.
 
+SERVICES_INTRO = ("Most of the work is making the tools a firm already has do more: finding where time is lost, "
+                  "removing repeated and administrative work, and connecting what is already there. "
+                  "Most engagements combine all three.")
+
 INTRO = ("Websites, automation and content for established firms, built so the systems "
          "you already pay for work together. One person, end to end.")
 
 WHAT = [
  ("build", "Build", "Websites and applications",
-  "Client-facing websites, booking systems and internal tools, designed and built end to end."),
+  "Client-facing websites, booking systems, dashboards and internal tools, designed and built end to end, with as much care for how they are used as for how they look."),
  ("automate", "Automate", "Operations that run without manual effort",
-  "Follow-up, booking confirmations, candidate assessment and reporting, handled automatically. A member of your team approves anything before it is sent."),
+  "Follow-up, booking confirmations, candidate assessment, reporting and newsletters, handled automatically inside the tools you already use: email, Slack, your calendar, and recruiting platforms such as Loxo and BrightHire. A member of your team approves anything before it is sent."),
  ("create", "Create", "Brand identity and content systems",
-  "Visual identity, illustration and a content process that turns one idea into a month of publishing, in your voice and structured for search engines and AI assistants."),
+  "Visual identity, illustration, video editing and motion graphics, and a content process that turns one idea into a month of publishing across your blog, newsletter, LinkedIn and Instagram, in your voice and structured for search engines and AI assistants."),
 ]
 
 CASES = [
@@ -30,6 +34,16 @@ CASES = [
   before="He had access to AI tools but was getting little practical value from them. Recurring work was still done manually.",
   did="His AI assistant configured around his editorial work rather than the software's defaults. Recurring weekly tasks now follow a consistent, repeatable process, with video production at the centre.",
   now="Delivered."),
+ dict(who="A recruiting platform that explains every score", kind="Own product, 2026",
+  before="Most candidate screening tools return a score without the reasoning behind it, so a recruiter can neither defend it nor question it.",
+  did="Vero, a web application that reads a batch of résumés against a role, ranks the candidates, and shows the reasoning and the source text behind every score. It also drafts outreach based on each candidate's own work. The decision stays with a person.",
+  now="Live.",
+  link="https://vero-woad.vercel.app/", img="vero.jpg", alt="The Vero home page: Hiring intelligence that reads between the lines."),
+ dict(who="A daily entry-risk score for stocks and crypto", kind="Own product, 2026",
+  before="A price shows what an asset costs today, not whether today is a sensible moment to buy it.",
+  did="ZonedInOut, a website that scores stocks, ETFs and cryptocurrencies every trading day on how far the price has moved from its average, with an entry zone and a stop level for each. Past calls are published and graded. It is a scoring system, not financial advice.",
+  now="Live.",
+  link="https://zonedinout.vercel.app/", img="zonedinout.jpg", alt="The ZonedInOut home page: Know the risk before you enter."),
 ]
 
 SYSTEMS = [
@@ -79,6 +93,8 @@ FAQ = [
   "An automated workflow is one part of the work. I also build the website or application it runs inside, produce the content that feeds it, and make the short film that explains it to your clients."),
  ("What does it cost, and how is it priced?",
   "Every engagement begins with a paid Systems Audit at a fixed price, and that fee is credited toward the build. After the audit, each build has one fixed price, agreed in writing. There is no hourly billing."),
+ ("Which tools do you connect to?",
+  "The ones a firm already uses: email, calendars, spreadsheets and Slack, recruiting platforms such as Loxo and BrightHire, and the AI assistant the team already works with. The aim is to make existing tools work together, not to add new ones."),
  ("How does an engagement start?",
   "With a free one-page review of where the firm is losing time. No call is required. If you want to go further, a paid audit ranks the first three improvements, and its fee is credited toward the build."),
  ("Who owns the website, the code and the accounts?",
