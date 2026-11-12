@@ -18,7 +18,9 @@ To change the site: edit the files in `_source`, then run
 
     cd _source && python3 build.py
 
-It writes `../index.html`. Open it in a browser, check it, then commit and push.
+It writes `../index.html` and `../llms.txt`. Open the page in a browser, check it, then commit and push.
+
+`llms.txt` is a plain-text summary for AI assistants. It is generated from the same lists as the page. Do not edit it by hand.
 
 ## Rules
 - Plain, professional language. No jargon, no buzzwords, no em dashes.
@@ -28,7 +30,9 @@ It writes `../index.html`. Open it in a browser, check it, then commit and push.
 - No background or CV content on the page. It shows what the studio builds.
 - Do not advertise speed of delivery.
 - The questions section and the hidden structured data are generated from the same list in `cases.py`, so they always match.
+- The page title, search description and site address are set near the structured data in `build.py`.
 - Keep `tools/`, `downloads/`, `fonts/` and `media/` as they are unless asked.
+- The page's two typefaces are served from `fonts/` (Fraunces and Archivo). The page loads nothing from other sites.
 - Nothing is pushed live without Houssem's OK.
 
 ## Before pushing

@@ -80,45 +80,104 @@ what = "\n".join('<div>%s<span class="pl">%s</span><h3>%s</h3><p>%s</p></div>' %
 systems = "\n".join('<article class="sys"><div><h3>%s</h3><p class="prob">%s</p></div><div><p>%s</p><p class="st">%s</p></div></article>' % (e(a),e(b),e(c),e(d)) for a,b,c,d in SYSTEMS)
 rules = "\n".join('<div><h3>%s</h3><p>%s</p></div>' % (e(a), e(b)) for a,b in RULES)
 faq = "\n".join('<div><h3>%s</h3><p>%s</p></div>' % (e(a), e(b)) for a,b in FAQ)
+SITE = "https://houssem-gabsi.vercel.app/"
+EMAIL = "unfollow.designs@gmail.com"
+HEAD = "Most of a week goes on work nobody should be doing by hand."
+TITLE = "Websites, automation and content for firms | Houssem Gabsi"
+OG_TITLE = "Websites, automation and content for established firms"
+DESC = ("A studio of one for established firms. Websites, booking systems, automated follow-up "
+        "and content systems. A person approves before anything is sent.")
+OG_DESC = "Follow-ups that are never forgotten, bookings confirmed, candidates scored against your own criteria. Built by one person, approved by yours."
+OG_ALT = HEAD + " Websites, automation and content for established firms."
+ABOUT = "A studio of one that builds websites, booking systems, follow-up and candidate scoring automations, and content systems for established firms."
+LANGS = ["English","French","Arabic"]
+PLACE = {"@type":"PostalAddress","addressLocality":"Tunis","addressCountry":"TN"}
 LD = json.dumps({"@context":"https://schema.org","@graph":[
- {"@type":"ProfessionalService","name":"Houssem Gabsi",
-  "description":"A studio of one that builds websites, booking systems, follow-up and candidate scoring automations, and content systems for established firms.",
-  "founder":{"@type":"Person","name":"Houssem Gabsi"},
-  "url":"https://houssem-gabsi.vercel.app/",
-  "email":"unfollow.designs@gmail.com",
-  "address":{"@type":"PostalAddress","addressLocality":"Tunis","addressCountry":"TN"},
+ {"@type":"WebSite","@id":SITE+"#website","url":SITE,"name":"Houssem Gabsi","description":ABOUT,
+  "inLanguage":"en","publisher":{"@id":SITE+"#studio"}},
+ {"@type":"WebPage","@id":SITE+"#webpage","url":SITE,"name":TITLE,"description":DESC,"inLanguage":"en",
+  "isPartOf":{"@id":SITE+"#website"},"about":{"@id":SITE+"#studio"},
+  "primaryImageOfPage":{"@type":"ImageObject","url":SITE+"og.png","width":1200,"height":630}},
+ {"@type":"ProfessionalService","@id":SITE+"#studio","name":"Houssem Gabsi",
+  "description":ABOUT,
+  "founder":{"@id":SITE+"#person"},
+  "url":SITE,
+  "image":SITE+"og.png",
+  "email":EMAIL,
+  "address":PLACE,
   "areaServed":["United States","Europe","Tunisia"],
-  "availableLanguage":["English","French","Arabic"],
+  "availableLanguage":LANGS,
   "knowsAbout":["website design and build","booking systems","invoice and quote follow-up","candidate scoring for recruiting firms","content systems","answer engine optimisation","branding"],
   "hasOfferCatalog":{"@type":"OfferCatalog","name":"Services","itemListElement":[
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":t,"description":d}} for _,_,t,d in WHAT]}},
- {"@type":"FAQPage","mainEntity":[
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":t,"description":d,"provider":{"@id":SITE+"#studio"}}} for _,_,t,d in WHAT]}},
+ {"@type":"Person","@id":SITE+"#person","name":"Houssem Gabsi","url":SITE,"email":EMAIL,
+  "worksFor":{"@id":SITE+"#studio"},"knowsLanguage":LANGS,"address":PLACE},
+ {"@type":"ItemList","@id":SITE+"#work","name":"Selected work","itemListElement":[
+    {"@type":"ListItem","position":i+1,"item":{"@type":"CreativeWork","@id":SITE+"#case-%d" % i,"url":SITE+"#case-%d" % i,
+      "name":c["who"],"description":c["did"],"creator":{"@id":SITE+"#person"}}} for i,c in enumerate(CASES)]},
+ {"@type":"FAQPage","@id":SITE+"#faq","isPartOf":{"@id":SITE+"#webpage"},"mainEntity":[
     {"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in FAQ]}
 ]}, ensure_ascii=False, indent=1)
-how  = "\n".join('<li><h4>%s</h4><p>%s</p></li>' % (e(a), e(b)) for a,b in HOW)
+
+# plain-text summary for AI assistants, written from the same lists as the page
+def _llms():
+    L = ["# Houssem Gabsi", "", "> " + ABOUT, "",
+         "Based in Tunis. Works in English, French and Arabic. Contact: " + EMAIL, "",
+         "Site: " + SITE, "", "## Services", ""]
+    L += ["- %s: %s" % (t, d) for _,_,t,d in WHAT]
+    L += ["", "## Systems", ""]
+    L += ["- %s: %s %s Status: %s" % (a, b, c, d) for a,b,c,d in SYSTEMS]
+    L += ["", "## Selected work", "", "Clients are not named."]
+    for c in CASES:
+        L += ["", "### " + c["who"], "", c["kind"], "",
+              "- Challenge: " + c["before"], "- Work delivered: " + c["did"], "- Status: " + c["now"]]
+    L += ["", "## How I work", ""]
+    L += ["- %s %s" % (a, b) for a,b in RULES]
+    L += ["", "## Process", ""]
+    L += ["%d. %s: %s" % (i+1, a, b) for i,(a,b) in enumerate(HOW)]
+    L += ["", "## Common questions"]
+    for q,a in FAQ: L += ["", "### " + q, "", a]
+    L += ["", "## Free tool", "",
+          "- [Stock, sales and production tracker](%stools/stock-sales-production-tracker/): a free tracker for product businesses." % SITE, ""]
+    return "\n".join(L)
+LLMS = _llms()
+how  = "\n".join('<li><h3>%s</h3><p>%s</p></li>' % (e(a), e(b)) for a,b in HOW)
 
 HTML = """<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Websites, automations and content for established firms | Houssem Gabsi</title>
-<meta name="description" content="A studio of one for established firms. Websites and booking systems, follow-up that drafts the replies, candidate scoring inside your own recruiting database, and content produced by a system. A person approves before anything is sent.">
+<title>TITLEHERE</title>
+<meta name="description" content="DESCHERE">
 <meta name="author" content="Houssem Gabsi">
-<link rel="canonical" href="https://houssem-gabsi.vercel.app/">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="theme-color" content="#E9E7DE">
+<link rel="canonical" href="SITEHERE">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<meta property="og:url" content="https://houssem-gabsi.vercel.app/">
-<meta property="og:image" content="https://houssem-gabsi.vercel.app/og.png">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="Plain-text summary of this site">
+<meta property="og:site_name" content="Houssem Gabsi">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="SITEHERE">
+<meta property="og:image" content="SITEHEREog.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="OGALTHERE">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Websites, automations and content for established firms">
-<meta property="og:description" content="Follow-ups that are never forgotten, bookings confirmed, candidates scored against your own criteria. Built by one person, approved by yours.">
+<meta property="og:title" content="OGTITLEHERE">
+<meta property="og:description" content="OGDESCHERE">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OGTITLEHERE">
+<meta name="twitter:description" content="OGDESCHERE">
+<meta name="twitter:image" content="SITEHEREog.png">
 <script type="application/ld+json">
 LDHERE
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+@font-face{font-family:Archivo;font-style:normal;font-weight:400 600;font-display:swap;src:url(/fonts/archivo-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Archivo;font-style:normal;font-weight:400 600;font-display:swap;src:url(/fonts/archivo-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:300 700;font-display:swap;src:url(/fonts/fraunces-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:300 700;font-display:swap;src:url(/fonts/fraunces-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
 :root{
   --wall:#E9E7DE;       /* lime-washed wall */
   --wall-2:#DFDCD1;
@@ -232,8 +291,6 @@ h1,h2,h3,h4{font-family:Fraunces,Georgia,serif;font-weight:400;
 
 
 /* ── page chrome ── */
-.prog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--ochre);z-index:50;
-  transition:width .08s linear}
 .bar{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:space-between;
   align-items:center;gap:18px;padding:13px var(--pad);
   background:rgba(233,231,222,.86);backdrop-filter:blur(12px);
@@ -410,7 +467,7 @@ h2{font-size:clamp(1.65rem,3.3vw,2.6rem);max-width:17ch}
 .how li::before{content:counter(s);font-family:Fraunces,serif;font-size:13px;
   color:var(--ink-soft);display:block;margin-bottom:10px;
   font-variation-settings:"opsz" 20,"SOFT" 0,"WONK" 0}
-.how h4{font-size:clamp(1.04rem,1.35vw,1.2rem);
+.how h3{font-size:clamp(1.04rem,1.35vw,1.2rem);
   font-variation-settings:"opsz" 30,"SOFT" 22,"WONK" 0}
 .how p{margin-top:7px;font-size:14.5px;color:var(--ink-soft)}
 
@@ -437,7 +494,6 @@ h2{font-size:clamp(1.65rem,3.3vw,2.6rem);max-width:17ch}
 html{scroll-behavior:smooth}
 main{padding-top:58px}
 section[id]{scroll-margin-top:64px}
-.prog{width:100%;transform-origin:left;transform:scaleX(0);transition:none;z-index:60}
 
 /* nav */
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:20px;
@@ -515,6 +571,7 @@ section[id]{scroll-margin-top:64px}
 .acch{width:100%;display:grid;align-items:baseline;gap:6px clamp(16px,3vw,44px);text-align:left;background:none;border:0;
   font:inherit;color:inherit;cursor:pointer;padding:clamp(18px,2.5vh,26px) 0;transition:padding-left .7s var(--spring)}
 @media(hover:hover){.acch:hover{padding-left:12px}}
+.sysr h3{font:inherit;font-variation-settings:inherit;letter-spacing:inherit}
 .sysr .acch{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) 16px}
 .sysn,.q .acch span{font-family:Fraunces,serif;font-size:clamp(1.12rem,1.55vw,1.4rem);letter-spacing:-.018em;line-height:1.18;
   font-variation-settings:"opsz" 40,"SOFT" 24,"WONK" 1}
@@ -583,7 +640,6 @@ html.js .rv.done{transition-delay:0s}
  html.js .fnode.o .ic{color:var(--wall)!important}
 }
 </style></head><body>
-<div class="prog" id="prog"></div>
 <header class="nav" id="nav">
   <a class="brand" href="#top">Houssem Gabsi</a>
   <nav aria-label="Sections"><a href="#services">Services</a><a href="#work">Work</a><a href="#systems">Systems</a><a href="#process">Process</a><a href="#questions">Questions</a><i class="ind" id="ind"></i></nav>
@@ -647,7 +703,7 @@ DIVHERE
   <p class="teamnote">Individually these are small. Together they let a small team operate like a much larger one.</p>
 </div></section>
 
-<section><div class="wrap">
+<section id="enquiry"><div class="wrap">
   <h2>An enquiry, handled end to end</h2>
   <p class="intro-l">From form submission to a prepared reply, without manual steps. Scroll to follow it through.</p>
   FLOWHERE
@@ -655,7 +711,7 @@ DIVHERE
 
 DIVHERE
 
-<section><div class="wrap">
+<section id="commitments"><div class="wrap">
   <h2>How I work</h2>
   <p class="intro-l">Six commitments that apply to every engagement.</p>
   <div class="rules">RULESHERE</div>
@@ -745,13 +801,12 @@ DIVHERE
   $$('.acch').forEach(function(b){b.addEventListener('click',function(){var a=b.closest('.acc'),o=a.classList.toggle('open');b.setAttribute('aria-expanded',String(o));});});
 
   /* one smoothed scroll loop drives everything that follows the page */
-  var sy=scrollY, prog=$('#prog'), nav=$('#nav'), h1=$('.hero h1'), mk=$('.hero .mark'),
+  var sy=scrollY, nav=$('#nav'), h1=$('.hero h1'), mk=$('.hero .mark'),
       flow=$('.flow'), fl=$$('.fline i'), fs=$$('.fstep'), fo=$('.fnode.o'), trk=$('#trk'), howl=$('.how'), how=$$('.how li'),
       links=$$('.nav nav a'), ind=$('#ind'), secs=links.map(function(a){return $(a.getAttribute('href'));}),
       wi=$$('.windex li'), cs=$$('.case'), pf=0, pt=0, act=-2, wact=-2;
   function frame(){
-    var vh=innerHeight, max=root.scrollHeight-vh; sy+=(scrollY-sy)*(RM?1:.12);
-    prog.style.transform='scaleX('+(max>0?clamp(sy/max):0).toFixed(4)+')';
+    var vh=innerHeight; sy+=(scrollY-sy)*(RM?1:.12);
     nav.classList.toggle('sc',scrollY>12);
     if(!RM&&sy<vh*1.2){h1.style.transform='translateY('+(sy*-.07).toFixed(1)+'px)';mk.style.transform='translateY('+(sy*.12).toFixed(1)+'px)';}
     var a=-1;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<vh*.42)a=i;});
@@ -787,7 +842,7 @@ cases = "\n".join(
  for i,c in enumerate(CASES))
 windex = "\n".join('<li><a href="#case-%d">%s<small>%s</small></a></li>' % (i, e(c["who"]), e(c["kind"])) for i,c in enumerate(CASES))
 systems = "\n".join(
- '<div class="acc sysr%s"><button type="button" class="acch" aria-expanded="%s"><span class="sysn">%s</span><span class="prob">%s</span><i class="pm2"></i></button>'
+ '<div class="acc sysr%s"><h3><button type="button" class="acch" aria-expanded="%s"><span class="sysn">%s</span><span class="prob">%s</span><i class="pm2"></i></button></h3>'
  '<div class="accb"><div class="acci"><div><p>%s</p><p class="st">%s</p></div></div></div></div>'
  % (" open" if i==0 else "", "true" if i==0 else "false", e(a), e(b), e(c), e(dd)) for i,(a,b,c,dd) in enumerate(SYSTEMS))
 faq = "\n".join(
@@ -795,12 +850,12 @@ faq = "\n".join(
  '<div class="accb"><div class="acci"><div><p>%s</p></div></div></div></div>'
  % (" open" if i==0 else "", "true" if i==0 else "false", e(q), e(a)) for i,(q,a) in enumerate(FAQ))
 
-HEAD = "Most of a week goes on work nobody should be doing by hand."
 HEAD_HTML = " ".join('<span style="--w:%d">%s</span>' % (i, e(w)) for i,w in enumerate(HEAD.split()))
 HTML = (HTML.replace("HEADLINE", HEAD_HTML).replace("INTROHERE", e(INTRO)).replace("WEEKHERE", WEEK)
             .replace("DAYSHERE", DAYLBL).replace("HOURSCOL", HOURS_COL).replace("WHATHERE", what)
             .replace("CASESHERE", cases).replace("WINDEXHERE", windex).replace("HOWHERE", how)
-            .replace("AGENTSHERE", agents).replace("FLOWHERE", flow).replace("RULESHERE", rules).replace("SYSHERE", systems).replace("FAQHERE", faq).replace("ENSOHERE", HEROMARK).replace("LDHERE", LD).replace("HOURSVAL", str(HOURS)))
+            .replace("AGENTSHERE", agents).replace("FLOWHERE", flow).replace("RULESHERE", rules).replace("SYSHERE", systems).replace("FAQHERE", faq).replace("ENSOHERE", HEROMARK).replace("LDHERE", LD).replace("OGTITLEHERE", e(OG_TITLE)).replace("OGDESCHERE", e(OG_DESC)).replace("OGALTHERE", e(OG_ALT)).replace("TITLEHERE", e(TITLE)).replace("DESCHERE", e(DESC)).replace("SITEHERE", SITE).replace("HOURSVAL", str(HOURS)))
 while "DIVHERE" in HTML: HTML = HTML.replace("DIVHERE", divider(), 1)
 open("../index.html","w").write(HTML)
+open("../llms.txt","w").write(LLMS)
 print("ok", len(HTML))

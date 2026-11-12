@@ -79,6 +79,10 @@ FAQ = [
   "An automated workflow is one part of the work. I also build the website or application it runs inside, produce the content that feeds it, and make the short film that explains it to your clients."),
  ("What does it cost, and how is it priced?",
   "Every engagement begins with a paid Systems Audit at a fixed price, and that fee is credited toward the build. After the audit, each build has one fixed price, agreed in writing. There is no hourly billing."),
+ ("How does an engagement start?",
+  "With a free one-page review of where the firm is losing time. No call is required. If you want to go further, a paid audit ranks the first three improvements, and its fee is credited toward the build."),
+ ("Who owns the website, the code and the accounts?",
+  "You do. The code, the domain and the accounts are yours, and are transferred on request at no additional cost."),
  ("Where are you based, and does it matter?",
   "Tunis. Most of the work is for clients abroad, in English, French or Arabic. Calls are scheduled in your time zone, and delivery is the same wherever you are."),
 ]
