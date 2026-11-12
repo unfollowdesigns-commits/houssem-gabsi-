@@ -1,0 +1,84 @@
+# -*- coding: utf-8 -*-
+# v3.2 content. Professional register, plain language. Clients unnamed. Nothing invented.
+
+INTRO = ("Websites, automation and content for established firms, built so the systems "
+         "you already pay for work together. One person, end to end.")
+
+WHAT = [
+ ("build", "Build", "Websites and applications",
+  "Client-facing websites, booking systems and internal tools, designed and built end to end."),
+ ("automate", "Automate", "Operations that run without manual effort",
+  "Follow-up, booking confirmations, candidate assessment and reporting, handled automatically. A member of your team approves anything before it is sent."),
+ ("create", "Create", "Brand identity and content systems",
+  "Visual identity, illustration and a content process that turns one idea into a month of publishing, in your voice and structured for search engines and AI assistants."),
+]
+
+CASES = [
+ dict(who="A recruiting website that keeps itself current", kind="Executive search firm, Washington D.C., since 2025",
+  before="The firm had outgrown its website. Open roles were maintained manually in two places, candidates were assessed one at a time, and client reports were assembled by hand.",
+  did="An eighteen-page website with open roles synchronised from the firm's recruiting system. A tool that formats candidate CVs to the firm's standard. An interactive map of its consultant network. The firm's recruiting database and internal chat connected to its AI assistant, so the team can query its own candidate data.",
+  now="Website live. Candidate scoring in development: each candidate assessed against the criteria of the search, with written reasoning for every score."),
+ dict(who="An identity drawn from the house itself", kind="Maison d'hôte, La Marsa, 2026",
+  before="A nineteenth-century house of nine rooms with an excellent reputation, and a website that did not reflect it.",
+  did="A visual identity drawn from the house itself: its tiles, doors and objects. A bilingual website in French and English designed around that identity, and the printed material guests handle, including room cards and the table d'hôte menu.",
+  now="Identity and print delivered. Website in development."),
+ dict(who="Class booking on a single screen", kind="Yoga studio, Tunis, 2026",
+  before="Classes were booked through Instagram messages, leaving the studio without a reliable view of attendance.",
+  did="A mobile-first booking application. Class schedule, availability and payment on a single screen, in French and English.",
+  now="Live."),
+ dict(who="An AI assistant built around an editorial week", kind="Journalist, video production, 2026",
+  before="He had access to AI tools but was getting little practical value from them. Recurring work was still done manually.",
+  did="His AI assistant configured around his editorial work rather than the software's defaults. Recurring weekly tasks now follow a consistent, repeatable process, with video production at the centre.",
+  now="Delivered."),
+]
+
+SYSTEMS = [
+ ("Invoice and quote follow-up",
+  "Revenue is lost in enquiries, quotes and invoices that nobody followed up.",
+  "Reviews the inbox, quotes and invoices, identifies unanswered enquiries, stalled quotes and overdue invoices, and drafts a reply for each. Nothing is sent without approval.",
+  "Built. Demonstrated on a fictional firm."),
+ ("Candidate scoring in your recruiting database",
+  "A recruiter can assess only a fraction of the candidates on a search in depth.",
+  "Assesses every candidate on a search against that search's criteria, and records the score and the reasoning in the candidate's record. The decision stays with a person.",
+  "In development for an executive search firm."),
+ ("Content system",
+  "Most firms publish content that is neither found nor finished.",
+  "Turns one idea into a researched article and a week of posts. Every figure is verified against a named source before publication, and each piece is structured to be cited by search engines and AI assistants.",
+  "In weekly use on client work."),
+ ("Interview notes to client report",
+  "Converting interview notes into a client report takes hours each week.",
+  "Converts raw notes into a finished report in the firm's format. Every rating references the source notes, and gaps are flagged rather than filled.",
+  "Built. Demonstrated on fictional data."),
+]
+
+RULES = [
+ ("One price, agreed in advance.", "Confirmed in writing before work begins. If the scope grows, the new price is agreed before the additional work starts."),
+ ("You own everything.", "The code, the domain and the accounts are yours, and are transferred on request at no additional cost."),
+ ("Nothing reaches your clients without approval.", "Every system drafts and prepares. A member of your team approves before anything is sent."),
+ ("Honest advice on what to build.", "If a piece of work will not repay its cost, you will hear that in the first conversation."),
+ ("You work with me directly.", "One person does the work, which is also why I take on a limited number of projects at a time."),
+ ("Plain language.", "I explain what was built and why, in terms your team can repeat without me in the room."),
+]
+
+HOW = [
+ ("Initial review", "A free one-page review of where the firm is losing time. No call required."),
+ ("Audit", "A paid assessment, with the first three improvements ranked. The fee is credited toward the build."),
+ ("Build", "One fixed price, agreed in writing before work begins."),
+ ("Launch", "Your team is trained on the system, and every process has a named owner."),
+ ("Support", "Optional monthly support, if you want it."),
+]
+
+FAQ = [
+ ("What does an automation studio build for a firm?",
+  "For a firm of ten to fifty people it is usually three things: the follow-up nobody has time to send, the booking or intake process clients pass through, and the reports someone prepares by hand every week. The work is connecting the tools you already use, not replacing them."),
+ ("Do we need to replace the software we already use?",
+  "No. Every system is built around your existing email, calendar, spreadsheets and databases. Replacing software that works is the most expensive way to automate anything."),
+ ("Will AI send anything to our clients without our approval?",
+  "No. Every system drafts and prepares. A member of your team approves before anything reaches a client. That is a design rule, not a setting that can be switched off."),
+ ("How is this different from hiring an automation freelancer?",
+  "An automated workflow is one part of the work. I also build the website or application it runs inside, produce the content that feeds it, and make the short film that explains it to your clients."),
+ ("What does it cost, and how is it priced?",
+  "Every engagement begins with a paid Systems Audit at a fixed price, and that fee is credited toward the build. After the audit, each build has one fixed price, agreed in writing. There is no hourly billing."),
+ ("Where are you based, and does it matter?",
+  "Tunis. Most of the work is for clients abroad, in English, French or Arabic. Calls are scheduled in your time zone, and delivery is the same wherever you are."),
+]
