@@ -4,6 +4,7 @@ Read this first, every session.
 
 ## What this is
 A one-page static site, live on Vercel. Vercel redeploys on every push to this repo.
+Vercel serves the site from the top level of this repo. The Root Directory setting in the Vercel project must stay empty.
 
 ## How it is built
 `index.html` is generated. Do not edit it by hand.
