@@ -18,15 +18,15 @@ NUMBERS = []
 
 # what the systems connect to: (icon, name, detail)
 CONNECT_INTRO = ("The method is the same in every business, whatever the trade. If a tool can share its data, "
-                 "it can be connected to the others and to the AI assistant your team already uses.")
+                 "it can be connected to the others and to an AI assistant. Most teams use a fraction of what an assistant such as Claude can do. Setting that up properly is a large part of the work.")
 CONNECTS = [
  ("moon_mail", "Email and calendar", "the inbox and diary you already run on"),
  ("speech", "Slack", "alerts and approvals where the team already talks"),
  ("cv_read", "Software of your trade", "booking, sales and recruiting platforms, such as Loxo and BrightHire"),
  ("bars", "Spreadsheets and databases", "read and updated in place"),
- ("eye", "AI assistants", "connected to your own data, so the team can question it"),
- ("form", "Websites and forms", "enquiries and bookings passed into your systems"),
- ("pen", "Newsletters and social channels", "email, LinkedIn and Instagram"),
+ ("eye", "Claude and other AI assistants", "connected to your own data and set up for the whole team"),
+ ("form", "Websites and online shops", "Shopify, Etsy, and the forms and bookings on your own site"),
+ ("pen", "Newsletters and social channels", "Substack, email, LinkedIn and Instagram"),
  ("folder_in", "The tools specific to your business", "connected the same way as the rest"),
 ]
 CONNECT_NOTE = "Nothing is replaced. The tools stay where they are and start working together."

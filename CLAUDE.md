@@ -22,6 +22,16 @@ It writes `../index.html` and `../llms.txt`. Open the page in a browser, check i
 
 `llms.txt` is a plain-text summary for AI assistants. It is generated from the same lists as the page. Do not edit it by hand.
 
+## What the studio offers
+Keep all of these on the page. Houssem has had to repeat them.
+- Websites, online shops (Shopify, Etsy), booking applications, dashboards, internal tools.
+- Automation inside the tools a business already has: follow-up, bookings, screening, reports, newsletters, social media scheduling.
+- Connections between tools: email, calendar, Slack, spreadsheets, Loxo, BrightHire, Shopify, Etsy, Substack.
+- Setting up Claude and other AI assistants for a team, connected to its own data. Most people use a fraction of what the assistant can do. That gap is the studio's main offer.
+- SEO and GEO (visibility in AI answers).
+- Brand identity, illustration, content, video editing, motion graphics.
+- Own products: Vero and ZonedInOut.
+
 ## Rules
 - Plain, professional language. No jargon, no buzzwords, no em dashes.
 - Nothing invented: no numbers, quotes or results that were not given by Houssem. Fictional or illustrative data is always labelled.

@@ -7,9 +7,9 @@ SERVICES_INTRO = ("Most of the work is making the tools a business already has d
 
 # short examples shown as a list on each service card
 EXAMPLES = {
- "build": ["Company and marketing websites", "Booking applications", "Dashboards and reporting", "Internal tools"],
- "automate": ["Enquiry and invoice follow-up", "Booking confirmations", "Screening of applications and enquiries", "Weekly reports and newsletters", "Social media scheduling", "AI assistants connected to your data"],
- "create": ["Brand identity and illustration", "Video editing and motion graphics", "Articles and blog posts", "LinkedIn and Instagram content"],
+ "build": ["Company and marketing websites", "Online shops on Shopify and Etsy", "Booking applications", "Dashboards and reporting", "Internal tools"],
+ "automate": ["Enquiry and invoice follow-up", "Booking confirmations", "Screening of applications and enquiries", "Weekly reports and newsletters", "Social media scheduling", "Claude and other AI assistants set up for your team"],
+ "create": ["Brand identity and illustration", "Video editing and motion graphics", "Articles, blog posts and Substack newsletters", "LinkedIn and Instagram content", "Visibility in search and AI answers (SEO and GEO)"],
 }
 
 CTA_NOTE = "Free. One page. No call required."
@@ -26,7 +26,7 @@ INTRO = ("Websites, automation and content for any business, from a single profe
 
 WHAT = [
  ("build", "Build", "Websites and applications",
-  "Client-facing websites, booking systems, dashboards and internal tools, designed and built end to end, with as much care for how they are used as for how they look."),
+  "Client-facing websites, online shops, booking systems, dashboards and internal tools, designed and built end to end, with as much care for how they are used as for how they look."),
  ("automate", "Automate", "Operations that run without manual effort",
   "Follow-up, booking confirmations, screening, reporting and newsletters, handled automatically inside the tools you already use: email, Slack, your calendar and the specialist software of your trade. A member of your team approves anything before it is sent."),
  ("create", "Create", "Brand identity and content systems",
@@ -115,6 +115,12 @@ FAQ = [
   "Yes. Enquiries answered at any hour, invoices followed up on a set schedule, bookings confirmed as they are made and weekly figures sent without anyone preparing them. Each is a small process that runs automatically, and a member of your team approves anything before it is sent."),
  ("Which tools do you connect to?",
   "The ones you already use: email, calendars, spreadsheets and Slack, the specialist software of your trade, such as Loxo and BrightHire in recruiting, and the AI assistant the team already works with. The aim is to make existing tools work together, not to add new ones."),
+ ("Can you set up Claude or another AI assistant for our business?",
+  "Yes. Most businesses use an AI assistant for single questions and little else. I connect it to your own tools and data, such as email, calendar, documents, your shop and your customer records, and set up the recurring tasks it should handle, so the whole team gets consistent results from it. Much of what is on this page is built that way."),
+ ("Do you work on SEO and on visibility in AI answers?",
+  "Yes. Search engine optimisation, and what is now called generative engine optimisation, or GEO: structuring a site and its content so that search engines and AI assistants such as ChatGPT, Claude and Perplexity can find it, understand it and cite it. This site is built that way."),
+ ("Do you work with Shopify, Etsy and Substack?",
+  "Yes. Online shops on Shopify and Etsy, and newsletters on Substack, can be built, tidied up and connected to the rest of your tools, so that orders, stock, listings and publishing no longer depend on someone copying things by hand."),
  ("How does an engagement start?",
   "With a free one-page review of where the business is losing time. No call is required. If you want to go further, a paid audit ranks the first three improvements, and its fee is credited toward the build."),
  ("Who owns the website, the code and the accounts?",

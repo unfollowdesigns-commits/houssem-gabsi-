@@ -112,7 +112,7 @@ LD = json.dumps({"@context":"https://schema.org","@graph":[
   "address":PLACE,
   "areaServed":["United States","Europe","Tunisia"],
   "availableLanguage":LANGS,
-  "knowsAbout":["website design and build","booking systems","dashboards","process automation","invoice and quote follow-up","candidate scoring for recruiting firms","integrations with email, Slack, Loxo and BrightHire","newsletter automation","content systems","social media content","video editing","motion graphics","answer engine optimisation","branding"],
+  "knowsAbout":["website design and build","booking systems","dashboards","process automation","invoice and quote follow-up","candidate scoring for recruiting firms","integrations with email, Slack, Loxo and BrightHire","newsletter automation","Shopify and Etsy shops","Substack newsletters","setting up Claude and other AI assistants for teams","search engine optimisation","generative engine optimisation","content systems","social media content","video editing","motion graphics","answer engine optimisation","branding"],
   "hasOfferCatalog":{"@type":"OfferCatalog","name":"Services","itemListElement":[
     {"@type":"Offer","itemOffered":{"@type":"Service","name":t,"description":d,"provider":{"@id":SITE+"#studio"}}} for _,_,t,d in WHAT]}},
  {"@type":"Person","@id":SITE+"#person","name":"Houssem Gabsi","url":SITE,"email":EMAIL,

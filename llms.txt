@@ -8,7 +8,7 @@ Site: https://houssem-gabsi.vercel.app/
 
 ## Services
 
-- Websites and applications: Client-facing websites, booking systems, dashboards and internal tools, designed and built end to end, with as much care for how they are used as for how they look.
+- Websites and applications: Client-facing websites, online shops, booking systems, dashboards and internal tools, designed and built end to end, with as much care for how they are used as for how they look.
 - Operations that run without manual effort: Follow-up, booking confirmations, screening, reporting and newsletters, handled automatically inside the tools you already use: email, Slack, your calendar and the specialist software of your trade. A member of your team approves anything before it is sent.
 - Brand identity and content systems: Visual identity, illustration, video editing and motion graphics, and a content process that turns one idea into a month of publishing across your blog, newsletter, LinkedIn and Instagram, in your voice and structured for search engines and AI assistants.
 
@@ -21,15 +21,15 @@ Site: https://houssem-gabsi.vercel.app/
 
 ## Connections
 
-The method is the same in every business, whatever the trade. If a tool can share its data, it can be connected to the others and to the AI assistant your team already uses.
+The method is the same in every business, whatever the trade. If a tool can share its data, it can be connected to the others and to an AI assistant. Most teams use a fraction of what an assistant such as Claude can do. Setting that up properly is a large part of the work.
 
 - Email and calendar: the inbox and diary you already run on
 - Slack: alerts and approvals where the team already talks
 - Software of your trade: booking, sales and recruiting platforms, such as Loxo and BrightHire
 - Spreadsheets and databases: read and updated in place
-- AI assistants: connected to your own data, so the team can question it
-- Websites and forms: enquiries and bookings passed into your systems
-- Newsletters and social channels: email, LinkedIn and Instagram
+- Claude and other AI assistants: connected to your own data and set up for the whole team
+- Websites and online shops: Shopify, Etsy, and the forms and bookings on your own site
+- Newsletters and social channels: Substack, email, LinkedIn and Instagram
 - The tools specific to your business: connected the same way as the rest
 
 ## Selected work
@@ -136,6 +136,18 @@ Yes. Enquiries answered at any hour, invoices followed up on a set schedule, boo
 ### Which tools do you connect to?
 
 The ones you already use: email, calendars, spreadsheets and Slack, the specialist software of your trade, such as Loxo and BrightHire in recruiting, and the AI assistant the team already works with. The aim is to make existing tools work together, not to add new ones.
+
+### Can you set up Claude or another AI assistant for our business?
+
+Yes. Most businesses use an AI assistant for single questions and little else. I connect it to your own tools and data, such as email, calendar, documents, your shop and your customer records, and set up the recurring tasks it should handle, so the whole team gets consistent results from it. Much of what is on this page is built that way.
+
+### Do you work on SEO and on visibility in AI answers?
+
+Yes. Search engine optimisation, and what is now called generative engine optimisation, or GEO: structuring a site and its content so that search engines and AI assistants such as ChatGPT, Claude and Perplexity can find it, understand it and cite it. This site is built that way.
+
+### Do you work with Shopify, Etsy and Substack?
+
+Yes. Online shops on Shopify and Etsy, and newsletters on Substack, can be built, tidied up and connected to the rest of your tools, so that orders, stock, listings and publishing no longer depend on someone copying things by hand.
 
 ### How does an engagement start?
 
