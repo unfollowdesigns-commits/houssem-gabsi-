@@ -5,6 +5,22 @@ SERVICES_INTRO = ("Most of the work is making the tools a firm already has do mo
                   "removing repeated and administrative work, and connecting what is already there. "
                   "Most engagements combine all three.")
 
+# short examples shown as a list on each service card
+EXAMPLES = {
+ "build": ["Company and marketing websites", "Booking applications", "Dashboards and reporting", "Internal tools"],
+ "automate": ["Enquiry and invoice follow-up", "Booking confirmations", "Candidate screening and scoring", "Weekly reports and newsletters", "Social media scheduling", "AI assistants connected to your data"],
+ "create": ["Brand identity and illustration", "Video editing and motion graphics", "Articles and blog posts", "LinkedIn and Instagram content"],
+}
+
+CTA_NOTE = "Free. One page. No call required."
+CTA_WORK = "A similar problem in your firm?"
+CTA_CONNECT = "Not sure what could be connected in your firm? The free review answers that."
+NEXT = [
+ ("You write a few lines", "about the firm and what takes the most time each week."),
+ ("I send a one-page review", "of where time is being lost and what could be automated first."),
+ ("You decide", "whether to go further. The review is yours either way."),
+]
+
 INTRO = ("Websites, automation and content for established firms, built so the systems "
          "you already pay for work together. One person, end to end.")
 
@@ -93,6 +109,10 @@ FAQ = [
   "An automated workflow is one part of the work. I also build the website or application it runs inside, produce the content that feeds it, and make the short film that explains it to your clients."),
  ("What does it cost, and how is it priced?",
   "Every engagement begins with a paid Systems Audit at a fixed price, and that fee is credited toward the build. After the audit, each build has one fixed price, agreed in writing. There is no hourly billing."),
+ ("What can be automated in a recruiting or executive search firm?",
+  "The work around the search, not the judgement in it: keeping open roles current on the website, formatting candidate CVs to the firm's standard, assessing every candidate against the criteria of the search with written reasoning, and turning interview notes into a client report. The decision stays with a person."),
+ ("Can a small team respond like a larger one?",
+  "Yes. Enquiries answered at any hour, invoices followed up on a set schedule, bookings confirmed as they are made and weekly figures sent without anyone preparing them. Each is a small process that runs automatically, and a member of your team approves anything before it is sent."),
  ("Which tools do you connect to?",
   "The ones a firm already uses: email, calendars, spreadsheets and Slack, recruiting platforms such as Loxo and BrightHire, and the AI assistant the team already works with. The aim is to make existing tools work together, not to add new ones."),
  ("How does an engagement start?",

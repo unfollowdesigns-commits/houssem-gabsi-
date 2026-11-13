@@ -19,6 +19,19 @@ Site: https://houssem-gabsi.vercel.app/
 - Content system: Most firms publish content that is neither found nor finished. Turns one idea into a researched article and a week of posts. Every figure is verified against a named source before publication, and each piece is structured to be cited by search engines and AI assistants. Status: In weekly use on client work.
 - Interview notes to client report: Converting interview notes into a client report takes hours each week. Converts raw notes into a finished report in the firm's format. Every rating references the source notes, and gaps are flagged rather than filled. Status: Built. Demonstrated on fictional data.
 
+## Connections
+
+The method is the same in every firm, whatever the industry. If a tool can share its data, it can be connected to the others and to the AI assistant your team already uses.
+
+- Email and calendar: the inbox and diary the firm already runs on
+- Slack: alerts and approvals where the team already talks
+- Recruiting platforms: such as Loxo and BrightHire
+- Spreadsheets and databases: read and updated in place
+- AI assistants: connected to the firm's own data, so the team can question it
+- Websites and forms: enquiries and bookings passed into your systems
+- Newsletters and social channels: email, LinkedIn and Instagram
+- The tools specific to your firm: connected the same way as the rest
+
 ## Selected work
 
 Clients are not named. Own products are named and linked.
@@ -111,6 +124,14 @@ An automated workflow is one part of the work. I also build the website or appli
 ### What does it cost, and how is it priced?
 
 Every engagement begins with a paid Systems Audit at a fixed price, and that fee is credited toward the build. After the audit, each build has one fixed price, agreed in writing. There is no hourly billing.
+
+### What can be automated in a recruiting or executive search firm?
+
+The work around the search, not the judgement in it: keeping open roles current on the website, formatting candidate CVs to the firm's standard, assessing every candidate against the criteria of the search with written reasoning, and turning interview notes into a client report. The decision stays with a person.
+
+### Can a small team respond like a larger one?
+
+Yes. Enquiries answered at any hour, invoices followed up on a set schedule, bookings confirmed as they are made and weekly figures sent without anyone preparing them. Each is a small process that runs automatically, and a member of your team approves anything before it is sent.
 
 ### Which tools do you connect to?
 

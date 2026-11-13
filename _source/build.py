@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 import html, random
-from cases import INTRO, SERVICES_INTRO, CASES, WHAT, HOW, SYSTEMS, RULES, FAQ
+from cases import INTRO, SERVICES_INTRO, EXAMPLES, CTA_NOTE, CTA_WORK, CTA_CONNECT, NEXT, CASES, WHAT, HOW, SYSTEMS, RULES, FAQ
 import re, json
-from parts import AGENTS, FLOW_TRIGGER, FLOW_STEPS, FLOW_END, NUMBERS
+from urllib.parse import quote
+from parts import AGENTS, FLOW_TRIGGER, FLOW_STEPS, FLOW_END, NUMBERS, DAY_HOURS, CONNECT_INTRO, CONNECTS, CONNECT_NOTE
 from icons import svg
 e = html.escape
 random.seed(7)
@@ -60,6 +61,10 @@ AG_IC = ["moon_mail","invoice","cv_read","calendar_tick","pen","speech","bars","
 agents = "\n".join(
  '<li style="--i:%d">%s<b>%s</b><span>%s</span></li>' % (i, svg(AG_IC[i]), e(a), e(b))
  for i,(a,b) in enumerate(AGENTS))
+
+connects = "\n".join(
+ '<li style="--i:%d">%s<b>%s</b><span>%s</span></li>' % (i, svg(ic), e(a), e(b))
+ for i,(ic,a,b) in enumerate(CONNECTS))
 
 flow = ('<div class="flow">'
   '<div class="fnode t">%s<p>%s</p></div>'
@@ -128,6 +133,8 @@ def _llms():
     L += ["- %s: %s" % (t, d) for _,_,t,d in WHAT]
     L += ["", "## Systems", ""]
     L += ["- %s: %s %s Status: %s" % (a, b, c, d) for a,b,c,d in SYSTEMS]
+    L += ["", "## Connections", "", CONNECT_INTRO, ""]
+    L += ["- %s: %s" % (a, b) for _,a,b in CONNECTS]
     L += ["", "## Selected work", "", "Clients are not named. Own products are named and linked."]
     for c in CASES:
         L += ["", "### " + c["who"], "", c["kind"], "",
@@ -515,6 +522,36 @@ section[id]{scroll-margin-top:64px}
   padding:13px 22px;border-radius:999px;transition:transform .7s var(--spring),background-color .3s,color .3s,scale .25s var(--ease)}
 .btn:active{scale:.95}
 .btn.sm{padding:9px 16px;font-size:14px}
+.btn.inv{background:var(--wall);color:var(--ink)}
+.cta-note{margin-top:14px;font-size:13.5px;color:var(--ink-soft);opacity:0;animation:rise .8s var(--ease) 1s forwards}
+.ctarow{margin-top:clamp(34px,5vh,54px);padding-top:clamp(22px,3vh,30px);border-top:1px solid var(--sand);display:flex;align-items:center;gap:14px 22px;flex-wrap:wrap}
+.ctarow p{font-family:Fraunces,serif;font-size:clamp(1.12rem,1.55vw,1.4rem);letter-spacing:-.018em;line-height:1.2;max-width:34ch;margin-right:auto}
+.ctarow span{font-size:13.5px;color:var(--ink-soft);flex-basis:100%}
+.band.dark .ctarow{border-top-color:rgba(233,231,222,.16)} .band.dark .ctarow span{color:rgba(233,231,222,.55)}
+.ex{list-style:none;margin-top:16px;padding-top:14px;border-top:1px solid var(--sand);display:grid;gap:6px;font-size:14.5px}
+.ex li{padding-left:16px;position:relative} .ex li::before{content:"";position:absolute;left:0;top:.72em;width:7px;height:2px;background:var(--ochre)}
+.next{list-style:none;counter-reset:n;margin-top:clamp(28px,4vh,40px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,34px);max-width:860px}
+.next li{counter-increment:n;border-top:1px solid rgba(233,231,222,.2);padding-top:14px;display:grid;gap:5px;align-content:start}
+.next li::before{content:counter(n);font-family:Fraunces,serif;font-size:13px;color:var(--ochre)}
+.next b{font-family:Fraunces,serif;font-weight:400;font-size:clamp(1.02rem,1.3vw,1.16rem);line-height:1.25}
+.next span{font-size:14.5px;color:rgba(233,231,222,.7)}
+@media(max-width:700px){.next{grid-template-columns:1fr}}
+.demo{margin-top:20px;max-width:300px} .demo video{display:block;width:100%;height:auto;border-radius:6px;border:1px solid var(--sand);background:var(--wall-2)}
+.demo figcaption{margin-top:8px;font-size:13.5px;color:var(--ink-soft)}
+.day{margin-top:clamp(28px,4vh,44px)}
+.dayhd{display:flex;justify-content:space-between;align-items:baseline;gap:8px 20px;flex-wrap:wrap}
+.dayhd b{font-family:Fraunces,serif;font-weight:400;font-size:clamp(1.7rem,3vw,2.5rem);letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1}
+.dayhd span{font-size:15px;color:var(--ink-soft)} .dayhd i{font-style:normal;color:var(--ink);font-variant-numeric:tabular-nums}
+.dayline{position:relative;height:28px;margin-top:14px;border-top:1px solid var(--sand);border-bottom:1px solid var(--sand)}
+.dayline .office{position:absolute;top:0;bottom:0;left:37.5%;width:37.5%;background:rgba(27,32,28,.07)}
+.dayline .ev{position:absolute;top:50%;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--ochre);transform:scale(0);transition:transform .5s var(--spring)}
+.dayline .ev.on{transform:scale(1)}
+.dayline .now{position:absolute;top:-5px;bottom:-5px;left:0;width:2px;margin-left:-1px;background:var(--door)}
+.dayax{display:flex;justify-content:space-between;margin-top:6px;font-size:12.5px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.day + .team{margin-top:clamp(18px,2.6vh,26px)}
+.team.live li::after{animation:none;transition:transform .5s var(--ease)}
+.team.live li.hit::after{transform:scaleX(1)}
+.team.live li .ic{transition:color .3s,transform .5s var(--spring)} .team.live li.hit .ic{color:var(--ochre);transform:scale(1.18)}
 .btn.big{font-size:clamp(1rem,1.4vw,1.2rem);padding:18px 32px;background:var(--ochre);color:var(--ink)}
 @media(hover:hover){.btn:hover{background:var(--door);color:var(--wall)}.btn.big:hover{background:var(--wall);color:var(--ink)}}
 .btn:focus-visible,.acch:focus-visible,.sw button:focus-visible,.windex a:focus-visible,.tl:focus-visible{outline:2px solid var(--ochre);outline-offset:3px}
@@ -649,7 +686,7 @@ html.js .rv.done{transition-delay:0s}
 <header class="nav" id="nav">
   <a class="brand" href="#top">Houssem Gabsi</a>
   <nav aria-label="Sections"><a href="#services">Services</a><a href="#work">Work</a><a href="#systems">Systems</a><a href="#process">Process</a><a href="#questions">Questions</a><i class="ind" id="ind"></i></nav>
-  <a class="btn sm mag" href="mailto:unfollow.designs@gmail.com">Request a review</a>
+  <a class="btn sm mag" href="MAILTOHERE">Free review</a>
 </header>
 
 <main id="top">
@@ -659,7 +696,8 @@ html.js .rv.done{transition-delay:0s}
     <h1>HEADLINE</h1>
     <div>
       <p class="sub">INTROHERE</p>
-      <div class="cta"><a class="btn mag" href="mailto:unfollow.designs@gmail.com">Request a free review</a><a class="tl" href="#work">See selected work</a></div>
+      <div class="cta"><a class="btn mag" href="MAILTOHERE">Request a free review</a><a class="tl" href="#work">See selected work</a></div>
+      <p class="cta-note">CTANOTE</p>
     </div>
   </div>
 
@@ -693,6 +731,7 @@ DIVHERE
     <ol class="windex">WINDEXHERE</ol>
     <div class="cases">CASESHERE</div>
   </div>
+  <div class="ctarow"><p>CTAWORK</p><a class="btn inv mag" href="MAILTOHERE">Request a free review</a><span>CTANOTE</span></div>
 </div></section>
 
 <section id="systems"><div class="wrap">
@@ -705,14 +744,27 @@ DIVHERE
 <section class="band tint" id="capacity"><div class="wrap">
   <h2>A small team with the capacity of a larger one</h2>
   <p class="intro-l">Each of these is a process that runs automatically. From the outside, the firm simply responds faster.</p>
-  <ul class="team">AGENTSHERE</ul>
-  <p class="teamnote">Individually these are small. Together they let a small team operate like a much larger one.</p>
+  <div class="day" id="day" aria-hidden="true">
+    <div class="dayhd"><b id="clk">00:00</b><span><i id="dn">0</i> tasks handled, <i id="do">0</i> outside office hours</span></div>
+    <div class="dayline"><i class="office"></i><i class="now" id="dnow"></i></div>
+    <div class="dayax"><span>00</span><span>06</span><span>12</span><span>18</span><span>24</span></div>
+  </div>
+  <ul class="team live" id="crew">AGENTSHERE</ul>
+  <p class="teamnote">Individually these are small. Together they let a small team operate like a much larger one. Illustrative day, not a client's figures. The shaded band is office hours.</p>
 </div></section>
 
 <section id="enquiry"><div class="wrap">
   <h2>An enquiry, handled end to end</h2>
   <p class="intro-l">From form submission to a prepared reply, without manual steps. Scroll to follow it through.</p>
   FLOWHERE
+</div></section>
+
+<section id="connections"><div class="wrap">
+  <h2>Connected to the tools you already use</h2>
+  <p class="intro-l">CONNINTRO</p>
+  <ul class="team">CONNECTSHERE</ul>
+  <p class="teamnote">CONNNOTE</p>
+  <div class="ctarow"><p>CTACONNECT</p><a class="btn mag" href="MAILTOHERE">Request a free review</a><span>CTANOTE</span></div>
 </div></section>
 
 DIVHERE
@@ -742,7 +794,8 @@ DIVHERE
 <section class="close"><div class="wrap">
   <h2>Find out where your firm is losing time.</h2>
   <p class="lead">A free one-page review of your follow-up, booking and administration. No call required.</p>
-  <a class="btn big mag" href="mailto:unfollow.designs@gmail.com">Request a free review</a>
+  <a class="btn big mag" href="MAILTOHERE">Request a free review</a>
+  <ol class="next">NEXTHERE</ol>
   <a class="mail" href="mailto:unfollow.designs@gmail.com">unfollow.designs@gmail.com</a>
   <div class="sig">
     <span>Houssem Gabsi</span>
@@ -803,6 +856,23 @@ DIVHERE
         b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.24).toFixed(1)+'px,'+((e.clientY-r.top-r.height/2)*.34).toFixed(1)+'px)';});
       b.addEventListener('pointerleave',function(){b.style.transform='';});});}
 
+  /* capacity: one illustrative day, each process acting at its own hours */
+  var day=$('#day');
+  if(day){var crew=$$('#crew li'),SCH=DAYHOURS,dl=$('.dayline',day),clk=$('#clk'),dn=$('#dn'),dout=$('#do'),dnow=$('#dnow'),evs=[],dvis=false,dt0=0,di=0,dc=0,dco=0,DUR=18000,dlast=0;
+    SCH.forEach(function(hs,i){hs.forEach(function(h){var x=d.createElement('i');x.className='ev';x.style.left=(h/24*100)+'%';dl.appendChild(x);evs.push({h:h,i:i,x:x});});});
+    evs.sort(function(a,b){return a.h-b.h;});
+    function two(n){return (n<10?'0':'')+n;}
+    function fire(v,quiet){v.x.classList.add('on');dc++;if(v.h<9||v.h>=18)dco++;dn.textContent=dc;dout.textContent=dco;
+      if(!quiet&&crew[v.i]){var t=crew[v.i];t.classList.add('hit');setTimeout(function(){t.classList.remove('hit');},1100);}}
+    if(RM){evs.forEach(function(v){fire(v,true);});clk.textContent='24:00';dnow.style.left='100%';}
+    else{new IntersectionObserver(function(es){dvis=es[0].isIntersecting;},{threshold:.2}).observe(day);
+      (function tick(now){var step=dlast?now-dlast:0;dlast=now;
+        if(dvis&&!d.hidden){dt0+=Math.min(step,100);
+          if(dt0>DUR+2600){dt0=0;di=0;dc=0;dco=0;dn.textContent=0;dout.textContent=0;evs.forEach(function(v){v.x.classList.remove('on');});}
+          var h=Math.min(24,dt0/DUR*24);clk.textContent=h>=24?'24:00':two(Math.floor(h))+':'+two(Math.floor((h%1)*6)*10);dnow.style.left=(h/24*100)+'%';
+          while(di<evs.length&&evs[di].h<=h){fire(evs[di++]);}}
+        requestAnimationFrame(tick);})(0);}}
+
   /* accordions */
   $$('.acch').forEach(function(b){b.addEventListener('click',function(){var a=b.closest('.acc'),o=a.classList.toggle('open');b.setAttribute('aria-expanded',String(o));});});
 
@@ -835,7 +905,17 @@ DIVHERE
 </script>
 </body></html>"""
 
-what = "\n".join('<div><div class="card">%s<span class="pl">%s</span><h3>%s</h3><p>%s</p></div></div>' % (mark(m), e(k), e(a), e(b)) for m,k,a,b in WHAT)
+what = "\n".join('<div><div class="card">%s<span class="pl">%s</span><h3>%s</h3><p>%s</p><ul class="ex">%s</ul></div></div>' % (mark(m), e(k), e(a), e(b), "".join("<li>%s</li>" % e(x) for x in EXAMPLES[m])) for m,k,a,b in WHAT)
+nextsteps = "".join('<li><b>%s</b><span>%s</span></li>' % (e(a), e(b)) for a,b in NEXT)
+MAILTO = "mailto:" + EMAIL + "?subject=" + quote("Free review request") + "&amp;body=" + quote("Firm:\nWebsite:\nWhat takes the most time each week:\n")
+DEMOS = {"Invoice and quote follow-up": ("leak", "0:31", "Demonstration on a fictional firm. Not a client's figures."),
+         "Interview notes to client report": ("shortlist", "0:22", "Demonstration on fictional data.")}
+def demo(name):
+    if name not in DEMOS: return ""
+    f, t, cap = DEMOS[name]
+    return ('<figure class="demo"><video controls playsinline preload="none" poster="/media/%s.jpg" width="540" height="676">'
+            '<source src="/media/%s.webm" type="video/webm"><source src="/media/%s-s.mp4" type="video/mp4"></video>'
+            '<figcaption>%s %s</figcaption></figure>') % (f, f, f, e(cap), t)
 def shot(c):
     if not c.get("img"): return ""
     host = c["link"].split("//")[1].strip("/")
@@ -855,8 +935,8 @@ cases = "\n".join(
 windex = "\n".join('<li><a href="#case-%d">%s<small>%s</small></a></li>' % (i, e(c["who"]), e(c["kind"])) for i,c in enumerate(CASES))
 systems = "\n".join(
  '<div class="acc sysr%s"><h3><button type="button" class="acch" aria-expanded="%s"><span class="sysn">%s</span><span class="prob">%s</span><i class="pm2"></i></button></h3>'
- '<div class="accb"><div class="acci"><div><p>%s</p><p class="st">%s</p></div></div></div></div>'
- % (" open" if i==0 else "", "true" if i==0 else "false", e(a), e(b), e(c), e(dd)) for i,(a,b,c,dd) in enumerate(SYSTEMS))
+ '<div class="accb"><div class="acci"><div><p>%s</p><p class="st">%s</p>%s</div></div></div></div>'
+ % (" open" if i==0 else "", "true" if i==0 else "false", e(a), e(b), e(c), e(dd), demo(a)) for i,(a,b,c,dd) in enumerate(SYSTEMS))
 faq = "\n".join(
  '<div class="acc q%s"><h3><button type="button" class="acch" aria-expanded="%s"><span>%s</span><i class="pm2"></i></button></h3>'
  '<div class="accb"><div class="acci"><div><p>%s</p></div></div></div></div>'
@@ -866,7 +946,7 @@ HEAD_HTML = " ".join('<span style="--w:%d">%s</span>' % (i, e(w)) for i,w in enu
 HTML = (HTML.replace("HEADLINE", HEAD_HTML).replace("INTROHERE", e(INTRO)).replace("SERVINTRO", e(SERVICES_INTRO)).replace("WEEKHERE", WEEK)
             .replace("DAYSHERE", DAYLBL).replace("HOURSCOL", HOURS_COL).replace("WHATHERE", what)
             .replace("CASESHERE", cases).replace("WINDEXHERE", windex).replace("HOWHERE", how)
-            .replace("AGENTSHERE", agents).replace("FLOWHERE", flow).replace("RULESHERE", rules).replace("SYSHERE", systems).replace("FAQHERE", faq).replace("ENSOHERE", HEROMARK).replace("LDHERE", LD).replace("OGTITLEHERE", e(OG_TITLE)).replace("OGDESCHERE", e(OG_DESC)).replace("OGALTHERE", e(OG_ALT)).replace("TITLEHERE", e(TITLE)).replace("DESCHERE", e(DESC)).replace("SITEHERE", SITE).replace("HOURSVAL", str(HOURS)))
+            .replace("AGENTSHERE", agents).replace("CONNECTSHERE", connects).replace("MAILTOHERE", MAILTO).replace("CTANOTE", e(CTA_NOTE)).replace("CTAWORK", e(CTA_WORK)).replace("CTACONNECT", e(CTA_CONNECT)).replace("NEXTHERE", nextsteps).replace("DAYHOURS", json.dumps(DAY_HOURS)).replace("CONNINTRO", e(CONNECT_INTRO)).replace("CONNNOTE", e(CONNECT_NOTE)).replace("FLOWHERE", flow).replace("RULESHERE", rules).replace("SYSHERE", systems).replace("FAQHERE", faq).replace("ENSOHERE", HEROMARK).replace("LDHERE", LD).replace("OGTITLEHERE", e(OG_TITLE)).replace("OGDESCHERE", e(OG_DESC)).replace("OGALTHERE", e(OG_ALT)).replace("TITLEHERE", e(TITLE)).replace("DESCHERE", e(DESC)).replace("SITEHERE", SITE).replace("HOURSVAL", str(HOURS)))
 while "DIVHERE" in HTML: HTML = HTML.replace("DIVHERE", divider(), 1)
 open("../index.html","w").write(HTML)
 open("../llms.txt","w").write(LLMS)
