@@ -1,6 +1,6 @@
 # Houssem Gabsi
 
-> A studio of one that builds websites, booking systems, follow-up and candidate scoring automations, and content systems for established firms.
+> A studio of one that builds websites, booking systems, automations and content systems for businesses of any kind, from independent professionals to established firms.
 
 Based in Tunis. Works in English, French and Arabic. Contact: unfollow.designs@gmail.com
 
@@ -9,28 +9,28 @@ Site: https://houssem-gabsi.vercel.app/
 ## Services
 
 - Websites and applications: Client-facing websites, booking systems, dashboards and internal tools, designed and built end to end, with as much care for how they are used as for how they look.
-- Operations that run without manual effort: Follow-up, booking confirmations, candidate assessment, reporting and newsletters, handled automatically inside the tools you already use: email, Slack, your calendar, and recruiting platforms such as Loxo and BrightHire. A member of your team approves anything before it is sent.
+- Operations that run without manual effort: Follow-up, booking confirmations, screening, reporting and newsletters, handled automatically inside the tools you already use: email, Slack, your calendar and the specialist software of your trade. A member of your team approves anything before it is sent.
 - Brand identity and content systems: Visual identity, illustration, video editing and motion graphics, and a content process that turns one idea into a month of publishing across your blog, newsletter, LinkedIn and Instagram, in your voice and structured for search engines and AI assistants.
 
 ## Systems
 
 - Invoice and quote follow-up: Revenue is lost in enquiries, quotes and invoices that nobody followed up. Reviews the inbox, quotes and invoices, identifies unanswered enquiries, stalled quotes and overdue invoices, and drafts a reply for each. Nothing is sent without approval. Status: Built. Demonstrated on a fictional firm.
+- Content system: Most businesses publish content that is neither found nor finished. Turns one idea into a researched article and a week of posts. Every figure is verified against a named source before publication, and each piece is structured to be cited by search engines and AI assistants. Status: In weekly use on client work.
 - Candidate scoring in your recruiting database: A recruiter can assess only a fraction of the candidates on a search in depth. Assesses every candidate on a search against that search's criteria, and records the score and the reasoning in the candidate's record. The decision stays with a person. Status: In development for an executive search firm.
-- Content system: Most firms publish content that is neither found nor finished. Turns one idea into a researched article and a week of posts. Every figure is verified against a named source before publication, and each piece is structured to be cited by search engines and AI assistants. Status: In weekly use on client work.
-- Interview notes to client report: Converting interview notes into a client report takes hours each week. Converts raw notes into a finished report in the firm's format. Every rating references the source notes, and gaps are flagged rather than filled. Status: Built. Demonstrated on fictional data.
+- Interview notes to client report: Converting interview notes into a client report takes hours each week. Converts raw notes into a finished report in your own format. Every rating references the source notes, and gaps are flagged rather than filled. Status: Built. Demonstrated on fictional data.
 
 ## Connections
 
-The method is the same in every firm, whatever the industry. If a tool can share its data, it can be connected to the others and to the AI assistant your team already uses.
+The method is the same in every business, whatever the trade. If a tool can share its data, it can be connected to the others and to the AI assistant your team already uses.
 
-- Email and calendar: the inbox and diary the firm already runs on
+- Email and calendar: the inbox and diary you already run on
 - Slack: alerts and approvals where the team already talks
-- Recruiting platforms: such as Loxo and BrightHire
+- Software of your trade: booking, sales and recruiting platforms, such as Loxo and BrightHire
 - Spreadsheets and databases: read and updated in place
-- AI assistants: connected to the firm's own data, so the team can question it
+- AI assistants: connected to your own data, so the team can question it
 - Websites and forms: enquiries and bookings passed into your systems
 - Newsletters and social channels: email, LinkedIn and Instagram
-- The tools specific to your firm: connected the same way as the rest
+- The tools specific to your business: connected the same way as the rest
 
 ## Selected work
 
@@ -97,7 +97,7 @@ Own product, 2026
 
 ## Process
 
-1. Initial review: A free one-page review of where the firm is losing time. No call required.
+1. Initial review: A free one-page review of where the business is losing time. No call required.
 2. Audit: A paid assessment, with the first three improvements ranked. The fee is credited toward the build.
 3. Build: One fixed price, agreed in writing before work begins.
 4. Launch: Your team is trained on the system, and every process has a named owner.
@@ -105,9 +105,13 @@ Own product, 2026
 
 ## Common questions
 
-### What does an automation studio build for a firm?
+### What kinds of businesses do you work with?
 
-For a firm of ten to fifty people it is usually three things: the follow-up nobody has time to send, the booking or intake process clients pass through, and the reports someone prepares by hand every week. The work is connecting the tools you already use, not replacing them.
+Any business that runs on repeated work. So far that has meant an executive search firm in Washington D.C., a guesthouse in La Marsa, a yoga studio in Tunis and a journalist working in video, as well as two products of my own. The method is the same each time: find the repeated work, then build or connect what removes it.
+
+### What does an automation studio build for a business?
+
+It is usually three things: the follow-up nobody has time to send, the booking or intake process clients pass through, and the reports someone prepares by hand every week. The work is connecting the tools you already use, not replacing them.
 
 ### Do we need to replace the software we already use?
 
@@ -125,25 +129,25 @@ An automated workflow is one part of the work. I also build the website or appli
 
 Every engagement begins with a paid Systems Audit at a fixed price, and that fee is credited toward the build. After the audit, each build has one fixed price, agreed in writing. There is no hourly billing.
 
-### What can be automated in a recruiting or executive search firm?
-
-The work around the search, not the judgement in it: keeping open roles current on the website, formatting candidate CVs to the firm's standard, assessing every candidate against the criteria of the search with written reasoning, and turning interview notes into a client report. The decision stays with a person.
-
 ### Can a small team respond like a larger one?
 
 Yes. Enquiries answered at any hour, invoices followed up on a set schedule, bookings confirmed as they are made and weekly figures sent without anyone preparing them. Each is a small process that runs automatically, and a member of your team approves anything before it is sent.
 
 ### Which tools do you connect to?
 
-The ones a firm already uses: email, calendars, spreadsheets and Slack, recruiting platforms such as Loxo and BrightHire, and the AI assistant the team already works with. The aim is to make existing tools work together, not to add new ones.
+The ones you already use: email, calendars, spreadsheets and Slack, the specialist software of your trade, such as Loxo and BrightHire in recruiting, and the AI assistant the team already works with. The aim is to make existing tools work together, not to add new ones.
 
 ### How does an engagement start?
 
-With a free one-page review of where the firm is losing time. No call is required. If you want to go further, a paid audit ranks the first three improvements, and its fee is credited toward the build.
+With a free one-page review of where the business is losing time. No call is required. If you want to go further, a paid audit ranks the first three improvements, and its fee is credited toward the build.
 
 ### Who owns the website, the code and the accounts?
 
 You do. The code, the domain and the accounts are yours, and are transferred on request at no additional cost.
+
+### What can be automated in a recruiting or executive search firm?
+
+The work around the search, not the judgement in it: keeping open roles current on the website, formatting candidate CVs to the firm's standard, assessing every candidate against the criteria of the search with written reasoning, and turning interview notes into a client report. The decision stays with a person.
 
 ### Where are you based, and does it matter?
 

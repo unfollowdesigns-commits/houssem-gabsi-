@@ -26,7 +26,7 @@ It writes `../index.html` and `../llms.txt`. Open the page in a browser, check i
 - Plain, professional language. No jargon, no buzzwords, no em dashes.
 - Nothing invented: no numbers, quotes or results that were not given by Houssem. Fictional or illustrative data is always labelled.
 - Clients are not named. Cases are titled by the work, with the client type underneath.
-- Audience: established firms. Not "founders", not small struggling businesses.
+- Audience: any business, from an independent professional to an established firm. The page must not read as if it serves one industry. Recruiting is one example among several. Not "founders", not "struggling".
 - No background or CV content on the page. It shows what the studio builds.
 - Do not advertise speed of delivery.
 - The questions section and the hidden structured data are generated from the same list in `cases.py`, so they always match.

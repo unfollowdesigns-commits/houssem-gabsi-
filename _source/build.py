@@ -88,13 +88,13 @@ faq = "\n".join('<div><h3>%s</h3><p>%s</p></div>' % (e(a), e(b)) for a,b in FAQ)
 SITE = "https://houssem-gabsi.vercel.app/"
 EMAIL = "unfollow.designs@gmail.com"
 HEAD = "Most of a week goes on work nobody should be doing by hand."
-TITLE = "Websites, automation and content for firms | Houssem Gabsi"
-OG_TITLE = "Websites, automation and content for established firms"
-DESC = ("A studio of one for established firms. Websites, booking systems, automated follow-up "
+TITLE = "Websites, automation and content | Houssem Gabsi"
+OG_TITLE = "Websites, automation and content for any business"
+DESC = ("A studio of one for businesses of any size or trade. Websites, booking systems, automated follow-up "
         "and content systems. A person approves before anything is sent.")
-OG_DESC = "Follow-ups that are never forgotten, bookings confirmed, candidates scored against your own criteria. Built by one person, approved by yours."
-OG_ALT = HEAD + " Websites, automation and content for established firms."
-ABOUT = "A studio of one that builds websites, booking systems, follow-up and candidate scoring automations, and content systems for established firms."
+OG_DESC = "Follow-ups that are never forgotten, bookings confirmed, weekly reports prepared without anyone writing them. Built by one person, approved by yours."
+OG_ALT = HEAD + " Websites, automation and content for any business."
+ABOUT = "A studio of one that builds websites, booking systems, automations and content systems for businesses of any kind, from independent professionals to established firms."
 LANGS = ["English","French","Arabic"]
 PLACE = {"@type":"PostalAddress","addressLocality":"Tunis","addressCountry":"TN"}
 LD = json.dumps({"@context":"https://schema.org","@graph":[
@@ -743,7 +743,7 @@ DIVHERE
 
 <section class="band tint" id="capacity"><div class="wrap">
   <h2>A small team with the capacity of a larger one</h2>
-  <p class="intro-l">Each of these is a process that runs automatically. From the outside, the firm simply responds faster.</p>
+  <p class="intro-l">Each of these is a process that runs automatically. From the outside, the business simply responds faster.</p>
   <div class="day" id="day" aria-hidden="true">
     <div class="dayhd"><b id="clk">00:00</b><span><i id="dn">0</i> tasks handled, <i id="do">0</i> outside office hours</span></div>
     <div class="dayline"><i class="office"></i><i class="now" id="dnow"></i></div>
@@ -792,14 +792,14 @@ DIVHERE
 </div></section>
 
 <section class="close"><div class="wrap">
-  <h2>Find out where your firm is losing time.</h2>
+  <h2>Find out where your business is losing time.</h2>
   <p class="lead">A free one-page review of your follow-up, booking and administration. No call required.</p>
   <a class="btn big mag" href="MAILTOHERE">Request a free review</a>
   <ol class="next">NEXTHERE</ol>
   <a class="mail" href="mailto:unfollow.designs@gmail.com">unfollow.designs@gmail.com</a>
   <div class="sig">
     <span>Houssem Gabsi</span>
-    <span>A studio of one, for established firms</span>
+    <span>A studio of one, for businesses of any kind</span>
     <span>English, français, العربية</span>
   </div>
 </div></section>
@@ -907,7 +907,7 @@ DIVHERE
 
 what = "\n".join('<div><div class="card">%s<span class="pl">%s</span><h3>%s</h3><p>%s</p><ul class="ex">%s</ul></div></div>' % (mark(m), e(k), e(a), e(b), "".join("<li>%s</li>" % e(x) for x in EXAMPLES[m])) for m,k,a,b in WHAT)
 nextsteps = "".join('<li><b>%s</b><span>%s</span></li>' % (e(a), e(b)) for a,b in NEXT)
-MAILTO = "mailto:" + EMAIL + "?subject=" + quote("Free review request") + "&amp;body=" + quote("Firm:\nWebsite:\nWhat takes the most time each week:\n")
+MAILTO = "mailto:" + EMAIL + "?subject=" + quote("Free review request") + "&amp;body=" + quote("Business:\nWebsite:\nWhat takes the most time each week:\n")
 DEMOS = {"Invoice and quote follow-up": ("leak", "0:31", "Demonstration on a fictional firm. Not a client's figures."),
          "Interview notes to client report": ("shortlist", "0:22", "Demonstration on fictional data.")}
 def demo(name):
