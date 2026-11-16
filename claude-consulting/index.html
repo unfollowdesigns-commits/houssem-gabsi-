@@ -4,7 +4,7 @@
 <title>Claude Consulting and Setup for Business | Houssem Gabsi</title>
 <meta name="description" content="Claude consulting for businesses of any size: setup, connection to your own tools and data, reusable instructions and team training. One person, end to end.">
 <meta name="author" content="Houssem Gabsi">
-<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta name="theme-color" content="#E9E7DE">
 <link rel="canonical" href="https://houssem-gabsi.vercel.app/claude-consulting/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -671,13 +671,111 @@ section{padding:clamp(64px,11vh,140px) 0}
 .card .ex{grid-area:e;grid-template-columns:1fr 1fr;gap:8px 24px;margin-top:20px}
 @media(hover:hover){.card:hover{box-shadow:none}.offer .card:hover h3{color:var(--door)}}
 @media(max-width:860px){.card{grid-template-columns:1fr;grid-template-areas:"m" "l" "t" "d" "e";grid-template-rows:auto;row-gap:10px}.card .ex{grid-template-columns:1fr}}
+/* ── statement: one large centred paragraph that lights up word by word ── */
+.stmt{padding:clamp(90px,18vh,220px) 0}
+.stp{font-family:Fraunces,Georgia,serif;font-weight:300;font-size:clamp(1.6rem,3.6vw,3.3rem);line-height:1.2;letter-spacing:-.022em;
+  text-align:center;max-width:22em;margin:0 auto;text-wrap:balance;font-variation-settings:"opsz" 110,"SOFT" 30,"WONK" 0}
+html.js .stp span{color:rgba(27,32,28,.2);transition:color .3s ease}
+html.js .stp span.lit{color:var(--ink)}
+@supports (animation-timeline:view()){
+  .stmt{view-timeline-name:--stmt;view-timeline-axis:block}
+  html.js .stp span{transition:none;animation:lit linear both;animation-timeline:--stmt;
+    animation-range:cover calc(24% + var(--i) * .95%) cover calc(29% + var(--i) * .95%)}
+  @keyframes lit{from{color:rgba(27,32,28,.2)}to{color:var(--ink)}}
+  html.js .track i{animation:grow linear both;animation-timeline:view();animation-range:entry 100% cover 62%}
+  @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+}
+
+/* ── services: an expanding row. The open card is wide and dark; the others show mark and title ── */
+.offer{display:flex;gap:12px;border-bottom:0}
+.offer > div{flex:1 1 0;min-width:0;border-top:0}
+html.js .offer > div.rv{transition:flex-grow .4s ease,opacity .6s ease,transform .6s ease}
+html.js .offer > div.act{flex-grow:3.1}
+.card{display:flex;flex-direction:column;height:100%;min-height:clamp(400px,54vh,500px);padding:clamp(22px,2.4vw,34px);border-radius:16px;
+  background:var(--wall-2);overflow:hidden;transition:background-color .3s ease,color .3s ease}
+.card .pm{margin:0}
+.card .pl{margin-top:auto;padding-top:24px}
+.offer .card h3{font-size:clamp(1.15rem,1.5vw,1.42rem);max-width:none;line-height:1.1;letter-spacing:-.018em;margin-top:8px}
+.offer .card p{font-size:clamp(15.5px,1.15vw,17px);max-width:52ch;margin-top:14px}
+.card .ex{grid-template-columns:1fr 1fr;gap:8px 24px;margin-top:18px}
+html.js .card{cursor:pointer}
+html.js .offer > div:not(.act) .card p,html.js .offer > div:not(.act) .card .ex{display:none}
+html.js .offer > div.act .card{background:var(--ink);color:var(--wall);cursor:default}
+html.js .offer > div.act .card .pm{--door:var(--wall)}
+html.js .offer > div.act .card h3{font-size:clamp(1.7rem,2.8vw,2.5rem);max-width:16ch;color:var(--wall)}
+html.js .offer > div.act .card p{color:rgba(233,231,222,.78);animation:fadein .4s ease .12s both}
+html.js .offer > div.act .card .ex{border-top-color:rgba(233,231,222,.18);animation:fadein .4s ease .2s both}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.card:focus-visible{outline:2px solid var(--ochre);outline-offset:3px}
+@media(hover:hover){.offer .card:hover h3{color:inherit}}
+@media(max-width:860px){.offer{flex-direction:column}.offer > div,html.js .offer > div.act{flex:none}
+  .card{min-height:0;display:block}.card .pl{padding-top:14px}.card .ex{grid-template-columns:1fr}}
+
+/* ── process: one row per stage, the numeral growing from 1 to 5 ── */
+.how{display:block;margin-top:0}
+.how li{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,1fr) minmax(0,1.5fr);column-gap:clamp(16px,4vw,64px);align-items:baseline;
+  padding:clamp(16px,2.8vh,28px) 0;border-top:1px solid var(--sand)}
+.how li::before{font-family:Fraunces,Georgia,serif;font-weight:300;line-height:.9;letter-spacing:-.04em;color:var(--ink);
+  font-size:calc(2rem + var(--n,0) * .95rem);font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 0;transition:color .3s ease;transition-delay:0s}
+.how li:nth-child(2){--n:1}.how li:nth-child(3){--n:2}.how li:nth-child(4){--n:3}.how li:nth-child(5){--n:4}
+.how h3{font-size:clamp(1.3rem,2.1vw,1.85rem);letter-spacing:-.02em;line-height:1.1}
+.how p{margin-top:0;font-size:clamp(15.5px,1.15vw,17px);max-width:46ch}
+html.js .how li{transition:opacity .4s ease,transform .4s ease}
+@media(max-width:700px){.how li{grid-template-columns:minmax(52px,.34fr) minmax(0,1fr)}.how h3,.how p{grid-column:2}.how p{margin-top:6px}
+  .how li::before{font-size:calc(1.7rem + var(--n,0) * .55rem);grid-row:1 / span 2}}
+
+/* ── navigation: a rounded bar floating over the page ── */
+.nav{top:10px;left:10px;right:10px;max-width:1300px;margin:0 auto;border-radius:999px;border:1px solid transparent;padding:7px 8px 7px 24px}
+.nav.sc{border-color:var(--sand)}
+main{padding-top:70px}
+section[id]{scroll-margin-top:78px}
+.pin .hero{top:66px;height:calc(100svh - 66px)}
+@media(max-width:860px){.nav{top:6px;left:6px;right:6px;padding-left:18px}}
+
+/* ── calmer motion: the pinned hero is the one showpiece ── */
+.pin{height:400svh}
+@media(max-width:860px){.pin{height:auto}.pinspace{height:170svh}}
+@media(min-width:861px) and (max-height:640px){.pin{height:auto}}
+.btn{transition:background-color .25s ease,color .25s ease,transform .2s ease}
+.ind{transition:transform .35s ease,width .35s ease,opacity .25s ease}
+.week i{transition:none}
+.week i.m{transition:background-color .35s ease calc(var(--k) * 7ms),box-shadow .35s ease calc(var(--k) * 7ms)}
+.week i.m.c{transition-delay:0s}
+@media(hover:hover) and (pointer:fine){.week i.w:hover{transform:none}}
+.team li::after{animation:none}
+html.js .team li.rv.done{transition:opacity .4s ease,transform .3s ease}
+@media(hover:hover){html.js .team li.rv.in:hover{transform:none}}
+.team.live li::after{transition:transform .35s ease}
+.team.live li .ic{transition:color .3s ease} .team.live li.hit .ic{transform:none}
+.dayline .ev{transition:transform .3s ease}
+.windex a{transition:color .3s ease,border-color .3s ease,padding-left .3s ease}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .hero h1 span,.hero .sub,.cta,.cta-note,.eyebrow,.disc,html.js .rv,html.js h2 .w{opacity:1!important;transform:none!important}
+  html.js .stp span{color:var(--ink)!important}
+  html.js .track i{transform:scaleX(1)!important}
+  .pin{height:auto!important}.pin .hero{position:static!important;height:auto!important}.pinspace{display:none!important}}
 .acci > div:has(.demo){max-width:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,300px);column-gap:clamp(24px,6vw,96px);align-items:start}
 .acci > div:has(.demo) > p{grid-column:1;max-width:60ch}
 .acci > div:has(.demo) > .demo{grid-column:2;grid-row:1 / span 3;margin-top:0;justify-self:end}
 @media(max-width:860px){.acci > div:has(.demo){display:block}.acci > div:has(.demo) > .demo{margin-top:20px}}
+/* ── footer ── */
+.ft{padding:clamp(40px,7vh,80px) 0 clamp(28px,5vh,48px);font-size:15px}
+.ftg{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,56px)}
+.ft .brand{font-size:19px;color:var(--ink)}
+.fta p{margin-top:12px;color:var(--ink-soft);max-width:38ch}
+.ft nav,.ftc{display:grid;gap:9px;align-content:start}
+.ft b{font-weight:500;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px}
+.ft nav a,.ftc a,.askai a{color:var(--ink);text-decoration:none;justify-self:start;min-width:0;border-bottom:1px solid transparent;transition:color .25s ease,border-color .25s ease}
+.ftc span{color:var(--ink-soft)}
+@media(hover:hover){.ft nav a:hover,.ftc a:hover,.askai a:hover{color:var(--ochre);border-color:var(--ochre)}}
+.askai{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 26px;margin-top:clamp(28px,5vh,48px);padding-top:20px;border-top:1px solid var(--sand)}
+.askai b{margin:0 8px 0 0}
+@media(max-width:860px){.ftg{grid-template-columns:1fr 1fr}.fta{grid-column:1 / -1}}
+
 /* ── step 2: pinned hero. The week grid sits beside the headline and clears as the visitor scrolls ── */
-.pin{height:300svh}
-.pin .hero{position:sticky;top:58px;min-height:0;height:calc(100svh - 58px);padding:clamp(18px,3.4vh,44px) 0 clamp(14px,2.6vh,30px);display:flex;align-items:center}
+.pin{height:400svh}
+.pin .hero{position:sticky;top:66px;min-height:0;height:calc(100svh - 66px);padding:clamp(18px,3.4vh,44px) 0 clamp(14px,2.6vh,30px);display:flex;align-items:center}
 .hgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);column-gap:clamp(28px,5vw,84px);align-items:center}
 .hero h1{font-size:clamp(2.3rem,4.8vw,4.9rem);line-height:.98;letter-spacing:-.034em}
 .hcopy .eyebrow{margin-bottom:clamp(16px,3vh,32px)}
@@ -693,7 +791,7 @@ section{padding:clamp(64px,11vh,140px) 0}
   .pin{height:auto} .pin .hero{position:static;height:auto;display:block;padding-top:clamp(30px,5vh,48px)}
   .hgrid{display:block}
   .hero .weekwrap{position:sticky;top:max(66px,calc(50svh - 205px));margin-top:30px;padding:10px 0 6px;background:var(--wall);z-index:2}
-  .pinspace{display:block;height:120svh}
+  .pinspace{display:block;height:170svh}
   .hgrid .disc{margin-top:0}}
 @media(min-width:861px) and (max-height:640px){.pin{height:auto}.pin .hero{position:static;height:auto}.pinhint{display:none}}
 @media(prefers-reduced-motion:reduce){.pin{height:auto}.pin .hero{position:static;height:auto}.hero .weekwrap{position:static}.pinspace{display:none}.pinhint{display:none}}
@@ -754,8 +852,7 @@ section{padding:clamp(64px,11vh,140px) 0}
   <p class="lead">A free one-page review of your follow-up, booking and administration. No call required.</p>
   <a class="btn big" href="#contact">Request a free review</a>
   <p class="lead">Contact details will be added here shortly.</p>
-  <nav class="foot" aria-label="Services"><a href="/claude-consulting/">Claude consulting</a><a href="/ai-automation/">AI automation</a><a href="/mcp-integrations/">MCP integrations</a><a href="/websites-and-online-shops/">Websites and online shops</a><a href="/seo-geo/">SEO and GEO</a></nav>
-  <div class="sig"><span>Houssem Gabsi</span><span>A studio of one, for businesses of any kind</span><span>English, français, العربية</span></div>
 </div></section>
 </main>
+<footer class="ft"><div class="wrap"><div class="ftg"><div class="fta"><a class="brand" href="/#top">Houssem Gabsi</a><p>A studio of one that builds websites, booking systems, automations and content systems for businesses of any kind, from independent professionals to established firms.</p></div><nav aria-label="Sections"><b>Sections</b><a href="/#services">Services</a><a href="/#work">Work</a><a href="/#systems">Systems</a><a href="/#process">Process</a><a href="/#questions">Questions</a></nav><nav aria-label="Services"><b>Services</b><a href="/claude-consulting/">Claude consulting</a><a href="/ai-automation/">AI automation</a><a href="/mcp-integrations/">MCP integrations</a><a href="/websites-and-online-shops/">Websites and online shops</a><a href="/seo-geo/">SEO and GEO</a></nav><div class="ftc"><b>Contact</b><a href="/#contact">Request a free review</a><span>English, français, العربية</span><a href="/tools/stock-sales-production-tracker/">Free stock, sales and production tracker</a></div></div><div class="askai"><b>Ask AI about this studio</b><a href="https://chatgpt.com/?q=Tell%20me%20about%20Houssem%20Gabsi%27s%20studio%20%28houssem-gabsi.vercel.app%29%2C%20which%20builds%20websites%2C%20automation%20and%20content%20systems%20for%20established%20firms%2C%20and%20how%20it%20could%20help%20my%20business." target="_blank" rel="noopener">ChatGPT</a><a href="https://claude.ai/new?q=Tell%20me%20about%20Houssem%20Gabsi%27s%20studio%20%28houssem-gabsi.vercel.app%29%2C%20which%20builds%20websites%2C%20automation%20and%20content%20systems%20for%20established%20firms%2C%20and%20how%20it%20could%20help%20my%20business." target="_blank" rel="noopener">Claude</a><a href="https://www.perplexity.ai/search?q=Tell%20me%20about%20Houssem%20Gabsi%27s%20studio%20%28houssem-gabsi.vercel.app%29%2C%20which%20builds%20websites%2C%20automation%20and%20content%20systems%20for%20established%20firms%2C%20and%20how%20it%20could%20help%20my%20business." target="_blank" rel="noopener">Perplexity</a></div></div></footer>
 </body></html>

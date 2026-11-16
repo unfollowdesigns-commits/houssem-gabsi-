@@ -20,7 +20,10 @@ NEXT = [
  ("You decide", "whether to go further. The review is yours either way."),
 ]
 
-WEEK_INTRO = "A working week, before and after. Ochre is repeated manual work. Blue is the work that needs a person."
+# the large statement that lights up word by word after the hero
+STATEMENT = ("Most of what a firm spends goes on work that moves between people and systems: reading, checking, matching, chasing. "
+             "Much of that can now run on its own. Making it hold up inside a real business is the work.")
+WEEK_INTRO ="A working week, before and after. Ochre is repeated manual work. Blue is the work that needs a person."
 DISCIPLINES = ["Websites and online shops", "Automation", "Claude and AI setup", "SEO and GEO", "Brand and film"]
 INTRO = ("A studio of one that designs what your clients see, connects the tools you already own, and sets up AI "
          "to carry the repeated work. For any business, from a single professional to an established firm.")

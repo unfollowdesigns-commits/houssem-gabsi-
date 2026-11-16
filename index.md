@@ -4,6 +4,8 @@ A studio of one that designs what your clients see, connects the tools you alrea
 
 Houssem Gabsi. Independent studio, Tunis. English, French and Arabic.
 
+Most of what a firm spends goes on work that moves between people and systems: reading, checking, matching, chasing. Much of that can now run on its own. Making it hold up inside a real business is the work.
+
 ## What the studio does
 
 Three disciplines, practised together. Most engagements draw on all of them, and all begin the same way: by finding where time is lost in the tools you already have.

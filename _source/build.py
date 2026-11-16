@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import html, random
-from cases import INTRO, WEEK_INTRO, DISCIPLINES, SERVICES_INTRO, EXAMPLES, CTA_NOTE, CTA_WORK, CTA_CONNECT, NEXT, CASES, WHAT, HOW, SYSTEMS, RULES, FAQ
+from cases import INTRO, STATEMENT, WEEK_INTRO, DISCIPLINES,SERVICES_INTRO, EXAMPLES, CTA_NOTE, CTA_WORK, CTA_CONNECT, NEXT, CASES, WHAT, HOW, SYSTEMS, RULES, FAQ
 import re, json
 from urllib.parse import quote
 from parts import AGENTS, FLOW_TRIGGER, FLOW_STEPS, FLOW_END, NUMBERS, DAY_HOURS, CONNECT_INTRO, CONNECTS, CONNECT_NOTE
@@ -152,7 +152,7 @@ LLMS = _llms()
 
 # the whole home page as clean Markdown, in page order, from the same lists
 def _md():
-    L = ["# " + HEAD, "", INTRO, "", "Houssem Gabsi. Independent studio, Tunis. English, French and Arabic.", "",
+    L = ["# " + HEAD, "", INTRO, "", "Houssem Gabsi. Independent studio, Tunis. English, French and Arabic.", "", STATEMENT, "",
          "## What the studio does", "", SERVICES_INTRO]
     for m,k,t,dsc in WHAT:
         L += ["", "### %s: %s" % (k, t), "", dsc, ""] + ["- " + x for x in EXAMPLES[m]]
@@ -193,7 +193,7 @@ HTML = """<!doctype html>
 <title>TITLEHERE</title>
 <meta name="description" content="DESCHERE">
 <meta name="author" content="Houssem Gabsi">
-<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta name="theme-color" content="#E9E7DE">
 <link rel="canonical" href="SITEHERE">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -760,13 +760,111 @@ section{padding:clamp(64px,11vh,140px) 0}
 .card .ex{grid-area:e;grid-template-columns:1fr 1fr;gap:8px 24px;margin-top:20px}
 @media(hover:hover){.card:hover{box-shadow:none}.offer .card:hover h3{color:var(--door)}}
 @media(max-width:860px){.card{grid-template-columns:1fr;grid-template-areas:"m" "l" "t" "d" "e";grid-template-rows:auto;row-gap:10px}.card .ex{grid-template-columns:1fr}}
+/* ── statement: one large centred paragraph that lights up word by word ── */
+.stmt{padding:clamp(90px,18vh,220px) 0}
+.stp{font-family:Fraunces,Georgia,serif;font-weight:300;font-size:clamp(1.6rem,3.6vw,3.3rem);line-height:1.2;letter-spacing:-.022em;
+  text-align:center;max-width:22em;margin:0 auto;text-wrap:balance;font-variation-settings:"opsz" 110,"SOFT" 30,"WONK" 0}
+html.js .stp span{color:rgba(27,32,28,.2);transition:color .3s ease}
+html.js .stp span.lit{color:var(--ink)}
+@supports (animation-timeline:view()){
+  .stmt{view-timeline-name:--stmt;view-timeline-axis:block}
+  html.js .stp span{transition:none;animation:lit linear both;animation-timeline:--stmt;
+    animation-range:cover calc(24% + var(--i) * .95%) cover calc(29% + var(--i) * .95%)}
+  @keyframes lit{from{color:rgba(27,32,28,.2)}to{color:var(--ink)}}
+  html.js .track i{animation:grow linear both;animation-timeline:view();animation-range:entry 100% cover 62%}
+  @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+}
+
+/* ── services: an expanding row. The open card is wide and dark; the others show mark and title ── */
+.offer{display:flex;gap:12px;border-bottom:0}
+.offer > div{flex:1 1 0;min-width:0;border-top:0}
+html.js .offer > div.rv{transition:flex-grow .4s ease,opacity .6s ease,transform .6s ease}
+html.js .offer > div.act{flex-grow:3.1}
+.card{display:flex;flex-direction:column;height:100%;min-height:clamp(400px,54vh,500px);padding:clamp(22px,2.4vw,34px);border-radius:16px;
+  background:var(--wall-2);overflow:hidden;transition:background-color .3s ease,color .3s ease}
+.card .pm{margin:0}
+.card .pl{margin-top:auto;padding-top:24px}
+.offer .card h3{font-size:clamp(1.15rem,1.5vw,1.42rem);max-width:none;line-height:1.1;letter-spacing:-.018em;margin-top:8px}
+.offer .card p{font-size:clamp(15.5px,1.15vw,17px);max-width:52ch;margin-top:14px}
+.card .ex{grid-template-columns:1fr 1fr;gap:8px 24px;margin-top:18px}
+html.js .card{cursor:pointer}
+html.js .offer > div:not(.act) .card p,html.js .offer > div:not(.act) .card .ex{display:none}
+html.js .offer > div.act .card{background:var(--ink);color:var(--wall);cursor:default}
+html.js .offer > div.act .card .pm{--door:var(--wall)}
+html.js .offer > div.act .card h3{font-size:clamp(1.7rem,2.8vw,2.5rem);max-width:16ch;color:var(--wall)}
+html.js .offer > div.act .card p{color:rgba(233,231,222,.78);animation:fadein .4s ease .12s both}
+html.js .offer > div.act .card .ex{border-top-color:rgba(233,231,222,.18);animation:fadein .4s ease .2s both}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.card:focus-visible{outline:2px solid var(--ochre);outline-offset:3px}
+@media(hover:hover){.offer .card:hover h3{color:inherit}}
+@media(max-width:860px){.offer{flex-direction:column}.offer > div,html.js .offer > div.act{flex:none}
+  .card{min-height:0;display:block}.card .pl{padding-top:14px}.card .ex{grid-template-columns:1fr}}
+
+/* ── process: one row per stage, the numeral growing from 1 to 5 ── */
+.how{display:block;margin-top:0}
+.how li{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,1fr) minmax(0,1.5fr);column-gap:clamp(16px,4vw,64px);align-items:baseline;
+  padding:clamp(16px,2.8vh,28px) 0;border-top:1px solid var(--sand)}
+.how li::before{font-family:Fraunces,Georgia,serif;font-weight:300;line-height:.9;letter-spacing:-.04em;color:var(--ink);
+  font-size:calc(2rem + var(--n,0) * .95rem);font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 0;transition:color .3s ease;transition-delay:0s}
+.how li:nth-child(2){--n:1}.how li:nth-child(3){--n:2}.how li:nth-child(4){--n:3}.how li:nth-child(5){--n:4}
+.how h3{font-size:clamp(1.3rem,2.1vw,1.85rem);letter-spacing:-.02em;line-height:1.1}
+.how p{margin-top:0;font-size:clamp(15.5px,1.15vw,17px);max-width:46ch}
+html.js .how li{transition:opacity .4s ease,transform .4s ease}
+@media(max-width:700px){.how li{grid-template-columns:minmax(52px,.34fr) minmax(0,1fr)}.how h3,.how p{grid-column:2}.how p{margin-top:6px}
+  .how li::before{font-size:calc(1.7rem + var(--n,0) * .55rem);grid-row:1 / span 2}}
+
+/* ── navigation: a rounded bar floating over the page ── */
+.nav{top:10px;left:10px;right:10px;max-width:1300px;margin:0 auto;border-radius:999px;border:1px solid transparent;padding:7px 8px 7px 24px}
+.nav.sc{border-color:var(--sand)}
+main{padding-top:70px}
+section[id]{scroll-margin-top:78px}
+.pin .hero{top:66px;height:calc(100svh - 66px)}
+@media(max-width:860px){.nav{top:6px;left:6px;right:6px;padding-left:18px}}
+
+/* ── calmer motion: the pinned hero is the one showpiece ── */
+.pin{height:400svh}
+@media(max-width:860px){.pin{height:auto}.pinspace{height:170svh}}
+@media(min-width:861px) and (max-height:640px){.pin{height:auto}}
+.btn{transition:background-color .25s ease,color .25s ease,transform .2s ease}
+.ind{transition:transform .35s ease,width .35s ease,opacity .25s ease}
+.week i{transition:none}
+.week i.m{transition:background-color .35s ease calc(var(--k) * 7ms),box-shadow .35s ease calc(var(--k) * 7ms)}
+.week i.m.c{transition-delay:0s}
+@media(hover:hover) and (pointer:fine){.week i.w:hover{transform:none}}
+.team li::after{animation:none}
+html.js .team li.rv.done{transition:opacity .4s ease,transform .3s ease}
+@media(hover:hover){html.js .team li.rv.in:hover{transform:none}}
+.team.live li::after{transition:transform .35s ease}
+.team.live li .ic{transition:color .3s ease} .team.live li.hit .ic{transform:none}
+.dayline .ev{transition:transform .3s ease}
+.windex a{transition:color .3s ease,border-color .3s ease,padding-left .3s ease}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .hero h1 span,.hero .sub,.cta,.cta-note,.eyebrow,.disc,html.js .rv,html.js h2 .w{opacity:1!important;transform:none!important}
+  html.js .stp span{color:var(--ink)!important}
+  html.js .track i{transform:scaleX(1)!important}
+  .pin{height:auto!important}.pin .hero{position:static!important;height:auto!important}.pinspace{display:none!important}}
 .acci > div:has(.demo){max-width:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,300px);column-gap:clamp(24px,6vw,96px);align-items:start}
 .acci > div:has(.demo) > p{grid-column:1;max-width:60ch}
 .acci > div:has(.demo) > .demo{grid-column:2;grid-row:1 / span 3;margin-top:0;justify-self:end}
 @media(max-width:860px){.acci > div:has(.demo){display:block}.acci > div:has(.demo) > .demo{margin-top:20px}}
+/* ── footer ── */
+.ft{padding:clamp(40px,7vh,80px) 0 clamp(28px,5vh,48px);font-size:15px}
+.ftg{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,56px)}
+.ft .brand{font-size:19px;color:var(--ink)}
+.fta p{margin-top:12px;color:var(--ink-soft);max-width:38ch}
+.ft nav,.ftc{display:grid;gap:9px;align-content:start}
+.ft b{font-weight:500;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px}
+.ft nav a,.ftc a,.askai a{color:var(--ink);text-decoration:none;justify-self:start;min-width:0;border-bottom:1px solid transparent;transition:color .25s ease,border-color .25s ease}
+.ftc span{color:var(--ink-soft)}
+@media(hover:hover){.ft nav a:hover,.ftc a:hover,.askai a:hover{color:var(--ochre);border-color:var(--ochre)}}
+.askai{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 26px;margin-top:clamp(28px,5vh,48px);padding-top:20px;border-top:1px solid var(--sand)}
+.askai b{margin:0 8px 0 0}
+@media(max-width:860px){.ftg{grid-template-columns:1fr 1fr}.fta{grid-column:1 / -1}}
+
 /* ── step 2: pinned hero. The week grid sits beside the headline and clears as the visitor scrolls ── */
-.pin{height:300svh}
-.pin .hero{position:sticky;top:58px;min-height:0;height:calc(100svh - 58px);padding:clamp(18px,3.4vh,44px) 0 clamp(14px,2.6vh,30px);display:flex;align-items:center}
+.pin{height:400svh}
+.pin .hero{position:sticky;top:66px;min-height:0;height:calc(100svh - 66px);padding:clamp(18px,3.4vh,44px) 0 clamp(14px,2.6vh,30px);display:flex;align-items:center}
 .hgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);column-gap:clamp(28px,5vw,84px);align-items:center}
 .hero h1{font-size:clamp(2.3rem,4.8vw,4.9rem);line-height:.98;letter-spacing:-.034em}
 .hcopy .eyebrow{margin-bottom:clamp(16px,3vh,32px)}
@@ -782,7 +880,7 @@ section{padding:clamp(64px,11vh,140px) 0}
   .pin{height:auto} .pin .hero{position:static;height:auto;display:block;padding-top:clamp(30px,5vh,48px)}
   .hgrid{display:block}
   .hero .weekwrap{position:sticky;top:max(66px,calc(50svh - 205px));margin-top:30px;padding:10px 0 6px;background:var(--wall);z-index:2}
-  .pinspace{display:block;height:120svh}
+  .pinspace{display:block;height:170svh}
   .hgrid .disc{margin-top:0}}
 @media(min-width:861px) and (max-height:640px){.pin{height:auto}.pin .hero{position:static;height:auto}.pinhint{display:none}}
 @media(prefers-reduced-motion:reduce){.pin{height:auto}.pin .hero{position:static;height:auto}.hero .weekwrap{position:static}.pinspace{display:none}.pinhint{display:none}}
@@ -832,6 +930,8 @@ section{padding:clamp(64px,11vh,140px) 0}
   <ul class="disc" aria-label="What the studio does">DISCHERE</ul>
 </div></div>
 </div>
+
+<section class="stmt" id="statement"><div class="wrap"><p class="stp">STMTHERE</p></div></section>
 
 DIVHERE
 
@@ -913,14 +1013,9 @@ DIVHERE
   <p class="lead">A free one-page review of your follow-up, booking and administration. No call required.</p>
   <a class="btn big mag" href="MAILTOHERE">Request a free review</a>
   MAILLINE
-  <nav class="foot" aria-label="Services">FOOTLINKS</nav>
-  <div class="sig">
-    <span>Houssem Gabsi</span>
-    <span>A studio of one, for businesses of any kind</span>
-    <span>English, français, العربية</span>
-  </div>
 </div></section>
 </main>
+FOOTERHERE
 <script>
 (function(){
   var d=document, root=d.documentElement, RM=matchMedia('(prefers-reduced-motion: reduce)').matches,
@@ -962,28 +1057,15 @@ DIVHERE
   sw.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;auto=false;pfree=true;man.forEach(function(c){c.classList.remove('c');});setState(b.getAttribute('data-s'));});
   if(RM){setState('after');}
 
-  /* cells swell under the pointer */
-  if(FINE&&!RM){var cells=$$('i',wk),pts=null;
-    function measure(){var r=wk.getBoundingClientRect();pts=cells.map(function(c){var b=c.getBoundingClientRect();return [b.left-r.left+b.width/2,b.top-r.top+b.height/2,b.width/2];});}
-    wk.addEventListener('pointerenter',measure);addEventListener('resize',function(){pts=null;});
-    wk.addEventListener('pointermove',function(e){if(!pts)measure();var r=wk.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
-      cells.forEach(function(c,i){var dx=Math.max(0,Math.abs(pts[i][0]-x)-pts[i][2]),dy=pts[i][1]-y,di=Math.sqrt(dx*dx+dy*dy);
-        c.style.transform=di<52?'scaleY('+(1+(1-di/52)*1.5).toFixed(2)+')':'';});});
-    wk.addEventListener('pointerleave',function(){cells.forEach(function(c){c.style.transform='';});});}
+  /* services: one card is open and wide, the other two show only their mark and title */
+  var offs=$$('.offer > div');
+  function pick(el){offs.forEach(function(o){var on=o===el;o.classList.toggle('act',on);var c=$('.card',o);if(c)c.setAttribute('aria-expanded',String(on));});}
+  offs.forEach(function(o){o.addEventListener('mouseenter',function(){if(FINE)pick(o);});o.addEventListener('click',function(){pick(o);});
+    o.addEventListener('focusin',function(){pick(o);});});
+  if(offs[0])pick(offs[0]);
 
-  /* cards tilt, grid cells catch the light, buttons pull toward the pointer */
-  if(FINE&&!RM){
-    $$('.card').forEach(function(c){
-      c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;
-        c.style.setProperty('--rx',(-py*6).toFixed(2)+'deg');c.style.setProperty('--ry',(px*7).toFixed(2)+'deg');
-        c.style.setProperty('--mx',((px+.5)*100).toFixed(1)+'%');c.style.setProperty('--my',((py+.5)*100).toFixed(1)+'%');});
-      c.addEventListener('pointerleave',function(){c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg');});});
-    $$('.team li').forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();
-        c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});});
-    $$('.mag').forEach(function(b){
-      b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();
-        b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.24).toFixed(1)+'px,'+((e.clientY-r.top-r.height/2)*.34).toFixed(1)+'px)';});
-      b.addEventListener('pointerleave',function(){b.style.transform='';});});}
+  /* the statement lights up word by word; browsers with scroll-driven CSS do this without script */
+  var SDA=!!(window.CSS&&CSS.supports&&CSS.supports('animation-timeline: view()')), stm=$('.stmt'), stw=$$('.stp span');
 
   /* capacity: one illustrative day, each process acting at its own hours */
   var day=$('#day');
@@ -1026,7 +1108,9 @@ DIVHERE
     fs.forEach(function(s,i){s.classList.toggle('on',pf>.26+i*.12);});
     fo.classList.toggle('on',pf>.97);
     var r2=howl.getBoundingClientRect(), t2=clamp((vh*.86-r2.top)/(vh*.46)); pt+=(t2-pt)*(RM?1:.09);
-    trk.style.transform='scaleX('+pt.toFixed(4)+')';
+    if(!SDA)trk.style.transform='scaleX('+pt.toFixed(4)+')';
+    if(!SDA&&!RM&&stm){var sr=stm.getBoundingClientRect(),sp=(vh-sr.top)/(vh+sr.height)*100;
+      if(sp>-5&&sp<105)stw.forEach(function(w,i){w.classList.toggle('lit',sp>24+i*.95);});}
     how.forEach(function(l,i){l.classList.toggle('on',pt>(i+.12)/how.length);});
     requestAnimationFrame(frame);}
   requestAnimationFrame(frame);
@@ -1034,7 +1118,7 @@ DIVHERE
 </script>
 </body></html>"""
 
-what = "\n".join('<div><div class="card">%s<span class="pl">%s</span><h3>%s</h3><p>%s</p><ul class="ex">%s</ul></div></div>' % (mark(m), e(k), e(a), e(b), "".join("<li>%s</li>" % e(x) for x in EXAMPLES[m])) for m,k,a,b in WHAT)
+what = "\n".join('<div><div class="card" tabindex="0" role="button" aria-expanded="false">%s<span class="pl">%s</span><h3>%s</h3><p>%s</p><ul class="ex">%s</ul></div></div>' % (mark(m), e(k), e(a), e(b), "".join("<li>%s</li>" % e(x) for x in EXAMPLES[m])) for m,k,a,b in WHAT)
 nextsteps = "".join('<li><b>%s</b><span>%s</span></li>' % (e(a), e(b)) for a,b in NEXT)
 if EMAIL:
     MAILTO = "mailto:" + EMAIL + "?subject=" + quote("Free review request") + "&amp;body=" + quote("Business:\nWebsite:\nWhat takes the most time each week:\n")
@@ -1042,6 +1126,24 @@ if EMAIL:
 else:
     MAILTO = "#contact"
     MAILLINE = '<p class="lead">Contact details will be added here shortly.</p>'
+
+# footer: description, section links, service pages, contact, languages, the free tracker, and the "Ask AI" row
+ASK_Q = ("Tell me about Houssem Gabsi's studio (houssem-gabsi.vercel.app), which builds websites, automation and "
+         "content systems for established firms, and how it could help my business.")
+ASK = [("ChatGPT", "https://chatgpt.com/?q="), ("Claude", "https://claude.ai/new?q="), ("Perplexity", "https://www.perplexity.ai/search?q=")]
+def footer_html(home):
+    sec = "".join('<a href="%s#%s">%s</a>' % (home, i, n) for i, n in
+                  [("services","Services"),("work","Work"),("systems","Systems"),("process","Process"),("questions","Questions")])
+    pgs = "".join('<a href="/%s/">%s</a>' % (pg["slug"], e(pg["nav"])) for pg in PAGES)
+    contact = ('<a href="mailto:%s">%s</a>' % (EMAIL, EMAIL)) if EMAIL else '<a href="%s#contact">Request a free review</a>' % home
+    ask = "".join('<a href="%s%s" target="_blank" rel="noopener">%s</a>' % (u, quote(ASK_Q), n) for n, u in ASK)
+    return ('<footer class="ft"><div class="wrap"><div class="ftg">'
+            '<div class="fta"><a class="brand" href="%s#top">Houssem Gabsi</a><p>%s</p></div>'
+            '<nav aria-label="Sections"><b>Sections</b>%s</nav>'
+            '<nav aria-label="Services"><b>Services</b>%s</nav>'
+            '<div class="ftc"><b>Contact</b>%s<span>English, français, العربية</span>'
+            '<a href="/tools/stock-sales-production-tracker/">Free stock, sales and production tracker</a></div>'
+            '</div><div class="askai"><b>Ask AI about this studio</b>%s</div></div></footer>') % (home or "", e(ABOUT), sec, pgs, contact, ask)
 DEMOS = {"Invoice and quote follow-up": ("leak", "0:31", "Demo film, sample data."),
          "Interview notes to client report": ("shortlist", "0:22", "Demo film, sample data.")}
 def demo(name):
@@ -1081,7 +1183,7 @@ HEAD_HTML = " ".join('<span%s style="--w:%d">%s</span>' % (' class="hl"' if i >=
 HTML = (HTML.replace("HEADLINE", HEAD_HTML).replace("INTROHERE", e(INTRO)).replace("WEEKINTRO", e(WEEK_INTRO)).replace("DISCHERE", "".join("<li>%s</li>" % ('<a href="/%s/">%s</a>' % (DISC_LINKS[x], e(x)) if x in DISC_LINKS else e(x)) for x in DISCIPLINES)).replace("FOOTLINKS", "".join('<a href="/%s/">%s</a>' % (pg["slug"], e(pg["nav"])) for pg in PAGES)).replace("SERVINTRO", e(SERVICES_INTRO)).replace("WEEKHERE", WEEK)
             .replace("DAYSHERE", DAYLBL).replace("HOURSCOL", HOURS_COL).replace("WHATHERE", what)
             .replace("CASESHERE", cases).replace("WINDEXHERE", windex).replace("HOWHERE", how)
-            .replace("AGENTSHERE", agents).replace("CONNECTSHERE", connects).replace("MAILTOHERE", MAILTO).replace("MAILLINE", MAILLINE).replace("CTANOTE", e(CTA_NOTE)).replace("CTAWORK", e(CTA_WORK)).replace("CTACONNECT", e(CTA_CONNECT)).replace("NEXTHERE", nextsteps).replace("DAYHOURS", json.dumps(DAY_HOURS)).replace("CONNINTRO", e(CONNECT_INTRO)).replace("CONNNOTE", e(CONNECT_NOTE)).replace("FLOWHERE", flow).replace("RULESHERE", rules).replace("SYSHERE", systems).replace("FAQHERE", faq).replace("ENSOHERE", HEROMARK).replace("LDHERE", LD).replace("OGTITLEHERE", e(OG_TITLE)).replace("OGDESCHERE", e(OG_DESC)).replace("OGALTHERE", e(OG_ALT)).replace("TITLEHERE", e(TITLE)).replace("DESCHERE", e(DESC)).replace("SITEHERE", SITE).replace("HOURSVAL", str(HOURS)))
+            .replace("AGENTSHERE", agents).replace("CONNECTSHERE", connects).replace("MAILTOHERE", MAILTO).replace("MAILLINE", MAILLINE).replace("FOOTERHERE", footer_html("")).replace("STMTHERE", " ".join('<span style="--i:%d">%s</span>' % (i, e(w)) for i, w in enumerate(STATEMENT.split()))).replace("CTANOTE", e(CTA_NOTE)).replace("CTAWORK", e(CTA_WORK)).replace("CTACONNECT", e(CTA_CONNECT)).replace("NEXTHERE", nextsteps).replace("DAYHOURS", json.dumps(DAY_HOURS)).replace("CONNINTRO", e(CONNECT_INTRO)).replace("CONNNOTE", e(CONNECT_NOTE)).replace("FLOWHERE", flow).replace("RULESHERE", rules).replace("SYSHERE", systems).replace("FAQHERE", faq).replace("ENSOHERE", HEROMARK).replace("LDHERE", LD).replace("OGTITLEHERE", e(OG_TITLE)).replace("OGDESCHERE", e(OG_DESC)).replace("OGALTHERE", e(OG_ALT)).replace("TITLEHERE", e(TITLE)).replace("DESCHERE", e(DESC)).replace("SITEHERE", SITE).replace("HOURSVAL", str(HOURS)))
 while "DIVHERE" in HTML: HTML = HTML.replace("DIVHERE", divider(), 1)
 open("../index.html","w").write(HTML)
 open("../llms.txt","w").write(LLMS)
@@ -1142,7 +1244,7 @@ for pg in PAGES:
 <title>%(title)s</title>
 <meta name="description" content="%(desc)s">
 <meta name="author" content="Houssem Gabsi">
-<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta name="theme-color" content="#E9E7DE">
 <link rel="canonical" href="%(url)s">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -1183,13 +1285,12 @@ for pg in PAGES:
   <p class="lead">A free one-page review of your follow-up, booking and administration. No call required.</p>
   <a class="btn big" href="%(mailto)s">Request a free review</a>
   %(mailline)s
-  <nav class="foot" aria-label="Services">%(navlinks)s</nav>
-  <div class="sig"><span>Houssem Gabsi</span><span>A studio of one, for businesses of any kind</span><span>English, fran\u00e7ais, \u0627\u0644\u0639\u0631\u0628\u064a\u0629</span></div>
 </div></section>
 </main>
+%(footer)s
 </body></html>""" % dict(title=e(ptitle), desc=e(pg["desc"]), url=url, ogtitle=e(pg["title"]), site=SITE, ld=ld, style=STYLE, lpcss=LP_CSS,
         navlinks=NAVLINKS, mailto=MAILTO, nav=e(pg["nav"]), h1=e(pg["h1"]), lead=e(pg["lead"]), ctanote=e(CTA_NOTE),
-        short="".join("<li>%s</li>" % e(x) for x in pg["short"]), body=body, faq=faqh, rel=rel, mailline=MAILLINE)
+        short="".join("<li>%s</li>" % e(x) for x in pg["short"]), body=body, faq=faqh, rel=rel, mailline=MAILLINE, footer=footer_html("/"))
     os.makedirs("../" + pg["slug"], exist_ok=True)
     open("../%s/index.html" % pg["slug"], "w").write(doc)
 
