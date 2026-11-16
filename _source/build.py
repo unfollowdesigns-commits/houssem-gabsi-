@@ -4,7 +4,7 @@ from cases import (HEAD_TEXT, INTRO, HERO_BTN, HERO_LINK, PANEL2_HEAD, PANEL2_TE
     WORK_LABEL, WORK_HEAD, CASES, SERVICES_LABEL, SERVICES_HEAD, WHAT, EXAMPLES, SYSTEMS_LABEL, SYSTEMS_HEAD, SYSTEMS, SYSTEMS_NOTE, SYSTEMS_NOTE_LINK,
     CAPACITY_LABEL, CAPACITY_HEAD, CAPACITY_INTRO, ENQUIRY_LABEL, ENQUIRY_HEAD, ENQUIRY_INTRO, COMMIT_LABEL, COMMIT_HEAD, RULES,
     PROCESS_LABEL, PROCESS_HEAD, PROCESS_INTRO, HOW, FAQ_LABEL, FAQ_HEAD, FAQ, CLOSE_HEAD, CLOSE_TEXT, CLOSE_BTN, CLOSE_NOTE,
-    FOOT_DESC, PAGE_TITLE, PAGE_DESC, CTA_NOTE, CTA_CONNECT, PRODUCTS, PRODUCTS_LABEL)
+    FOOT_DESC, PAGE_TITLE, PAGE_DESC, CTA_NOTE, CTA_CONNECT, PRODUCTS, PRODUCTS_LABEL, ANY_NOTE)
 WORK = CASES + PRODUCTS   # four client cases, then the studio's own products
 import re, json
 from urllib.parse import quote
@@ -974,6 +974,7 @@ section:not(.close) > .wrap > h2{max-width:22ch;text-wrap:balance}
 .how li{grid-template-columns:minmax(0,.55fr) minmax(0,1fr) minmax(0,1.5fr) 104px}
 .how .tag{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-soft);text-align:right}
 @media(max-width:700px){.how li{grid-template-columns:minmax(52px,.34fr) minmax(0,1fr)}.how .tag{grid-column:2;text-align:left;margin-top:8px}}
+.anynote{margin-top:clamp(28px,3.4vw,44px);max-width:62ch;font-family:Fraunces,Georgia,serif;font-weight:300;font-size:var(--t-h3s);line-height:1.25;letter-spacing:-.015em;color:var(--wall)}
 .sublab{margin:clamp(56px,7vw,96px) 0 22px}
 .cnote{margin-top:16px;font-size:var(--t-small);color:rgba(233,231,222,.6)}
 .hp1 h1{max-width:1080px}
@@ -1092,6 +1093,7 @@ html.js .cviz .d{opacity:0;transform:translateY(12px);transform-box:fill-box}
 html.js .case.in .cviz .d{opacity:1;transform:none;transition:opacity .6s var(--ease),transform .7s var(--ease);transition-delay:calc(var(--j,0) * 55ms + .3s)}
 html.js .cviz .draw{stroke-dasharray:1;stroke-dashoffset:1}
 html.js .case.in .cviz .draw{stroke-dashoffset:0;transition:stroke-dashoffset 1.4s var(--ease-io) .45s}
+.anynote{margin-top:clamp(28px,3.4vw,44px);max-width:62ch;font-family:Fraunces,Georgia,serif;font-weight:300;font-size:var(--t-h3s);line-height:1.25;letter-spacing:-.015em;color:var(--wall)}
 .sublab{margin:clamp(72px,11vw,160px) 0 clamp(32px,4vw,56px);padding-top:22px;border-top:1px solid var(--sand)}
 @media(max-width:820px){.case,.band.dark .case{grid-template-columns:1fr;gap:28px}.case:nth-of-type(even) .ctext{order:0}}
 
@@ -1208,6 +1210,7 @@ html.js .fstep{transition:opacity .5s var(--ease),transform .5s var(--ease)}
   <p class="lab">SERVLABEL</p>
   <h2>SERVHEAD</h2>
   <div class="offer">WHATHERE</div>
+  <p class="anynote">ANYNOTE</p>
 </div></section>
 
 <section class="band tint" id="connections"><div class="wrap">
@@ -1541,7 +1544,7 @@ HTML = (HTML.replace("HEADLINE", HEAD_HTML).replace("INTROHERE", e(INTRO)).repla
             .replace("FAQLABEL", e(FAQ_LABEL)).replace("FAQHEAD", e(FAQ_HEAD)).replace("CLOSEHEAD", e(CLOSE_HEAD)).replace("CLOSETEXT", e(CLOSE_TEXT)).replace("CLOSEBTN", e(CLOSE_BTN)).replace("CLOSENOTE", e(CLOSE_NOTE))
             .replace("DAYSHERE", DAYLBL).replace("HOURSCOL", HOURS_COL).replace("WHATHERE", what)
             .replace("CASESHERE", cases).replace("WINDEXHERE", windex).replace("HOWHERE", how)
-            .replace("AGENTSHERE", agents).replace("CONNECTSHERE", connects).replace("MAILTOHERE", MAILTO).replace("MAILLINE", MAILLINE).replace("FOOTERHERE", footer_html("")).replace("STMTHERE", " ".join('<span style="--i:%d">%s</span>' % (i, e(w)) for i, w in enumerate(STATEMENT.split()))).replace("CTANOTE", e(CTA_NOTE)).replace("CTACONNECT", e(CTA_CONNECT)).replace("DAYHOURS", json.dumps(DAY_HOURS)).replace("CONNINTRO", e(CONNECT_INTRO)).replace("CONNLABEL", e(CONNECT_LABEL)).replace("CONNHEAD", e(CONNECT_HEAD)).replace("CONNNOTE", e(CONNECT_NOTE)).replace("FLOWHERE", flow).replace("RULESHERE", rules).replace("SYSHERE", systems).replace("FAQHERE", faq).replace("ENSOHERE", HEROMARK).replace("LDHERE", LD).replace("OGTITLEHERE", e(OG_TITLE)).replace("OGDESCHERE", e(OG_DESC)).replace("OGALTHERE", e(OG_ALT)).replace("TITLEHERE", e(TITLE)).replace("DESCHERE", e(DESC)).replace("SITEHERE", SITE).replace("HOURSVAL", str(HOURS)))
+            .replace("AGENTSHERE", agents).replace("CONNECTSHERE", connects).replace("MAILTOHERE", MAILTO).replace("MAILLINE", MAILLINE).replace("FOOTERHERE", footer_html("")).replace("STMTHERE", " ".join('<span style="--i:%d">%s</span>' % (i, e(w)) for i, w in enumerate(STATEMENT.split()))).replace("CTANOTE", e(CTA_NOTE)).replace("CTACONNECT", e(CTA_CONNECT)).replace("DAYHOURS", json.dumps(DAY_HOURS)).replace("CONNINTRO", e(CONNECT_INTRO)).replace("CONNLABEL", e(CONNECT_LABEL)).replace("ANYNOTE", e(ANY_NOTE)).replace("CONNHEAD", e(CONNECT_HEAD)).replace("CONNNOTE", e(CONNECT_NOTE)).replace("FLOWHERE", flow).replace("RULESHERE", rules).replace("SYSHERE", systems).replace("FAQHERE", faq).replace("ENSOHERE", HEROMARK).replace("LDHERE", LD).replace("OGTITLEHERE", e(OG_TITLE)).replace("OGDESCHERE", e(OG_DESC)).replace("OGALTHERE", e(OG_ALT)).replace("TITLEHERE", e(TITLE)).replace("DESCHERE", e(DESC)).replace("SITEHERE", SITE).replace("HOURSVAL", str(HOURS)))
 HTML = HTML.replace("DIVHERE", "")   # the animated cell dividers are removed in the v2 structure
 open("../index.html","w").write(HTML)
 open("../llms.txt","w").write(LLMS)

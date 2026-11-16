@@ -59,8 +59,8 @@ WHAT = [
 ]
 # short points listed on each service card. Not part of the v4 wording; kept from the earlier version.
 EXAMPLES = {
- "build": ["Company and marketing websites", "Online shops on Shopify and Etsy", "Booking applications", "Dashboards and reporting", "Internal tools"],
- "automate": ["Enquiry and invoice follow-up", "Booking confirmations", "Screening of applications and enquiries", "Weekly reports and newsletters", "Social media scheduling", "Claude and other AI assistants set up for your team"],
+ "build": ["Company and marketing websites", "Online shops on Shopify and Etsy", "Booking applications", "Dashboards and reporting", "Internal tools and client portals", "Web applications built to order"],
+ "automate": ["Enquiry and invoice follow-up", "Booking confirmations", "Screening of applications and enquiries", "Weekly reports and newsletters", "Social media scheduling", "Claude and other AI assistants set up for the team", "Connectors (MCP) and custom API integrations"],
  "create": ["Brand identity and illustration", "Video editing and motion graphics", "Articles, blog posts and Substack newsletters", "LinkedIn and Instagram content", "Visibility in search and AI answers (SEO and GEO)"],
 }
 
@@ -154,3 +154,6 @@ PAGE_DESC = ("Loose Ends is a one-person studio that designs and builds websites
 # ── wording outside the v4 text. The connections section was not covered and is unchanged. ──
 CTA_NOTE = "Free. One page. No call required."
 CTA_CONNECT = "Not sure what could be connected? The free review answers that."
+
+# shown under the three service cards
+ANY_NOTE = "These lists are examples, not limits. If the work happens on a screen and repeats, the studio can build the system that does it."

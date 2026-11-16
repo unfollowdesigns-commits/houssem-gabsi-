@@ -70,7 +70,8 @@ The site clients judge the firm by and the tools the team opens every morning, d
 - Online shops on Shopify and Etsy
 - Booking applications
 - Dashboards and reporting
-- Internal tools
+- Internal tools and client portals
+- Web applications built to order
 
 ### Automate: Work that runs without anyone doing it.
 
@@ -81,7 +82,8 @@ Follow-up, confirmations and reports happen on their own. A person approves what
 - Screening of applications and enquiries
 - Weekly reports and newsletters
 - Social media scheduling
-- Claude and other AI assistants set up for your team
+- Claude and other AI assistants set up for the team
+- Connectors (MCP) and custom API integrations
 
 ### Create: Identity and content.
 
