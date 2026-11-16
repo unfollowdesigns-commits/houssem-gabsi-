@@ -81,7 +81,7 @@ PAGES = [
       "Content system: turns one idea into a researched article and a week of posts, with every figure checked against a named source.",
       "Interview notes to client report: converts raw notes into a finished report in your own format, with gaps flagged rather than filled."]]),
    ("Who it is for", [
-     "Any business that runs on repeated work, from an independent professional to an established firm. Work so far includes an executive search firm in Washington D.C., a guesthouse in La Marsa, a yoga studio in Tunis and a journalist working in video."]),
+     "Any business that runs on repeated work, from an independent professional to an established firm. Work so far includes an executive search firm in Washington D.C., a guesthouse in La Marsa, a yoga studio and a journalist working in video."]),
    ("How an engagement runs", [
      ["A free one-page review of where time is being lost. No call required.",
       "A paid audit that ranks the first three improvements. The fee is credited toward the build.",
@@ -163,7 +163,7 @@ PAGES = [
    ("Selected work", [
      ["An eighteen-page website for an executive search firm in Washington D.C., with open roles synchronised from the firm's recruiting system.",
       "A bilingual website and visual identity for a guesthouse in La Marsa, drawn from the house itself: its tiles, doors and objects.",
-      "A mobile-first booking application for a yoga studio in Tunis, in French and English.",
+      "A mobile-first booking application for a yoga studio, in French and English.",
       "Two products of my own: Vero, a recruiting platform that explains every score, and ZonedInOut, a daily entry-risk score for stocks and crypto."]]),
    ("Built to be found", [
      "Every site is structured for search engines and for AI assistants: clear headings, direct answers, structured data and a plain-text summary that assistants can read. See SEO and GEO for how that works."]),

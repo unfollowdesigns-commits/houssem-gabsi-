@@ -1,6 +1,6 @@
 # The work a firm repeats every week, rebuilt to run on its own.
 
-Loose Ends is a one-person studio in Tunis. It designs and builds the websites, automations and content systems that established firms in the US and Europe work on every day.
+Loose Ends is a one-person studio. It designs and builds the websites, automations and content systems that established firms in the US and Europe work on every day.
 
 Every firm has work only its people can do, and work that simply has to get done. The second kind fills most of the week: answering, confirming, chasing, retyping. Systems take that part. People keep the judgement, and approve everything that leaves the building.
 
@@ -24,7 +24,7 @@ Identity and print delivered. Website in development.
 
 ### A class booked on one screen, not in a message thread.
 
-Yoga studio, Tunis
+Yoga studio
 
 Schedule, places and payment sit on a single phone screen, in French and English. Bookings moved out of Instagram messages and into one place.
 
@@ -205,9 +205,9 @@ Every engagement begins with a paid Systems Audit at a fixed price, credited tow
 
 An automated workflow is one part of the work. The studio also builds the website or application it runs inside, produces the content that feeds it, and makes the short film that explains it to clients.
 
-### Where is the studio based, and does it matter?
+### Where does the studio work, and does it matter?
 
-Tunis. Most of the work is for clients abroad, in English, French or Arabic. Calls are scheduled in the client's time zone, and delivery is the same wherever the firm is.
+Anywhere. Most of the work is for clients abroad, in English, French or Arabic. Calls are scheduled in the client's time zone, and delivery is the same wherever the firm is.
 
 ## Find the loose ends in the week.
 

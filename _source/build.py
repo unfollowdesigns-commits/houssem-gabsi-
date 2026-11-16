@@ -92,7 +92,7 @@ OG_DESC = PAGE_DESC
 OG_ALT = HEAD_TEXT
 ABOUT = FOOT_DESC
 LANGS = ["English","French","Arabic"]
-PLACE = {"@type":"PostalAddress","addressLocality":"Tunis","addressCountry":"TN"}
+PLACE = None   # no location shown, at Houssem's request
 LD = json.dumps({"@context":"https://schema.org","@graph":[
  {"@type":"WebSite","@id":SITE+"#website","url":SITE,"name":"Loose Ends","description":ABOUT,
   "inLanguage":"en","publisher":{"@id":SITE+"#studio"}},
@@ -105,14 +105,13 @@ LD = json.dumps({"@context":"https://schema.org","@graph":[
   "url":SITE,
   "image":SITE+"og.png",
   **({"email":EMAIL} if EMAIL else {}),
-  "address":PLACE,
-  "areaServed":["United States","Europe","Tunisia"],
+  "areaServed":["United States","Europe"],
   "availableLanguage":LANGS,
   "knowsAbout":["website design and build","booking systems","dashboards","process automation","invoice and quote follow-up","candidate scoring for recruiting firms","integrations with email, Slack, Loxo and BrightHire","newsletter automation","Shopify and Etsy shops","Substack newsletters","setting up Claude and other AI assistants for teams","search engine optimisation","generative engine optimisation","content systems","social media content","video editing","motion graphics","answer engine optimisation","branding"],
   "hasOfferCatalog":{"@type":"OfferCatalog","name":"Services","itemListElement":[
     {"@type":"Offer","itemOffered":{"@type":"Service","name":t,"description":d,"provider":{"@id":SITE+"#studio"}}} for _,_,t,d in WHAT]}},
  {"@type":"Person","@id":SITE+"#person","name":"Houssem Gabsi","url":SITE,**({"email":EMAIL} if EMAIL else {}),
-  "worksFor":{"@id":SITE+"#studio"},"knowsLanguage":LANGS,"address":PLACE},
+  "worksFor":{"@id":SITE+"#studio"},"knowsLanguage":LANGS},
  {"@type":"ItemList","@id":SITE+"#work","name":"Selected work","itemListElement":[
     {"@type":"ListItem","position":i+1,"item":{"@type":"CreativeWork","@id":SITE+"#case-%d" % i,"url":SITE+"#case-%d" % i,
       "name":c["who"],"description":c["did"],"creator":{"@id":SITE+"#person"},
@@ -124,7 +123,7 @@ LD = json.dumps({"@context":"https://schema.org","@graph":[
 # plain-text summary for AI assistants, written from the same lists as the page
 def _llms():
     L = ["# Loose Ends", "", "> " + ABOUT, "",
-         "Based in Tunis. Works in English, French and Arabic." + ((" Contact: " + EMAIL) if EMAIL else ""), "",
+         "Works with firms in the US and Europe, in English, French and Arabic." + ((" Contact: " + EMAIL) if EMAIL else ""), "",
          "Site: " + SITE, "", "## Services", ""]
     L += ["- %s: %s" % (t, d) for _,_,t,d in WHAT]
     L += ["", "## Cases", "", "Four pieces of client work. Clients are not named."]
@@ -1590,7 +1589,7 @@ for pg in PAGES:
         {"@type":"ListItem","position":2,"name":pg["nav"],"item":url}]},
       {"@type":"Service","@id":url+"#service","name":pg["title"],"description":pg["desc"],"serviceType":pg["nav"],
        "provider":{"@type":"ProfessionalService","@id":SITE+"#studio","name":"Loose Ends","url":SITE},
-       "areaServed":["United States","Europe","Tunisia"]},
+       "areaServed":["United States","Europe"]},
       {"@type":"FAQPage","@id":url+"#faq","isPartOf":{"@id":url+"#webpage"},"mainEntity":[
         {"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in pg["faq"]]},
     ]}, ensure_ascii=False, indent=1)

@@ -1,8 +1,8 @@
 # Loose Ends
 
-> Loose Ends is a one-person studio in Tunis, run by Houssem Gabsi. It builds websites, automation and content systems for established firms, in English, French and Arabic.
+> Loose Ends is a one-person studio run by Houssem Gabsi. It builds websites, automation and content systems for established firms, in English, French and Arabic.
 
-Based in Tunis. Works in English, French and Arabic.
+Works with firms in the US and Europe, in English, French and Arabic.
 
 Site: https://houssem-gabsi.vercel.app/
 
@@ -34,7 +34,7 @@ Status: Identity and print delivered. Website in development.
 
 ### A class booked on one screen, not in a message thread.
 
-Yoga studio, Tunis
+Yoga studio
 
 Schedule, places and payment sit on a single phone screen, in French and English. Bookings moved out of Instagram messages and into one place.
 

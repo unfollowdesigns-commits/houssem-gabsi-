@@ -4,7 +4,7 @@
 
 # ── hero ──
 HEAD_TEXT = "The work a firm repeats every week, rebuilt to run on its own."
-INTRO = ("Loose Ends is a one-person studio in Tunis. It designs and builds the websites, automations and content systems "
+INTRO = ("Loose Ends is a one-person studio. It designs and builds the websites, automations and content systems "
          "that established firms in the US and Europe work on every day.")
 HERO_BTN = "Request a free review"
 HERO_LINK = "See the work"
@@ -28,7 +28,7 @@ CASES = [
  dict(kind="Maison d'hôte, La Marsa", who="A nineteenth-century house that looks like itself online.",
   did="An identity drawn by hand from the house's own tiles, doors and objects. It runs through a website in French and English and the printed pieces guests hold, from the room card to the table d'hôte menu.",
   now="Identity and print delivered. Website in development."),
- dict(kind="Yoga studio, Tunis", who="A class booked on one screen, not in a message thread.",
+ dict(kind="Yoga studio", who="A class booked on one screen, not in a message thread.",
   did="Schedule, places and payment sit on a single phone screen, in French and English. Bookings moved out of Instagram messages and into one place.",
   now="Live."),
  dict(kind="Journalist, video production", who="An AI assistant that works the way he does.",
@@ -134,8 +134,8 @@ FAQ = [
   "Every engagement begins with a paid Systems Audit at a fixed price, credited toward the build. After the audit, each build has one fixed price agreed in writing. There is no hourly billing."),
  ("How is this different from hiring an automation freelancer?",
   "An automated workflow is one part of the work. The studio also builds the website or application it runs inside, produces the content that feeds it, and makes the short film that explains it to clients."),
- ("Where is the studio based, and does it matter?",
-  "Tunis. Most of the work is for clients abroad, in English, French or Arabic. Calls are scheduled in the client's time zone, and delivery is the same wherever the firm is."),
+ ("Where does the studio work, and does it matter?",
+  "Anywhere. Most of the work is for clients abroad, in English, French or Arabic. Calls are scheduled in the client's time zone, and delivery is the same wherever the firm is."),
 ]
 
 # ── closing ──
@@ -145,10 +145,10 @@ CLOSE_BTN = "Request a free review"
 CLOSE_NOTE = "A reply within 24 hours."
 
 # ── footer, page title and description ──
-FOOT_DESC = ("Loose Ends is a one-person studio in Tunis, run by Houssem Gabsi. It builds websites, automation and content systems "
+FOOT_DESC = ("Loose Ends is a one-person studio run by Houssem Gabsi. It builds websites, automation and content systems "
              "for established firms, in English, French and Arabic.")
 PAGE_TITLE = "Loose Ends | Websites, automation and content systems for established firms"
-PAGE_DESC = ("Loose Ends is a one-person studio in Tunis that designs and builds websites, automations and content systems for established firms in the US and Europe. "
+PAGE_DESC = ("Loose Ends is a one-person studio that designs and builds websites, automations and content systems for established firms in the US and Europe. "
              "Follow-up, booking and reporting that run on their own, with a person approving before anything is sent.")
 
 # ── wording outside the v4 text. The connections section was not covered and is unchanged. ──
