@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Website and Online Shop Design: Shopify and Etsy | Houssem Gabsi</title>
+<title>Website and Online Shop Design: Shopify and Etsy | Loose Ends</title>
 <meta name="description" content="Websites, booking applications and online shops on Shopify and Etsy, designed and built by one person and connected to the rest of your tools.">
 <meta name="author" content="Houssem Gabsi">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta name="theme-color" content="#E9E7DE">
 <link rel="canonical" href="https://houssem-gabsi.vercel.app/websites-and-online-shops/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<meta property="og:site_name" content="Houssem Gabsi">
+<meta property="og:site_name" content="Loose Ends">
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://houssem-gabsi.vercel.app/websites-and-online-shops/">
 <meta property="og:type" content="website">
@@ -26,7 +26,7 @@
    "@type": "WebPage",
    "@id": "https://houssem-gabsi.vercel.app/websites-and-online-shops/#webpage",
    "url": "https://houssem-gabsi.vercel.app/websites-and-online-shops/",
-   "name": "Website and Online Shop Design: Shopify and Etsy | Houssem Gabsi",
+   "name": "Website and Online Shop Design: Shopify and Etsy | Loose Ends",
    "description": "Websites, booking applications and online shops on Shopify and Etsy, designed and built by one person and connected to the rest of your tools.",
    "inLanguage": "en",
    "isPartOf": {
@@ -46,7 +46,7 @@
     {
      "@type": "ListItem",
      "position": 1,
-     "name": "Houssem Gabsi",
+     "name": "Loose Ends",
      "item": "https://houssem-gabsi.vercel.app/"
     },
     {
@@ -66,7 +66,7 @@
    "provider": {
     "@type": "ProfessionalService",
     "@id": "https://houssem-gabsi.vercel.app/#studio",
-    "name": "Houssem Gabsi",
+    "name": "Loose Ends",
     "url": "https://houssem-gabsi.vercel.app/"
    },
    "areaServed": [
@@ -849,6 +849,136 @@ section:not(.close) > .wrap > h2::before{font-family:Archivo,sans-serif;font-siz
 .pinspace,.pinhint{display:none}
 .hgrid .disc{margin-top:clamp(28px,4vw,48px)}
 
+/* ══ v2 step 5: framed panels and section rhythm ══ */
+body{overflow-x:clip}
+main{padding-top:0}
+.lp main{padding-top:calc(var(--inset) + 16px + 62px + 24px)}
+section.panel{background:var(--ink);color:var(--wall);margin:0 var(--inset);border-radius:var(--r-panel)}
+section.panel > .wrap > h2{color:var(--wall)}
+section.panel > .wrap > h2::before{color:rgba(233,231,222,.55)}
+section.panel .intro-l{color:rgba(233,231,222,.7)}
+.band.tint{background:var(--wall-2)}
+.paper{background:#F3F1EA}
+.close{background:var(--ink);margin:0;border-radius:0}
+.ft{background:var(--ink);color:var(--wall);padding-top:0}
+.ft .brand,.ft nav a,.ftc a,.askai a{color:var(--wall)}
+.fta p,.ft b,.ftc span{color:rgba(233,231,222,.6)}
+.askai{border-top-color:rgba(233,231,222,.16)}
+/* selected work sits on the cream page until step 8 rebuilds it as alternating rows */
+.worklay{display:block}.windex{display:none}
+.shot{color:var(--ink)}.shot img{border-color:var(--sand)}.shot span{border-bottom-color:rgba(27,32,28,.5)}
+
+/* ══ v4 wording: a small label above each heading, replacing the section numbers ══ */
+section:not(.close) > .wrap > h2::before{content:none}
+.lab{font-family:Archivo,sans-serif;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.14em;line-height:1;color:var(--ink-soft);margin:0 0 18px}
+section.panel .lab{color:rgba(233,231,222,.55)}
+section:not(.close) > .wrap > h2{max-width:22ch;text-wrap:balance}
+.stl{text-align:center;margin-top:clamp(28px,4vw,48px)}
+.pill{display:inline-flex;align-items:center;height:38px;padding:0 18px;border-radius:999px;border:1px solid rgba(27,32,28,.22);font-size:14px;font-weight:500;color:var(--ink);text-decoration:none;
+  transition:background-color .2s var(--ease),color .2s var(--ease)}
+@media(hover:hover){.pill:hover{background:var(--ink);color:var(--wall)}}
+.chd .meta{margin:0 0 12px;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.14em;line-height:1.4}
+.arc > div{grid-template-columns:1fr}
+.arc .proof p{color:var(--ink-soft);font-size:var(--t-small)}
+.how li{grid-template-columns:minmax(0,.55fr) minmax(0,1fr) minmax(0,1.5fr) 104px}
+.how .tag{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-soft);text-align:right}
+@media(max-width:700px){.how li{grid-template-columns:minmax(52px,.34fr) minmax(0,1fr)}.how .tag{grid-column:2;text-align:left;margin-top:8px}}
+.sublab{margin:clamp(56px,7vw,96px) 0 22px}
+.cnote{margin-top:16px;font-size:var(--t-small);color:rgba(233,231,222,.6)}
+.hp1 h1{max-width:1080px}
+
+/* ══ v2 step 3: navigation, a floating bar ══ */
+.nav{top:calc(var(--inset) + 16px);left:50%;right:auto;transform:translateX(-50%);width:min(var(--wrap),100% - 2 * var(--gut));max-width:none;height:62px;margin:0;
+  padding:0 12px 0 26px;border-radius:30px;background:rgba(233,231,222,.72);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);
+  border:1px solid rgba(27,32,28,.10)}
+.nav.sc{border-color:rgba(27,32,28,.10)}
+.nav nav a{font-size:14px}
+section[id]{scroll-margin-top:calc(var(--inset) + 16px + 62px + 12px)}
+@media(max-width:860px){.nav{top:calc(var(--inset) + 10px);left:50%;right:auto;padding-left:20px}}
+
+/* ══ v2 step 4: buttons ══ */
+.btn,.btn.big,.btn.big2,.btn.inv{height:50px;padding:0 26px;border-radius:999px;font-family:Archivo,sans-serif;font-size:15.7px;font-weight:500;
+  background:var(--ochre);color:var(--ink);transition:background-color .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
+.btn.sm{height:38px;padding:0 18px;font-size:14px}
+@media(hover:hover){.btn:hover{transform:translateY(-1px)}}
+.tl{border-bottom:1px solid currentColor;padding-bottom:2px;transition:color .2s var(--ease)}
+
+/* ══ v2 step 6: pinned hero ══ */
+.hero-track{height:420vh;position:relative}
+.hero-stage{position:sticky;top:0;height:100vh}
+.hero-card{position:absolute;inset:var(--inset);border-radius:var(--r-panel);background:var(--ink);color:var(--wall);overflow:hidden}
+.hweek{position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);width:min(980px,100% - 2 * var(--gut));opacity:.25}
+.hweek .grid{margin:0}
+.hweek .week{gap:clamp(3px,.75vh,7px) clamp(3px,.5vw,7px)}
+.hweek .week i{height:clamp(6px,1.35vh,13px);border-radius:2px;transition:none}
+.hweek .week i.e{background:transparent;box-shadow:inset 0 0 0 1px rgba(233,231,222,.11)}
+.hweek .week i.w{background:#3F6C9B}
+.hweek .week i.m{background:var(--ochre);box-shadow:none;transition:background-color .35s var(--ease),box-shadow .35s var(--ease)}
+.hweek .week i.m.c{background:transparent;box-shadow:inset 0 0 0 1px rgba(233,231,222,.11)}
+.hweek .days span,.hweek .hrs span{color:rgba(233,231,222,.5);font-size:12px}
+.hcount{position:absolute;top:calc(16px + 62px + 26px);right:var(--gut);display:flex;align-items:baseline;gap:10px;margin:0;opacity:0;
+  color:rgba(233,231,222,.75);font-size:var(--t-small)}
+.hcount b{font-family:Fraunces,serif;font-weight:300;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1;color:var(--ochre);font-variant-numeric:tabular-nums}
+.hp{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 var(--gut);opacity:0;will-change:opacity,transform}
+.hp1{align-items:center;text-align:center;opacity:1}
+.hp1 h1{color:var(--wall);font-size:var(--t-h1);font-weight:300;line-height:1.04;letter-spacing:-.02em;max-width:min(1080px,16ch);text-wrap:balance;
+  font-variation-settings:"opsz" 144,"SOFT" 36,"WONK" 1}
+.hp1 h1 .hl{color:var(--ochre)}
+.hp1 .sub{margin-top:clamp(18px,2.4vw,30px);max-width:60ch;color:rgba(233,231,222,.78);font-size:var(--t-lede);line-height:1.55;opacity:1;animation:none}
+.hbtns{display:flex;gap:22px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:clamp(22px,3vw,36px)}
+.hero-card .tl{color:var(--wall)}
+.hp2{inset:auto;left:52%;bottom:18%;width:min(430px,42%);display:block;padding:26px 28px;background:rgba(27,32,28,.9);border:1px solid rgba(233,231,222,.12);border-radius:var(--r-card)}
+.hp-h{font-family:Fraunces,serif;font-weight:300;font-size:var(--t-h3l);line-height:1.12;letter-spacing:-.02em}
+.hp-t{margin-top:10px;color:rgba(233,231,222,.75)}
+.hp4{align-items:center;text-align:center}
+.hfinal{display:flex;flex-direction:column;align-items:center;gap:8px;margin:0;max-width:900px}
+.hfinal b{font-family:Fraunces,serif;font-weight:300;font-size:clamp(4.5rem,13vw,11rem);line-height:.9;letter-spacing:-.04em;color:var(--ochre);font-variant-numeric:tabular-nums}
+.hfinal span{font-size:var(--t-lede);color:rgba(233,231,222,.8)}
+.hp4 .sw{margin-top:28px;background:rgba(233,231,222,.1)}
+.hp4 .sw button{color:rgba(233,231,222,.7)} .hp4 .sw button[aria-pressed=true]{color:var(--ink)} .hp4 .sw .thumb{background:var(--wall)}
+.hnote{position:absolute;left:var(--gut);bottom:22px;margin:0;font-size:12px;color:rgba(233,231,222,.45)}
+.hscroll{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(233,231,222,.6);
+  transition:opacity .3s var(--ease)}
+@media(max-width:860px){.hero-track{height:320vh}.hweek{top:56%}
+  .hp2{left:var(--gut);right:var(--gut);width:auto;bottom:11%;padding:20px 22px}
+  .hnote{left:0;right:0;text-align:center;bottom:14px}.hscroll{bottom:38px}
+  .hcount{top:calc(10px + 62px + 20px)}}
+@media(prefers-reduced-motion:reduce){
+  .hero-track{height:auto!important}.hero-stage{position:static!important;height:auto!important}
+  .hero-card{position:relative!important;inset:auto!important;margin:var(--inset);padding:calc(62px + 70px) 0 56px;display:flex;flex-direction:column}
+  .hp{position:static!important;opacity:1!important;transform:none!important}
+  .hp1{order:1}.hweek{order:2;position:static!important;transform:none!important;margin:48px auto 40px;opacity:1!important}.hp4{order:3}.hnote{order:4;position:static!important;text-align:center;margin-top:28px}
+  .hp2,.hcount,.hscroll{display:none!important}}
+
+/* ══ v2 step 9: services, an expanding row inside the dark panel ══ */
+.offer{display:flex;gap:12px;height:clamp(380px,35vw,510px);margin-top:var(--h2gap);border:0}
+.offer > .svc{flex:1 1 0;min-width:0;border-top:0}
+html.js .offer > .svc.rv,.offer > .svc{transition:flex-grow .45s var(--ease-io),opacity .4s ease,transform .45s ease}
+html.js .offer > .svc.act,.offer > .svc.act{flex-grow:2.62}
+.offer .svc .card,html.js .offer > .svc.act .card{position:relative;display:block;height:100%;min-height:0;padding:0;border-radius:var(--r-card);
+  background:rgba(233,231,222,.06);border:1px solid rgba(233,231,222,.12);color:var(--wall);overflow:hidden;cursor:pointer}
+html.js .offer > .svc.act .card{background:rgba(233,231,222,.1);cursor:default}
+.c-min{position:absolute;inset:0;padding:clamp(18px,2vw,28px);display:flex;flex-direction:column;justify-content:space-between;transition:opacity .25s var(--ease)}
+.c-min .idx{font-size:11px;font-weight:500;letter-spacing:.14em;color:rgba(233,231,222,.55)}
+.c-min .c-t{font-family:Fraunces,serif;font-weight:300;font-size:var(--t-h3s);line-height:1.12;letter-spacing:-.02em}
+.c-max{position:absolute;left:0;top:0;bottom:0;width:calc((min(var(--wrap),100vw - 2 * var(--gut) - 2 * var(--inset)) - 24px) * .567);
+  padding:clamp(22px,2.6vw,36px);display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .2s var(--ease),visibility 0s .2s}
+.svc.act .c-min{opacity:0}
+.svc.act .c-max{opacity:1;visibility:visible;transition:opacity .35s var(--ease) .2s,visibility 0s}
+.c-max .pm{margin:0;--door:var(--wall);flex:none}
+.c-max .pl{margin-top:auto;padding-top:20px}
+html.js .offer > .svc .card .c-max h3,.offer .svc .c-max h3{font-size:2.2rem;line-height:1.08;color:var(--wall);max-width:16ch;margin-top:8px}
+html.js .offer > .svc .card .c-max p,.offer .svc .c-max p{display:block;margin-top:12px;max-width:54ch;font-size:16px;color:rgba(233,231,222,.78);animation:none}
+html.js .offer > .svc .card .c-max .ex,.offer .svc .c-max .ex{display:grid;grid-template-columns:1fr 1fr;gap:7px 24px;margin-top:16px;padding-top:14px;
+  border-top:1px solid rgba(233,231,222,.18);font-size:var(--t-small);animation:none}
+html.js .offer > .svc .card .c-max .c-links,.offer .svc .c-max .c-links{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-size:var(--t-small)}
+.c-links a{color:var(--wall);text-decoration:none;border-bottom:1px solid rgba(233,231,222,.4);transition:color .2s var(--ease),border-color .2s var(--ease)}
+@media(hover:hover){.c-links a:hover{color:var(--ochre);border-color:var(--ochre)}}
+@media(max-width:860px){.offer{flex-direction:column;height:auto}.offer > .svc,html.js .offer > .svc.act{flex:none}
+  .offer .svc .card,html.js .offer > .svc.act .card{height:auto;cursor:default}.c-min{display:none}
+  .c-max{position:static;width:auto;opacity:1;visibility:visible}
+  html.js .offer > .svc .card .c-max .ex,.offer .svc .c-max .ex{grid-template-columns:1fr}}
+
 .lphero{padding:clamp(48px,9vh,110px) 0 clamp(28px,5vh,56px)}
 .crumb{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:clamp(20px,3.4vh,36px)}
 .crumb a{color:inherit;text-decoration:none} .crumb i{font-style:normal;margin:0 10px;color:var(--sand)}
@@ -871,13 +1001,13 @@ section:not(.close) > .wrap > h2::before{font-family:Archivo,sans-serif;font-siz
 @media(max-width:700px){.lpshort{grid-template-columns:1fr}}
 </style></head><body class="lp">
 <header class="nav sc" id="nav">
-  <a class="brand" href="/">Houssem Gabsi</a>
+  <a class="brand" href="/">Loose Ends</a>
   <nav aria-label="Services"><a href="/claude-consulting/">Claude consulting</a><a href="/ai-automation/">AI automation</a><a href="/mcp-integrations/">MCP integrations</a><a href="/websites-and-online-shops/">Websites and online shops</a><a href="/seo-geo/">SEO and GEO</a></nav>
   <a class="btn sm" href="#contact">Free review</a>
 </header>
 <main>
 <div class="lphero"><div class="wrap">
-  <p class="crumb"><a href="/">Houssem Gabsi</a><i>/</i>Websites and online shops</p>
+  <p class="crumb"><a href="/">Loose Ends</a><i>/</i>Websites and online shops</p>
   <h1 class="lph1">Website and online shop design, connected to the rest of your business</h1>
   <p class="lplead">I design and build websites, booking applications and online shops, and connect them to the tools behind them, so an enquiry, a booking or an order reaches the right place without anyone retyping it.</p>
   <div class="cta"><a class="btn big2" href="#contact">Request a free review</a><a class="tl" href="/#work">See selected work</a></div>
@@ -897,5 +1027,5 @@ section:not(.close) > .wrap > h2::before{font-family:Archivo,sans-serif;font-siz
   <p class="lead">Contact details will be added here shortly.</p>
 </div></section>
 </main>
-<footer class="ft"><div class="wrap"><div class="ftg"><div class="fta"><a class="brand" href="/#top">Houssem Gabsi</a><p>A studio of one that builds websites, booking systems, automations and content systems for businesses of any kind, from independent professionals to established firms.</p></div><nav aria-label="Sections"><b>Sections</b><a href="/#services">Services</a><a href="/#work">Work</a><a href="/#systems">Systems</a><a href="/#process">Process</a><a href="/#questions">Questions</a></nav><nav aria-label="Services"><b>Services</b><a href="/claude-consulting/">Claude consulting</a><a href="/ai-automation/">AI automation</a><a href="/mcp-integrations/">MCP integrations</a><a href="/websites-and-online-shops/">Websites and online shops</a><a href="/seo-geo/">SEO and GEO</a></nav><div class="ftc"><b>Contact</b><a href="/#contact">Request a free review</a><span>English, français, العربية</span><a href="/tools/stock-sales-production-tracker/">Free stock, sales and production tracker</a></div></div><div class="askai"><b>Ask AI about this studio</b><a href="https://chatgpt.com/?q=Tell%20me%20about%20Houssem%20Gabsi%27s%20studio%20%28houssem-gabsi.vercel.app%29%2C%20which%20builds%20websites%2C%20automation%20and%20content%20systems%20for%20established%20firms%2C%20and%20how%20it%20could%20help%20my%20business." target="_blank" rel="noopener">ChatGPT</a><a href="https://claude.ai/new?q=Tell%20me%20about%20Houssem%20Gabsi%27s%20studio%20%28houssem-gabsi.vercel.app%29%2C%20which%20builds%20websites%2C%20automation%20and%20content%20systems%20for%20established%20firms%2C%20and%20how%20it%20could%20help%20my%20business." target="_blank" rel="noopener">Claude</a><a href="https://www.perplexity.ai/search?q=Tell%20me%20about%20Houssem%20Gabsi%27s%20studio%20%28houssem-gabsi.vercel.app%29%2C%20which%20builds%20websites%2C%20automation%20and%20content%20systems%20for%20established%20firms%2C%20and%20how%20it%20could%20help%20my%20business." target="_blank" rel="noopener">Perplexity</a></div></div></footer>
+<footer class="ft"><div class="wrap"><div class="ftg"><div class="fta"><a class="brand" href="/#top">Loose Ends</a><p>Loose Ends is a one-person studio in Tunis, run by Houssem Gabsi. It builds websites, automation and content systems for established firms, in English, French and Arabic.</p></div><nav aria-label="Sections"><b>Sections</b><a href="/#services">Services</a><a href="/#work">Work</a><a href="/#systems">Systems</a><a href="/#process">Process</a><a href="/#questions">Questions</a></nav><nav aria-label="Services"><b>Services</b><a href="/claude-consulting/">Claude consulting</a><a href="/ai-automation/">AI automation</a><a href="/mcp-integrations/">MCP integrations</a><a href="/websites-and-online-shops/">Websites and online shops</a><a href="/seo-geo/">SEO and GEO</a></nav><div class="ftc"><b>Contact</b><a href="/#contact">Request a free review</a><span>English, français, العربية</span><a href="/tools/stock-sales-production-tracker/">Free stock, sales and production tracker</a></div></div><div class="askai"><b>Ask AI about this studio</b><a href="https://chatgpt.com/?q=Tell%20me%20about%20Loose%20Ends%20%28houssem-gabsi.vercel.app%29%2C%20a%20studio%20run%20by%20Houssem%20Gabsi%20that%20builds%20websites%2C%20automation%20and%20content%20systems%20for%20established%20firms%2C%20and%20how%20it%20could%20help%20my%20business." target="_blank" rel="noopener">ChatGPT</a><a href="https://claude.ai/new?q=Tell%20me%20about%20Loose%20Ends%20%28houssem-gabsi.vercel.app%29%2C%20a%20studio%20run%20by%20Houssem%20Gabsi%20that%20builds%20websites%2C%20automation%20and%20content%20systems%20for%20established%20firms%2C%20and%20how%20it%20could%20help%20my%20business." target="_blank" rel="noopener">Claude</a><a href="https://www.perplexity.ai/search?q=Tell%20me%20about%20Loose%20Ends%20%28houssem-gabsi.vercel.app%29%2C%20a%20studio%20run%20by%20Houssem%20Gabsi%20that%20builds%20websites%2C%20automation%20and%20content%20systems%20for%20established%20firms%2C%20and%20how%20it%20could%20help%20my%20business." target="_blank" rel="noopener">Perplexity</a></div></div></footer>
 </body></html>

@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 import html, random
-from cases import INTRO, STATEMENT, WEEK_INTRO, DISCIPLINES,SERVICES_INTRO, EXAMPLES, CTA_NOTE, CTA_WORK, CTA_CONNECT, NEXT, CASES, WHAT, HOW, SYSTEMS, RULES, FAQ
+from cases import (HEAD_TEXT, INTRO, HERO_BTN, HERO_LINK, PANEL2_HEAD, PANEL2_TEXT, COUNTER_TEXT, WEEK_NOTE, STATEMENT, STATEMENT_LINK,
+    WORK_LABEL, WORK_HEAD, CASES, SERVICES_LABEL, SERVICES_HEAD, WHAT, EXAMPLES, SYSTEMS_LABEL, SYSTEMS_HEAD, SYSTEMS, SYSTEMS_NOTE, SYSTEMS_NOTE_LINK,
+    CAPACITY_LABEL, CAPACITY_HEAD, CAPACITY_INTRO, ENQUIRY_LABEL, ENQUIRY_HEAD, ENQUIRY_INTRO, COMMIT_LABEL, COMMIT_HEAD, RULES,
+    PROCESS_LABEL, PROCESS_HEAD, PROCESS_INTRO, HOW, FAQ_LABEL, FAQ_HEAD, FAQ, CLOSE_HEAD, CLOSE_TEXT, CLOSE_BTN, CLOSE_NOTE,
+    FOOT_DESC, PAGE_TITLE, PAGE_DESC, CTA_NOTE, CTA_CONNECT, PRODUCTS, PRODUCTS_LABEL)
+WORK = CASES + PRODUCTS   # four client cases, then the studio's own products
 import re, json
 from urllib.parse import quote
 from parts import AGENTS, FLOW_TRIGGER, FLOW_STEPS, FLOW_END, NUMBERS, DAY_HOURS, CONNECT_INTRO, CONNECTS, CONNECT_NOTE
@@ -48,17 +53,6 @@ def P(t, cls=""):
     c = (cls + " gap").strip() if gap(t) else cls
     return '<p%s>%s</p>' % ((' class="%s"' % c) if c else "", e(t))
 
-cases = "\n".join(
- """<article class="case">
-  <div class="chd"><h3>%s</h3><p class="meta">%s</p></div>
-  <div class="arc">
-    <div><span>Challenge</span>%s</div>
-    <div><span>Work delivered</span>%s</div>
-    <div><span>Status</span>%s</div>
-  </div>
- </article>""" % (e(c["who"]), e(c["kind"]), P(c["before"]), P(c["did"]), P(c["now"]))
- for c in CASES)
-
 AG_IC = ["moon_mail","invoice","cv_read","calendar_tick","pen","speech","bars","folder_in"]
 agents = "\n".join(
  '<li style="--i:%d">%s<b>%s</b><span>%s</span></li>' % (i, svg(AG_IC[i]), e(a), e(b))
@@ -89,24 +83,23 @@ rules = "\n".join('<div><h3>%s</h3><p>%s</p></div>' % (e(a), e(b)) for a,b in RU
 faq = "\n".join('<div><h3>%s</h3><p>%s</p></div>' % (e(a), e(b)) for a,b in FAQ)
 SITE = "https://houssem-gabsi.vercel.app/"
 EMAIL = ""   # contact address shown on the site. Left empty for now at Houssem's request. Set it and the review buttons become email links again.
-HEAD = "Websites, automation and AI, built to work as one."
-HEAD_ACCENT = 2   # how many closing words of the headline take the accent colour
-TITLE = "Websites, automation and AI | Houssem Gabsi"
-OG_TITLE = "Websites, automation and AI, built to work as one"
-DESC = ("A studio of one. Websites, automation and AI set up to work together, for businesses of any size or trade. "
-        "A person approves before anything is sent.")
-OG_DESC = "Follow-ups that are never forgotten, bookings confirmed, weekly reports prepared without anyone writing them. Built by one person, approved by yours."
-OG_ALT = HEAD + " A studio of one, for businesses of any kind."
-ABOUT = "A studio of one that builds websites, booking systems, automations and content systems for businesses of any kind, from independent professionals to established firms."
+HEAD = HEAD_TEXT
+HEAD_ACCENT = 3   # how many closing words of the headline take the accent colour
+TITLE = PAGE_TITLE
+OG_TITLE = HEAD_TEXT
+DESC = PAGE_DESC
+OG_DESC = PAGE_DESC
+OG_ALT = HEAD_TEXT
+ABOUT = FOOT_DESC
 LANGS = ["English","French","Arabic"]
 PLACE = {"@type":"PostalAddress","addressLocality":"Tunis","addressCountry":"TN"}
 LD = json.dumps({"@context":"https://schema.org","@graph":[
- {"@type":"WebSite","@id":SITE+"#website","url":SITE,"name":"Houssem Gabsi","description":ABOUT,
+ {"@type":"WebSite","@id":SITE+"#website","url":SITE,"name":"Loose Ends","description":ABOUT,
   "inLanguage":"en","publisher":{"@id":SITE+"#studio"}},
  {"@type":"WebPage","@id":SITE+"#webpage","url":SITE,"name":TITLE,"description":DESC,"inLanguage":"en",
   "isPartOf":{"@id":SITE+"#website"},"about":{"@id":SITE+"#studio"},
   "primaryImageOfPage":{"@type":"ImageObject","url":SITE+"og.png","width":1200,"height":630}},
- {"@type":"ProfessionalService","@id":SITE+"#studio","name":"Houssem Gabsi",
+ {"@type":"ProfessionalService","@id":SITE+"#studio","name":"Loose Ends",
   "description":ABOUT,
   "founder":{"@id":SITE+"#person"},
   "url":SITE,
@@ -123,24 +116,27 @@ LD = json.dumps({"@context":"https://schema.org","@graph":[
  {"@type":"ItemList","@id":SITE+"#work","name":"Selected work","itemListElement":[
     {"@type":"ListItem","position":i+1,"item":{"@type":"CreativeWork","@id":SITE+"#case-%d" % i,"url":SITE+"#case-%d" % i,
       "name":c["who"],"description":c["did"],"creator":{"@id":SITE+"#person"},
-      **({"sameAs":c["link"],"image":SITE+"media/"+c["img"]} if c.get("link") else {})}} for i,c in enumerate(CASES)]},
+      **({"sameAs":c["link"],"image":SITE+"media/"+c["img"]} if c.get("link") else {})}} for i,c in enumerate(WORK)]},
  {"@type":"FAQPage","@id":SITE+"#faq","isPartOf":{"@id":SITE+"#webpage"},"mainEntity":[
     {"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in FAQ]}
 ]}, ensure_ascii=False, indent=1)
 
 # plain-text summary for AI assistants, written from the same lists as the page
 def _llms():
-    L = ["# Houssem Gabsi", "", "> " + ABOUT, "",
+    L = ["# Loose Ends", "", "> " + ABOUT, "",
          "Based in Tunis. Works in English, French and Arabic." + ((" Contact: " + EMAIL) if EMAIL else ""), "",
          "Site: " + SITE, "", "## Services", ""]
     L += ["- %s: %s" % (t, d) for _,_,t,d in WHAT]
     L += ["", "## Cases", "", "Four pieces of client work. Clients are not named."]
     for c in CASES[:4]:
         L += ["", "### " + c["who"], "", c["kind"], "", c["did"], "", "Status: " + c["now"]]
+    L += ["", "## " + PRODUCTS_LABEL]
+    for c in PRODUCTS:
+        L += ["", "### " + c["who"], "", c["did"], "", "Status: " + c["now"], "", "Link: " + c["link"]]
     L += ["", "## Systems", ""]
     L += ["- %s: %s Status: %s" % (a, c, d) for a,b,c,d in SYSTEMS]
     L += ["", "## How an engagement starts", ""]
-    L += ["%d. %s: %s" % (i+1, a, b) for i,(a,b) in enumerate(HOW[:3])]
+    L += ["%d. %s %s" % (i+1, a, b) for i,(a,b,_) in enumerate(HOW[:3])]
     L += ["", "## Contact", "",
           ("Email: " + EMAIL) if EMAIL else "Request a free review from the contact section of the site: " + SITE + "#contact", ""]
     L += ["## Pages", "", "- [Home](%s): the whole studio on one page." % SITE,
@@ -152,32 +148,31 @@ LLMS = _llms()
 
 # the whole home page as clean Markdown, in page order, from the same lists
 def _md():
-    L = ["# " + HEAD, "", INTRO, "", "Houssem Gabsi. Independent studio, Tunis. English, French and Arabic.", "", STATEMENT, "",
-         "## What the studio does", "", SERVICES_INTRO]
+    L = ["# " + HEAD, "", INTRO, "", STATEMENT, "", "## " + WORK_HEAD]
+    for c in CASES:
+        L += ["", "### " + c["who"], "", c["kind"], "", c["did"], "", c["now"]]
+    L += ["", "## " + PRODUCTS_LABEL]
+    for c in PRODUCTS:
+        L += ["", "### " + c["who"], "", c["kind"], "", c["did"], "", c["now"], "", c["link"]]
+    L += ["", "## " + SERVICES_HEAD]
     for m,k,t,dsc in WHAT:
         L += ["", "### %s: %s" % (k, t), "", dsc, ""] + ["- " + x for x in EXAMPLES[m]]
     L += ["", "## What gets connected, and what changes", "", CONNECT_INTRO, ""]
     L += ["- **%s.** %s" % (a, b) for _,a,b in CONNECTS]
-    L += ["", CONNECT_NOTE, "", "## Selected work"]
-    for c in CASES:
-        L += ["", "### " + c["who"], "", c["kind"], "",
-              "- **Challenge.** " + c["before"], "- **Work delivered.** " + c["did"], "- **Status.** " + c["now"]]
-        if c.get("link"): L += ["- **Link.** " + c["link"]]
-    L += ["", "## Systems"]
+    L += ["", CONNECT_NOTE, "", "## " + SYSTEMS_HEAD]
     for a,b,c,dd in SYSTEMS:
-        L += ["", "### " + a, "", b, "", c, "", "Status: " + dd]
-    L += ["", "## A small team with the capacity of a larger one", "",
-          "Each of these is a process that runs automatically. From the outside, the business simply responds faster.", ""]
+        L += ["", "### " + a, "", c, "", dd]
+    L += ["", "## " + CAPACITY_HEAD, "", CAPACITY_INTRO, ""]
     L += ["- %s, %s." % (a, b) for a,b in AGENTS]
-    L += ["", "## An enquiry, handled end to end", "", "1. " + FLOW_TRIGGER]
+    L += ["", "## " + ENQUIRY_HEAD, "", ENQUIRY_INTRO, "", "1. " + FLOW_TRIGGER]
     L += ["%d. %s" % (i+2, x) for i,x in enumerate(FLOW_STEPS)]
-    L += ["%d. %s" % (len(FLOW_STEPS)+2, FLOW_END), "", "## How I work", ""]
+    L += ["%d. %s" % (len(FLOW_STEPS)+2, FLOW_END), "", "## " + COMMIT_HEAD, ""]
     L += ["- **%s** %s" % (a, b) for a,b in RULES]
-    L += ["", "## Process", ""]
-    L += ["%d. **%s.** %s" % (i+1, a, b) for i,(a,b) in enumerate(HOW)]
-    L += ["", "## Common questions"]
+    L += ["", "## " + PROCESS_HEAD, "", PROCESS_INTRO, ""]
+    L += ["%d. **%s** %s (%s)" % (i+1, a, b, t) for i,(a,b,t) in enumerate(HOW)]
+    L += ["", "## " + FAQ_HEAD]
     for q,a in FAQ: L += ["", "### " + q, "", a]
-    L += ["", "## Contact", "", "A free one-page review of your follow-up, booking and administration. No call required.", "",
+    L += ["", "## " + CLOSE_HEAD, "", CLOSE_TEXT, "", CLOSE_NOTE, "",
           ("Email: " + EMAIL) if EMAIL else "Request it from the contact section of the site: " + SITE + "#contact",
           "", "## More pages", ""]
     L += ["- [%s](%s%s/)" % (pg["title"], SITE, pg["slug"]) for pg in PAGES]
@@ -185,7 +180,7 @@ def _md():
           "- [Short guide for AI assistants](%sllms.txt)" % SITE, ""]
     return "\n".join(L)
 PAGE_MD = _md()
-how  = "\n".join('<li><h3>%s</h3><p>%s</p></li>' % (e(a), e(b)) for a,b in HOW)
+how  = "\n".join('<li><h3>%s</h3><p>%s</p><span class="tag">%s</span></li>' % (e(a), e(b), e(t)) for a,b,t in HOW)
 
 HTML = """<!doctype html>
 <html lang="en"><head>
@@ -199,7 +194,7 @@ HTML = """<!doctype html>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="text/plain" href="/llms.txt" title="Plain-text summary of this site">
 <link rel="alternate" type="text/markdown" href="/index.md">
-<meta property="og:site_name" content="Houssem Gabsi">
+<meta property="og:site_name" content="Loose Ends">
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="SITEHERE">
 <meta property="og:image" content="SITEHEREog.png">
@@ -945,30 +940,148 @@ section:not(.close) > .wrap > h2::before{font-family:Archivo,sans-serif;font-siz
 .hgrid{display:block}.hero .weekwrap{position:static;margin-top:clamp(40px,5vw,72px);padding:0;background:none}
 .pinspace,.pinhint{display:none}
 .hgrid .disc{margin-top:clamp(28px,4vw,48px)}
+
+/* ══ v2 step 5: framed panels and section rhythm ══ */
+body{overflow-x:clip}
+main{padding-top:0}
+.lp main{padding-top:calc(var(--inset) + 16px + 62px + 24px)}
+section.panel{background:var(--ink);color:var(--wall);margin:0 var(--inset);border-radius:var(--r-panel)}
+section.panel > .wrap > h2{color:var(--wall)}
+section.panel > .wrap > h2::before{color:rgba(233,231,222,.55)}
+section.panel .intro-l{color:rgba(233,231,222,.7)}
+.band.tint{background:var(--wall-2)}
+.paper{background:#F3F1EA}
+.close{background:var(--ink);margin:0;border-radius:0}
+.ft{background:var(--ink);color:var(--wall);padding-top:0}
+.ft .brand,.ft nav a,.ftc a,.askai a{color:var(--wall)}
+.fta p,.ft b,.ftc span{color:rgba(233,231,222,.6)}
+.askai{border-top-color:rgba(233,231,222,.16)}
+/* selected work sits on the cream page until step 8 rebuilds it as alternating rows */
+.worklay{display:block}.windex{display:none}
+.shot{color:var(--ink)}.shot img{border-color:var(--sand)}.shot span{border-bottom-color:rgba(27,32,28,.5)}
+
+/* ══ v4 wording: a small label above each heading, replacing the section numbers ══ */
+section:not(.close) > .wrap > h2::before{content:none}
+.lab{font-family:Archivo,sans-serif;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.14em;line-height:1;color:var(--ink-soft);margin:0 0 18px}
+section.panel .lab{color:rgba(233,231,222,.55)}
+section:not(.close) > .wrap > h2{max-width:22ch;text-wrap:balance}
+.stl{text-align:center;margin-top:clamp(28px,4vw,48px)}
+.pill{display:inline-flex;align-items:center;height:38px;padding:0 18px;border-radius:999px;border:1px solid rgba(27,32,28,.22);font-size:14px;font-weight:500;color:var(--ink);text-decoration:none;
+  transition:background-color .2s var(--ease),color .2s var(--ease)}
+@media(hover:hover){.pill:hover{background:var(--ink);color:var(--wall)}}
+.chd .meta{margin:0 0 12px;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.14em;line-height:1.4}
+.arc > div{grid-template-columns:1fr}
+.arc .proof p{color:var(--ink-soft);font-size:var(--t-small)}
+.how li{grid-template-columns:minmax(0,.55fr) minmax(0,1fr) minmax(0,1.5fr) 104px}
+.how .tag{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-soft);text-align:right}
+@media(max-width:700px){.how li{grid-template-columns:minmax(52px,.34fr) minmax(0,1fr)}.how .tag{grid-column:2;text-align:left;margin-top:8px}}
+.sublab{margin:clamp(56px,7vw,96px) 0 22px}
+.cnote{margin-top:16px;font-size:var(--t-small);color:rgba(233,231,222,.6)}
+.hp1 h1{max-width:1080px}
+
+/* ══ v2 step 3: navigation, a floating bar ══ */
+.nav{top:calc(var(--inset) + 16px);left:50%;right:auto;transform:translateX(-50%);width:min(var(--wrap),100% - 2 * var(--gut));max-width:none;height:62px;margin:0;
+  padding:0 12px 0 26px;border-radius:30px;background:rgba(233,231,222,.72);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);
+  border:1px solid rgba(27,32,28,.10)}
+.nav.sc{border-color:rgba(27,32,28,.10)}
+.nav nav a{font-size:14px}
+section[id]{scroll-margin-top:calc(var(--inset) + 16px + 62px + 12px)}
+@media(max-width:860px){.nav{top:calc(var(--inset) + 10px);left:50%;right:auto;padding-left:20px}}
+
+/* ══ v2 step 4: buttons ══ */
+.btn,.btn.big,.btn.big2,.btn.inv{height:50px;padding:0 26px;border-radius:999px;font-family:Archivo,sans-serif;font-size:15.7px;font-weight:500;
+  background:var(--ochre);color:var(--ink);transition:background-color .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
+.btn.sm{height:38px;padding:0 18px;font-size:14px}
+@media(hover:hover){.btn:hover{transform:translateY(-1px)}}
+.tl{border-bottom:1px solid currentColor;padding-bottom:2px;transition:color .2s var(--ease)}
+
+/* ══ v2 step 6: pinned hero ══ */
+.hero-track{height:420vh;position:relative}
+.hero-stage{position:sticky;top:0;height:100vh}
+.hero-card{position:absolute;inset:var(--inset);border-radius:var(--r-panel);background:var(--ink);color:var(--wall);overflow:hidden}
+.hweek{position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);width:min(980px,100% - 2 * var(--gut));opacity:.25}
+.hweek .grid{margin:0}
+.hweek .week{gap:clamp(3px,.75vh,7px) clamp(3px,.5vw,7px)}
+.hweek .week i{height:clamp(6px,1.35vh,13px);border-radius:2px;transition:none}
+.hweek .week i.e{background:transparent;box-shadow:inset 0 0 0 1px rgba(233,231,222,.11)}
+.hweek .week i.w{background:#3F6C9B}
+.hweek .week i.m{background:var(--ochre);box-shadow:none;transition:background-color .35s var(--ease),box-shadow .35s var(--ease)}
+.hweek .week i.m.c{background:transparent;box-shadow:inset 0 0 0 1px rgba(233,231,222,.11)}
+.hweek .days span,.hweek .hrs span{color:rgba(233,231,222,.5);font-size:12px}
+.hcount{position:absolute;top:calc(16px + 62px + 26px);right:var(--gut);display:flex;align-items:baseline;gap:10px;margin:0;opacity:0;
+  color:rgba(233,231,222,.75);font-size:var(--t-small)}
+.hcount b{font-family:Fraunces,serif;font-weight:300;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1;color:var(--ochre);font-variant-numeric:tabular-nums}
+.hp{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 var(--gut);opacity:0;will-change:opacity,transform}
+.hp1{align-items:center;text-align:center;opacity:1}
+.hp1 h1{color:var(--wall);font-size:var(--t-h1);font-weight:300;line-height:1.04;letter-spacing:-.02em;max-width:min(1080px,16ch);text-wrap:balance;
+  font-variation-settings:"opsz" 144,"SOFT" 36,"WONK" 1}
+.hp1 h1 .hl{color:var(--ochre)}
+.hp1 .sub{margin-top:clamp(18px,2.4vw,30px);max-width:60ch;color:rgba(233,231,222,.78);font-size:var(--t-lede);line-height:1.55;opacity:1;animation:none}
+.hbtns{display:flex;gap:22px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:clamp(22px,3vw,36px)}
+.hero-card .tl{color:var(--wall)}
+.hp2{inset:auto;left:52%;bottom:18%;width:min(430px,42%);display:block;padding:26px 28px;background:rgba(27,32,28,.9);border:1px solid rgba(233,231,222,.12);border-radius:var(--r-card)}
+.hp-h{font-family:Fraunces,serif;font-weight:300;font-size:var(--t-h3l);line-height:1.12;letter-spacing:-.02em}
+.hp-t{margin-top:10px;color:rgba(233,231,222,.75)}
+.hp4{align-items:center;text-align:center}
+.hfinal{display:flex;flex-direction:column;align-items:center;gap:8px;margin:0;max-width:900px}
+.hfinal b{font-family:Fraunces,serif;font-weight:300;font-size:clamp(4.5rem,13vw,11rem);line-height:.9;letter-spacing:-.04em;color:var(--ochre);font-variant-numeric:tabular-nums}
+.hfinal span{font-size:var(--t-lede);color:rgba(233,231,222,.8)}
+.hp4 .sw{margin-top:28px;background:rgba(233,231,222,.1)}
+.hp4 .sw button{color:rgba(233,231,222,.7)} .hp4 .sw button[aria-pressed=true]{color:var(--ink)} .hp4 .sw .thumb{background:var(--wall)}
+.hnote{position:absolute;left:var(--gut);bottom:22px;margin:0;font-size:12px;color:rgba(233,231,222,.45)}
+.hscroll{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(233,231,222,.6);
+  transition:opacity .3s var(--ease)}
+@media(max-width:860px){.hero-track{height:320vh}.hweek{top:56%}
+  .hp2{left:var(--gut);right:var(--gut);width:auto;bottom:11%;padding:20px 22px}
+  .hnote{left:0;right:0;text-align:center;bottom:14px}.hscroll{bottom:38px}
+  .hcount{top:calc(10px + 62px + 20px)}}
+@media(prefers-reduced-motion:reduce){
+  .hero-track{height:auto!important}.hero-stage{position:static!important;height:auto!important}
+  .hero-card{position:relative!important;inset:auto!important;margin:var(--inset);padding:calc(62px + 70px) 0 56px;display:flex;flex-direction:column}
+  .hp{position:static!important;opacity:1!important;transform:none!important}
+  .hp1{order:1}.hweek{order:2;position:static!important;transform:none!important;margin:48px auto 40px;opacity:1!important}.hp4{order:3}.hnote{order:4;position:static!important;text-align:center;margin-top:28px}
+  .hp2,.hcount,.hscroll{display:none!important}}
+
+/* ══ v2 step 9: services, an expanding row inside the dark panel ══ */
+.offer{display:flex;gap:12px;height:clamp(380px,35vw,510px);margin-top:var(--h2gap);border:0}
+.offer > .svc{flex:1 1 0;min-width:0;border-top:0}
+html.js .offer > .svc.rv,.offer > .svc{transition:flex-grow .45s var(--ease-io),opacity .4s ease,transform .45s ease}
+html.js .offer > .svc.act,.offer > .svc.act{flex-grow:2.62}
+.offer .svc .card,html.js .offer > .svc.act .card{position:relative;display:block;height:100%;min-height:0;padding:0;border-radius:var(--r-card);
+  background:rgba(233,231,222,.06);border:1px solid rgba(233,231,222,.12);color:var(--wall);overflow:hidden;cursor:pointer}
+html.js .offer > .svc.act .card{background:rgba(233,231,222,.1);cursor:default}
+.c-min{position:absolute;inset:0;padding:clamp(18px,2vw,28px);display:flex;flex-direction:column;justify-content:space-between;transition:opacity .25s var(--ease)}
+.c-min .idx{font-size:11px;font-weight:500;letter-spacing:.14em;color:rgba(233,231,222,.55)}
+.c-min .c-t{font-family:Fraunces,serif;font-weight:300;font-size:var(--t-h3s);line-height:1.12;letter-spacing:-.02em}
+.c-max{position:absolute;left:0;top:0;bottom:0;width:calc((min(var(--wrap),100vw - 2 * var(--gut) - 2 * var(--inset)) - 24px) * .567);
+  padding:clamp(22px,2.6vw,36px);display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .2s var(--ease),visibility 0s .2s}
+.svc.act .c-min{opacity:0}
+.svc.act .c-max{opacity:1;visibility:visible;transition:opacity .35s var(--ease) .2s,visibility 0s}
+.c-max .pm{margin:0;--door:var(--wall);flex:none}
+.c-max .pl{margin-top:auto;padding-top:20px}
+html.js .offer > .svc .card .c-max h3,.offer .svc .c-max h3{font-size:2.2rem;line-height:1.08;color:var(--wall);max-width:16ch;margin-top:8px}
+html.js .offer > .svc .card .c-max p,.offer .svc .c-max p{display:block;margin-top:12px;max-width:54ch;font-size:16px;color:rgba(233,231,222,.78);animation:none}
+html.js .offer > .svc .card .c-max .ex,.offer .svc .c-max .ex{display:grid;grid-template-columns:1fr 1fr;gap:7px 24px;margin-top:16px;padding-top:14px;
+  border-top:1px solid rgba(233,231,222,.18);font-size:var(--t-small);animation:none}
+html.js .offer > .svc .card .c-max .c-links,.offer .svc .c-max .c-links{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-size:var(--t-small)}
+.c-links a{color:var(--wall);text-decoration:none;border-bottom:1px solid rgba(233,231,222,.4);transition:color .2s var(--ease),border-color .2s var(--ease)}
+@media(hover:hover){.c-links a:hover{color:var(--ochre);border-color:var(--ochre)}}
+@media(max-width:860px){.offer{flex-direction:column;height:auto}.offer > .svc,html.js .offer > .svc.act{flex:none}
+  .offer .svc .card,html.js .offer > .svc.act .card{height:auto;cursor:default}.c-min{display:none}
+  .c-max{position:static;width:auto;opacity:1;visibility:visible}
+  html.js .offer > .svc .card .c-max .ex,.offer .svc .c-max .ex{grid-template-columns:1fr}}
 </style></head><body>
 <header class="nav" id="nav">
-  <a class="brand" href="#top">Houssem Gabsi</a>
+  <a class="brand" href="#top">Loose Ends</a>
   <nav aria-label="Sections"><a href="#services">Services</a><a href="#work">Work</a><a href="#systems">Systems</a><a href="#process">Process</a><a href="#questions">Questions</a><i class="ind" id="ind"></i></nav>
   <a class="btn sm mag" href="MAILTOHERE">Free review</a>
 </header>
 
 <main id="top">
-<div class="pin" id="pin">
-<div class="hero"><div class="wrap hgrid">
-  <div class="hcopy">
-    <div class="eyebrow">ENSOHERE<span>Houssem Gabsi</span><span>Independent studio, Tunis</span></div>
-    <h1>HEADLINE</h1>
-    <p class="sub">INTROHERE</p>
-    <div class="hact">
-      <div class="cta"><a class="btn big2 mag" href="MAILTOHERE">Request a free review</a><a class="tl" href="#work">See selected work</a></div>
-      <p class="cta-note">CTANOTE</p>
-    </div>
-  </div>
-  <div class="weekwrap">
-    <div class="wk-head">
-      <div class="sw" id="sw" data-s="before" role="group" aria-label="Show the week before or after"><button type="button" data-s="before" aria-pressed="true">Before</button><button type="button" data-s="after" aria-pressed="false">After</button><i class="thumb"></i></div>
-      <p class="count"><b id="hrs">0</b><span>hours a week returned to the team</span></p>
-    </div>
+<div class="hero-track" id="pin">
+<div class="hero-stage">
+<div class="hero-card">
+  <div class="hweek" id="hweek">
     <div class="grid">
       <div class="hrs">HOURSCOL</div>
       <div class="gcol">
@@ -976,62 +1089,77 @@ section:not(.close) > .wrap > h2::before{font-family:Archivo,sans-serif;font-siz
         WEEKHERE
       </div>
     </div>
-    <p class="wk-note">A sample week. Ochre is repeated manual work. Blue is the work that needs a person. <span class="pinhint">Scroll to clear it.</span></p>
   </div>
-  <div class="pinspace" aria-hidden="true"></div>
-  <ul class="disc" aria-label="What the studio does">DISCHERE</ul>
-</div></div>
+  <p class="hcount" id="hcount"><b id="hrs">0</b><span>COUNTERTXT</span></p>
+  <div class="hp hp1" id="hp1">
+    <h1>HEADLINE</h1>
+    <p class="sub">INTROHERE</p>
+    <div class="hbtns"><a class="btn" href="MAILTOHERE">HEROBTN</a><a class="tl" href="#work">HEROLINK</a></div>
+  </div>
+  <div class="hp hp2" id="hp2">
+    <p class="hp-h">P2HEAD</p>
+    <p class="hp-t">P2TEXT</p>
+  </div>
+  <div class="hp hp4" id="hp4">
+    <p class="hfinal"><b>HOURSVAL</b><span>COUNTERTXT</span></p>
+    <div class="sw" id="sw" data-s="before" role="group" aria-label="Show the week before or after"><button type="button" data-s="before" aria-pressed="true">Before</button><button type="button" data-s="after" aria-pressed="false">After</button><i class="thumb"></i></div>
+  </div>
+  <p class="hnote">WEEKNOTE</p>
+  <span class="hscroll" id="hscroll" aria-hidden="true">Scroll</span>
+</div>
+</div>
 </div>
 
-<section class="stmt" id="statement"><div class="wrap"><p class="stp">STMTHERE</p></div></section>
+<section class="stmt" id="statement"><div class="wrap"><p class="stp">STMTHERE</p><p class="stl"><a class="pill" href="#process">STMTLINK</a></p></div></section>
 
-DIVHERE
-
-<section id="services"><div class="wrap">
-  <h2>What the studio does</h2>
-  <p class="intro-l">SERVINTRO</p>
-  <div class="offer">WHATHERE</div>
-</div></section>
-
-<section class="band tint" id="connections"><div class="wrap">
-  <h2>What gets connected, and what changes</h2>
-  <p class="intro-l">CONNINTRO</p>
-  <ul class="team">CONNECTSHERE</ul>
-  <p class="teamnote">CONNNOTE <a class="tl" href="/mcp-integrations/">How MCP integrations work</a></p>
-  <div class="ctarow"><p>CTACONNECT</p><a class="btn mag" href="MAILTOHERE">Request a free review</a><span>CTANOTE</span></div>
-</div></section>
-
-<section class="band dark" id="work"><div class="wrap">
-  <h2>Selected work</h2>
+<section id="work"><div class="wrap">
+  <p class="lab">WORKLABEL</p>
+  <h2>WORKHEAD</h2>
   <div class="worklay">
     <ol class="windex">WINDEXHERE</ol>
     <div class="cases">CASESHERE</div>
   </div>
-  <div class="ctarow"><p>CTAWORK</p><a class="btn inv mag" href="MAILTOHERE">Request a free review</a><span>CTANOTE</span></div>
+</div></section>
+
+<section class="panel" id="services"><div class="wrap">
+  <p class="lab">SERVLABEL</p>
+  <h2>SERVHEAD</h2>
+  <div class="offer">WHATHERE</div>
+</div></section>
+
+<section class="band tint" id="connections"><div class="wrap">
+  <p class="lab">Connections</p>
+  <h2>What gets connected, and what changes.</h2>
+  <p class="intro-l">CONNINTRO</p>
+  <ul class="team">CONNECTSHERE</ul>
+  <p class="teamnote">CONNNOTE <a class="tl" href="/mcp-integrations/">How MCP integrations work</a></p>
+  <div class="ctarow"><p>CTACONNECT</p><a class="btn" href="MAILTOHERE">Request a free review</a><span>CTANOTE</span></div>
 </div></section>
 
 <section id="systems"><div class="wrap">
-  <h2>Systems</h2>
-  <p class="intro-l">Four systems, each built to solve a specific operational problem. Select one to see what it does.</p>
+  <p class="lab">SYSLABEL</p>
+  <h2>SYSHEAD</h2>
   <div class="accl">SYSHERE</div>
-  <p class="sysnote">A free <a class="tl" href="/tools/stock-sales-production-tracker/">stock, sales and production tracker</a> for product businesses is also available.</p>
+  <p class="sysnote">SYSNOTE</p>
 </div></section>
 
 <section class="band tint" id="capacity"><div class="wrap">
-  <h2>A small team with the capacity of a larger one</h2>
-  <p class="intro-l">Each of these is a process that runs automatically. From the outside, the business simply responds faster.</p>
+  <p class="lab">CAPLABEL</p>
+  <h2>CAPHEAD</h2>
+  <p class="intro-l">CAPINTRO</p>
   <div class="day" id="day" aria-hidden="true">
     <div class="dayhd"><b id="clk">00:00</b><span><i id="dn">0</i> tasks handled, <i id="do">0</i> outside office hours</span></div>
     <div class="dayline"><i class="office"></i><i class="now" id="dnow"></i></div>
     <div class="dayax"><span>00</span><span>06</span><span>12</span><span>18</span><span>24</span></div>
   </div>
   <ul class="team live" id="crew">AGENTSHERE</ul>
-  <p class="teamnote">Individually these are small. Together they let a small team operate like a much larger one. A sample day; the shaded band is office hours.</p>
+  <p class="teamnote">A sample day. The shaded band is office hours.</p>
 </div></section>
 
 <section id="enquiry"><div class="wrap">
-  <h2>An enquiry, handled end to end</h2>
-  <p class="intro-l">From form submission to a prepared reply, without manual steps. Scroll to follow it through.</p>
+  <p class="lab">ENQLABEL</p>
+  <h2>ENQHEAD</h2>
+  <p class="intro-l">ENQINTRO</p>
   FLOWHERE
 </div></section>
 
@@ -1039,31 +1167,34 @@ DIVHERE
 DIVHERE
 
 <section class="band tint" id="commitments"><div class="wrap">
-  <h2>How I work</h2>
-  <p class="intro-l">Six commitments that apply to every engagement.</p>
+  <p class="lab">COMLABEL</p>
+  <h2>COMHEAD</h2>
   <div class="rules">RULESHERE</div>
 </div></section>
 
 DIVHERE
 
-<section id="process"><div class="wrap">
-  <h2>Process</h2>
-  <p class="intro-l">Five stages. The first is free, and the audit findings are yours whether or not you proceed to a build.</p>
+<section class="paper" id="process"><div class="wrap">
+  <p class="lab">PROLABEL</p>
+  <h2>PROHEAD</h2>
+  <p class="intro-l">PROINTRO</p>
   <div class="track" aria-hidden="true"><i id="trk"></i></div>
   <ol class="how">HOWHERE</ol>
 </div></section>
 
 DIVHERE
 
-<section class="band tint" id="questions"><div class="wrap">
-  <h2>Common questions</h2>
+<section id="questions"><div class="wrap">
+  <p class="lab">FAQLABEL</p>
+  <h2>FAQHEAD</h2>
   <div class="accl qa">FAQHERE</div>
 </div></section>
 
 <section class="close" id="contact"><div class="wrap">
-  <h2>Find out where your business is losing time.</h2>
-  <p class="lead">A free one-page review of your follow-up, booking and administration. No call required.</p>
-  <a class="btn big mag" href="MAILTOHERE">Request a free review</a>
+  <h2>CLOSEHEAD</h2>
+  <p class="lead">CLOSETEXT</p>
+  <a class="btn big mag" href="MAILTOHERE">CLOSEBTN</a>
+  <p class="cnote">CLOSENOTE</p>
   MAILLINE
 </div></section>
 </main>
@@ -1084,49 +1215,39 @@ FOOTERHERE
       setTimeout(function(){t.classList.add('done');},1700);}});},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
   $$('h2,.rv,.dv,.case,.close').forEach(function(n){io.observe(n);});
 
-  /* the week: before and after, on a switch */
-  var hrs=$('#hrs'), target=HOURSVAL, cur=0, raf=0, wk=$('#week'), sw=$('#sw'), state='before', auto=true;
-  function count(to){cancelAnimationFrame(raf);var from=cur,t0=performance.now(),dur=1500;
-    (function step(t){var k=clamp((t-t0)/dur);k=1-Math.pow(1-k,4);cur=from+(to-from)*k;hrs.textContent=Math.round(cur);
-      if(k<1)raf=requestAnimationFrame(step);})(t0);}
-  function setState(v){state=v;wk.classList.toggle('after',v==='after');sw.setAttribute('data-s',v);
-    $$('button',sw).forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-s')===v));});
-    if(RM){cur=v==='after'?target:0;hrs.textContent=cur;}else count(v==='after'?target:0);}
-  /* while the hero is pinned the scroll clears the week; afterwards the switch takes over */
+  /* pinned hero: one scroll progress p (0 to 1) drives four text panels, the week clearing and the counter */
   var busy=40, lastY=-1, lastH=0;
-  var pin=$('#pin'), psp=$('.pinspace'), wwrap=$('.weekwrap'), man=$$('i.m',wk), pn=-1, pdone=false, pfree=false, lpp=-1, pstart=false;
-  function press(v){$$('button',sw).forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-s')===v));});}
-  function unpaint(){man.forEach(function(c){c.style.backgroundColor='';c.style.boxShadow='';c._l=-1;});wk.classList.remove('pinning');}
-  function pinned(p){var N=man.length;
-    if(p>=1){if(!pdone){pdone=true;unpaint();man.forEach(function(c){c.classList.add('c');});cancelAnimationFrame(raf);cur=target;hrs.textContent=target;
-        state='after';wk.classList.add('after');sw.setAttribute('data-s','after');press('after');pn=1;}return;}
-    if(pdone||pn<0||pn>=1){pdone=false;wk.classList.remove('after');wk.classList.add('pinning');man.forEach(function(c){c.classList.remove('c');});
-      state='before';sw.setAttribute('data-s','before');press('before');cancelAnimationFrame(raf);}
-    if(p===pn)return; pn=p;
-    /* a soft front five cells wide moves down the week, so the bars fade rather than snap */
-    var f=p*(N+5);
-    for(var i=0;i<N;i++){var l=clamp((f-i)/5),c=man[i];if(l===c._l)continue;c._l=l;
-      c.style.backgroundColor=l>=1?'transparent':'rgba(180,116,58,'+(1-l).toFixed(3)+')';
-      c.style.boxShadow=l>0?'inset 0 0 0 1px rgba(27,32,28,'+(.09*l).toFixed(3)+')':'';}
-    cur=target*p;hrs.textContent=Math.round(cur);}
-  var spp=0;
-  function pinstep(vh){var pp;
-    if(psp&&psp.offsetHeight>0){pp=clamp((wwrap.getBoundingClientRect().bottom-psp.getBoundingClientRect().top)/(psp.offsetHeight*.8));}
-    else{var tot=pin.offsetHeight-vh; if(tot<60){if(!pstart){pstart=true;setTimeout(function(){if(!pfree)setState('after');},1500);}return;} pp=clamp(-pin.getBoundingClientRect().top/(tot*.9));}
-    if(pfree&&pp<1&&Math.abs(pp-lpp)>.004)pfree=false;
-    lpp=pp;
-    /* ease toward the scroll position so wheel steps do not show as jumps */
-    spp+=(pp-spp)*.2; if(Math.abs(pp-spp)<.0006)spp=pp; else busy=30;
-    if(!pfree)pinned(spp);}
-  sw.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;auto=false;pfree=true;pn=-1;unpaint();man.forEach(function(c){c.classList.remove('c');});setState(b.getAttribute('data-s'));});
-  if(RM){setState('after');}
+  var hrs=$('#hrs'), target=HOURSVAL, wk=$('#week'), sw=$('#sw'), pin=$('#pin'), man=$$('i.m',wk), maxK=Math.max(1,man.length-1),
+      hw=$('#hweek'), hp1=$('#hp1'), hp2=$('#hp2'), hp4=$('#hp4'), hcount=$('#hcount'), hscr=$('#hscroll'), sp=0, lastCleared=-1, lastSw='';
+  function panel(el,o,y){el.style.opacity=o.toFixed(3);el.style.transform='translateY('+y.toFixed(1)+'px)';el.style.pointerEvents=o>.6?'auto':'none';}
+  function heroPaint(p){
+    var o1=1-clamp((p-.14)/.10); panel(hp1,o1,-26*(1-o1));
+    var i2=clamp((p-.26)/.08), x2=1-clamp((p-.44)/.12); panel(hp2,Math.min(i2,x2),26*(1-i2)-26*(1-x2));
+    var o4=clamp((p-.88)/.10); panel(hp4,o4,26*(1-o4));
+    hw.style.opacity=(.25+.75*clamp((p-.14)/.12)-.7*o4).toFixed(3);
+    hcount.style.opacity=(clamp((p-.2)/.08)*(1-o4)).toFixed(3);
+    hscr.style.opacity=p>.05?0:1;
+    var cleared=0; for(var i=0;i<man.length;i++){var on=p>.44+.40*(i/maxK); if(on)cleared++; if(on!==man[i]._c){man[i]._c=on;man[i].classList.toggle('c',on);}}
+    if(cleared!==lastCleared){lastCleared=cleared;hrs.textContent=Math.round(target*cleared/man.length);}
+    var s=p<.64?'before':'after'; if(s!==lastSw){lastSw=s;sw.setAttribute('data-s',s);
+      $$('button',sw).forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-s')===s));});}}
+  function herostep(vh){var tot=pin.offsetHeight-vh; if(tot<60)return;
+    var p=clamp((scrollY-pin.offsetTop)/tot);
+    sp+=(p-sp)*.16; if(Math.abs(p-sp)<.0005)sp=p; else busy=30;
+    heroPaint(sp);}
+  sw.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+    if(RM){var a=b.getAttribute('data-s')==='after';man.forEach(function(c){c.classList.toggle('c',a);});sw.setAttribute('data-s',a?'after':'before');
+      $$('button',sw).forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});hrs.textContent=a?target:0;return;}
+    scrollTo({top:b.getAttribute('data-s')==='after'?pin.offsetTop+pin.offsetHeight-innerHeight:pin.offsetTop,behavior:'smooth'});});
+  if(RM){man.forEach(function(c){c.classList.add('c');});hrs.textContent=target;sw.setAttribute('data-s','after');
+    $$('button',sw).forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-s')==='after'));});}
+  else heroPaint(0);
 
-  /* services: one card is open and wide, the other two show only their mark and title */
-  var offs=$$('.offer > div');
+  /* services: one card is open and wide, the other two show only an index and a title */
+  var offs=$$('.offer > .svc');
   function pick(el){offs.forEach(function(o){var on=o===el;o.classList.toggle('act',on);var c=$('.card',o);if(c)c.setAttribute('aria-expanded',String(on));});}
   offs.forEach(function(o){o.addEventListener('mouseenter',function(){if(FINE)pick(o);});o.addEventListener('click',function(){pick(o);});
     o.addEventListener('focusin',function(){pick(o);});});
-  if(offs[0])pick(offs[0]);
 
   /* the statement lights up word by word; browsers with scroll-driven CSS do this without script */
   var SDA=!!(window.CSS&&CSS.supports&&CSS.supports('animation-timeline: view()')), stm=$('.stmt'), stw=$$('.stp span');
@@ -1162,7 +1283,7 @@ FOOTERHERE
     if(busy<=0){requestAnimationFrame(frame);return;} busy--;
     var vh=innerHeight;
     nav.classList.toggle('sc',scrollY>12);
-    if(!RM)pinstep(vh);
+    if(!RM)herostep(vh);
     var a=-1;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<vh*.42)a=i;});
     if(a!==act){act=a;links.forEach(function(l,i){l.classList.toggle('on',i===a);});
       if(a<0){ind.style.opacity=0;}else{ind.style.opacity=1;ind.style.width=links[a].offsetWidth+'px';ind.style.transform='translateX('+links[a].offsetLeft+'px)';}}
@@ -1185,8 +1306,18 @@ FOOTERHERE
 </script>
 </body></html>"""
 
-what = "\n".join('<div><div class="card" tabindex="0" role="button" aria-expanded="false">%s<span class="pl">%s</span><h3>%s</h3><p>%s</p><ul class="ex">%s</ul></div></div>' % (mark(m), e(k), e(a), e(b), "".join("<li>%s</li>" % e(x) for x in EXAMPLES[m])) for m,k,a,b in WHAT)
-nextsteps = "".join('<li><b>%s</b><span>%s</span></li>' % (e(a), e(b)) for a,b in NEXT)
+# services: each card has a closed face (index and title) and an open face (mark, title, text, points, page links)
+SVC_LINKS = {"build": ["websites-and-online-shops"], "automate": ["ai-automation", "claude-consulting", "mcp-integrations"], "create": ["seo-geo"]}
+_pg = {pg["slug"]: pg for pg in PAGES}
+what = "\n".join(
+ '<div class="svc%s"><div class="card" tabindex="0" role="button" aria-expanded="%s">'
+ '<div class="c-min" aria-hidden="true"><span class="idx">%02d</span><span class="c-t">%s</span></div>'
+ '<div class="c-max">%s<span class="pl">%s</span><h3>%s</h3><p>%s</p><ul class="ex">%s</ul><p class="c-links">%s</p></div>'
+ '</div></div>'
+ % (" act" if i == 0 else "", "true" if i == 0 else "false", i + 1, e(a), mark(m), e(k), e(a), e(b),
+    "".join("<li>%s</li>" % e(x) for x in EXAMPLES[m]),
+    "".join('<a href="/%s/">%s</a>' % (s, e(_pg[s]["nav"])) for s in SVC_LINKS[m]))
+ for i, (m, k, a, b) in enumerate(WHAT))
 if EMAIL:
     MAILTO = "mailto:" + EMAIL + "?subject=" + quote("Free review request") + "&amp;body=" + quote("Business:\nWebsite:\nWhat takes the most time each week:\n")
     MAILLINE = '<a class="mail" href="mailto:%s">%s</a>' % (EMAIL, EMAIL)
@@ -1195,7 +1326,7 @@ else:
     MAILLINE = '<p class="lead">Contact details will be added here shortly.</p>'
 
 # footer: description, section links, service pages, contact, languages, the free tracker, and the "Ask AI" row
-ASK_Q = ("Tell me about Houssem Gabsi's studio (houssem-gabsi.vercel.app), which builds websites, automation and "
+ASK_Q = ("Tell me about Loose Ends (houssem-gabsi.vercel.app), a studio run by Houssem Gabsi that builds websites, automation and "
          "content systems for established firms, and how it could help my business.")
 ASK = [("ChatGPT", "https://chatgpt.com/?q="), ("Claude", "https://claude.ai/new?q="), ("Perplexity", "https://www.perplexity.ai/search?q=")]
 def footer_html(home):
@@ -1205,7 +1336,7 @@ def footer_html(home):
     contact = ('<a href="mailto:%s">%s</a>' % (EMAIL, EMAIL)) if EMAIL else '<a href="%s#contact">Request a free review</a>' % home
     ask = "".join('<a href="%s%s" target="_blank" rel="noopener">%s</a>' % (u, quote(ASK_Q), n) for n, u in ASK)
     return ('<footer class="ft"><div class="wrap"><div class="ftg">'
-            '<div class="fta"><a class="brand" href="%s#top">Houssem Gabsi</a><p>%s</p></div>'
+            '<div class="fta"><a class="brand" href="%s#top">Loose Ends</a><p>%s</p></div>'
             '<nav aria-label="Sections"><b>Sections</b>%s</nav>'
             '<nav aria-label="Services"><b>Services</b>%s</nav>'
             '<div class="ftc"><b>Contact</b>%s<span>English, français, العربية</span>'
@@ -1225,16 +1356,16 @@ def shot(c):
             '<img src="/media/%s" width="1440" height="900" loading="lazy" decoding="async" alt="%s">'
             '<span>Visit %s</span></a>') % (e(c["link"]), e(c["img"]), e(c["alt"]), e(host))
 cases = "\n".join(
+ ('<p class="lab sublab">%s</p>\n' % e(PRODUCTS_LABEL) if i == len(CASES) else "") +
  """<article class="case" id="case-%d">
-  <div class="chd"><h3>%s</h3><p class="meta">%s</p></div>
+  <div class="chd"><p class="meta">%s</p><h3>%s</h3></div>
   %s<div class="arc">
-    <div><span>Challenge</span>%s</div>
-    <div><span>Work delivered</span>%s</div>
-    <div><span>Status</span>%s</div>
+    <div class="did">%s</div>
+    <div class="proof">%s</div>
   </div>
- </article>""" % (i, e(c["who"]), e(c["kind"]), shot(c), P(c["before"]), P(c["did"]), P(c["now"]))
- for i,c in enumerate(CASES))
-windex = "\n".join('<li><a href="#case-%d">%s<small>%s</small></a></li>' % (i, e(c["who"]), e(c["kind"])) for i,c in enumerate(CASES))
+ </article>""" % (i, e(c["kind"]), e(c["who"]), shot(c), P(c["did"]), P(c["now"]))
+ for i,c in enumerate(WORK))
+windex = "\n".join('<li><a href="#case-%d">%s<small>%s</small></a></li>' % (i, e(c["who"]), e(c["kind"])) for i,c in enumerate(WORK))
 systems = "\n".join(
  '<div class="acc sysr%s"><h3><button type="button" class="acch" aria-expanded="%s"><span class="sysn">%s</span><span class="prob">%s</span><i class="pm2"></i></button></h3>'
  '<div class="accb"><div class="acci"><div><p>%s</p><p class="st">%s</p>%s</div></div></div></div>'
@@ -1246,11 +1377,19 @@ faq = "\n".join(
 
 _hw = HEAD.split()
 HEAD_HTML = " ".join('<span%s style="--w:%d">%s</span>' % (' class="hl"' if i >= len(_hw)-HEAD_ACCENT else "", i, e(w)) for i,w in enumerate(_hw))
-HTML = (HTML.replace("HEADLINE", HEAD_HTML).replace("INTROHERE", e(INTRO)).replace("WEEKINTRO", e(WEEK_INTRO)).replace("DISCHERE", "".join("<li>%s</li>" % ('<a href="/%s/">%s</a>' % (DISC_LINKS[x], e(x)) if x in DISC_LINKS else e(x)) for x in DISCIPLINES)).replace("FOOTLINKS", "".join('<a href="/%s/">%s</a>' % (pg["slug"], e(pg["nav"])) for pg in PAGES)).replace("SERVINTRO", e(SERVICES_INTRO)).replace("WEEKHERE", WEEK)
+HTML = (HTML.replace("HEADLINE", HEAD_HTML).replace("INTROHERE", e(INTRO)).replace("FOOTLINKS", "".join('<a href="/%s/">%s</a>' % (pg["slug"], e(pg["nav"])) for pg in PAGES)).replace("WEEKHERE", WEEK)
+            .replace("COUNTERTXT", e(COUNTER_TEXT)).replace("HEROBTN", e(HERO_BTN)).replace("HEROLINK", e(HERO_LINK)).replace("P2HEAD", e(PANEL2_HEAD)).replace("P2TEXT", e(PANEL2_TEXT))
+            .replace("WEEKNOTE", e(WEEK_NOTE)).replace("STMTLINK", e(STATEMENT_LINK)).replace("WORKLABEL", e(WORK_LABEL)).replace("WORKHEAD", e(WORK_HEAD))
+            .replace("SERVLABEL", e(SERVICES_LABEL)).replace("SERVHEAD", e(SERVICES_HEAD)).replace("SYSLABEL", e(SYSTEMS_LABEL)).replace("SYSHEAD", e(SYSTEMS_HEAD))
+            .replace("SYSNOTE", e(SYSTEMS_NOTE) % ('<a class="tl" href="/tools/stock-sales-production-tracker/">%s</a>' % e(SYSTEMS_NOTE_LINK)))
+            .replace("CAPLABEL", e(CAPACITY_LABEL)).replace("CAPHEAD", e(CAPACITY_HEAD)).replace("CAPINTRO", e(CAPACITY_INTRO))
+            .replace("ENQLABEL", e(ENQUIRY_LABEL)).replace("ENQHEAD", e(ENQUIRY_HEAD)).replace("ENQINTRO", e(ENQUIRY_INTRO))
+            .replace("COMLABEL", e(COMMIT_LABEL)).replace("COMHEAD", e(COMMIT_HEAD)).replace("PROLABEL", e(PROCESS_LABEL)).replace("PROHEAD", e(PROCESS_HEAD)).replace("PROINTRO", e(PROCESS_INTRO))
+            .replace("FAQLABEL", e(FAQ_LABEL)).replace("FAQHEAD", e(FAQ_HEAD)).replace("CLOSEHEAD", e(CLOSE_HEAD)).replace("CLOSETEXT", e(CLOSE_TEXT)).replace("CLOSEBTN", e(CLOSE_BTN)).replace("CLOSENOTE", e(CLOSE_NOTE))
             .replace("DAYSHERE", DAYLBL).replace("HOURSCOL", HOURS_COL).replace("WHATHERE", what)
             .replace("CASESHERE", cases).replace("WINDEXHERE", windex).replace("HOWHERE", how)
-            .replace("AGENTSHERE", agents).replace("CONNECTSHERE", connects).replace("MAILTOHERE", MAILTO).replace("MAILLINE", MAILLINE).replace("FOOTERHERE", footer_html("")).replace("STMTHERE", " ".join('<span style="--i:%d">%s</span>' % (i, e(w)) for i, w in enumerate(STATEMENT.split()))).replace("CTANOTE", e(CTA_NOTE)).replace("CTAWORK", e(CTA_WORK)).replace("CTACONNECT", e(CTA_CONNECT)).replace("NEXTHERE", nextsteps).replace("DAYHOURS", json.dumps(DAY_HOURS)).replace("CONNINTRO", e(CONNECT_INTRO)).replace("CONNNOTE", e(CONNECT_NOTE)).replace("FLOWHERE", flow).replace("RULESHERE", rules).replace("SYSHERE", systems).replace("FAQHERE", faq).replace("ENSOHERE", HEROMARK).replace("LDHERE", LD).replace("OGTITLEHERE", e(OG_TITLE)).replace("OGDESCHERE", e(OG_DESC)).replace("OGALTHERE", e(OG_ALT)).replace("TITLEHERE", e(TITLE)).replace("DESCHERE", e(DESC)).replace("SITEHERE", SITE).replace("HOURSVAL", str(HOURS)))
-while "DIVHERE" in HTML: HTML = HTML.replace("DIVHERE", divider(), 1)
+            .replace("AGENTSHERE", agents).replace("CONNECTSHERE", connects).replace("MAILTOHERE", MAILTO).replace("MAILLINE", MAILLINE).replace("FOOTERHERE", footer_html("")).replace("STMTHERE", " ".join('<span style="--i:%d">%s</span>' % (i, e(w)) for i, w in enumerate(STATEMENT.split()))).replace("CTANOTE", e(CTA_NOTE)).replace("CTACONNECT", e(CTA_CONNECT)).replace("DAYHOURS", json.dumps(DAY_HOURS)).replace("CONNINTRO", e(CONNECT_INTRO)).replace("CONNNOTE", e(CONNECT_NOTE)).replace("FLOWHERE", flow).replace("RULESHERE", rules).replace("SYSHERE", systems).replace("FAQHERE", faq).replace("ENSOHERE", HEROMARK).replace("LDHERE", LD).replace("OGTITLEHERE", e(OG_TITLE)).replace("OGDESCHERE", e(OG_DESC)).replace("OGALTHERE", e(OG_ALT)).replace("TITLEHERE", e(TITLE)).replace("DESCHERE", e(DESC)).replace("SITEHERE", SITE).replace("HOURSVAL", str(HOURS)))
+HTML = HTML.replace("DIVHERE", "")   # the animated cell dividers are removed in the v2 structure
 open("../index.html","w").write(HTML)
 open("../llms.txt","w").write(LLMS)
 open("../index.md","w").write(PAGE_MD)
@@ -1288,15 +1427,15 @@ BYSLUG = {pg["slug"]: pg for pg in PAGES}
 NAVLINKS = "".join('<a href="/%s/">%s</a>' % (pg["slug"], e(pg["nav"])) for pg in PAGES)
 for pg in PAGES:
     url = SITE + pg["slug"] + "/"
-    ptitle = pg["title"] + " | Houssem Gabsi"
+    ptitle = pg["title"] + " | Loose Ends"
     ld = json.dumps({"@context":"https://schema.org","@graph":[
       {"@type":"WebPage","@id":url+"#webpage","url":url,"name":ptitle,"description":pg["desc"],"inLanguage":"en",
        "isPartOf":{"@id":SITE+"#website"},"about":{"@id":url+"#service"},"breadcrumb":{"@id":url+"#breadcrumb"}},
       {"@type":"BreadcrumbList","@id":url+"#breadcrumb","itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Houssem Gabsi","item":SITE},
+        {"@type":"ListItem","position":1,"name":"Loose Ends","item":SITE},
         {"@type":"ListItem","position":2,"name":pg["nav"],"item":url}]},
       {"@type":"Service","@id":url+"#service","name":pg["title"],"description":pg["desc"],"serviceType":pg["nav"],
-       "provider":{"@type":"ProfessionalService","@id":SITE+"#studio","name":"Houssem Gabsi","url":SITE},
+       "provider":{"@type":"ProfessionalService","@id":SITE+"#studio","name":"Loose Ends","url":SITE},
        "areaServed":["United States","Europe","Tunisia"]},
       {"@type":"FAQPage","@id":url+"#faq","isPartOf":{"@id":url+"#webpage"},"mainEntity":[
         {"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in pg["faq"]]},
@@ -1314,7 +1453,7 @@ for pg in PAGES:
 <meta name="theme-color" content="#E9E7DE">
 <link rel="canonical" href="%(url)s">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<meta property="og:site_name" content="Houssem Gabsi">
+<meta property="og:site_name" content="Loose Ends">
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="%(url)s">
 <meta property="og:type" content="website">
@@ -1331,13 +1470,13 @@ for pg in PAGES:
 <link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>%(style)s%(lpcss)s</style></head><body class="lp">
 <header class="nav sc" id="nav">
-  <a class="brand" href="/">Houssem Gabsi</a>
+  <a class="brand" href="/">Loose Ends</a>
   <nav aria-label="Services">%(navlinks)s</nav>
   <a class="btn sm" href="%(mailto)s">Free review</a>
 </header>
 <main>
 <div class="lphero"><div class="wrap">
-  <p class="crumb"><a href="/">Houssem Gabsi</a><i>/</i>%(nav)s</p>
+  <p class="crumb"><a href="/">Loose Ends</a><i>/</i>%(nav)s</p>
   <h1 class="lph1">%(h1)s</h1>
   <p class="lplead">%(lead)s</p>
   <div class="cta"><a class="btn big2" href="%(mailto)s">Request a free review</a><a class="tl" href="/#work">See selected work</a></div>

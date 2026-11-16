@@ -1,6 +1,6 @@
-# Houssem Gabsi
+# Loose Ends
 
-> A studio of one that builds websites, booking systems, automations and content systems for businesses of any kind, from independent professionals to established firms.
+> Loose Ends is a one-person studio in Tunis, run by Houssem Gabsi. It builds websites, automation and content systems for established firms, in English, French and Arabic.
 
 Based in Tunis. Works in English, French and Arabic.
 
@@ -8,58 +8,76 @@ Site: https://houssem-gabsi.vercel.app/
 
 ## Services
 
-- Websites and applications: Websites, online shops, booking systems, dashboards and internal tools, designed and built end to end.
-- Operations that run without manual effort: The repeated work, handled inside the tools you already use. A member of your team approves anything before it is sent.
-- Brand identity and content systems: A recognisable identity, and a content process that turns one idea into a month of publishing, structured for search engines and AI assistants.
+- Websites and applications.: The site clients judge the firm by and the tools the team opens every morning, designed and built end to end.
+- Work that runs without anyone doing it.: Follow-up, confirmations and reports happen on their own. A person approves what matters before anything is sent.
+- Identity and content.: A visual identity, and a content process that turns one idea into a week of publishing in the firm's own voice.
 
 ## Cases
 
 Four pieces of client work. Clients are not named.
 
-### A recruiting website that keeps itself current
+### Open roles entered once, live everywhere.
 
-Executive search firm, Washington D.C., since 2025
+Executive search, Washington D.C.
 
-An eighteen-page website with open roles synchronised from the firm's recruiting system. A tool that formats candidate CVs to the firm's standard. An interactive map of its consultant network. The firm's recruiting database and internal chat connected to its AI assistant, so the team can query its own candidate data.
+Roles go into the firm's recruiting system and appear on its eighteen-page website without anyone retyping them. Candidate CVs are put into the firm's format in one step. The same database now answers the team's questions through their AI assistant.
 
-Status: Website live. Candidate scoring in development: each candidate assessed against the criteria of the search, with written reasoning for every score.
+Status: Website live. Candidate scoring in development.
 
-### A guesthouse website and identity, drawn from the house itself
+### A nineteenth-century house that looks like itself online.
 
-Maison d'hôte, La Marsa, 2026
+Maison d'hôte, La Marsa
 
-A visual identity drawn from the house itself: its tiles, doors and objects. A bilingual website in French and English designed around that identity, and the printed material guests handle, including room cards and the table d'hôte menu.
+An identity drawn by hand from the house's own tiles, doors and objects. It runs through a website in French and English and the printed pieces guests hold, from the room card to the table d'hôte menu.
 
-Status: Identity, print and website delivered.
+Status: Identity and print delivered. Website in development.
 
-### Class booking on a single screen
+### A class booked on one screen, not in a message thread.
 
-Yoga studio, Tunis, 2026
+Yoga studio, Tunis
 
-A mobile-first booking application. Class schedule, availability and payment on a single screen, in French and English.
+Schedule, places and payment sit on a single phone screen, in French and English. Bookings moved out of Instagram messages and into one place.
 
 Status: Live.
 
-### An AI assistant built around an editorial week
+### An AI assistant that works the way he does.
 
-Journalist, video production, 2026
+Journalist, video production
 
-His AI assistant configured around his editorial work rather than the software's defaults. Recurring weekly tasks now follow a consistent, repeatable process, with video production at the centre.
+His assistant is set up around his editorial week, not the software's defaults. The tasks he repeats now run the same way every time, with video production at the centre.
 
-Status: Delivered.
+Status: Delivered 2026.
+
+## Own products
+
+### A recruiting platform that explains every score.
+
+Vero, a web application that reads a batch of résumés against a role, ranks the candidates, and shows the reasoning and the source text behind every score. It also drafts outreach based on each candidate's own work. The decision stays with a person.
+
+Status: Live.
+
+Link: https://vero-woad.vercel.app/
+
+### A daily entry-risk score for stocks and crypto.
+
+ZonedInOut, a website that scores stocks, ETFs and cryptocurrencies every trading day on how far the price has moved from its average, with an entry zone and a stop level for each. Past calls are published and graded. It is a scoring system, not financial advice.
+
+Status: Live.
+
+Link: https://zonedinout.vercel.app/
 
 ## Systems
 
-- Invoice and quote follow-up: Reviews the inbox, quotes and invoices, identifies unanswered enquiries, stalled quotes and overdue invoices, and drafts a reply for each. Nothing is sent without approval. Status: Built and working. Shown here with sample data.
-- Content system: Turns one idea into a researched article and a week of posts. Every figure is verified against a named source before publication, and each piece is structured to be cited by search engines and AI assistants. Status: In weekly use on client work.
-- Candidate scoring in your recruiting database: Assesses every candidate on a search against that search's criteria, and records the score and the reasoning in the candidate's record. The decision stays with a person. Status: In development for an executive search firm.
-- Interview notes to client report: Converts raw notes into a finished report in your own format. Every rating references the source notes, and gaps are flagged rather than filled. Status: Built and working. Shown here with sample data.
+- Every unanswered enquiry, found and drafted.: The system reads the inbox, quotes and invoices, finds what went quiet, and drafts each reply. Someone approves, then it sends. Status: Built. Demonstrated on a fictional firm.
+- Every candidate read against the search.: Each candidate is assessed against that search's own criteria, with the reasoning written beside the score. The recruiter decides. Status: In development for an executive search firm.
+- One idea, a week of publishing.: A researched article and a week of posts from a single idea. Every figure is checked against a named source before it goes out. Status: In weekly use on client work.
+- Interview notes in, client report out.: Raw notes become a finished report in the firm's format. Every rating points to its source, and gaps are flagged, never filled. Status: Built. Demonstrated on fictional data.
 
 ## How an engagement starts
 
-1. Initial review: A free one-page review of where the business is losing time. No call required.
-2. Audit: A paid assessment, with the first three improvements ranked. The fee is credited toward the build.
-3. Build: One fixed price, agreed in writing before work begins.
+1. Find the loose end. A free one-page review of where the firm loses time. No call required.
+2. Measure it. A paid audit ranks the first three fixes by what they return. The fee is credited toward the build.
+3. Build one thing. The fix with the most hours in it, at one price agreed in writing.
 
 ## Contact
 

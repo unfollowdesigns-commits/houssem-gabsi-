@@ -1,18 +1,70 @@
-# Websites, automation and AI, built to work as one.
+# The work a firm repeats every week, rebuilt to run on its own.
 
-A studio of one that designs what your clients see, connects the tools you already own, and sets up AI to carry the repeated work. For any business, from a single professional to an established firm.
+Loose Ends is a one-person studio in Tunis. It designs and builds the websites, automations and content systems that established firms in the US and Europe work on every day.
 
-Houssem Gabsi. Independent studio, Tunis. English, French and Arabic.
+Every firm has work only its people can do, and work that simply has to get done. The second kind fills most of the week: answering, confirming, chasing, retyping. Systems take that part. People keep the judgement, and approve everything that leaves the building.
 
-Most of what a firm spends goes on work that moves between people and systems: reading, checking, matching, chasing. Much of that can now run on its own. Making it hold up inside a real business is the work.
+## Four clients. Each started with one loose end.
 
-## What the studio does
+### Open roles entered once, live everywhere.
 
-Three disciplines, practised together. Most engagements draw on all of them, and all begin the same way: by finding where time is lost in the tools you already have.
+Executive search, Washington D.C.
 
-### Build: Websites and applications
+Roles go into the firm's recruiting system and appear on its eighteen-page website without anyone retyping them. Candidate CVs are put into the firm's format in one step. The same database now answers the team's questions through their AI assistant.
 
-Websites, online shops, booking systems, dashboards and internal tools, designed and built end to end.
+Website live. Candidate scoring in development.
+
+### A nineteenth-century house that looks like itself online.
+
+Maison d'hôte, La Marsa
+
+An identity drawn by hand from the house's own tiles, doors and objects. It runs through a website in French and English and the printed pieces guests hold, from the room card to the table d'hôte menu.
+
+Identity and print delivered. Website in development.
+
+### A class booked on one screen, not in a message thread.
+
+Yoga studio, Tunis
+
+Schedule, places and payment sit on a single phone screen, in French and English. Bookings moved out of Instagram messages and into one place.
+
+Live.
+
+### An AI assistant that works the way he does.
+
+Journalist, video production
+
+His assistant is set up around his editorial week, not the software's defaults. The tasks he repeats now run the same way every time, with video production at the centre.
+
+Delivered 2026.
+
+## Own products
+
+### A recruiting platform that explains every score.
+
+Own product, 2026
+
+Vero, a web application that reads a batch of résumés against a role, ranks the candidates, and shows the reasoning and the source text behind every score. It also drafts outreach based on each candidate's own work. The decision stays with a person.
+
+Live.
+
+https://vero-woad.vercel.app/
+
+### A daily entry-risk score for stocks and crypto.
+
+Own product, 2026
+
+ZonedInOut, a website that scores stocks, ETFs and cryptocurrencies every trading day on how far the price has moved from its average, with an entry zone and a stop level for each. Past calls are published and graded. It is a scoring system, not financial advice.
+
+Live.
+
+https://zonedinout.vercel.app/
+
+## Websites, automation and content, built as one system.
+
+### Build: Websites and applications.
+
+The site clients judge the firm by and the tools the team opens every morning, designed and built end to end.
 
 - Company and marketing websites
 - Online shops on Shopify and Etsy
@@ -20,9 +72,9 @@ Websites, online shops, booking systems, dashboards and internal tools, designed
 - Dashboards and reporting
 - Internal tools
 
-### Automate: Operations that run without manual effort
+### Automate: Work that runs without anyone doing it.
 
-The repeated work, handled inside the tools you already use. A member of your team approves anything before it is sent.
+Follow-up, confirmations and reports happen on their own. A person approves what matters before anything is sent.
 
 - Enquiry and invoice follow-up
 - Booking confirmations
@@ -31,9 +83,9 @@ The repeated work, handled inside the tools you already use. A member of your te
 - Social media scheduling
 - Claude and other AI assistants set up for your team
 
-### Create: Brand identity and content systems
+### Create: Identity and content.
 
-A recognisable identity, and a content process that turns one idea into a month of publishing, structured for search engines and AI assistants.
+A visual identity, and a content process that turns one idea into a week of publishing in the firm's own voice.
 
 - Brand identity and illustration
 - Video editing and motion graphics
@@ -56,95 +108,35 @@ Most teams use a fraction of what their tools, and an assistant such as Claude, 
 
 Nothing is replaced. The tools stay where they are and start working together.
 
-## Selected work
+## Four systems, each built around one costly habit.
 
-### A recruiting website that keeps itself current
+### Every unanswered enquiry, found and drafted.
 
-Executive search firm, Washington D.C., since 2025
+The system reads the inbox, quotes and invoices, finds what went quiet, and drafts each reply. Someone approves, then it sends.
 
-- **Challenge.** The firm had outgrown its website. Open roles were maintained manually in two places, candidates were assessed one at a time, and client reports were assembled by hand.
-- **Work delivered.** An eighteen-page website with open roles synchronised from the firm's recruiting system. A tool that formats candidate CVs to the firm's standard. An interactive map of its consultant network. The firm's recruiting database and internal chat connected to its AI assistant, so the team can query its own candidate data.
-- **Status.** Website live. Candidate scoring in development: each candidate assessed against the criteria of the search, with written reasoning for every score.
+Built. Demonstrated on a fictional firm.
 
-### A guesthouse website and identity, drawn from the house itself
+### Every candidate read against the search.
 
-Maison d'hôte, La Marsa, 2026
+Each candidate is assessed against that search's own criteria, with the reasoning written beside the score. The recruiter decides.
 
-- **Challenge.** A nineteenth-century house of nine rooms with an excellent reputation, and a website that did not reflect it.
-- **Work delivered.** A visual identity drawn from the house itself: its tiles, doors and objects. A bilingual website in French and English designed around that identity, and the printed material guests handle, including room cards and the table d'hôte menu.
-- **Status.** Identity, print and website delivered.
+In development for an executive search firm.
 
-### Class booking on a single screen
+### One idea, a week of publishing.
 
-Yoga studio, Tunis, 2026
+A researched article and a week of posts from a single idea. Every figure is checked against a named source before it goes out.
 
-- **Challenge.** Classes were booked through Instagram messages, leaving the studio without a reliable view of attendance.
-- **Work delivered.** A mobile-first booking application. Class schedule, availability and payment on a single screen, in French and English.
-- **Status.** Live.
+In weekly use on client work.
 
-### An AI assistant built around an editorial week
+### Interview notes in, client report out.
 
-Journalist, video production, 2026
+Raw notes become a finished report in the firm's format. Every rating points to its source, and gaps are flagged, never filled.
 
-- **Challenge.** He had access to AI tools but was getting little practical value from them. Recurring work was still done manually.
-- **Work delivered.** His AI assistant configured around his editorial work rather than the software's defaults. Recurring weekly tasks now follow a consistent, repeatable process, with video production at the centre.
-- **Status.** Delivered.
+Built. Demonstrated on fictional data.
 
-### A recruiting platform that explains every score
+## A small team that answers like a large one.
 
-Own product, 2026
-
-- **Challenge.** Most candidate screening tools return a score without the reasoning behind it, so a recruiter can neither defend it nor question it.
-- **Work delivered.** Vero, a web application that reads a batch of résumés against a role, ranks the candidates, and shows the reasoning and the source text behind every score. It also drafts outreach based on each candidate's own work. The decision stays with a person.
-- **Status.** Live.
-- **Link.** https://vero-woad.vercel.app/
-
-### A daily entry-risk score for stocks and crypto
-
-Own product, 2026
-
-- **Challenge.** A price shows what an asset costs today, not whether today is a sensible moment to buy it.
-- **Work delivered.** ZonedInOut, a website that scores stocks, ETFs and cryptocurrencies every trading day on how far the price has moved from its average, with an entry zone and a stop level for each. Past calls are published and graded. It is a scoring system, not financial advice.
-- **Status.** Live.
-- **Link.** https://zonedinout.vercel.app/
-
-## Systems
-
-### Invoice and quote follow-up
-
-Revenue is lost in enquiries, quotes and invoices that nobody followed up.
-
-Reviews the inbox, quotes and invoices, identifies unanswered enquiries, stalled quotes and overdue invoices, and drafts a reply for each. Nothing is sent without approval.
-
-Status: Built and working. Shown here with sample data.
-
-### Content system
-
-Most businesses publish content that is neither found nor finished.
-
-Turns one idea into a researched article and a week of posts. Every figure is verified against a named source before publication, and each piece is structured to be cited by search engines and AI assistants.
-
-Status: In weekly use on client work.
-
-### Candidate scoring in your recruiting database
-
-A recruiter can assess only a fraction of the candidates on a search in depth.
-
-Assesses every candidate on a search against that search's criteria, and records the score and the reasoning in the candidate's record. The decision stays with a person.
-
-Status: In development for an executive search firm.
-
-### Interview notes to client report
-
-Converting interview notes into a client report takes hours each week.
-
-Converts raw notes into a finished report in your own format. Every rating references the source notes, and gaps are flagged rather than filled.
-
-Status: Built and working. Shown here with sample data.
-
-## A small team with the capacity of a larger one
-
-Each of these is a process that runs automatically. From the outside, the business simply responds faster.
+None of these are people. Each is a routine that now runs by itself, with someone approving the result.
 
 - Responds to enquiries, at any hour.
 - Follows up on unpaid invoices, on a set schedule.
@@ -155,7 +147,9 @@ Each of these is a process that runs automatically. From the outside, the busine
 - Sends the weekly figures, to the people who need them.
 - Files documents, in the right place, every time.
 
-## An enquiry, handled end to end
+## One enquiry, handled before anyone opens it.
+
+From the form to a reply ready for approval, with no manual step.
 
 1. A client submits your enquiry form
 2. Read and categorised
@@ -164,64 +158,60 @@ Each of these is a process that runs automatically. From the outside, the busine
 5. Added to the weekly report
 6. Ready for your approval
 
-## How I work
+## Six things that hold on every engagement.
 
 - **One price, agreed in advance.** Confirmed in writing before work begins. If the scope grows, the new price is agreed before the additional work starts.
 - **You own everything.** The code, the domain and the accounts are yours, and are transferred on request at no additional cost.
 - **Nothing reaches your clients without approval.** Every system drafts and prepares. A member of your team approves before anything is sent.
 - **Honest advice on what to build.** If a piece of work will not repay its cost, you will hear that in the first conversation.
-- **You work with me directly.** One person does the work, which is also why I take on a limited number of projects at a time.
-- **Plain language.** I explain what was built and why, in terms your team can repeat without me in the room.
+- **One person does the work.** Houssem Gabsi runs every engagement himself, which is also why Loose Ends takes on a limited number of projects at a time.
+- **Plain language.** Everything built is explained, and why, in terms your team can repeat without me in the room.
 
-## Process
+## Nothing is built until the problem is proven.
 
-1. **Initial review.** A free one-page review of where the business is losing time. No call required.
-2. **Audit.** A paid assessment, with the first three improvements ranked. The fee is credited toward the build.
-3. **Build.** One fixed price, agreed in writing before work begins.
-4. **Launch.** Your team is trained on the system, and every process has a named owner.
-5. **Support.** Optional monthly support, if you want it.
+The first step is free. The audit findings belong to the firm whether or not anything is built.
 
-## Common questions
+1. **Find the loose end.** A free one-page review of where the firm loses time. No call required. (Free)
+2. **Measure it.** A paid audit ranks the first three fixes by what they return. The fee is credited toward the build. (Credited)
+3. **Build one thing.** The fix with the most hours in it, at one price agreed in writing. (Fixed price)
+4. **Hand it over.** The team is trained and every routine has a named owner. Code, domain and accounts belong to the firm. (Handover)
+5. **Stay, if useful.** Optional monthly support. (Optional)
 
-### What kinds of businesses do you work with?
+## What firms ask before they start.
 
-Any business that runs on repeated work. So far that has meant an executive search firm in Washington D.C., a guesthouse in La Marsa, a yoga studio in Tunis and a journalist working in video, as well as two products of my own. The method is the same each time: find the repeated work, then build or connect what removes it.
+### What does Loose Ends build for a firm?
 
-### Can you set up Claude or another AI assistant for our business?
+For a firm of ten to fifty people it is usually three things: the follow-up nobody has time to send, the booking or intake process clients pass through, and the reports someone prepares by hand every week. The work is connecting the tools already in use, not replacing them.
 
-Yes. Most businesses use an AI assistant for single questions and little else. I connect it to your own tools and data, such as email, calendar, documents, your shop and your customer records, and set up the recurring tasks it should handle, so the whole team gets consistent results from it. Much of what is on this page is built that way.
+### What happens when a system gets something wrong?
 
-### Which tools do you connect to?
+Nothing reaches a client without a person approving it, so a wrong draft is caught at that step and corrected there. That approval is a design rule, not a setting that can be switched off.
 
-The ones you already use: email, calendars, spreadsheets and Slack; Shopify, Etsy and Substack; the specialist software of your trade, such as Loxo and BrightHire in recruiting; and the AI assistant the team already works with. The aim is to make existing tools work together, not to add new ones.
+### Who owns what is built?
 
-### Do we need to replace the software we already use?
+The firm does. The code, the domain and the accounts are transferred on request at no additional cost.
 
-No. Every system is built around your existing email, calendar, spreadsheets and databases. Replacing software that works is the most expensive way to automate anything.
+### Does it fit the tools already in use?
 
-### Will AI send anything to our clients without our approval?
-
-No. Every system drafts and prepares. A member of your team approves before anything reaches a client. That is a design rule, not a setting that can be switched off.
-
-### Do you work on SEO and on visibility in AI answers?
-
-Yes. Search engine optimisation, and what is now called generative engine optimisation, or GEO: structuring a site and its content so that search engines and AI assistants such as ChatGPT, Claude and Perplexity can find it, understand it and cite it. This site is built that way.
+Yes. Every system is built around the firm's existing email, calendar, spreadsheets and databases. Replacing software that works is the most expensive way to automate anything.
 
 ### What does it cost, and how is it priced?
 
-Every engagement begins with a paid Systems Audit at a fixed price, and that fee is credited toward the build. After the audit, each build has one fixed price, agreed in writing. There is no hourly billing.
+Every engagement begins with a paid Systems Audit at a fixed price, credited toward the build. After the audit, each build has one fixed price agreed in writing. There is no hourly billing.
 
-### How does an engagement start?
+### How is this different from hiring an automation freelancer?
 
-With a free one-page review of where the business is losing time. No call is required. If you want to go further, a paid audit ranks the first three improvements, and its fee is credited toward the build.
+An automated workflow is one part of the work. The studio also builds the website or application it runs inside, produces the content that feeds it, and makes the short film that explains it to clients.
 
-### Who owns the website, the code and the accounts?
+### Where is the studio based, and does it matter?
 
-You do. The code, the domain and the accounts are yours, and are transferred on request at no additional cost.
+Tunis. Most of the work is for clients abroad, in English, French or Arabic. Calls are scheduled in the client's time zone, and delivery is the same wherever the firm is.
 
-## Contact
+## Find the loose ends in the week.
 
-A free one-page review of your follow-up, booking and administration. No call required.
+Send a line about the firm. A one-page review comes back, free, with the first three places to look.
+
+A reply within 24 hours.
 
 Request it from the contact section of the site: https://houssem-gabsi.vercel.app/#contact
 

@@ -40,7 +40,19 @@ Keep all of these on the page. Houssem has had to repeat them.
 - No background or CV content on the page. It shows what the studio builds.
 - Do not advertise speed of delivery.
 - The questions section and the hidden structured data are generated from the same list in `cases.py`, so they always match.
-- The page title, search description and site address are set near the structured data in `build.py`.
+- The page title and search description are set at the end of `cases.py`. The site address is set near the structured data in `build.py`.
+- The wording in `cases.py` was supplied word for word by Houssem (16 Nov 2026). Do not rewrite, shorten or "improve" it.
+
+### Voice rules
+- Headings are full sentences that make a claim and end with a full stop. Category words go in the small label above, never in the heading.
+- Say "the firm" and "the team", not "you" and "your". Never "we help", never hype words.
+- Name the actual chores: answering, confirming, chasing, retyping.
+- Work is titled by its result, not by the client type.
+- A person approves before anything is sent. Say it wherever it applies.
+
+- The studio is called Loose Ends. Wording speaks as the studio, never as 'I'. Use the loose end idea in three places only: process step 1, the work heading and the closing heading.
+
+### Other rules
 - Keep `tools/`, `downloads/`, `fonts/` and `media/` as they are unless asked.
 - The page's two typefaces are served from `fonts/` (Fraunces and Archivo). The page loads nothing from other sites.
 - Commit and push to the working branch after every step, without asking (Houssem, 16 Nov 2026). The branch only produces a Vercel preview.

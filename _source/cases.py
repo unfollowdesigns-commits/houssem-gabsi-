@@ -1,124 +1,156 @@
 # -*- coding: utf-8 -*-
-# v3.2 content. Professional register, plain language. Clients unnamed. Nothing invented.
+# v4 content. Wording supplied word for word by Houssem on 16 Nov 2026. Do not rewrite, shorten or "improve" it.
+# Voice rules are in CLAUDE.md.
 
-SERVICES_INTRO = ("Three disciplines, practised together. Most engagements draw on all of them, and all begin the same way: "
-                  "by finding where time is lost in the tools you already have.")
+# ── hero ──
+HEAD_TEXT = "The work a firm repeats every week, rebuilt to run on its own."
+INTRO = ("Loose Ends is a one-person studio in Tunis. It designs and builds the websites, automations and content systems "
+         "that established firms in the US and Europe work on every day.")
+HERO_BTN = "Request a free review"
+HERO_LINK = "See the work"
+PANEL2_HEAD = "A week, before."
+PANEL2_TEXT = "Answering, confirming, chasing, retyping. Each ochre block is an hour spent moving information from one place to another."
+COUNTER_TEXT = "hours a week returned to the team."
+WEEK_NOTE = "Illustrative week. Not a client's figures."
 
-# short examples shown as a list on each service card
+# ── statement ──
+STATEMENT = ("Every firm has work only its people can do, and work that simply has to get done. The second kind fills most of the week: "
+             "answering, confirming, chasing, retyping. Systems take that part. People keep the judgement, and approve everything that leaves the building.")
+STATEMENT_LINK = "How an engagement works"
+
+# ── selected work. who = title, kind = label, did = text, now = proof line ──
+WORK_LABEL = "Selected work"
+WORK_HEAD = "Four clients. Each started with one loose end."
+CASES = [
+ dict(kind="Executive search, Washington D.C.", who="Open roles entered once, live everywhere.",
+  did="Roles go into the firm's recruiting system and appear on its eighteen-page website without anyone retyping them. Candidate CVs are put into the firm's format in one step. The same database now answers the team's questions through their AI assistant.",
+  now="Website live. Candidate scoring in development."),
+ dict(kind="Maison d'hôte, La Marsa", who="A nineteenth-century house that looks like itself online.",
+  did="An identity drawn by hand from the house's own tiles, doors and objects. It runs through a website in French and English and the printed pieces guests hold, from the room card to the table d'hôte menu.",
+  now="Identity and print delivered. Website in development."),
+ dict(kind="Yoga studio, Tunis", who="A class booked on one screen, not in a message thread.",
+  did="Schedule, places and payment sit on a single phone screen, in French and English. Bookings moved out of Instagram messages and into one place.",
+  now="Live."),
+ dict(kind="Journalist, video production", who="An AI assistant that works the way he does.",
+  did="His assistant is set up around his editorial week, not the software's defaults. The tasks he repeats now run the same way every time, with video production at the centre.",
+  now="Delivered 2026."),
+]
+# Own products. Shown under the four client cases, with their own small label (Houssem, 16 Nov 2026: "we did all of that").
+PRODUCTS_LABEL = "Own products"
+PRODUCTS = [
+ dict(kind="Own product, 2026", who="A recruiting platform that explains every score.",
+  did="Vero, a web application that reads a batch of résumés against a role, ranks the candidates, and shows the reasoning and the source text behind every score. It also drafts outreach based on each candidate's own work. The decision stays with a person.",
+  now="Live.", link="https://vero-woad.vercel.app/", img="vero.jpg", alt="The Vero home page: Hiring intelligence that reads between the lines."),
+ dict(kind="Own product, 2026", who="A daily entry-risk score for stocks and crypto.",
+  did="ZonedInOut, a website that scores stocks, ETFs and cryptocurrencies every trading day on how far the price has moved from its average, with an entry zone and a stop level for each. Past calls are published and graded. It is a scoring system, not financial advice.",
+  now="Live.", link="https://zonedinout.vercel.app/", img="zonedinout.jpg", alt="The ZonedInOut home page: Know the risk before you enter."),
+]
+
+# ── services: (mark, label, title, text) ──
+SERVICES_LABEL = "Services"
+SERVICES_HEAD = "Websites, automation and content, built as one system."
+WHAT = [
+ ("build", "Build", "Websites and applications.",
+  "The site clients judge the firm by and the tools the team opens every morning, designed and built end to end."),
+ ("automate", "Automate", "Work that runs without anyone doing it.",
+  "Follow-up, confirmations and reports happen on their own. A person approves what matters before anything is sent."),
+ ("create", "Create", "Identity and content.",
+  "A visual identity, and a content process that turns one idea into a week of publishing in the firm's own voice."),
+]
+# short points listed on each service card. Not part of the v4 wording; kept from the earlier version.
 EXAMPLES = {
  "build": ["Company and marketing websites", "Online shops on Shopify and Etsy", "Booking applications", "Dashboards and reporting", "Internal tools"],
  "automate": ["Enquiry and invoice follow-up", "Booking confirmations", "Screening of applications and enquiries", "Weekly reports and newsletters", "Social media scheduling", "Claude and other AI assistants set up for your team"],
  "create": ["Brand identity and illustration", "Video editing and motion graphics", "Articles, blog posts and Substack newsletters", "LinkedIn and Instagram content", "Visibility in search and AI answers (SEO and GEO)"],
 }
 
-CTA_NOTE = "Free. One page. No call required."
-CTA_WORK = "Recognise one of these in your own business?"
-CTA_CONNECT = "Not sure what could be connected in your business? The free review answers that."
-NEXT = [
- ("You write a few lines", "about the business and what takes the most time each week."),
- ("I send a one-page review", "of where time is being lost and what could be automated first."),
- ("You decide", "whether to go further. The review is yours either way."),
-]
-
-# the large statement that lights up word by word after the hero
-STATEMENT = ("Most of what a firm spends goes on work that moves between people and systems: reading, checking, matching, chasing. "
-             "Much of that can now run on its own. Making it hold up inside a real business is the work.")
-WEEK_INTRO ="A working week, before and after. Ochre is repeated manual work. Blue is the work that needs a person."
-DISCIPLINES = ["Websites and online shops", "Automation", "Claude and AI setup", "SEO and GEO", "Brand and film"]
-INTRO = ("A studio of one that designs what your clients see, connects the tools you already own, and sets up AI "
-         "to carry the repeated work. For any business, from a single professional to an established firm.")
-
-WHAT = [
- ("build", "Build", "Websites and applications",
-  "Websites, online shops, booking systems, dashboards and internal tools, designed and built end to end."),
- ("automate", "Automate", "Operations that run without manual effort",
-  "The repeated work, handled inside the tools you already use. A member of your team approves anything before it is sent."),
- ("create", "Create", "Brand identity and content systems",
-  "A recognisable identity, and a content process that turns one idea into a month of publishing, structured for search engines and AI assistants."),
-]
-
-CASES = [
- dict(who="A recruiting website that keeps itself current", kind="Executive search firm, Washington D.C., since 2025",
-  before="The firm had outgrown its website. Open roles were maintained manually in two places, candidates were assessed one at a time, and client reports were assembled by hand.",
-  did="An eighteen-page website with open roles synchronised from the firm's recruiting system. A tool that formats candidate CVs to the firm's standard. An interactive map of its consultant network. The firm's recruiting database and internal chat connected to its AI assistant, so the team can query its own candidate data.",
-  now="Website live. Candidate scoring in development: each candidate assessed against the criteria of the search, with written reasoning for every score."),
- dict(who="A guesthouse website and identity, drawn from the house itself", kind="Maison d'hôte, La Marsa, 2026",
-  before="A nineteenth-century house of nine rooms with an excellent reputation, and a website that did not reflect it.",
-  did="A visual identity drawn from the house itself: its tiles, doors and objects. A bilingual website in French and English designed around that identity, and the printed material guests handle, including room cards and the table d'hôte menu.",
-  now="Identity, print and website delivered."),
- dict(who="Class booking on a single screen", kind="Yoga studio, Tunis, 2026",
-  before="Classes were booked through Instagram messages, leaving the studio without a reliable view of attendance.",
-  did="A mobile-first booking application. Class schedule, availability and payment on a single screen, in French and English.",
-  now="Live."),
- dict(who="An AI assistant built around an editorial week", kind="Journalist, video production, 2026",
-  before="He had access to AI tools but was getting little practical value from them. Recurring work was still done manually.",
-  did="His AI assistant configured around his editorial work rather than the software's defaults. Recurring weekly tasks now follow a consistent, repeatable process, with video production at the centre.",
-  now="Delivered."),
- dict(who="A recruiting platform that explains every score", kind="Own product, 2026",
-  before="Most candidate screening tools return a score without the reasoning behind it, so a recruiter can neither defend it nor question it.",
-  did="Vero, a web application that reads a batch of résumés against a role, ranks the candidates, and shows the reasoning and the source text behind every score. It also drafts outreach based on each candidate's own work. The decision stays with a person.",
-  now="Live.",
-  link="https://vero-woad.vercel.app/", img="vero.jpg", alt="The Vero home page: Hiring intelligence that reads between the lines."),
- dict(who="A daily entry-risk score for stocks and crypto", kind="Own product, 2026",
-  before="A price shows what an asset costs today, not whether today is a sensible moment to buy it.",
-  did="ZonedInOut, a website that scores stocks, ETFs and cryptocurrencies every trading day on how far the price has moved from its average, with an entry zone and a stop level for each. Past calls are published and graded. It is a scoring system, not financial advice.",
-  now="Live.",
-  link="https://zonedinout.vercel.app/", img="zonedinout.jpg", alt="The ZonedInOut home page: Know the risk before you enter."),
-]
-
+# ── systems: (title, "", text, status) ──
+SYSTEMS_LABEL = "Systems"
+SYSTEMS_HEAD = "Four systems, each built around one costly habit."
 SYSTEMS = [
- ("Invoice and quote follow-up",
-  "Revenue is lost in enquiries, quotes and invoices that nobody followed up.",
-  "Reviews the inbox, quotes and invoices, identifies unanswered enquiries, stalled quotes and overdue invoices, and drafts a reply for each. Nothing is sent without approval.",
-  "Built and working. Shown here with sample data."),
- ("Content system",
-  "Most businesses publish content that is neither found nor finished.",
-  "Turns one idea into a researched article and a week of posts. Every figure is verified against a named source before publication, and each piece is structured to be cited by search engines and AI assistants.",
-  "In weekly use on client work."),
- ("Candidate scoring in your recruiting database",
-  "A recruiter can assess only a fraction of the candidates on a search in depth.",
-  "Assesses every candidate on a search against that search's criteria, and records the score and the reasoning in the candidate's record. The decision stays with a person.",
+ ("Every unanswered enquiry, found and drafted.", "",
+  "The system reads the inbox, quotes and invoices, finds what went quiet, and drafts each reply. Someone approves, then it sends.",
+  "Built. Demonstrated on a fictional firm."),
+ ("Every candidate read against the search.", "",
+  "Each candidate is assessed against that search's own criteria, with the reasoning written beside the score. The recruiter decides.",
   "In development for an executive search firm."),
- ("Interview notes to client report",
-  "Converting interview notes into a client report takes hours each week.",
-  "Converts raw notes into a finished report in your own format. Every rating references the source notes, and gaps are flagged rather than filled.",
-  "Built and working. Shown here with sample data."),
+ ("One idea, a week of publishing.", "",
+  "A researched article and a week of posts from a single idea. Every figure is checked against a named source before it goes out.",
+  "In weekly use on client work."),
+ ("Interview notes in, client report out.", "",
+  "Raw notes become a finished report in the firm's format. Every rating points to its source, and gaps are flagged, never filled.",
+  "Built. Demonstrated on fictional data."),
 ]
+SYSTEMS_NOTE = "A free %s for product businesses is also available."
+SYSTEMS_NOTE_LINK = "stock, sales and production tracker"
 
+# ── capacity ──
+CAPACITY_LABEL = "Capacity"
+CAPACITY_HEAD = "A small team that answers like a large one."
+CAPACITY_INTRO = "None of these are people. Each is a routine that now runs by itself, with someone approving the result."
+
+# ── enquiry diagram ──
+ENQUIRY_LABEL = "In practice"
+ENQUIRY_HEAD = "One enquiry, handled before anyone opens it."
+ENQUIRY_INTRO = "From the form to a reply ready for approval, with no manual step."
+
+# ── commitments ──
+COMMIT_LABEL = "Commitments"
+COMMIT_HEAD = "Six things that hold on every engagement."
 RULES = [
  ("One price, agreed in advance.", "Confirmed in writing before work begins. If the scope grows, the new price is agreed before the additional work starts."),
  ("You own everything.", "The code, the domain and the accounts are yours, and are transferred on request at no additional cost."),
  ("Nothing reaches your clients without approval.", "Every system drafts and prepares. A member of your team approves before anything is sent."),
  ("Honest advice on what to build.", "If a piece of work will not repay its cost, you will hear that in the first conversation."),
- ("You work with me directly.", "One person does the work, which is also why I take on a limited number of projects at a time."),
- ("Plain language.", "I explain what was built and why, in terms your team can repeat without me in the room."),
+ ("One person does the work.", "Houssem Gabsi runs every engagement himself, which is also why Loose Ends takes on a limited number of projects at a time."),
+ ("Plain language.", "Everything built is explained, and why, in terms your team can repeat without me in the room."),
 ]
 
+# ── process: (title, text, label) ──
+PROCESS_LABEL = "Process"
+PROCESS_HEAD = "Nothing is built until the problem is proven."
+PROCESS_INTRO = "The first step is free. The audit findings belong to the firm whether or not anything is built."
 HOW = [
- ("Initial review", "A free one-page review of where the business is losing time. No call required."),
- ("Audit", "A paid assessment, with the first three improvements ranked. The fee is credited toward the build."),
- ("Build", "One fixed price, agreed in writing before work begins."),
- ("Launch", "Your team is trained on the system, and every process has a named owner."),
- ("Support", "Optional monthly support, if you want it."),
+ ("Find the loose end.", "A free one-page review of where the firm loses time. No call required.", "Free"),
+ ("Measure it.", "A paid audit ranks the first three fixes by what they return. The fee is credited toward the build.", "Credited"),
+ ("Build one thing.", "The fix with the most hours in it, at one price agreed in writing.", "Fixed price"),
+ ("Hand it over.", "The team is trained and every routine has a named owner. Code, domain and accounts belong to the firm.", "Handover"),
+ ("Stay, if useful.", "Optional monthly support.", "Optional"),
 ]
 
+# ── questions. The hidden structured data is generated from this same list. ──
+FAQ_LABEL = "Questions"
+FAQ_HEAD = "What firms ask before they start."
 FAQ = [
- ("What kinds of businesses do you work with?",
-  "Any business that runs on repeated work. So far that has meant an executive search firm in Washington D.C., a guesthouse in La Marsa, a yoga studio in Tunis and a journalist working in video, as well as two products of my own. The method is the same each time: find the repeated work, then build or connect what removes it."),
- ("Can you set up Claude or another AI assistant for our business?",
-  "Yes. Most businesses use an AI assistant for single questions and little else. I connect it to your own tools and data, such as email, calendar, documents, your shop and your customer records, and set up the recurring tasks it should handle, so the whole team gets consistent results from it. Much of what is on this page is built that way."),
- ("Which tools do you connect to?",
-  "The ones you already use: email, calendars, spreadsheets and Slack; Shopify, Etsy and Substack; the specialist software of your trade, such as Loxo and BrightHire in recruiting; and the AI assistant the team already works with. The aim is to make existing tools work together, not to add new ones."),
- ("Do we need to replace the software we already use?",
-  "No. Every system is built around your existing email, calendar, spreadsheets and databases. Replacing software that works is the most expensive way to automate anything."),
- ("Will AI send anything to our clients without our approval?",
-  "No. Every system drafts and prepares. A member of your team approves before anything reaches a client. That is a design rule, not a setting that can be switched off."),
- ("Do you work on SEO and on visibility in AI answers?",
-  "Yes. Search engine optimisation, and what is now called generative engine optimisation, or GEO: structuring a site and its content so that search engines and AI assistants such as ChatGPT, Claude and Perplexity can find it, understand it and cite it. This site is built that way."),
+ ("What does Loose Ends build for a firm?",
+  "For a firm of ten to fifty people it is usually three things: the follow-up nobody has time to send, the booking or intake process clients pass through, and the reports someone prepares by hand every week. The work is connecting the tools already in use, not replacing them."),
+ ("What happens when a system gets something wrong?",
+  "Nothing reaches a client without a person approving it, so a wrong draft is caught at that step and corrected there. That approval is a design rule, not a setting that can be switched off."),
+ ("Who owns what is built?",
+  "The firm does. The code, the domain and the accounts are transferred on request at no additional cost."),
+ ("Does it fit the tools already in use?",
+  "Yes. Every system is built around the firm's existing email, calendar, spreadsheets and databases. Replacing software that works is the most expensive way to automate anything."),
  ("What does it cost, and how is it priced?",
-  "Every engagement begins with a paid Systems Audit at a fixed price, and that fee is credited toward the build. After the audit, each build has one fixed price, agreed in writing. There is no hourly billing."),
- ("How does an engagement start?",
-  "With a free one-page review of where the business is losing time. No call is required. If you want to go further, a paid audit ranks the first three improvements, and its fee is credited toward the build."),
- ("Who owns the website, the code and the accounts?",
-  "You do. The code, the domain and the accounts are yours, and are transferred on request at no additional cost."),
+  "Every engagement begins with a paid Systems Audit at a fixed price, credited toward the build. After the audit, each build has one fixed price agreed in writing. There is no hourly billing."),
+ ("How is this different from hiring an automation freelancer?",
+  "An automated workflow is one part of the work. The studio also builds the website or application it runs inside, produces the content that feeds it, and makes the short film that explains it to clients."),
+ ("Where is the studio based, and does it matter?",
+  "Tunis. Most of the work is for clients abroad, in English, French or Arabic. Calls are scheduled in the client's time zone, and delivery is the same wherever the firm is."),
 ]
+
+# ── closing ──
+CLOSE_HEAD = "Find the loose ends in the week."
+CLOSE_TEXT = "Send a line about the firm. A one-page review comes back, free, with the first three places to look."
+CLOSE_BTN = "Request a free review"
+CLOSE_NOTE = "A reply within 24 hours."
+
+# ── footer, page title and description ──
+FOOT_DESC = ("Loose Ends is a one-person studio in Tunis, run by Houssem Gabsi. It builds websites, automation and content systems "
+             "for established firms, in English, French and Arabic.")
+PAGE_TITLE = "Loose Ends | Websites, automation and content systems for established firms"
+PAGE_DESC = ("Loose Ends is a one-person studio in Tunis that designs and builds websites, automations and content systems for established firms in the US and Europe. "
+             "Follow-up, booking and reporting that run on their own, with a person approving before anything is sent.")
+
+# ── wording outside the v4 text. The connections section was not covered and is unchanged. ──
+CTA_NOTE = "Free. One page. No call required."
+CTA_CONNECT = "Not sure what could be connected in your business? The free review answers that."
