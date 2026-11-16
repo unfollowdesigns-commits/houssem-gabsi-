@@ -87,13 +87,13 @@ rules = "\n".join('<div><h3>%s</h3><p>%s</p></div>' % (e(a), e(b)) for a,b in RU
 faq = "\n".join('<div><h3>%s</h3><p>%s</p></div>' % (e(a), e(b)) for a,b in FAQ)
 SITE = "https://houssem-gabsi.vercel.app/"
 EMAIL = "unfollow.designs@gmail.com"
-HEAD = "Most of a week goes on work nobody should be doing by hand."
-TITLE = "Websites, automation and content | Houssem Gabsi"
-OG_TITLE = "Websites, automation and content for any business"
-DESC = ("A studio of one for businesses of any size or trade. Websites, booking systems, automated follow-up "
-        "and content systems. A person approves before anything is sent.")
+HEAD = "Websites, automation and AI, built to work as one."
+TITLE = "Websites, automation and AI | Houssem Gabsi"
+OG_TITLE = "Websites, automation and AI, built to work as one"
+DESC = ("A studio of one. Websites, automation and AI set up to work together, for businesses of any size or trade. "
+        "A person approves before anything is sent.")
 OG_DESC = "Follow-ups that are never forgotten, bookings confirmed, weekly reports prepared without anyone writing them. Built by one person, approved by yours."
-OG_ALT = HEAD + " Websites, automation and content for any business."
+OG_ALT = HEAD + " A studio of one, for businesses of any kind."
 ABOUT = "A studio of one that builds websites, booking systems, automations and content systems for businesses of any kind, from independent professionals to established firms."
 LANGS = ["English","French","Arabic"]
 PLACE = {"@type":"PostalAddress","addressLocality":"Tunis","addressCountry":"TN"}
@@ -216,7 +216,7 @@ h1,h2,h3,h4{font-family:Fraunces,Georgia,serif;font-weight:400;
 .htop{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);
   gap:clamp(24px,5vw,72px);align-items:end}
 @media(max-width:860px){.htop{grid-template-columns:1fr;align-items:start;gap:20px}}
-.hero h1{font-size:clamp(2.1rem,4.4vw,3.6rem);max-width:15ch;
+.hero h1{font-size:clamp(2.1rem,4.4vw,3.6rem);max-width:15ch;text-wrap:balance;
   font-variation-settings:"opsz" 144,"SOFT" 36,"WONK" 1}
 .hero .sub{max-width:44ch;font-size:clamp(17px,1.25vw,19.5px);
   color:var(--ink-soft);line-height:1.58}
@@ -713,14 +713,14 @@ html.js .rv.done{transition-delay:0s}
         WEEKHERE
       </div>
     </div>
-    <p class="wk-note">Illustrative week. Not a client's figures. Ochre is repeated manual work, blue is work that requires a person.</p>
+    <p class="wk-note">A sample week. Ochre is repeated manual work, blue is work that requires a person.</p>
   </div>
 </div></div>
 
 DIVHERE
 
 <section id="services"><div class="wrap">
-  <h2>Services</h2>
+  <h2>What the studio does</h2>
   <p class="intro-l">SERVINTRO</p>
   <div class="offer">WHATHERE</div>
 </div></section>
@@ -750,7 +750,7 @@ DIVHERE
     <div class="dayax"><span>00</span><span>06</span><span>12</span><span>18</span><span>24</span></div>
   </div>
   <ul class="team live" id="crew">AGENTSHERE</ul>
-  <p class="teamnote">Individually these are small. Together they let a small team operate like a much larger one. Illustrative day, not a client's figures. The shaded band is office hours.</p>
+  <p class="teamnote">Individually these are small. Together they let a small team operate like a much larger one. A sample day; the shaded band is office hours.</p>
 </div></section>
 
 <section id="enquiry"><div class="wrap">
@@ -760,7 +760,7 @@ DIVHERE
 </div></section>
 
 <section id="connections"><div class="wrap">
-  <h2>Connected to the tools you already use</h2>
+  <h2>What gets connected, and what changes</h2>
   <p class="intro-l">CONNINTRO</p>
   <ul class="team">CONNECTSHERE</ul>
   <p class="teamnote">CONNNOTE</p>
@@ -795,7 +795,6 @@ DIVHERE
   <h2>Find out where your business is losing time.</h2>
   <p class="lead">A free one-page review of your follow-up, booking and administration. No call required.</p>
   <a class="btn big mag" href="MAILTOHERE">Request a free review</a>
-  <ol class="next">NEXTHERE</ol>
   <a class="mail" href="mailto:unfollow.designs@gmail.com">unfollow.designs@gmail.com</a>
   <div class="sig">
     <span>Houssem Gabsi</span>
@@ -908,8 +907,8 @@ DIVHERE
 what = "\n".join('<div><div class="card">%s<span class="pl">%s</span><h3>%s</h3><p>%s</p><ul class="ex">%s</ul></div></div>' % (mark(m), e(k), e(a), e(b), "".join("<li>%s</li>" % e(x) for x in EXAMPLES[m])) for m,k,a,b in WHAT)
 nextsteps = "".join('<li><b>%s</b><span>%s</span></li>' % (e(a), e(b)) for a,b in NEXT)
 MAILTO = "mailto:" + EMAIL + "?subject=" + quote("Free review request") + "&amp;body=" + quote("Business:\nWebsite:\nWhat takes the most time each week:\n")
-DEMOS = {"Invoice and quote follow-up": ("leak", "0:31", "Demonstration on a fictional firm. Not a client's figures."),
-         "Interview notes to client report": ("shortlist", "0:22", "Demonstration on fictional data.")}
+DEMOS = {"Invoice and quote follow-up": ("leak", "0:31", "Demo film, sample data."),
+         "Interview notes to client report": ("shortlist", "0:22", "Demo film, sample data.")}
 def demo(name):
     if name not in DEMOS: return ""
     f, t, cap = DEMOS[name]

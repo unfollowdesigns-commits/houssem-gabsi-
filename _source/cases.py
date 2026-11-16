@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 # v3.2 content. Professional register, plain language. Clients unnamed. Nothing invented.
 
-SERVICES_INTRO = ("Most of the work is making the tools a business already has do more: finding where time is lost, "
-                  "removing repeated and administrative work, and connecting what is already there. "
-                  "Most engagements combine all three.")
+SERVICES_INTRO = ("Three disciplines, practised together. Most engagements draw on all of them, and all begin the same way: "
+                  "by finding where time is lost in the tools you already have.")
 
 # short examples shown as a list on each service card
 EXAMPLES = {
@@ -13,7 +12,7 @@ EXAMPLES = {
 }
 
 CTA_NOTE = "Free. One page. No call required."
-CTA_WORK = "A similar problem in your business?"
+CTA_WORK = "Recognise one of these in your own business?"
 CTA_CONNECT = "Not sure what could be connected in your business? The free review answers that."
 NEXT = [
  ("You write a few lines", "about the business and what takes the most time each week."),
@@ -21,16 +20,16 @@ NEXT = [
  ("You decide", "whether to go further. The review is yours either way."),
 ]
 
-INTRO = ("Websites, automation and content for any business, from a single professional to an established firm, built so the systems "
-         "you already pay for work together. One person, end to end.")
+INTRO = ("A studio of one that designs what your clients see, connects the tools you already own, and sets up AI "
+         "to carry the repeated work. For any business, from a single professional to an established firm.")
 
 WHAT = [
  ("build", "Build", "Websites and applications",
-  "Client-facing websites, online shops, booking systems, dashboards and internal tools, designed and built end to end, with as much care for how they are used as for how they look."),
+  "Websites, online shops, booking systems, dashboards and internal tools, designed and built end to end."),
  ("automate", "Automate", "Operations that run without manual effort",
-  "Follow-up, booking confirmations, screening, reporting and newsletters, handled automatically inside the tools you already use: email, Slack, your calendar and the specialist software of your trade. A member of your team approves anything before it is sent."),
+  "The repeated work, handled inside the tools you already use. A member of your team approves anything before it is sent."),
  ("create", "Create", "Brand identity and content systems",
-  "Visual identity, illustration, video editing and motion graphics, and a content process that turns one idea into a month of publishing across your blog, newsletter, LinkedIn and Instagram, in your voice and structured for search engines and AI assistants."),
+  "A recognisable identity, and a content process that turns one idea into a month of publishing, structured for search engines and AI assistants."),
 ]
 
 CASES = [
@@ -38,10 +37,10 @@ CASES = [
   before="The firm had outgrown its website. Open roles were maintained manually in two places, candidates were assessed one at a time, and client reports were assembled by hand.",
   did="An eighteen-page website with open roles synchronised from the firm's recruiting system. A tool that formats candidate CVs to the firm's standard. An interactive map of its consultant network. The firm's recruiting database and internal chat connected to its AI assistant, so the team can query its own candidate data.",
   now="Website live. Candidate scoring in development: each candidate assessed against the criteria of the search, with written reasoning for every score."),
- dict(who="An identity drawn from the house itself", kind="Maison d'hôte, La Marsa, 2026",
+ dict(who="A guesthouse website and identity, drawn from the house itself", kind="Maison d'hôte, La Marsa, 2026",
   before="A nineteenth-century house of nine rooms with an excellent reputation, and a website that did not reflect it.",
   did="A visual identity drawn from the house itself: its tiles, doors and objects. A bilingual website in French and English designed around that identity, and the printed material guests handle, including room cards and the table d'hôte menu.",
-  now="Identity and print delivered. Website in development."),
+  now="Identity, print and website delivered."),
  dict(who="Class booking on a single screen", kind="Yoga studio, Tunis, 2026",
   before="Classes were booked through Instagram messages, leaving the studio without a reliable view of attendance.",
   did="A mobile-first booking application. Class schedule, availability and payment on a single screen, in French and English.",
@@ -66,7 +65,7 @@ SYSTEMS = [
  ("Invoice and quote follow-up",
   "Revenue is lost in enquiries, quotes and invoices that nobody followed up.",
   "Reviews the inbox, quotes and invoices, identifies unanswered enquiries, stalled quotes and overdue invoices, and drafts a reply for each. Nothing is sent without approval.",
-  "Built. Demonstrated on a fictional firm."),
+  "Built and working. Shown here with sample data."),
  ("Content system",
   "Most businesses publish content that is neither found nor finished.",
   "Turns one idea into a researched article and a week of posts. Every figure is verified against a named source before publication, and each piece is structured to be cited by search engines and AI assistants.",
@@ -78,7 +77,7 @@ SYSTEMS = [
  ("Interview notes to client report",
   "Converting interview notes into a client report takes hours each week.",
   "Converts raw notes into a finished report in your own format. Every rating references the source notes, and gaps are flagged rather than filled.",
-  "Built. Demonstrated on fictional data."),
+  "Built and working. Shown here with sample data."),
 ]
 
 RULES = [
@@ -101,32 +100,20 @@ HOW = [
 FAQ = [
  ("What kinds of businesses do you work with?",
   "Any business that runs on repeated work. So far that has meant an executive search firm in Washington D.C., a guesthouse in La Marsa, a yoga studio in Tunis and a journalist working in video, as well as two products of my own. The method is the same each time: find the repeated work, then build or connect what removes it."),
- ("What does an automation studio build for a business?",
-  "It is usually three things: the follow-up nobody has time to send, the booking or intake process clients pass through, and the reports someone prepares by hand every week. The work is connecting the tools you already use, not replacing them."),
+ ("Can you set up Claude or another AI assistant for our business?",
+  "Yes. Most businesses use an AI assistant for single questions and little else. I connect it to your own tools and data, such as email, calendar, documents, your shop and your customer records, and set up the recurring tasks it should handle, so the whole team gets consistent results from it. Much of what is on this page is built that way."),
+ ("Which tools do you connect to?",
+  "The ones you already use: email, calendars, spreadsheets and Slack; Shopify, Etsy and Substack; the specialist software of your trade, such as Loxo and BrightHire in recruiting; and the AI assistant the team already works with. The aim is to make existing tools work together, not to add new ones."),
  ("Do we need to replace the software we already use?",
   "No. Every system is built around your existing email, calendar, spreadsheets and databases. Replacing software that works is the most expensive way to automate anything."),
  ("Will AI send anything to our clients without our approval?",
   "No. Every system drafts and prepares. A member of your team approves before anything reaches a client. That is a design rule, not a setting that can be switched off."),
- ("How is this different from hiring an automation freelancer?",
-  "An automated workflow is one part of the work. I also build the website or application it runs inside, produce the content that feeds it, and make the short film that explains it to your clients."),
- ("What does it cost, and how is it priced?",
-  "Every engagement begins with a paid Systems Audit at a fixed price, and that fee is credited toward the build. After the audit, each build has one fixed price, agreed in writing. There is no hourly billing."),
- ("Can a small team respond like a larger one?",
-  "Yes. Enquiries answered at any hour, invoices followed up on a set schedule, bookings confirmed as they are made and weekly figures sent without anyone preparing them. Each is a small process that runs automatically, and a member of your team approves anything before it is sent."),
- ("Which tools do you connect to?",
-  "The ones you already use: email, calendars, spreadsheets and Slack, the specialist software of your trade, such as Loxo and BrightHire in recruiting, and the AI assistant the team already works with. The aim is to make existing tools work together, not to add new ones."),
- ("Can you set up Claude or another AI assistant for our business?",
-  "Yes. Most businesses use an AI assistant for single questions and little else. I connect it to your own tools and data, such as email, calendar, documents, your shop and your customer records, and set up the recurring tasks it should handle, so the whole team gets consistent results from it. Much of what is on this page is built that way."),
  ("Do you work on SEO and on visibility in AI answers?",
   "Yes. Search engine optimisation, and what is now called generative engine optimisation, or GEO: structuring a site and its content so that search engines and AI assistants such as ChatGPT, Claude and Perplexity can find it, understand it and cite it. This site is built that way."),
- ("Do you work with Shopify, Etsy and Substack?",
-  "Yes. Online shops on Shopify and Etsy, and newsletters on Substack, can be built, tidied up and connected to the rest of your tools, so that orders, stock, listings and publishing no longer depend on someone copying things by hand."),
+ ("What does it cost, and how is it priced?",
+  "Every engagement begins with a paid Systems Audit at a fixed price, and that fee is credited toward the build. After the audit, each build has one fixed price, agreed in writing. There is no hourly billing."),
  ("How does an engagement start?",
   "With a free one-page review of where the business is losing time. No call is required. If you want to go further, a paid audit ranks the first three improvements, and its fee is credited toward the build."),
  ("Who owns the website, the code and the accounts?",
   "You do. The code, the domain and the accounts are yours, and are transferred on request at no additional cost."),
- ("What can be automated in a recruiting or executive search firm?",
-  "The work around the search, not the judgement in it: keeping open roles current on the website, formatting candidate CVs to the firm's standard, assessing every candidate against the criteria of the search with written reasoning, and turning interview notes into a client report. The decision stays with a person."),
- ("Where are you based, and does it matter?",
-  "Tunis. Most of the work is for clients abroad, in English, French or Arabic. Calls are scheduled in your time zone, and delivery is the same wherever you are."),
 ]

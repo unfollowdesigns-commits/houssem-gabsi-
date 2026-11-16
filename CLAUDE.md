@@ -34,7 +34,7 @@ Keep all of these on the page. Houssem has had to repeat them.
 
 ## Rules
 - Plain, professional language. No jargon, no buzzwords, no em dashes.
-- Nothing invented: no numbers, quotes or results that were not given by Houssem. Fictional or illustrative data is always labelled.
+- Nothing invented: no numbers, quotes or results that were not given by Houssem. Fictional or illustrative data is always labelled, briefly, as "sample" data. Do not write "fictional firm" or "not a client's figures".
 - Clients are not named. Cases are titled by the work, with the client type underneath.
 - Audience: any business, from an independent professional to an established firm. The page must not read as if it serves one industry. Recruiting is one example among several. Not "founders", not "struggling".
 - No background or CV content on the page. It shows what the studio builds.

@@ -17,16 +17,16 @@ FLOW_END = "Ready for your approval"
 NUMBERS = []
 
 # what the systems connect to: (icon, name, detail)
-CONNECT_INTRO = ("The method is the same in every business, whatever the trade. If a tool can share its data, "
-                 "it can be connected to the others and to an AI assistant. Most teams use a fraction of what an assistant such as Claude can do. Setting that up properly is a large part of the work.")
+CONNECT_INTRO = ("Most teams use a fraction of what their tools, and an assistant such as Claude, can do together. "
+                 "This is what changes once they are connected.")
 CONNECTS = [
- ("moon_mail", "Email and calendar", "the inbox and diary you already run on"),
- ("speech", "Slack", "alerts and approvals where the team already talks"),
- ("cv_read", "Software of your trade", "booking, sales and recruiting platforms, such as Loxo and BrightHire"),
- ("bars", "Spreadsheets and databases", "read and updated in place"),
- ("eye", "Claude and other AI assistants", "connected to your own data and set up for the whole team"),
- ("form", "Websites and online shops", "Shopify, Etsy, and the forms and bookings on your own site"),
- ("pen", "Newsletters and social channels", "Substack, email, LinkedIn and Instagram"),
- ("folder_in", "The tools specific to your business", "connected the same way as the rest"),
+ ("moon_mail", "Email and calendar", "Replies are drafted and meetings booked without the back and forth."),
+ ("speech", "Slack", "Approvals and alerts arrive where the team already talks."),
+ ("form", "Shopify and Etsy", "Orders, stock and listings stay in step without retyping."),
+ ("pen", "Substack, LinkedIn and Instagram", "One piece of writing is published everywhere it belongs."),
+ ("cv_read", "Loxo, BrightHire and the software of your trade", "Records stay current, and nobody copies between systems."),
+ ("bars", "Spreadsheets and databases", "Figures update themselves, so reports no longer need preparing."),
+ ("eye", "Claude", "Anyone on the team can ask a question and get the answer from your own data."),
+ ("folder_in", "Anything else you rely on", "If it can share its data, it joins the rest."),
 ]
 CONNECT_NOTE = "Nothing is replaced. The tools stay where they are and start working together."
