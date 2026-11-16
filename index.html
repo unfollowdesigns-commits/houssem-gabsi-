@@ -1028,6 +1028,50 @@ html.js .team li.rv.done{transition:opacity .4s ease,transform .3s ease}
 .foot{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:clamp(28px,4vh,44px);padding-top:20px;border-top:1px solid rgba(233,231,222,.16)}
 .foot a{color:rgba(233,231,222,.8);text-decoration:none;font-size:15px;border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
 @media(hover:hover){.foot a:hover{color:var(--ochre);border-color:var(--ochre)}}
+
+/* ══ v2 spec, steps 1 and 2: tokens and type scale. Later steps add below this line. ══ */
+:root{
+  --wrap:1200px;
+  --gut:clamp(16px,4vw,56px);
+  --inset:clamp(8px,1.2vw,16px);
+  --r-panel:clamp(14px,1.4vw,21px);
+  --r-card:16px;
+  --sec:clamp(88px,12.2vw,180px);
+  --sec-cta:clamp(100px,14.3vw,210px);
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --ease-io:cubic-bezier(.65,0,.15,1);
+  --h2gap:clamp(40px,5vw,72px);
+  --t-h1:clamp(2.5rem,5.6vw,5.1rem);
+  --t-h2:clamp(2.1rem,4.2vw,3.6rem);
+  --t-h3l:clamp(1.5rem,2.4vw,2.3rem);
+  --t-h3s:clamp(1.25rem,1.7vw,1.75rem);
+  --t-stmt:clamp(1.75rem,3.3vw,2.85rem);
+  --t-lede:clamp(1.02rem,1.2vw,1.12rem);
+  --t-small:14.7px;
+}
+.wrap{width:min(var(--wrap),100% - 2 * var(--gut));max-width:none;margin:0 auto;padding:0}
+body{font-size:16px;line-height:1.55}
+section,.lp section{padding:var(--sec) 0}
+.close{padding:var(--sec-cta) 0}
+h1,h2,h3{font-weight:300;line-height:1.04;letter-spacing:-.02em}
+.hero h1,.lph1{font-size:var(--t-h1);line-height:1.04;letter-spacing:-.02em;font-weight:300}
+section:not(.close) > .wrap > h2,.close h2{font-size:var(--t-h2);line-height:1.04;letter-spacing:-.02em;font-weight:300}
+section:not(.close) > .wrap > h2::before{font-family:Archivo,sans-serif;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--ink-soft);margin-bottom:18px;line-height:1}
+.case h3,.band.dark .case h3{font-size:var(--t-h3l);line-height:1.12;letter-spacing:-.02em;font-weight:300}
+.how h3,.rules h3,.lpfaq h3,.offer .card h3{font-size:var(--t-h3s);line-height:1.12;letter-spacing:-.02em;font-weight:300}
+.stp{font-weight:300;font-size:var(--t-stmt);line-height:1.22;max-width:1094px;letter-spacing:-.02em}
+.intro-l,.lp section p.intro-l{font-size:var(--t-lede);line-height:1.55;color:var(--ink-soft)}
+.wk-note,.teamnote,.sysnote,.cta-note,.case .meta,.arc span,.team span,.how p,.ctarow span,.windex small{font-size:var(--t-small);line-height:1.55}
+.offer,.team,.accl,.worklay,.rules,.flow,.track,.day{margin-top:var(--h2gap)}
+.intro-l + .offer,.intro-l + .team,.intro-l + .accl,.intro-l + .rules,.intro-l + .flow,.intro-l + .track,.intro-l + .day{margin-top:var(--h2gap)}
+.day + .team{margin-top:clamp(18px,2.6vh,26px)}
+.track + .how{margin-top:0}
+/* the old side-by-side hero is unpinned until step 6 rebuilds it as a framed, pinned stage */
+.pin{height:auto}.pin .hero{position:static;height:auto;display:block;padding:var(--sec) 0 clamp(40px,6vw,80px)}
+.hgrid{display:block}.hero .weekwrap{position:static;margin-top:clamp(40px,5vw,72px);padding:0;background:none}
+.pinspace,.pinhint{display:none}
+.hgrid .disc{margin-top:clamp(28px,4vw,48px)}
 </style></head><body>
 <header class="nav" id="nav">
   <a class="brand" href="#top">Houssem Gabsi</a>

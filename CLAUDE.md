@@ -43,7 +43,8 @@ Keep all of these on the page. Houssem has had to repeat them.
 - The page title, search description and site address are set near the structured data in `build.py`.
 - Keep `tools/`, `downloads/`, `fonts/` and `media/` as they are unless asked.
 - The page's two typefaces are served from `fonts/` (Fraunces and Archivo). The page loads nothing from other sites.
-- Nothing is pushed live without Houssem's OK.
+- Commit and push to the working branch after every step, without asking (Houssem, 16 Nov 2026). The branch only produces a Vercel preview.
+- Nothing goes onto `main`, which is the live site, without Houssem's OK.
 
 ## Before pushing
 Run the build, open the page, and check: the Before / After switch, the accordions, the menu marker, a phone-width view, and that there are no script errors.
