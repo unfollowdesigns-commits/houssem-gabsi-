@@ -1070,6 +1070,90 @@ html.js .offer > .svc .card .c-max .c-links,.offer .svc .c-max .c-links{display:
   .offer .svc .card,html.js .offer > .svc.act .card{height:auto;cursor:default}.c-min{display:none}
   .c-max{position:static;width:auto;opacity:1;visibility:visible}
   html.js .offer > .svc .card .c-max .ex,.offer .svc .c-max .ex{grid-template-columns:1fr}}
+
+/* ══ v2 step 7: statement, words lit by scroll position ══ */
+html.js .stp span{animation:none!important;color:rgba(27,32,28,.26);transition:color .4s var(--ease)}
+html.js .stp span.lit{color:var(--ink)}
+
+/* ══ v2 step 8: selected work as alternating rows with drawn panels ══ */
+.cases{display:block}
+.case,.band.dark .case{display:grid;grid-template-columns:minmax(0,.87fr) minmax(0,1fr);gap:clamp(32px,6vw,88px);align-items:center;border-top:0;padding:0;position:relative}
+.case::before{display:none!important}
+.case + .case{margin-top:clamp(72px,11vw,160px)}
+.case:nth-of-type(even) .ctext{order:2}
+.ctext .meta{margin:0 0 14px;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.14em;line-height:1.4;color:var(--ink-soft)}
+.ctext h3{max-width:17ch}
+.ctext .did{margin-top:clamp(18px,2vw,26px);max-width:50ch;color:var(--ink)}
+.ctext .proof{margin-top:16px;padding-top:14px;border-top:1px solid var(--sand);font-size:var(--t-small);color:var(--ink-soft);max-width:50ch}
+.ctext .clink{margin-top:16px;font-size:var(--t-small)}
+.cviz{aspect-ratio:595 / 476;border-radius:var(--r-card);background:linear-gradient(160deg,#E6E3D9,var(--wall-2) 60%);overflow:hidden;
+  box-shadow:inset 0 0 0 1px rgba(27,32,28,.06),inset 0 1px 0 rgba(255,255,255,.55),0 44px 70px -48px rgba(27,32,28,.42)}
+.cviz svg{display:block;width:100%;height:112%;margin-top:-6%;will-change:transform}
+html.js .cviz .d{opacity:0;transform:translateY(12px);transform-box:fill-box}
+html.js .case.in .cviz .d{opacity:1;transform:none;transition:opacity .6s var(--ease),transform .7s var(--ease);transition-delay:calc(var(--j,0) * 55ms + .3s)}
+html.js .cviz .draw{stroke-dasharray:1;stroke-dashoffset:1}
+html.js .case.in .cviz .draw{stroke-dashoffset:0;transition:stroke-dashoffset 1.4s var(--ease-io) .45s}
+.sublab{margin:clamp(72px,11vw,160px) 0 clamp(32px,4vw,56px);padding-top:22px;border-top:1px solid var(--sand)}
+@media(max-width:820px){.case,.band.dark .case{grid-template-columns:1fr;gap:28px}.case:nth-of-type(even) .ctext{order:0}}
+
+/* ══ v2 step 10: process, growing numbers ══ */
+.track{display:none}
+.how li{grid-template-columns:180px minmax(0,1.15fr) minmax(0,1.3fr) 104px;column-gap:clamp(16px,3vw,48px);align-items:center;min-height:156px;padding:18px 0;border-top:1px solid var(--sand)}
+.how li:last-child{border-bottom:1px solid var(--sand)}
+.how li::before{font-size:2.6rem;line-height:1;color:var(--ink)}
+.how li:nth-child(2)::before{font-size:3.4rem}.how li:nth-child(3)::before{font-size:4.4rem}.how li:nth-child(4)::before{font-size:5.4rem}.how li:nth-child(5)::before{font-size:6.4rem}
+.how h3{font-size:1.75rem;color:var(--ink)}
+.how p{font-size:var(--t-small);max-width:44ch}
+html.js .how li{opacity:1;transform:none;transition:none}
+html.js .how li::before,html.js .how h3,html.js .how p,html.js .how .tag{transition:color .4s var(--ease)}
+html.js .how li:not(.on)::before,html.js .how li:not(.on) h3,html.js .how li:not(.on) p,html.js .how li:not(.on) .tag{color:rgba(27,32,28,.45)}
+html.js .how li.on::before{color:var(--ink)}
+@media(max-width:700px){.how li{grid-template-columns:64px minmax(0,1fr);min-height:0;padding:22px 0;align-items:start}
+  .how li::before{grid-row:1 / span 3;font-size:2rem}.how li:nth-child(2)::before{font-size:2.3rem}.how li:nth-child(3)::before{font-size:2.6rem}.how li:nth-child(4)::before{font-size:2.9rem}.how li:nth-child(5)::before{font-size:3.2rem}
+  .how h3{font-size:1.4rem}}
+
+/* ══ v2 step 11: questions in two columns ══ */
+.qgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,600px);gap:clamp(32px,6vw,88px);align-items:start}
+.qhead{position:sticky;top:120px}
+.qhead h2{font-size:var(--t-h2);line-height:1.04;letter-spacing:-.02em;font-weight:300;max-width:12ch;text-wrap:balance}
+.qgrid .accl{margin-top:0}
+.q .acch{min-height:72px;padding:16px 0;align-items:center}
+.q .acch span{font-family:Archivo,sans-serif;font-size:17.3px;font-weight:500;letter-spacing:0;line-height:1.35}
+.accb{transition:grid-template-rows .45s var(--ease-io)}
+.acch{transition:none}
+@media(max-width:900px){.qgrid{grid-template-columns:1fr;gap:var(--h2gap)}.qhead{position:static}.qhead h2{max-width:22ch}}
+
+/* ══ v2 step 12: footer with the studio name set very large behind it ══ */
+.ft{position:relative;overflow:hidden;padding-bottom:clamp(110px,19vw,330px)}
+.ft .wrap{position:relative;z-index:1}
+.ftbig{position:absolute;left:0;right:0;bottom:-.2em;text-align:center;white-space:nowrap;font-family:Fraunces,Georgia,serif;font-weight:300;
+  font-size:clamp(4.6rem,19.5vw,24rem);line-height:1;letter-spacing:-.035em;color:#292E2A;pointer-events:none;user-select:none;font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 0}
+
+/* ══ v2 step 13: two reveals only. Blocks rise 28px; headings rise line by line ══ */
+html.js .rv,html.js .team li.rv,html.js .team li.rv.done{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:calc(var(--i,0) * 90ms + 80ms)}
+html.js .rv.in,html.js .team li.rv.in{opacity:1;transform:none}
+html.js .rv.done,html.js .team li.rv.done{transition-delay:0s}
+html.js .offer > .svc.rv{transition:flex-grow .45s var(--ease-io),opacity .7s var(--ease),transform .7s var(--ease)}
+html.js h2 .w{display:inline-block;opacity:1;transform:none;transition:none}
+html.js h2 .ln{display:block;overflow:hidden;padding:.08em 0 .16em;margin:-.08em 0 -.16em}
+html.js h2 .li{display:block;transform:translateY(112%);transition:transform .8s var(--ease);transition-delay:calc(var(--l,0) * 110ms + 230ms)}
+html.js h2.in .li{transform:none}
+html.js .fstep{transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.st::before,.pm.auto .core,.mark i.o{animation:none!important}
+
+/* depth: a soft light inside the dark panels, so they do not read as flat blocks */
+.hero-card,section.panel,.close{background-image:radial-gradient(90% 70% at 78% -10%,rgba(43,76,111,.42),transparent 62%),radial-gradient(70% 60% at 0% 110%,rgba(180,116,58,.13),transparent 60%)}
+.close{background-image:radial-gradient(90% 60% at 78% -10%,rgba(43,76,111,.42),transparent 62%)}
+.ft{background-image:none}
+.offer .svc .card,html.js .offer > .svc.act .card{box-shadow:inset 0 1px 0 rgba(233,231,222,.1),0 30px 50px -36px rgba(0,0,0,.6)}
+.team li,.rules div{position:relative}
+
+@media(prefers-reduced-motion:reduce){
+  html.js .rv,html.js .team li.rv,html.js h2 .li,html.js .cviz .d{opacity:1!important;transform:none!important;transition:none!important}
+  html.js .cviz .draw{stroke-dashoffset:0!important;transition:none!important}
+  html.js .stp span{color:var(--ink)!important}
+  html.js .how li::before,html.js .how h3{color:var(--ink)!important}html.js .how p,html.js .how .tag{color:var(--ink-soft)!important}
+  .cviz svg{transform:none!important}}
 </style></head><body>
 <header class="nav" id="nav">
   <a class="brand" href="#top">Loose Ends</a>
@@ -1184,9 +1268,9 @@ DIVHERE
 
 DIVHERE
 
-<section id="questions"><div class="wrap">
-  <p class="lab">FAQLABEL</p>
-  <h2>FAQHEAD</h2>
+<section id="questions"><div class="wrap qgrid">
+  <div class="qhead"><p class="lab">FAQLABEL</p>
+  <h2>FAQHEAD</h2></div>
   <div class="accl qa">FAQHERE</div>
 </div></section>
 
@@ -1208,9 +1292,19 @@ FOOTERHERE
   function clamp(v){return v<0?0:v>1?1:v;}
 
   /* headings and reveals */
-  $$('h2').forEach(function(h){h.innerHTML=h.textContent.trim().split(/\\s+/).map(function(w,i){return '<span class="w" style="--w:'+i+'">'+w+'</span>';}).join(' ');});
-  ['.intro-l','.offer > div','.team li','.teamnote','.flow','.acc','.sysnote','.chd','.close .lead','.close .btn','.sig','.rules div','.windex li']
-   .forEach(function(sel){$$(sel).forEach(function(n){n.classList.add('rv');n.style.setProperty('--i', sel==='.chd'?0:[].indexOf.call(n.parentNode.children,n));});});
+  /* each h2 is split into the lines it actually wraps to; every line rises from behind its own edge */
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  function splitH(h){var t=h.getAttribute('data-t')||h.textContent.trim();h.setAttribute('data-t',t);h.setAttribute('aria-label',t);
+    h.innerHTML=t.split(/\\s+/).map(function(w){return '<span class="w">'+esc(w)+'</span>';}).join(' ');
+    var lines=[],top=null;$$('.w',h).forEach(function(w){if(top===null||Math.abs(w.offsetTop-top)>6){lines.push([]);top=w.offsetTop;}lines[lines.length-1].push(w.textContent);});
+    h.innerHTML=lines.map(function(l,i){return '<span class="ln"><span class="li" style="--l:'+i+'">'+esc(l.join(' '))+'</span></span>';}).join(' ');}
+  var h2s=$$('h2'), splitW=innerWidth, splitT=0;
+  function splitAll(){h2s.forEach(splitH);}
+  splitAll();
+  if(d.fonts&&d.fonts.ready)d.fonts.ready.then(splitAll);
+  addEventListener('resize',function(){if(innerWidth===splitW)return;splitW=innerWidth;clearTimeout(splitT);splitT=setTimeout(splitAll,180);});
+  ['.intro-l','.offer > div','.team li','.teamnote','.flow','.acc','.sysnote','.ctext > *','.cviz','.stl','.close .lead','.close .btn','.close .cnote','.rules div','.ftg > *']
+   .forEach(function(sel){$$(sel).forEach(function(n){n.classList.add('rv');n.style.setProperty('--i', Math.min(6,[].indexOf.call(n.parentNode.children,n)));});});
   var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('in');io.unobserve(t);
       setTimeout(function(){t.classList.add('done');},1700);}});},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
   $$('h2,.rv,.dv,.case,.close').forEach(function(n){io.observe(n);});
@@ -1250,7 +1344,7 @@ FOOTERHERE
     o.addEventListener('focusin',function(){pick(o);});});
 
   /* the statement lights up word by word; browsers with scroll-driven CSS do this without script */
-  var SDA=!!(window.CSS&&CSS.supports&&CSS.supports('animation-timeline: view()')), stm=$('.stmt'), stw=$$('.stp span');
+  var SDA=!!(window.CSS&&CSS.supports&&CSS.supports('animation-timeline: view()')), stm=$('.stp'), stw=$$('.stp span'), litN=-1, vz=$$('.cviz svg');
 
   /* capacity: one illustrative day, each process acting at its own hours */
   var day=$('#day');
@@ -1297,9 +1391,12 @@ FOOTERHERE
     fo.classList.toggle('on',pf>.97);
     var r2=howl.getBoundingClientRect(), t2=clamp((vh*.86-r2.top)/(vh*.46)); pt+=(t2-pt)*(RM?1:.09);
     if(!SDA)trk.style.transform='scaleX('+pt.toFixed(4)+')';
-    if(!SDA&&!RM&&stm){var sr=stm.getBoundingClientRect(),sp=(vh-sr.top)/(vh+sr.height)*100;
-      if(sp>-5&&sp<105)stw.forEach(function(w,i){w.classList.toggle('lit',sp>24+i*.95);});}
-    how.forEach(function(l,i){l.classList.toggle('on',pt>(i+.12)/how.length);});
+    if(!RM&&stm){var pr=clamp((vh*.72-stm.getBoundingClientRect().top)/(vh*.5)),n=0;
+      for(var k=0;k<stw.length;k++)if(pr>k/stw.length)n++;
+      if(n!==litN){litN=n;stw.forEach(function(w,i){w.classList.toggle('lit',i<n);});}}
+    how.forEach(function(l){var hr=l.getBoundingClientRect();l.classList.toggle('on',RM||hr.top+hr.height/2<vh*.6);});
+    if(!RM)vz.forEach(function(s){var vr=s.parentNode.getBoundingClientRect();if(vr.bottom<-80||vr.top>vh+80)return;
+      s.style.transform='translate3d(0,'+(((vr.top+vr.height/2)-vh/2)*-.045).toFixed(1)+'px,0)';});
     requestAnimationFrame(frame);}
   requestAnimationFrame(frame);
 })();
@@ -1341,7 +1438,7 @@ def footer_html(home):
             '<nav aria-label="Services"><b>Services</b>%s</nav>'
             '<div class="ftc"><b>Contact</b>%s<span>English, français, العربية</span>'
             '<a href="/tools/stock-sales-production-tracker/">Free stock, sales and production tracker</a></div>'
-            '</div><div class="askai"><b>Ask AI about this studio</b>%s</div></div></footer>') % (home or "", e(ABOUT), sec, pgs, contact, ask)
+            '</div><div class="askai"><b>Ask AI about this studio</b>%s</div></div><div class="ftbig" aria-hidden="true">Loose Ends</div></footer>') % (home or "", e(ABOUT), sec, pgs, contact, ask)
 DEMOS = {}   # demo films removed from the Systems section at Houssem's request
 def demo(name):
     if name not in DEMOS: return ""
@@ -1349,21 +1446,78 @@ def demo(name):
     return ('<figure class="demo"><video controls playsinline preload="none" poster="/media/%s.jpg" width="540" height="676">'
             '<source src="/media/%s.webm" type="video/webm"><source src="/media/%s-s.mp4" type="video/mp4"></video>'
             '</figure>') % (f, f, f)
-def shot(c):
-    if not c.get("img"): return ""
-    host = c["link"].split("//")[1].strip("/")
-    return ('<a class="shot" href="%s" target="_blank" rel="noopener">'
-            '<img src="/media/%s" width="1440" height="900" loading="lazy" decoding="async" alt="%s">'
-            '<span>Visit %s</span></a>') % (e(c["link"]), e(c["img"]), e(c["alt"]), e(host))
+# ── drawn panels for the work: bars and cells in door blue and ochre, one composition per piece. No photos. ──
+def _r(j, x, y, w, h, fill="door", rx=3, extra=""):
+    return '<rect class="d" style="--j:%d" x="%g" y="%g" width="%g" height="%g" rx="%g" fill="%s"%s/>' % (
+        j, x, y, w, h, rx, ("var(--%s)" % fill) if fill != "none" else "none", extra)
+_OUT = ' stroke="rgba(27,32,28,.2)" stroke-width="1.2"'
+def viz_roles():      # open roles entered once, appearing in a second place
+    o = []
+    for i, w in enumerate([180, 150, 168, 124, 172]):
+        y = 104 + i * 58
+        o.append(_r(i, 70, y, 180, 24))
+        o.append('<line class="d" style="--j:%d" x1="262" y1="%g" x2="333" y2="%g" stroke="var(--ochre)" stroke-width="1.6" stroke-dasharray="3 5"/>' % (i + 3, y + 12, y + 12))
+        o.append(_r(i + 5, 345, y, w, 24, "door" if i != 1 else "ochre"))
+    return "".join(o)
+def viz_tiles():      # a tile pattern, quarter circles meeting at the corners
+    o, s, x0, y0 = [], 80, 57.5, 78
+    for r in range(4):
+        for c in range(6):
+            x, y = x0 + c * s, y0 + r * s
+            k = (r % 2) * 2 + (c % 2)
+            dpath = {0: "M%g,%g L%g,%g A%g,%g 0 0 0 %g,%g Z" % (x + s, y + s, x, y + s, s, s, x + s, y),
+                     1: "M%g,%g L%g,%g A%g,%g 0 0 0 %g,%g Z" % (x, y + s, x, y, s, s, x + s, y + s),
+                     2: "M%g,%g L%g,%g A%g,%g 0 0 0 %g,%g Z" % (x + s, y, x + s, y + s, s, s, x, y),
+                     3: "M%g,%g L%g,%g A%g,%g 0 0 0 %g,%g Z" % (x, y, x + s, y, s, s, x, y + s)}[k]
+            col = "ochre" if (r, c) in [(1, 2), (1, 3), (2, 2), (2, 3)] else "door"
+            o.append('<rect x="%g" y="%g" width="%g" height="%g" fill="none"%s/>' % (x, y, s, s, _OUT))
+            o.append('<path class="d" style="--j:%d" d="%s" fill="var(--%s)"/>' % (r + c, dpath, col))
+    return "".join(o)
+def viz_booking():    # one phone screen: a schedule, one class chosen, one button
+    o = ['<rect x="187" y="40" width="221" height="396" rx="28" fill="var(--wall)"%s/>' % _OUT, _r(0, 211, 72, 96, 12), _r(1, 211, 92, 58, 7, "sand")]
+    for i in range(4):
+        y = 124 + i * 58
+        sel = i == 1
+        o.append('<rect class="d" style="--j:%d" x="207" y="%g" width="181" height="46" rx="8" fill="%s"%s/>' % (i + 2, y, "var(--door)" if sel else "none", "" if sel else _OUT))
+        o.append(_r(i + 3, 219, y + 13, 44, 8, "wall" if sel else "door"))
+        o.append(_r(i + 3, 219, y + 27, 74, 6, "sand"))
+        o.append('<circle class="d" style="--j:%d" cx="366" cy="%g" r="7" fill="%s"%s/>' % (i + 4, y + 23, "var(--ochre)" if sel else "none", "" if sel else _OUT))
+    o.append(_r(8, 207, 372, 181, 38, "ochre", 19))
+    return "".join(o)
+def viz_week():       # the same working week, repeated
+    o = ['<line x1="62" y1="388" x2="533" y2="388" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/>']
+    for d in range(7):
+        x = 70 + d * 66
+        if d > 4:
+            o.append('<rect x="%g" y="92" width="46" height="282" rx="3" fill="none"%s/>' % (x, _OUT)); continue
+        o += [_r(d, x, 92, 46, 64), _r(d + 1, x, 164, 46, 34, "ochre"), _r(d + 2, x, 206, 46, 96), _r(d + 3, x, 310, 46, 64, "none", 3, _OUT)]
+    return "".join(o)
+def viz_rank():       # candidates ranked, each score with its reasoning beside it
+    o = []
+    for i, w in enumerate([330, 286, 250, 196, 150, 96]):
+        y = 86 + i * 54
+        o.append(_r(i, 70, y, w, 20, "door" if i else "ochre"))
+        o.append(_r(i + 1, 70, y + 27, w * .62, 5, "sand"))
+        o.append('<circle class="d" style="--j:%d" cx="505" cy="%g" r="13" fill="%s"%s/>' % (i + 2, y + 13, "var(--ochre)" if i == 0 else "none", "" if i == 0 else _OUT))
+    return "".join(o)
+def viz_zone():       # a price line, the entry zone and the stop level
+    pts = [(70, 300), (112, 284), (150, 310), (196, 252), (238, 268), (282, 206), (324, 228), (368, 170), (412, 196), (458, 138), (525, 156)]
+    return ('<line x1="70" y1="92" x2="70" y2="388" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><line x1="70" y1="388" x2="525" y2="388" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/>'
+            + _r(0, 70, 236, 455, 62, "ochre", 0, ' fill-opacity=".22"')
+            + '<line class="d" style="--j:2" x1="70" y1="338" x2="525" y2="338" stroke="var(--ochre)" stroke-width="1.6" stroke-dasharray="4 6"/>'
+            + '<polyline class="draw" pathLength="1" points="%s" fill="none" stroke="var(--door)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>' % " ".join("%d,%d" % p for p in pts)
+            + '<circle class="d" style="--j:12" cx="525" cy="156" r="7" fill="var(--door)"/>')
+VIZ = [viz_roles, viz_tiles, viz_booking, viz_week, viz_rank, viz_zone]
+def viz(i): return '<div class="cviz" aria-hidden="true"><svg viewBox="0 0 595 476">%s</svg></div>' % VIZ[i % len(VIZ)]()
+def visit(c):
+    if not c.get("link"): return ""
+    return '<p class="clink"><a class="tl" href="%s" target="_blank" rel="noopener">Visit %s</a></p>' % (e(c["link"]), e(c["link"].split("//")[1].strip("/")))
 cases = "\n".join(
  ('<p class="lab sublab">%s</p>\n' % e(PRODUCTS_LABEL) if i == len(CASES) else "") +
  """<article class="case" id="case-%d">
-  <div class="chd"><p class="meta">%s</p><h3>%s</h3></div>
-  %s<div class="arc">
-    <div class="did">%s</div>
-    <div class="proof">%s</div>
-  </div>
- </article>""" % (i, e(c["kind"]), e(c["who"]), shot(c), P(c["did"]), P(c["now"]))
+  <div class="ctext"><p class="meta">%s</p><h3>%s</h3><p class="did">%s</p><p class="proof">%s</p>%s</div>
+  %s
+ </article>""" % (i, e(c["kind"]), e(c["who"]), e(c["did"]), e(c["now"]), visit(c), viz(i))
  for i,c in enumerate(WORK))
 windex = "\n".join('<li><a href="#case-%d">%s<small>%s</small></a></li>' % (i, e(c["who"]), e(c["kind"])) for i,c in enumerate(WORK))
 systems = "\n".join(
