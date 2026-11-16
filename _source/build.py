@@ -5,6 +5,8 @@ import re, json
 from urllib.parse import quote
 from parts import AGENTS, FLOW_TRIGGER, FLOW_STEPS, FLOW_END, NUMBERS, DAY_HOURS, CONNECT_INTRO, CONNECTS, CONNECT_NOTE
 from icons import svg
+from pages import PAGES
+DISC_LINKS = {"Websites and online shops":"websites-and-online-shops","Automation":"ai-automation","Claude and AI setup":"claude-consulting","SEO and GEO":"seo-geo"}
 e = html.escape
 random.seed(7)
 
@@ -86,7 +88,7 @@ systems = "\n".join('<article class="sys"><div><h3>%s</h3><p class="prob">%s</p>
 rules = "\n".join('<div><h3>%s</h3><p>%s</p></div>' % (e(a), e(b)) for a,b in RULES)
 faq = "\n".join('<div><h3>%s</h3><p>%s</p></div>' % (e(a), e(b)) for a,b in FAQ)
 SITE = "https://houssem-gabsi.vercel.app/"
-EMAIL = "unfollow.designs@gmail.com"
+EMAIL = ""   # contact address shown on the site. Left empty for now at Houssem's request. Set it and the review buttons become email links again.
 HEAD = "Websites, automation and AI, built to work as one."
 HEAD_ACCENT = 2   # how many closing words of the headline take the accent colour
 TITLE = "Websites, automation and AI | Houssem Gabsi"
@@ -109,14 +111,14 @@ LD = json.dumps({"@context":"https://schema.org","@graph":[
   "founder":{"@id":SITE+"#person"},
   "url":SITE,
   "image":SITE+"og.png",
-  "email":EMAIL,
+  **({"email":EMAIL} if EMAIL else {}),
   "address":PLACE,
   "areaServed":["United States","Europe","Tunisia"],
   "availableLanguage":LANGS,
   "knowsAbout":["website design and build","booking systems","dashboards","process automation","invoice and quote follow-up","candidate scoring for recruiting firms","integrations with email, Slack, Loxo and BrightHire","newsletter automation","Shopify and Etsy shops","Substack newsletters","setting up Claude and other AI assistants for teams","search engine optimisation","generative engine optimisation","content systems","social media content","video editing","motion graphics","answer engine optimisation","branding"],
   "hasOfferCatalog":{"@type":"OfferCatalog","name":"Services","itemListElement":[
     {"@type":"Offer","itemOffered":{"@type":"Service","name":t,"description":d,"provider":{"@id":SITE+"#studio"}}} for _,_,t,d in WHAT]}},
- {"@type":"Person","@id":SITE+"#person","name":"Houssem Gabsi","url":SITE,"email":EMAIL,
+ {"@type":"Person","@id":SITE+"#person","name":"Houssem Gabsi","url":SITE,**({"email":EMAIL} if EMAIL else {}),
   "worksFor":{"@id":SITE+"#studio"},"knowsLanguage":LANGS,"address":PLACE},
  {"@type":"ItemList","@id":SITE+"#work","name":"Selected work","itemListElement":[
     {"@type":"ListItem","position":i+1,"item":{"@type":"CreativeWork","@id":SITE+"#case-%d" % i,"url":SITE+"#case-%d" % i,
@@ -129,27 +131,60 @@ LD = json.dumps({"@context":"https://schema.org","@graph":[
 # plain-text summary for AI assistants, written from the same lists as the page
 def _llms():
     L = ["# Houssem Gabsi", "", "> " + ABOUT, "",
-         "Based in Tunis. Works in English, French and Arabic. Contact: " + EMAIL, "",
+         "Based in Tunis. Works in English, French and Arabic." + ((" Contact: " + EMAIL) if EMAIL else ""), "",
          "Site: " + SITE, "", "## Services", ""]
     L += ["- %s: %s" % (t, d) for _,_,t,d in WHAT]
+    L += ["", "## Cases", "", "Four pieces of client work. Clients are not named."]
+    for c in CASES[:4]:
+        L += ["", "### " + c["who"], "", c["kind"], "", c["did"], "", "Status: " + c["now"]]
     L += ["", "## Systems", ""]
-    L += ["- %s: %s %s Status: %s" % (a, b, c, d) for a,b,c,d in SYSTEMS]
-    L += ["", "## Connections", "", CONNECT_INTRO, ""]
-    L += ["- %s: %s" % (a, b) for _,a,b in CONNECTS]
-    L += ["", "## Selected work", "", "Clients are not named. Own products are named and linked."]
-    for c in CASES:
-        L += ["", "### " + c["who"], "", c["kind"], "",
-              "- Challenge: " + c["before"], "- Work delivered: " + c["did"], "- Status: " + c["now"]] + (["- Link: " + c["link"]] if c.get("link") else [])
-    L += ["", "## How I work", ""]
-    L += ["- %s %s" % (a, b) for a,b in RULES]
-    L += ["", "## Process", ""]
-    L += ["%d. %s: %s" % (i+1, a, b) for i,(a,b) in enumerate(HOW)]
-    L += ["", "## Common questions"]
-    for q,a in FAQ: L += ["", "### " + q, "", a]
-    L += ["", "## Free tool", "",
-          "- [Stock, sales and production tracker](%stools/stock-sales-production-tracker/): a free tracker for product businesses." % SITE, ""]
+    L += ["- %s: %s Status: %s" % (a, c, d) for a,b,c,d in SYSTEMS]
+    L += ["", "## How an engagement starts", ""]
+    L += ["%d. %s: %s" % (i+1, a, b) for i,(a,b) in enumerate(HOW[:3])]
+    L += ["", "## Contact", "",
+          ("Email: " + EMAIL) if EMAIL else "Request a free review from the contact section of the site: " + SITE + "#contact", ""]
+    L += ["## Pages", "", "- [Home](%s): the whole studio on one page." % SITE,
+          "- [The home page as Markdown](%sindex.md)" % SITE]
+    L += ["- [%s](%s%s/): %s" % (pg["title"], SITE, pg["slug"], pg["desc"]) for pg in PAGES]
+    L += ["- [Stock, sales and production tracker](%stools/stock-sales-production-tracker/): a free tracker for product businesses." % SITE, ""]
     return "\n".join(L)
 LLMS = _llms()
+
+# the whole home page as clean Markdown, in page order, from the same lists
+def _md():
+    L = ["# " + HEAD, "", INTRO, "", "Houssem Gabsi. Independent studio, Tunis. English, French and Arabic.", "",
+         "## What the studio does", "", SERVICES_INTRO]
+    for m,k,t,dsc in WHAT:
+        L += ["", "### %s: %s" % (k, t), "", dsc, ""] + ["- " + x for x in EXAMPLES[m]]
+    L += ["", "## What gets connected, and what changes", "", CONNECT_INTRO, ""]
+    L += ["- **%s.** %s" % (a, b) for _,a,b in CONNECTS]
+    L += ["", CONNECT_NOTE, "", "## Selected work"]
+    for c in CASES:
+        L += ["", "### " + c["who"], "", c["kind"], "",
+              "- **Challenge.** " + c["before"], "- **Work delivered.** " + c["did"], "- **Status.** " + c["now"]]
+        if c.get("link"): L += ["- **Link.** " + c["link"]]
+    L += ["", "## Systems"]
+    for a,b,c,dd in SYSTEMS:
+        L += ["", "### " + a, "", b, "", c, "", "Status: " + dd]
+    L += ["", "## A small team with the capacity of a larger one", "",
+          "Each of these is a process that runs automatically. From the outside, the business simply responds faster.", ""]
+    L += ["- %s, %s." % (a, b) for a,b in AGENTS]
+    L += ["", "## An enquiry, handled end to end", "", "1. " + FLOW_TRIGGER]
+    L += ["%d. %s" % (i+2, x) for i,x in enumerate(FLOW_STEPS)]
+    L += ["%d. %s" % (len(FLOW_STEPS)+2, FLOW_END), "", "## How I work", ""]
+    L += ["- **%s** %s" % (a, b) for a,b in RULES]
+    L += ["", "## Process", ""]
+    L += ["%d. **%s.** %s" % (i+1, a, b) for i,(a,b) in enumerate(HOW)]
+    L += ["", "## Common questions"]
+    for q,a in FAQ: L += ["", "### " + q, "", a]
+    L += ["", "## Contact", "", "A free one-page review of your follow-up, booking and administration. No call required.", "",
+          ("Email: " + EMAIL) if EMAIL else "Request it from the contact section of the site: " + SITE + "#contact",
+          "", "## More pages", ""]
+    L += ["- [%s](%s%s/)" % (pg["title"], SITE, pg["slug"]) for pg in PAGES]
+    L += ["- [Stock, sales and production tracker](%stools/stock-sales-production-tracker/)" % SITE,
+          "- [Short guide for AI assistants](%sllms.txt)" % SITE, ""]
+    return "\n".join(L)
+PAGE_MD = _md()
 how  = "\n".join('<li><h3>%s</h3><p>%s</p></li>' % (e(a), e(b)) for a,b in HOW)
 
 HTML = """<!doctype html>
@@ -163,6 +198,7 @@ HTML = """<!doctype html>
 <link rel="canonical" href="SITEHERE">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="text/plain" href="/llms.txt" title="Plain-text summary of this site">
+<link rel="alternate" type="text/markdown" href="/index.md">
 <meta property="og:site_name" content="Houssem Gabsi">
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="SITEHERE">
@@ -728,6 +764,37 @@ section{padding:clamp(64px,11vh,140px) 0}
 .acci > div:has(.demo) > p{grid-column:1;max-width:60ch}
 .acci > div:has(.demo) > .demo{grid-column:2;grid-row:1 / span 3;margin-top:0;justify-self:end}
 @media(max-width:860px){.acci > div:has(.demo){display:block}.acci > div:has(.demo) > .demo{margin-top:20px}}
+/* ── step 2: pinned hero. The week grid sits beside the headline and clears as the visitor scrolls ── */
+.pin{height:300svh}
+.pin .hero{position:sticky;top:58px;min-height:0;height:calc(100svh - 58px);padding:clamp(18px,3.4vh,44px) 0 clamp(14px,2.6vh,30px);display:flex;align-items:center}
+.hgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);column-gap:clamp(28px,5vw,84px);align-items:center}
+.hero h1{font-size:clamp(2.3rem,4.8vw,4.9rem);line-height:.98;letter-spacing:-.034em}
+.hcopy .eyebrow{margin-bottom:clamp(16px,3vh,32px)}
+@media(min-width:861px){.hcopy .eyebrow{font-size:12px;letter-spacing:.12em;gap:10px;flex-wrap:nowrap;white-space:nowrap}.hcopy .eyebrow span + span::before{width:14px;margin-right:10px}}
+.hcopy .sub{margin-top:clamp(16px,3vh,30px);max-width:46ch;font-size:clamp(16px,1.25vw,19px)}
+.hcopy .hact{margin-top:clamp(18px,3vh,30px)}
+.hero .weekwrap{margin-top:0}
+.hgrid .disc{grid-column:1 / -1;margin-top:clamp(16px,3.6vh,40px)}
+.pinspace{display:none}
+.week i.m.c{background:transparent;box-shadow:inset 0 0 0 1px rgba(27,32,28,.09);transition-delay:0s}
+.pinhint{color:var(--ochre)}
+@media(max-width:860px){
+  .pin{height:auto} .pin .hero{position:static;height:auto;display:block;padding-top:clamp(30px,5vh,48px)}
+  .hgrid{display:block}
+  .hero .weekwrap{position:sticky;top:max(66px,calc(50svh - 205px));margin-top:30px;padding:10px 0 6px;background:var(--wall);z-index:2}
+  .pinspace{display:block;height:120svh}
+  .hgrid .disc{margin-top:0}}
+@media(min-width:861px) and (max-height:640px){.pin{height:auto}.pin .hero{position:static;height:auto}.pinhint{display:none}}
+@media(prefers-reduced-motion:reduce){.pin{height:auto}.pin .hero{position:static;height:auto}.hero .weekwrap{position:static}.pinspace{display:none}.pinhint{display:none}}
+
+/* ── step 1: framed panels. Dark bands sit on the page with a margin and rounded corners ── */
+.band.dark,.close{margin:10px;border-radius:22px;overflow:clip}
+.close{margin-top:10px}
+@media(max-width:860px){.band.dark,.close{margin:6px;border-radius:16px}.close{margin-top:6px}}
+.disc a{color:inherit;text-decoration:none;transition:color .3s} @media(hover:hover){.disc a:hover{color:var(--ochre)}}
+.foot{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:clamp(28px,4vh,44px);padding-top:20px;border-top:1px solid rgba(233,231,222,.16)}
+.foot a{color:rgba(233,231,222,.8);text-decoration:none;font-size:15px;border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+@media(hover:hover){.foot a:hover{color:var(--ochre);border-color:var(--ochre)}}
 </style></head><body>
 <header class="nav" id="nav">
   <a class="brand" href="#top">Houssem Gabsi</a>
@@ -736,22 +803,17 @@ section{padding:clamp(64px,11vh,140px) 0}
 </header>
 
 <main id="top">
-<div class="hero"><div class="wrap">
-  <div class="eyebrow">ENSOHERE<span>Houssem Gabsi</span><span>Independent studio, Tunis</span></div>
-  <h1>HEADLINE</h1>
-  <div class="hbot">
+<div class="pin" id="pin">
+<div class="hero"><div class="wrap hgrid">
+  <div class="hcopy">
+    <div class="eyebrow">ENSOHERE<span>Houssem Gabsi</span><span>Independent studio, Tunis</span></div>
+    <h1>HEADLINE</h1>
     <p class="sub">INTROHERE</p>
     <div class="hact">
       <div class="cta"><a class="btn big2 mag" href="MAILTOHERE">Request a free review</a><a class="tl" href="#work">See selected work</a></div>
       <p class="cta-note">CTANOTE</p>
     </div>
   </div>
-  <ul class="disc" aria-label="What the studio does">DISCHERE</ul>
-</div></div>
-
-<section id="week"><div class="wrap">
-  <h2>Where the week goes</h2>
-  <p class="intro-l">WEEKINTRO</p>
   <div class="weekwrap">
     <div class="wk-head">
       <div class="sw" id="sw" data-s="before" role="group" aria-label="Show the week before or after"><button type="button" data-s="before" aria-pressed="true">Before</button><button type="button" data-s="after" aria-pressed="false">After</button><i class="thumb"></i></div>
@@ -764,9 +826,12 @@ section{padding:clamp(64px,11vh,140px) 0}
         WEEKHERE
       </div>
     </div>
-    <p class="wk-note">A sample week.</p>
+    <p class="wk-note">A sample week. Ochre is repeated manual work. Blue is the work that needs a person. <span class="pinhint">Scroll to clear it.</span></p>
   </div>
-</div></section>
+  <div class="pinspace" aria-hidden="true"></div>
+  <ul class="disc" aria-label="What the studio does">DISCHERE</ul>
+</div></div>
+</div>
 
 DIVHERE
 
@@ -776,11 +841,11 @@ DIVHERE
   <div class="offer">WHATHERE</div>
 </div></section>
 
-<section id="connections"><div class="wrap">
+<section class="band tint" id="connections"><div class="wrap">
   <h2>What gets connected, and what changes</h2>
   <p class="intro-l">CONNINTRO</p>
   <ul class="team">CONNECTSHERE</ul>
-  <p class="teamnote">CONNNOTE</p>
+  <p class="teamnote">CONNNOTE <a class="tl" href="/mcp-integrations/">How MCP integrations work</a></p>
   <div class="ctarow"><p>CTACONNECT</p><a class="btn mag" href="MAILTOHERE">Request a free review</a><span>CTANOTE</span></div>
 </div></section>
 
@@ -821,7 +886,7 @@ DIVHERE
 
 DIVHERE
 
-<section id="commitments"><div class="wrap">
+<section class="band tint" id="commitments"><div class="wrap">
   <h2>How I work</h2>
   <p class="intro-l">Six commitments that apply to every engagement.</p>
   <div class="rules">RULESHERE</div>
@@ -838,16 +903,17 @@ DIVHERE
 
 DIVHERE
 
-<section id="questions"><div class="wrap">
+<section class="band tint" id="questions"><div class="wrap">
   <h2>Common questions</h2>
   <div class="accl qa">FAQHERE</div>
 </div></section>
 
-<section class="close"><div class="wrap">
+<section class="close" id="contact"><div class="wrap">
   <h2>Find out where your business is losing time.</h2>
   <p class="lead">A free one-page review of your follow-up, booking and administration. No call required.</p>
   <a class="btn big mag" href="MAILTOHERE">Request a free review</a>
-  <a class="mail" href="mailto:unfollow.designs@gmail.com">unfollow.designs@gmail.com</a>
+  MAILLINE
+  <nav class="foot" aria-label="Services">FOOTLINKS</nav>
   <div class="sig">
     <span>Houssem Gabsi</span>
     <span>A studio of one, for businesses of any kind</span>
@@ -879,10 +945,22 @@ DIVHERE
   function setState(v){state=v;wk.classList.toggle('after',v==='after');sw.setAttribute('data-s',v);
     $$('button',sw).forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-s')===v));});
     if(RM){cur=v==='after'?target:0;hrs.textContent=cur;}else count(v==='after'?target:0);}
-  sw.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;auto=false;setState(b.getAttribute('data-s'));});
+  /* while the hero is pinned the scroll clears the week; afterwards the switch takes over */
+  var pin=$('#pin'), psp=$('.pinspace'), wwrap=$('.weekwrap'), man=$$('i.m',wk), pn=-1, pdone=false, pfree=false, lpp=-1, pstart=false;
+  function press(v){$$('button',sw).forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-s')===v));});}
+  function pinned(p){var n=Math.round(p*man.length);
+    if(p>=1){if(!pdone){pdone=true;man.forEach(function(c){c.classList.add('c');});cancelAnimationFrame(raf);cur=target;hrs.textContent=target;
+        state='after';wk.classList.add('after');sw.setAttribute('data-s','after');press('after');pn=man.length;}return;}
+    if(pdone||n!==pn){pdone=false;wk.classList.remove('after');state='before';man.forEach(function(c,i){c.classList.toggle('c',i<n);});pn=n;
+      cancelAnimationFrame(raf);cur=target*n/man.length;hrs.textContent=Math.round(cur);sw.setAttribute('data-s','before');press('before');}}
+  function pinstep(vh){var pp;
+    if(psp&&psp.offsetHeight>0){pp=clamp((wwrap.getBoundingClientRect().bottom-psp.getBoundingClientRect().top)/(psp.offsetHeight*.8));}
+    else{var tot=pin.offsetHeight-vh; if(tot<60){if(!pstart){pstart=true;setTimeout(function(){if(!pfree)setState('after');},1500);}return;} pp=clamp(-pin.getBoundingClientRect().top/(tot*.9));}
+    if(pfree&&pp<1&&Math.abs(pp-lpp)>.004)pfree=false;
+    if(!pfree)pinned(pp);
+    lpp=pp;}
+  sw.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;auto=false;pfree=true;man.forEach(function(c){c.classList.remove('c');});setState(b.getAttribute('data-s'));});
   if(RM){setState('after');}
-  else{setTimeout(function(){setState('after');},1500);
-       setInterval(function(){if(auto&&!d.hidden)setState(state==='after'?'before':'after');},6500);}
 
   /* cells swell under the pointer */
   if(FINE&&!RM){var cells=$$('i',wk),pts=null;
@@ -935,7 +1013,7 @@ DIVHERE
   function frame(){
     var vh=innerHeight; sy+=(scrollY-sy)*(RM?1:.12);
     nav.classList.toggle('sc',scrollY>12);
-    if(!RM&&sy<vh*1.2){h1.style.transform='translateY('+(sy*-.07).toFixed(1)+'px)';mk.style.transform='translateY('+(sy*.12).toFixed(1)+'px)';}
+    if(!RM)pinstep(vh);
     var a=-1;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<vh*.42)a=i;});
     if(a!==act){act=a;links.forEach(function(l,i){l.classList.toggle('on',i===a);});
       if(a<0){ind.style.opacity=0;}else{ind.style.opacity=1;ind.style.width=links[a].offsetWidth+'px';ind.style.transform='translateX('+links[a].offsetLeft+'px)';}}
@@ -958,7 +1036,12 @@ DIVHERE
 
 what = "\n".join('<div><div class="card">%s<span class="pl">%s</span><h3>%s</h3><p>%s</p><ul class="ex">%s</ul></div></div>' % (mark(m), e(k), e(a), e(b), "".join("<li>%s</li>" % e(x) for x in EXAMPLES[m])) for m,k,a,b in WHAT)
 nextsteps = "".join('<li><b>%s</b><span>%s</span></li>' % (e(a), e(b)) for a,b in NEXT)
-MAILTO = "mailto:" + EMAIL + "?subject=" + quote("Free review request") + "&amp;body=" + quote("Business:\nWebsite:\nWhat takes the most time each week:\n")
+if EMAIL:
+    MAILTO = "mailto:" + EMAIL + "?subject=" + quote("Free review request") + "&amp;body=" + quote("Business:\nWebsite:\nWhat takes the most time each week:\n")
+    MAILLINE = '<a class="mail" href="mailto:%s">%s</a>' % (EMAIL, EMAIL)
+else:
+    MAILTO = "#contact"
+    MAILLINE = '<p class="lead">Contact details will be added here shortly.</p>'
 DEMOS = {"Invoice and quote follow-up": ("leak", "0:31", "Demo film, sample data."),
          "Interview notes to client report": ("shortlist", "0:22", "Demo film, sample data.")}
 def demo(name):
@@ -966,7 +1049,7 @@ def demo(name):
     f, t, cap = DEMOS[name]
     return ('<figure class="demo"><video controls playsinline preload="none" poster="/media/%s.jpg" width="540" height="676">'
             '<source src="/media/%s.webm" type="video/webm"><source src="/media/%s-s.mp4" type="video/mp4"></video>'
-            '<figcaption>%s %s</figcaption></figure>') % (f, f, f, e(cap), t)
+            '</figure>') % (f, f, f)
 def shot(c):
     if not c.get("img"): return ""
     host = c["link"].split("//")[1].strip("/")
@@ -995,11 +1078,126 @@ faq = "\n".join(
 
 _hw = HEAD.split()
 HEAD_HTML = " ".join('<span%s style="--w:%d">%s</span>' % (' class="hl"' if i >= len(_hw)-HEAD_ACCENT else "", i, e(w)) for i,w in enumerate(_hw))
-HTML = (HTML.replace("HEADLINE", HEAD_HTML).replace("INTROHERE", e(INTRO)).replace("WEEKINTRO", e(WEEK_INTRO)).replace("DISCHERE", "".join("<li>%s</li>" % e(x) for x in DISCIPLINES)).replace("SERVINTRO", e(SERVICES_INTRO)).replace("WEEKHERE", WEEK)
+HTML = (HTML.replace("HEADLINE", HEAD_HTML).replace("INTROHERE", e(INTRO)).replace("WEEKINTRO", e(WEEK_INTRO)).replace("DISCHERE", "".join("<li>%s</li>" % ('<a href="/%s/">%s</a>' % (DISC_LINKS[x], e(x)) if x in DISC_LINKS else e(x)) for x in DISCIPLINES)).replace("FOOTLINKS", "".join('<a href="/%s/">%s</a>' % (pg["slug"], e(pg["nav"])) for pg in PAGES)).replace("SERVINTRO", e(SERVICES_INTRO)).replace("WEEKHERE", WEEK)
             .replace("DAYSHERE", DAYLBL).replace("HOURSCOL", HOURS_COL).replace("WHATHERE", what)
             .replace("CASESHERE", cases).replace("WINDEXHERE", windex).replace("HOWHERE", how)
-            .replace("AGENTSHERE", agents).replace("CONNECTSHERE", connects).replace("MAILTOHERE", MAILTO).replace("CTANOTE", e(CTA_NOTE)).replace("CTAWORK", e(CTA_WORK)).replace("CTACONNECT", e(CTA_CONNECT)).replace("NEXTHERE", nextsteps).replace("DAYHOURS", json.dumps(DAY_HOURS)).replace("CONNINTRO", e(CONNECT_INTRO)).replace("CONNNOTE", e(CONNECT_NOTE)).replace("FLOWHERE", flow).replace("RULESHERE", rules).replace("SYSHERE", systems).replace("FAQHERE", faq).replace("ENSOHERE", HEROMARK).replace("LDHERE", LD).replace("OGTITLEHERE", e(OG_TITLE)).replace("OGDESCHERE", e(OG_DESC)).replace("OGALTHERE", e(OG_ALT)).replace("TITLEHERE", e(TITLE)).replace("DESCHERE", e(DESC)).replace("SITEHERE", SITE).replace("HOURSVAL", str(HOURS)))
+            .replace("AGENTSHERE", agents).replace("CONNECTSHERE", connects).replace("MAILTOHERE", MAILTO).replace("MAILLINE", MAILLINE).replace("CTANOTE", e(CTA_NOTE)).replace("CTAWORK", e(CTA_WORK)).replace("CTACONNECT", e(CTA_CONNECT)).replace("NEXTHERE", nextsteps).replace("DAYHOURS", json.dumps(DAY_HOURS)).replace("CONNINTRO", e(CONNECT_INTRO)).replace("CONNNOTE", e(CONNECT_NOTE)).replace("FLOWHERE", flow).replace("RULESHERE", rules).replace("SYSHERE", systems).replace("FAQHERE", faq).replace("ENSOHERE", HEROMARK).replace("LDHERE", LD).replace("OGTITLEHERE", e(OG_TITLE)).replace("OGDESCHERE", e(OG_DESC)).replace("OGALTHERE", e(OG_ALT)).replace("TITLEHERE", e(TITLE)).replace("DESCHERE", e(DESC)).replace("SITEHERE", SITE).replace("HOURSVAL", str(HOURS)))
 while "DIVHERE" in HTML: HTML = HTML.replace("DIVHERE", divider(), 1)
 open("../index.html","w").write(HTML)
 open("../llms.txt","w").write(LLMS)
+open("../index.md","w").write(PAGE_MD)
+
+# ── search pages: one per service, sharing the home page's styles ──
+import os, datetime
+STYLE = HTML[HTML.index("<style>")+7:HTML.index("</style>")]
+LP_CSS = """
+.lphero{padding:clamp(48px,9vh,110px) 0 clamp(28px,5vh,56px)}
+.crumb{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:clamp(20px,3.4vh,36px)}
+.crumb a{color:inherit;text-decoration:none} .crumb i{font-style:normal;margin:0 10px;color:var(--sand)}
+.lph1{font-size:clamp(2.2rem,5.6vw,5rem);line-height:.98;letter-spacing:-.034em;max-width:18ch;text-wrap:balance;
+  font-variation-settings:"opsz" 144,"SOFT" 36,"WONK" 1}
+.lplead{margin-top:clamp(22px,4vh,40px);max-width:58ch;font-size:clamp(18px,1.5vw,22px);line-height:1.5;color:var(--ink)}
+.lphero .cta{opacity:1;animation:none;margin-top:clamp(24px,4vh,36px)} .lphero .cta-note{opacity:1;animation:none}
+.lpshort{max-width:900px;grid-template-columns:1fr 1fr;gap:10px 32px;margin-top:clamp(28px,5vh,48px);font-size:16px}
+.lp section{padding:clamp(44px,7vh,88px) 0}
+.lp section p{max-width:64ch;margin-top:16px;font-size:clamp(16.5px,1.2vw,18.5px)}
+.lp section p + p{margin-top:14px}
+.lp .pts{list-style:none;max-width:70ch;margin-top:20px;display:grid;gap:12px;font-size:clamp(16px,1.15vw,18px)}
+.lp .pts li{padding-left:22px;position:relative}
+.lp .pts li::before{content:"";position:absolute;left:0;top:.72em;width:10px;height:2px;background:var(--ochre)}
+.lpfaq{margin-top:clamp(24px,4vh,40px);display:grid;gap:0;max-width:860px;border-bottom:1px solid var(--sand)}
+.lpfaq > div{border-top:1px solid var(--sand);padding:clamp(20px,3vh,28px) 0}
+.lpfaq h3{font-size:clamp(1.14rem,1.6vw,1.42rem);letter-spacing:-.018em;line-height:1.2}
+.lp .lpfaq p{margin-top:10px;color:var(--ink-soft)}
+.rel{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:24px}
+@media(max-width:700px){.lpshort{grid-template-columns:1fr}}
+"""
+def lp_block(x):
+    if isinstance(x, (list, tuple)):
+        return '<ul class="pts">%s</ul>' % "".join("<li>%s</li>" % e(i) for i in x)
+    return "<p>%s</p>" % e(x)
+BYSLUG = {pg["slug"]: pg for pg in PAGES}
+NAVLINKS = "".join('<a href="/%s/">%s</a>' % (pg["slug"], e(pg["nav"])) for pg in PAGES)
+for pg in PAGES:
+    url = SITE + pg["slug"] + "/"
+    ptitle = pg["title"] + " | Houssem Gabsi"
+    ld = json.dumps({"@context":"https://schema.org","@graph":[
+      {"@type":"WebPage","@id":url+"#webpage","url":url,"name":ptitle,"description":pg["desc"],"inLanguage":"en",
+       "isPartOf":{"@id":SITE+"#website"},"about":{"@id":url+"#service"},"breadcrumb":{"@id":url+"#breadcrumb"}},
+      {"@type":"BreadcrumbList","@id":url+"#breadcrumb","itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Houssem Gabsi","item":SITE},
+        {"@type":"ListItem","position":2,"name":pg["nav"],"item":url}]},
+      {"@type":"Service","@id":url+"#service","name":pg["title"],"description":pg["desc"],"serviceType":pg["nav"],
+       "provider":{"@type":"ProfessionalService","@id":SITE+"#studio","name":"Houssem Gabsi","url":SITE},
+       "areaServed":["United States","Europe","Tunisia"]},
+      {"@type":"FAQPage","@id":url+"#faq","isPartOf":{"@id":url+"#webpage"},"mainEntity":[
+        {"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in pg["faq"]]},
+    ]}, ensure_ascii=False, indent=1)
+    body = "".join('<section><div class="wrap"><h2>%s</h2>%s</div></section>\n' % (e(h), "".join(lp_block(x) for x in blocks)) for h, blocks in pg["sections"])
+    faqh = "".join("<div><h3>%s</h3><p>%s</p></div>" % (e(q), e(a)) for q,a in pg["faq"])
+    rel = "".join('<a class="tl" href="/%s/">%s</a>' % (r, e(BYSLUG[r]["nav"])) for r in pg["related"])
+    doc = """<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>%(title)s</title>
+<meta name="description" content="%(desc)s">
+<meta name="author" content="Houssem Gabsi">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="theme-color" content="#E9E7DE">
+<link rel="canonical" href="%(url)s">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:site_name" content="Houssem Gabsi">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="%(url)s">
+<meta property="og:type" content="website">
+<meta property="og:title" content="%(ogtitle)s">
+<meta property="og:description" content="%(desc)s">
+<meta property="og:image" content="%(site)sog.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+%(ld)s
+</script>
+<link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>%(style)s%(lpcss)s</style></head><body class="lp">
+<header class="nav sc" id="nav">
+  <a class="brand" href="/">Houssem Gabsi</a>
+  <nav aria-label="Services">%(navlinks)s</nav>
+  <a class="btn sm" href="%(mailto)s">Free review</a>
+</header>
+<main>
+<div class="lphero"><div class="wrap">
+  <p class="crumb"><a href="/">Houssem Gabsi</a><i>/</i>%(nav)s</p>
+  <h1 class="lph1">%(h1)s</h1>
+  <p class="lplead">%(lead)s</p>
+  <div class="cta"><a class="btn big2" href="%(mailto)s">Request a free review</a><a class="tl" href="/#work">See selected work</a></div>
+  <p class="cta-note">%(ctanote)s</p>
+  <ul class="ex lpshort">%(short)s</ul>
+</div></div>
+%(body)s<section><div class="wrap"><h2>Questions</h2><div class="lpfaq">%(faq)s</div></div></section>
+<section><div class="wrap"><h2>Related services</h2><div class="rel">%(rel)s</div></div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>Find out where your business is losing time.</h2>
+  <p class="lead">A free one-page review of your follow-up, booking and administration. No call required.</p>
+  <a class="btn big" href="%(mailto)s">Request a free review</a>
+  %(mailline)s
+  <nav class="foot" aria-label="Services">%(navlinks)s</nav>
+  <div class="sig"><span>Houssem Gabsi</span><span>A studio of one, for businesses of any kind</span><span>English, fran\u00e7ais, \u0627\u0644\u0639\u0631\u0628\u064a\u0629</span></div>
+</div></section>
+</main>
+</body></html>""" % dict(title=e(ptitle), desc=e(pg["desc"]), url=url, ogtitle=e(pg["title"]), site=SITE, ld=ld, style=STYLE, lpcss=LP_CSS,
+        navlinks=NAVLINKS, mailto=MAILTO, nav=e(pg["nav"]), h1=e(pg["h1"]), lead=e(pg["lead"]), ctanote=e(CTA_NOTE),
+        short="".join("<li>%s</li>" % e(x) for x in pg["short"]), body=body, faq=faqh, rel=rel, mailline=MAILLINE)
+    os.makedirs("../" + pg["slug"], exist_ok=True)
+    open("../%s/index.html" % pg["slug"], "w").write(doc)
+
+TODAY = "2026-11-16"   # update when the pages change
+SM = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+      '  <url><loc>%s</loc><lastmod>%s</lastmod></url>' % (SITE, TODAY)]
+SM += ['  <url><loc>%s%s/</loc><lastmod>%s</lastmod></url>' % (SITE, pg["slug"], TODAY) for pg in PAGES]
+SM += ['  <url><loc>%stools/stock-sales-production-tracker/</loc><lastmod>2026-10-26</lastmod></url>' % SITE, '</urlset>', '']
+open("../sitemap.xml","w").write("\n".join(SM))
+print("pages", len(PAGES))
 print("ok", len(HTML))

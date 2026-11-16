@@ -9,6 +9,7 @@
 <link rel="canonical" href="https://houssem-gabsi.vercel.app/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="text/plain" href="/llms.txt" title="Plain-text summary of this site">
+<link rel="alternate" type="text/markdown" href="/index.md">
 <meta property="og:site_name" content="Houssem Gabsi">
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://houssem-gabsi.vercel.app/">
@@ -68,7 +69,6 @@
    },
    "url": "https://houssem-gabsi.vercel.app/",
    "image": "https://houssem-gabsi.vercel.app/og.png",
-   "email": "unfollow.designs@gmail.com",
    "address": {
     "@type": "PostalAddress",
     "addressLocality": "Tunis",
@@ -150,7 +150,6 @@
    "@id": "https://houssem-gabsi.vercel.app/#person",
    "name": "Houssem Gabsi",
    "url": "https://houssem-gabsi.vercel.app/",
-   "email": "unfollow.designs@gmail.com",
    "worksFor": {
     "@id": "https://houssem-gabsi.vercel.app/#studio"
    },
@@ -892,30 +891,56 @@ section{padding:clamp(64px,11vh,140px) 0}
 .acci > div:has(.demo) > p{grid-column:1;max-width:60ch}
 .acci > div:has(.demo) > .demo{grid-column:2;grid-row:1 / span 3;margin-top:0;justify-self:end}
 @media(max-width:860px){.acci > div:has(.demo){display:block}.acci > div:has(.demo) > .demo{margin-top:20px}}
+/* ── step 2: pinned hero. The week grid sits beside the headline and clears as the visitor scrolls ── */
+.pin{height:300svh}
+.pin .hero{position:sticky;top:58px;min-height:0;height:calc(100svh - 58px);padding:clamp(18px,3.4vh,44px) 0 clamp(14px,2.6vh,30px);display:flex;align-items:center}
+.hgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);column-gap:clamp(28px,5vw,84px);align-items:center}
+.hero h1{font-size:clamp(2.3rem,4.8vw,4.9rem);line-height:.98;letter-spacing:-.034em}
+.hcopy .eyebrow{margin-bottom:clamp(16px,3vh,32px)}
+@media(min-width:861px){.hcopy .eyebrow{font-size:12px;letter-spacing:.12em;gap:10px;flex-wrap:nowrap;white-space:nowrap}.hcopy .eyebrow span + span::before{width:14px;margin-right:10px}}
+.hcopy .sub{margin-top:clamp(16px,3vh,30px);max-width:46ch;font-size:clamp(16px,1.25vw,19px)}
+.hcopy .hact{margin-top:clamp(18px,3vh,30px)}
+.hero .weekwrap{margin-top:0}
+.hgrid .disc{grid-column:1 / -1;margin-top:clamp(16px,3.6vh,40px)}
+.pinspace{display:none}
+.week i.m.c{background:transparent;box-shadow:inset 0 0 0 1px rgba(27,32,28,.09);transition-delay:0s}
+.pinhint{color:var(--ochre)}
+@media(max-width:860px){
+  .pin{height:auto} .pin .hero{position:static;height:auto;display:block;padding-top:clamp(30px,5vh,48px)}
+  .hgrid{display:block}
+  .hero .weekwrap{position:sticky;top:max(66px,calc(50svh - 205px));margin-top:30px;padding:10px 0 6px;background:var(--wall);z-index:2}
+  .pinspace{display:block;height:120svh}
+  .hgrid .disc{margin-top:0}}
+@media(min-width:861px) and (max-height:640px){.pin{height:auto}.pin .hero{position:static;height:auto}.pinhint{display:none}}
+@media(prefers-reduced-motion:reduce){.pin{height:auto}.pin .hero{position:static;height:auto}.hero .weekwrap{position:static}.pinspace{display:none}.pinhint{display:none}}
+
+/* ── step 1: framed panels. Dark bands sit on the page with a margin and rounded corners ── */
+.band.dark,.close{margin:10px;border-radius:22px;overflow:clip}
+.close{margin-top:10px}
+@media(max-width:860px){.band.dark,.close{margin:6px;border-radius:16px}.close{margin-top:6px}}
+.disc a{color:inherit;text-decoration:none;transition:color .3s} @media(hover:hover){.disc a:hover{color:var(--ochre)}}
+.foot{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:clamp(28px,4vh,44px);padding-top:20px;border-top:1px solid rgba(233,231,222,.16)}
+.foot a{color:rgba(233,231,222,.8);text-decoration:none;font-size:15px;border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+@media(hover:hover){.foot a:hover{color:var(--ochre);border-color:var(--ochre)}}
 </style></head><body>
 <header class="nav" id="nav">
   <a class="brand" href="#top">Houssem Gabsi</a>
   <nav aria-label="Sections"><a href="#services">Services</a><a href="#work">Work</a><a href="#systems">Systems</a><a href="#process">Process</a><a href="#questions">Questions</a><i class="ind" id="ind"></i></nav>
-  <a class="btn sm mag" href="mailto:unfollow.designs@gmail.com?subject=Free%20review%20request&amp;body=Business%3A%0AWebsite%3A%0AWhat%20takes%20the%20most%20time%20each%20week%3A%0A">Free review</a>
+  <a class="btn sm mag" href="#contact">Free review</a>
 </header>
 
 <main id="top">
-<div class="hero"><div class="wrap">
-  <div class="eyebrow"><div class="mark" aria-hidden="true"><i class="b"></i><i class="e"></i><i class="o"></i><i class="e"></i><i class="b"></i><i class="e"></i><i class="o"></i><i class="e"></i><i class="b"></i><i class="b"></i><i class="e"></i><i class="e"></i></div><span>Houssem Gabsi</span><span>Independent studio, Tunis</span></div>
-  <h1><span style="--w:0">Websites,</span> <span style="--w:1">automation</span> <span style="--w:2">and</span> <span style="--w:3">AI,</span> <span style="--w:4">built</span> <span style="--w:5">to</span> <span style="--w:6">work</span> <span class="hl" style="--w:7">as</span> <span class="hl" style="--w:8">one.</span></h1>
-  <div class="hbot">
+<div class="pin" id="pin">
+<div class="hero"><div class="wrap hgrid">
+  <div class="hcopy">
+    <div class="eyebrow"><div class="mark" aria-hidden="true"><i class="b"></i><i class="e"></i><i class="o"></i><i class="e"></i><i class="b"></i><i class="e"></i><i class="o"></i><i class="e"></i><i class="b"></i><i class="b"></i><i class="e"></i><i class="e"></i></div><span>Houssem Gabsi</span><span>Independent studio, Tunis</span></div>
+    <h1><span style="--w:0">Websites,</span> <span style="--w:1">automation</span> <span style="--w:2">and</span> <span style="--w:3">AI,</span> <span style="--w:4">built</span> <span style="--w:5">to</span> <span style="--w:6">work</span> <span class="hl" style="--w:7">as</span> <span class="hl" style="--w:8">one.</span></h1>
     <p class="sub">A studio of one that designs what your clients see, connects the tools you already own, and sets up AI to carry the repeated work. For any business, from a single professional to an established firm.</p>
     <div class="hact">
-      <div class="cta"><a class="btn big2 mag" href="mailto:unfollow.designs@gmail.com?subject=Free%20review%20request&amp;body=Business%3A%0AWebsite%3A%0AWhat%20takes%20the%20most%20time%20each%20week%3A%0A">Request a free review</a><a class="tl" href="#work">See selected work</a></div>
+      <div class="cta"><a class="btn big2 mag" href="#contact">Request a free review</a><a class="tl" href="#work">See selected work</a></div>
       <p class="cta-note">Free. One page. No call required.</p>
     </div>
   </div>
-  <ul class="disc" aria-label="What the studio does"><li>Websites and online shops</li><li>Automation</li><li>Claude and AI setup</li><li>SEO and GEO</li><li>Brand and film</li></ul>
-</div></div>
-
-<section id="week"><div class="wrap">
-  <h2>Where the week goes</h2>
-  <p class="intro-l">A working week, before and after. Ochre is repeated manual work. Blue is the work that needs a person.</p>
   <div class="weekwrap">
     <div class="wk-head">
       <div class="sw" id="sw" data-s="before" role="group" aria-label="Show the week before or after"><button type="button" data-s="before" aria-pressed="true">Before</button><button type="button" data-s="after" aria-pressed="false">After</button><i class="thumb"></i></div>
@@ -928,9 +953,12 @@ section{padding:clamp(64px,11vh,140px) 0}
         <div class="week" id="week" aria-hidden="true"><i class="m" style="--k:0"></i><i class="m" style="--k:1"></i><i class="e" style="--k:2"></i><i class="m" style="--k:3"></i><i class="e" style="--k:4"></i><i class="w" style="--k:5"></i><i class="m" style="--k:6"></i><i class="e" style="--k:7"></i><i class="m" style="--k:8"></i><i class="w" style="--k:9"></i><i class="m" style="--k:10"></i><i class="m" style="--k:11"></i><i class="w" style="--k:12"></i><i class="e" style="--k:13"></i><i class="m" style="--k:14"></i><i class="m" style="--k:15"></i><i class="e" style="--k:16"></i><i class="e" style="--k:17"></i><i class="e" style="--k:18"></i><i class="w" style="--k:19"></i><i class="e" style="--k:20"></i><i class="m" style="--k:21"></i><i class="e" style="--k:22"></i><i class="m" style="--k:23"></i><i class="m" style="--k:24"></i><i class="m" style="--k:25"></i><i class="m" style="--k:26"></i><i class="e" style="--k:27"></i><i class="m" style="--k:28"></i><i class="e" style="--k:29"></i><i class="e" style="--k:30"></i><i class="w" style="--k:31"></i><i class="e" style="--k:32"></i><i class="m" style="--k:33"></i><i class="m" style="--k:34"></i><i class="m" style="--k:35"></i><i class="e" style="--k:36"></i><i class="w" style="--k:37"></i><i class="m" style="--k:38"></i><i class="e" style="--k:39"></i><i class="w" style="--k:40"></i><i class="m" style="--k:41"></i><i class="e" style="--k:42"></i><i class="e" style="--k:43"></i><i class="m" style="--k:44"></i><i class="e" style="--k:45"></i><i class="e" style="--k:46"></i><i class="e" style="--k:47"></i><i class="e" style="--k:48"></i><i class="m" style="--k:49"></i><i class="e" style="--k:50"></i><i class="m" style="--k:51"></i><i class="w" style="--k:52"></i><i class="e" style="--k:53"></i><i class="m" style="--k:54"></i><i class="w" style="--k:55"></i><i class="m" style="--k:56"></i><i class="e" style="--k:57"></i><i class="e" style="--k:58"></i><i class="e" style="--k:59"></i><i class="e" style="--k:60"></i><i class="m" style="--k:61"></i><i class="e" style="--k:62"></i><i class="e" style="--k:63"></i><i class="e" style="--k:64"></i><i class="w" style="--k:65"></i><i class="e" style="--k:66"></i><i class="e" style="--k:67"></i><i class="w" style="--k:68"></i><i class="e" style="--k:69"></i><i class="m" style="--k:70"></i><i class="e" style="--k:71"></i><i class="e" style="--k:72"></i><i class="e" style="--k:73"></i><i class="e" style="--k:74"></i><i class="m" style="--k:75"></i><i class="w" style="--k:76"></i><i class="e" style="--k:77"></i><i class="m" style="--k:78"></i><i class="w" style="--k:79"></i><i class="m" style="--k:80"></i><i class="m" style="--k:81"></i><i class="m" style="--k:82"></i><i class="e" style="--k:83"></i><i class="m" style="--k:84"></i><i class="m" style="--k:85"></i><i class="w" style="--k:86"></i><i class="e" style="--k:87"></i><i class="m" style="--k:88"></i><i class="w" style="--k:89"></i><i class="e" style="--k:90"></i><i class="e" style="--k:91"></i><i class="e" style="--k:92"></i><i class="e" style="--k:93"></i><i class="m" style="--k:94"></i><i class="w" style="--k:95"></i><i class="m" style="--k:96"></i><i class="e" style="--k:97"></i><i class="e" style="--k:98"></i><i class="m" style="--k:99"></i><i class="m" style="--k:100"></i><i class="m" style="--k:101"></i><i class="m" style="--k:102"></i><i class="w" style="--k:103"></i><i class="e" style="--k:104"></i><i class="m" style="--k:105"></i><i class="m" style="--k:106"></i><i class="w" style="--k:107"></i><i class="w" style="--k:108"></i><i class="e" style="--k:109"></i></div>
       </div>
     </div>
-    <p class="wk-note">A sample week.</p>
+    <p class="wk-note">A sample week. Ochre is repeated manual work. Blue is the work that needs a person. <span class="pinhint">Scroll to clear it.</span></p>
   </div>
-</div></section>
+  <div class="pinspace" aria-hidden="true"></div>
+  <ul class="disc" aria-label="What the studio does"><li><a href="/websites-and-online-shops/">Websites and online shops</a></li><li><a href="/ai-automation/">Automation</a></li><li><a href="/claude-consulting/">Claude and AI setup</a></li><li><a href="/seo-geo/">SEO and GEO</a></li><li>Brand and film</li></ul>
+</div></div>
+</div>
 
 <div class="wrap"><div class="dv" aria-hidden="true"><i class="e" style="--n:0"></i><i class="e" style="--n:1"></i><i class="e" style="--n:2"></i><i class="e" style="--n:3"></i><i class="e" style="--n:4"></i><i class="e" style="--n:5"></i><i class="b" style="--n:6"></i><i class="e" style="--n:7"></i><i class="e" style="--n:8"></i><i class="e" style="--n:9"></i><i class="o" style="--n:10"></i><i class="b" style="--n:11"></i><i class="o" style="--n:12"></i><i class="e" style="--n:13"></i></div></div>
 
@@ -942,7 +970,7 @@ section{padding:clamp(64px,11vh,140px) 0}
 <div><div class="card"><svg class="pm" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="8" width="14" height="14" rx="1.5" fill="var(--door)"/><circle class="draw" cx="31" cy="29" r="11" fill="none" stroke="var(--door)" stroke-width="1.6"/><rect x="6" y="36" width="14" height="5" rx="1.5" fill="var(--ochre)"/></svg><span class="pl">Create</span><h3>Brand identity and content systems</h3><p>A recognisable identity, and a content process that turns one idea into a month of publishing, structured for search engines and AI assistants.</p><ul class="ex"><li>Brand identity and illustration</li><li>Video editing and motion graphics</li><li>Articles, blog posts and Substack newsletters</li><li>LinkedIn and Instagram content</li><li>Visibility in search and AI answers (SEO and GEO)</li></ul></div></div></div>
 </div></section>
 
-<section id="connections"><div class="wrap">
+<section class="band tint" id="connections"><div class="wrap">
   <h2>What gets connected, and what changes</h2>
   <p class="intro-l">Most teams use a fraction of what their tools, and an assistant such as Claude, can do together. This is what changes once they are connected.</p>
   <ul class="team"><li style="--i:0"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 7.8 Q3.2 6.6 4.5 6.5 L14.6 6.4 Q15.8 6.5 15.7 7.7 L15.6 15.3 Q15.6 16.5 14.3 16.5 L4.4 16.6 Q3.3 16.5 3.3 15.4 Z"/>
@@ -968,8 +996,8 @@ section{padding:clamp(64px,11vh,140px) 0}
 <circle cx="12" cy="12.05" r="3.3"/></svg><b>Claude</b><span>Anyone on the team can ask a question and get the answer from your own data.</span></li>
 <li style="--i:7"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.9 6.2 Q2.8 5.1 4 5.1 L9.1 5 L11.4 7.6 L19.9 7.5 Q21.1 7.6 21.1 8.7 L21 18.3 Q21 19.4 19.8 19.4 L4 19.5 Q2.8 19.4 2.8 18.3 Z"/>
 <path d="M12 11 L12.1 16.2 M9.7 14 L12.1 16.4 L14.4 13.9"/></svg><b>Anything else you rely on</b><span>If it can share its data, it joins the rest.</span></li></ul>
-  <p class="teamnote">Nothing is replaced. The tools stay where they are and start working together.</p>
-  <div class="ctarow"><p>Not sure what could be connected in your business? The free review answers that.</p><a class="btn mag" href="mailto:unfollow.designs@gmail.com?subject=Free%20review%20request&amp;body=Business%3A%0AWebsite%3A%0AWhat%20takes%20the%20most%20time%20each%20week%3A%0A">Request a free review</a><span>Free. One page. No call required.</span></div>
+  <p class="teamnote">Nothing is replaced. The tools stay where they are and start working together. <a class="tl" href="/mcp-integrations/">How MCP integrations work</a></p>
+  <div class="ctarow"><p>Not sure what could be connected in your business? The free review answers that.</p><a class="btn mag" href="#contact">Request a free review</a><span>Free. One page. No call required.</span></div>
 </div></section>
 
 <section class="band dark" id="work"><div class="wrap">
@@ -1030,16 +1058,16 @@ section{padding:clamp(64px,11vh,140px) 0}
   </div>
  </article></div>
   </div>
-  <div class="ctarow"><p>Recognise one of these in your own business?</p><a class="btn inv mag" href="mailto:unfollow.designs@gmail.com?subject=Free%20review%20request&amp;body=Business%3A%0AWebsite%3A%0AWhat%20takes%20the%20most%20time%20each%20week%3A%0A">Request a free review</a><span>Free. One page. No call required.</span></div>
+  <div class="ctarow"><p>Recognise one of these in your own business?</p><a class="btn inv mag" href="#contact">Request a free review</a><span>Free. One page. No call required.</span></div>
 </div></section>
 
 <section id="systems"><div class="wrap">
   <h2>Systems</h2>
   <p class="intro-l">Four systems, each built to solve a specific operational problem. Select one to see what it does.</p>
-  <div class="accl"><div class="acc sysr open"><h3><button type="button" class="acch" aria-expanded="true"><span class="sysn">Invoice and quote follow-up</span><span class="prob">Revenue is lost in enquiries, quotes and invoices that nobody followed up.</span><i class="pm2"></i></button></h3><div class="accb"><div class="acci"><div><p>Reviews the inbox, quotes and invoices, identifies unanswered enquiries, stalled quotes and overdue invoices, and drafts a reply for each. Nothing is sent without approval.</p><p class="st">Built and working. Shown here with sample data.</p><figure class="demo"><video controls playsinline preload="none" poster="/media/leak.jpg" width="540" height="676"><source src="/media/leak.webm" type="video/webm"><source src="/media/leak-s.mp4" type="video/mp4"></video><figcaption>Demo film, sample data. 0:31</figcaption></figure></div></div></div></div>
+  <div class="accl"><div class="acc sysr open"><h3><button type="button" class="acch" aria-expanded="true"><span class="sysn">Invoice and quote follow-up</span><span class="prob">Revenue is lost in enquiries, quotes and invoices that nobody followed up.</span><i class="pm2"></i></button></h3><div class="accb"><div class="acci"><div><p>Reviews the inbox, quotes and invoices, identifies unanswered enquiries, stalled quotes and overdue invoices, and drafts a reply for each. Nothing is sent without approval.</p><p class="st">Built and working. Shown here with sample data.</p><figure class="demo"><video controls playsinline preload="none" poster="/media/leak.jpg" width="540" height="676"><source src="/media/leak.webm" type="video/webm"><source src="/media/leak-s.mp4" type="video/mp4"></video></figure></div></div></div></div>
 <div class="acc sysr"><h3><button type="button" class="acch" aria-expanded="false"><span class="sysn">Content system</span><span class="prob">Most businesses publish content that is neither found nor finished.</span><i class="pm2"></i></button></h3><div class="accb"><div class="acci"><div><p>Turns one idea into a researched article and a week of posts. Every figure is verified against a named source before publication, and each piece is structured to be cited by search engines and AI assistants.</p><p class="st">In weekly use on client work.</p></div></div></div></div>
 <div class="acc sysr"><h3><button type="button" class="acch" aria-expanded="false"><span class="sysn">Candidate scoring in your recruiting database</span><span class="prob">A recruiter can assess only a fraction of the candidates on a search in depth.</span><i class="pm2"></i></button></h3><div class="accb"><div class="acci"><div><p>Assesses every candidate on a search against that search&#x27;s criteria, and records the score and the reasoning in the candidate&#x27;s record. The decision stays with a person.</p><p class="st">In development for an executive search firm.</p></div></div></div></div>
-<div class="acc sysr"><h3><button type="button" class="acch" aria-expanded="false"><span class="sysn">Interview notes to client report</span><span class="prob">Converting interview notes into a client report takes hours each week.</span><i class="pm2"></i></button></h3><div class="accb"><div class="acci"><div><p>Converts raw notes into a finished report in your own format. Every rating references the source notes, and gaps are flagged rather than filled.</p><p class="st">Built and working. Shown here with sample data.</p><figure class="demo"><video controls playsinline preload="none" poster="/media/shortlist.jpg" width="540" height="676"><source src="/media/shortlist.webm" type="video/webm"><source src="/media/shortlist-s.mp4" type="video/mp4"></video><figcaption>Demo film, sample data. 0:22</figcaption></figure></div></div></div></div></div>
+<div class="acc sysr"><h3><button type="button" class="acch" aria-expanded="false"><span class="sysn">Interview notes to client report</span><span class="prob">Converting interview notes into a client report takes hours each week.</span><i class="pm2"></i></button></h3><div class="accb"><div class="acci"><div><p>Converts raw notes into a finished report in your own format. Every rating references the source notes, and gaps are flagged rather than filled.</p><p class="st">Built and working. Shown here with sample data.</p><figure class="demo"><video controls playsinline preload="none" poster="/media/shortlist.jpg" width="540" height="676"><source src="/media/shortlist.webm" type="video/webm"><source src="/media/shortlist-s.mp4" type="video/mp4"></video></figure></div></div></div></div></div>
   <p class="sysnote">A free <a class="tl" href="/tools/stock-sales-production-tracker/">stock, sales and production tracker</a> for product businesses is also available.</p>
 </div></section>
 
@@ -1091,7 +1119,7 @@ section{padding:clamp(64px,11vh,140px) 0}
 
 <div class="wrap"><div class="dv" aria-hidden="true"><i class="e" style="--n:0"></i><i class="o" style="--n:1"></i><i class="e" style="--n:2"></i><i class="e" style="--n:3"></i><i class="e" style="--n:4"></i><i class="e" style="--n:5"></i><i class="b" style="--n:6"></i><i class="o" style="--n:7"></i><i class="e" style="--n:8"></i><i class="o" style="--n:9"></i><i class="b" style="--n:10"></i><i class="b" style="--n:11"></i><i class="o" style="--n:12"></i><i class="e" style="--n:13"></i></div></div>
 
-<section id="commitments"><div class="wrap">
+<section class="band tint" id="commitments"><div class="wrap">
   <h2>How I work</h2>
   <p class="intro-l">Six commitments that apply to every engagement.</p>
   <div class="rules"><div><h3>One price, agreed in advance.</h3><p>Confirmed in writing before work begins. If the scope grows, the new price is agreed before the additional work starts.</p></div>
@@ -1117,7 +1145,7 @@ section{padding:clamp(64px,11vh,140px) 0}
 
 <div class="wrap"><div class="dv" aria-hidden="true"><i class="b" style="--n:0"></i><i class="o" style="--n:1"></i><i class="e" style="--n:2"></i><i class="e" style="--n:3"></i><i class="e" style="--n:4"></i><i class="e" style="--n:5"></i><i class="e" style="--n:6"></i><i class="e" style="--n:7"></i><i class="o" style="--n:8"></i><i class="b" style="--n:9"></i><i class="e" style="--n:10"></i><i class="e" style="--n:11"></i><i class="e" style="--n:12"></i><i class="e" style="--n:13"></i></div></div>
 
-<section id="questions"><div class="wrap">
+<section class="band tint" id="questions"><div class="wrap">
   <h2>Common questions</h2>
   <div class="accl qa"><div class="acc q open"><h3><button type="button" class="acch" aria-expanded="true"><span>What kinds of businesses do you work with?</span><i class="pm2"></i></button></h3><div class="accb"><div class="acci"><div><p>Any business that runs on repeated work. So far that has meant an executive search firm in Washington D.C., a guesthouse in La Marsa, a yoga studio in Tunis and a journalist working in video, as well as two products of my own. The method is the same each time: find the repeated work, then build or connect what removes it.</p></div></div></div></div>
 <div class="acc q"><h3><button type="button" class="acch" aria-expanded="false"><span>Can you set up Claude or another AI assistant for our business?</span><i class="pm2"></i></button></h3><div class="accb"><div class="acci"><div><p>Yes. Most businesses use an AI assistant for single questions and little else. I connect it to your own tools and data, such as email, calendar, documents, your shop and your customer records, and set up the recurring tasks it should handle, so the whole team gets consistent results from it. Much of what is on this page is built that way.</p></div></div></div></div>
@@ -1130,11 +1158,12 @@ section{padding:clamp(64px,11vh,140px) 0}
 <div class="acc q"><h3><button type="button" class="acch" aria-expanded="false"><span>Who owns the website, the code and the accounts?</span><i class="pm2"></i></button></h3><div class="accb"><div class="acci"><div><p>You do. The code, the domain and the accounts are yours, and are transferred on request at no additional cost.</p></div></div></div></div></div>
 </div></section>
 
-<section class="close"><div class="wrap">
+<section class="close" id="contact"><div class="wrap">
   <h2>Find out where your business is losing time.</h2>
   <p class="lead">A free one-page review of your follow-up, booking and administration. No call required.</p>
-  <a class="btn big mag" href="mailto:unfollow.designs@gmail.com?subject=Free%20review%20request&amp;body=Business%3A%0AWebsite%3A%0AWhat%20takes%20the%20most%20time%20each%20week%3A%0A">Request a free review</a>
-  <a class="mail" href="mailto:unfollow.designs@gmail.com">unfollow.designs@gmail.com</a>
+  <a class="btn big mag" href="#contact">Request a free review</a>
+  <p class="lead">Contact details will be added here shortly.</p>
+  <nav class="foot" aria-label="Services"><a href="/claude-consulting/">Claude consulting</a><a href="/ai-automation/">AI automation</a><a href="/mcp-integrations/">MCP integrations</a><a href="/websites-and-online-shops/">Websites and online shops</a><a href="/seo-geo/">SEO and GEO</a></nav>
   <div class="sig">
     <span>Houssem Gabsi</span>
     <span>A studio of one, for businesses of any kind</span>
@@ -1166,10 +1195,22 @@ section{padding:clamp(64px,11vh,140px) 0}
   function setState(v){state=v;wk.classList.toggle('after',v==='after');sw.setAttribute('data-s',v);
     $$('button',sw).forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-s')===v));});
     if(RM){cur=v==='after'?target:0;hrs.textContent=cur;}else count(v==='after'?target:0);}
-  sw.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;auto=false;setState(b.getAttribute('data-s'));});
+  /* while the hero is pinned the scroll clears the week; afterwards the switch takes over */
+  var pin=$('#pin'), psp=$('.pinspace'), wwrap=$('.weekwrap'), man=$$('i.m',wk), pn=-1, pdone=false, pfree=false, lpp=-1, pstart=false;
+  function press(v){$$('button',sw).forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-s')===v));});}
+  function pinned(p){var n=Math.round(p*man.length);
+    if(p>=1){if(!pdone){pdone=true;man.forEach(function(c){c.classList.add('c');});cancelAnimationFrame(raf);cur=target;hrs.textContent=target;
+        state='after';wk.classList.add('after');sw.setAttribute('data-s','after');press('after');pn=man.length;}return;}
+    if(pdone||n!==pn){pdone=false;wk.classList.remove('after');state='before';man.forEach(function(c,i){c.classList.toggle('c',i<n);});pn=n;
+      cancelAnimationFrame(raf);cur=target*n/man.length;hrs.textContent=Math.round(cur);sw.setAttribute('data-s','before');press('before');}}
+  function pinstep(vh){var pp;
+    if(psp&&psp.offsetHeight>0){pp=clamp((wwrap.getBoundingClientRect().bottom-psp.getBoundingClientRect().top)/(psp.offsetHeight*.8));}
+    else{var tot=pin.offsetHeight-vh; if(tot<60){if(!pstart){pstart=true;setTimeout(function(){if(!pfree)setState('after');},1500);}return;} pp=clamp(-pin.getBoundingClientRect().top/(tot*.9));}
+    if(pfree&&pp<1&&Math.abs(pp-lpp)>.004)pfree=false;
+    if(!pfree)pinned(pp);
+    lpp=pp;}
+  sw.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;auto=false;pfree=true;man.forEach(function(c){c.classList.remove('c');});setState(b.getAttribute('data-s'));});
   if(RM){setState('after');}
-  else{setTimeout(function(){setState('after');},1500);
-       setInterval(function(){if(auto&&!d.hidden)setState(state==='after'?'before':'after');},6500);}
 
   /* cells swell under the pointer */
   if(FINE&&!RM){var cells=$$('i',wk),pts=null;
@@ -1222,7 +1263,7 @@ section{padding:clamp(64px,11vh,140px) 0}
   function frame(){
     var vh=innerHeight; sy+=(scrollY-sy)*(RM?1:.12);
     nav.classList.toggle('sc',scrollY>12);
-    if(!RM&&sy<vh*1.2){h1.style.transform='translateY('+(sy*-.07).toFixed(1)+'px)';mk.style.transform='translateY('+(sy*.12).toFixed(1)+'px)';}
+    if(!RM)pinstep(vh);
     var a=-1;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<vh*.42)a=i;});
     if(a!==act){act=a;links.forEach(function(l,i){l.classList.toggle('on',i===a);});
       if(a<0){ind.style.opacity=0;}else{ind.style.opacity=1;ind.style.width=links[a].offsetWidth+'px';ind.style.transform='translateX('+links[a].offsetLeft+'px)';}}
