@@ -17,16 +17,20 @@ FLOW_END = "Ready for your approval"
 NUMBERS = []
 
 # what the systems connect to: (icon, name, detail)
-CONNECT_INTRO = ("Most teams use a fraction of what their tools, and an assistant such as Claude, can do together. "
-                 "This is what changes once they are connected.")
+CONNECT_LABEL = "Connections"
+CONNECT_HEAD = "Any tool the firm already uses can be connected."
+CONNECT_INTRO = ("Claude reaches a firm's tools through connectors, known as MCP. Where a connector exists, it is set up and tested. "
+                 "Where none exists, the integration is built against the tool's own API.")
 CONNECTS = [
+ ("eye", "Any Claude connector (MCP)", "The team's assistant reads and acts on the firm's own data, not on what someone pastes in."),
+ ("folder_in", "Custom API integrations", "A tool with no ready connector gets one built for it, so it joins the rest."),
  ("moon_mail", "Email and calendar", "Replies are drafted and meetings booked without the back and forth."),
  ("speech", "Slack", "Approvals and alerts arrive where the team already talks."),
+ ("cv_read", "Loxo, BrightHire and trade software", "Records stay current, and nobody copies between systems."),
  ("form", "Shopify and Etsy", "Orders, stock and listings stay in step without retyping."),
  ("pen", "Substack, LinkedIn and Instagram", "One piece of writing is published everywhere it belongs."),
- ("cv_read", "Loxo, BrightHire and the software of your trade", "Records stay current, and nobody copies between systems."),
- ("bars", "Spreadsheets and databases", "Figures update themselves, so reports no longer need preparing."),
- ("eye", "Claude", "Anyone on the team can ask a question and get the answer from your own data."),
- ("folder_in", "Anything else you rely on", "If it can share its data, it joins the rest."),
+ ("bars", "Websites, spreadsheets and databases", "Pages and figures update from the source, so nothing is maintained twice."),
+ ("calendar_tick", "Bookings and payments", "Schedule, places and payment sit on one screen, not in a message thread."),
+ ("invoice", "Quotes, invoices and documents", "What went quiet is found and followed up, and files land in the right place."),
 ]
 CONNECT_NOTE = "Nothing is replaced. The tools stay where they are and start working together."

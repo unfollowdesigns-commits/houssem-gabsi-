@@ -93,18 +93,20 @@ A visual identity, and a content process that turns one idea into a week of publ
 - LinkedIn and Instagram content
 - Visibility in search and AI answers (SEO and GEO)
 
-## What gets connected, and what changes
+## Any tool the firm already uses can be connected.
 
-Most teams use a fraction of what their tools, and an assistant such as Claude, can do together. This is what changes once they are connected.
+Claude reaches a firm's tools through connectors, known as MCP. Where a connector exists, it is set up and tested. Where none exists, the integration is built against the tool's own API.
 
+- **Any Claude connector (MCP).** The team's assistant reads and acts on the firm's own data, not on what someone pastes in.
+- **Custom API integrations.** A tool with no ready connector gets one built for it, so it joins the rest.
 - **Email and calendar.** Replies are drafted and meetings booked without the back and forth.
 - **Slack.** Approvals and alerts arrive where the team already talks.
+- **Loxo, BrightHire and trade software.** Records stay current, and nobody copies between systems.
 - **Shopify and Etsy.** Orders, stock and listings stay in step without retyping.
 - **Substack, LinkedIn and Instagram.** One piece of writing is published everywhere it belongs.
-- **Loxo, BrightHire and the software of your trade.** Records stay current, and nobody copies between systems.
-- **Spreadsheets and databases.** Figures update themselves, so reports no longer need preparing.
-- **Claude.** Anyone on the team can ask a question and get the answer from your own data.
-- **Anything else you rely on.** If it can share its data, it joins the rest.
+- **Websites, spreadsheets and databases.** Pages and figures update from the source, so nothing is maintained twice.
+- **Bookings and payments.** Schedule, places and payment sit on one screen, not in a message thread.
+- **Quotes, invoices and documents.** What went quiet is found and followed up, and files land in the right place.
 
 Nothing is replaced. The tools stay where they are and start working together.
 

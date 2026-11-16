@@ -153,4 +153,4 @@ PAGE_DESC = ("Loose Ends is a one-person studio in Tunis that designs and builds
 
 # ── wording outside the v4 text. The connections section was not covered and is unchanged. ──
 CTA_NOTE = "Free. One page. No call required."
-CTA_CONNECT = "Not sure what could be connected in your business? The free review answers that."
+CTA_CONNECT = "Not sure what could be connected? The free review answers that."

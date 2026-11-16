@@ -8,7 +8,7 @@ from cases import (HEAD_TEXT, INTRO, HERO_BTN, HERO_LINK, PANEL2_HEAD, PANEL2_TE
 WORK = CASES + PRODUCTS   # four client cases, then the studio's own products
 import re, json
 from urllib.parse import quote
-from parts import AGENTS, FLOW_TRIGGER, FLOW_STEPS, FLOW_END, NUMBERS, DAY_HOURS, CONNECT_INTRO, CONNECTS, CONNECT_NOTE
+from parts import AGENTS, FLOW_TRIGGER, FLOW_STEPS, FLOW_END, NUMBERS, DAY_HOURS, CONNECT_INTRO, CONNECTS, CONNECT_NOTE, CONNECT_LABEL, CONNECT_HEAD
 from icons import svg
 from pages import PAGES
 DISC_LINKS = {"Websites and online shops":"websites-and-online-shops","Automation":"ai-automation","Claude and AI setup":"claude-consulting","SEO and GEO":"seo-geo"}
@@ -157,7 +157,7 @@ def _md():
     L += ["", "## " + SERVICES_HEAD]
     for m,k,t,dsc in WHAT:
         L += ["", "### %s: %s" % (k, t), "", dsc, ""] + ["- " + x for x in EXAMPLES[m]]
-    L += ["", "## What gets connected, and what changes", "", CONNECT_INTRO, ""]
+    L += ["", "## " + CONNECT_HEAD, "", CONNECT_INTRO, ""]
     L += ["- **%s.** %s" % (a, b) for _,a,b in CONNECTS]
     L += ["", CONNECT_NOTE, "", "## " + SYSTEMS_HEAD]
     for a,b,c,dd in SYSTEMS:
@@ -1212,8 +1212,8 @@ html.js .fstep{transition:opacity .5s var(--ease),transform .5s var(--ease)}
 </div></section>
 
 <section class="band tint" id="connections"><div class="wrap">
-  <p class="lab">Connections</p>
-  <h2>What gets connected, and what changes.</h2>
+  <p class="lab">CONNLABEL</p>
+  <h2>CONNHEAD</h2>
   <p class="intro-l">CONNINTRO</p>
   <ul class="team">CONNECTSHERE</ul>
   <p class="teamnote">CONNNOTE <a class="tl" href="/mcp-integrations/">How MCP integrations work</a></p>
@@ -1542,7 +1542,7 @@ HTML = (HTML.replace("HEADLINE", HEAD_HTML).replace("INTROHERE", e(INTRO)).repla
             .replace("FAQLABEL", e(FAQ_LABEL)).replace("FAQHEAD", e(FAQ_HEAD)).replace("CLOSEHEAD", e(CLOSE_HEAD)).replace("CLOSETEXT", e(CLOSE_TEXT)).replace("CLOSEBTN", e(CLOSE_BTN)).replace("CLOSENOTE", e(CLOSE_NOTE))
             .replace("DAYSHERE", DAYLBL).replace("HOURSCOL", HOURS_COL).replace("WHATHERE", what)
             .replace("CASESHERE", cases).replace("WINDEXHERE", windex).replace("HOWHERE", how)
-            .replace("AGENTSHERE", agents).replace("CONNECTSHERE", connects).replace("MAILTOHERE", MAILTO).replace("MAILLINE", MAILLINE).replace("FOOTERHERE", footer_html("")).replace("STMTHERE", " ".join('<span style="--i:%d">%s</span>' % (i, e(w)) for i, w in enumerate(STATEMENT.split()))).replace("CTANOTE", e(CTA_NOTE)).replace("CTACONNECT", e(CTA_CONNECT)).replace("DAYHOURS", json.dumps(DAY_HOURS)).replace("CONNINTRO", e(CONNECT_INTRO)).replace("CONNNOTE", e(CONNECT_NOTE)).replace("FLOWHERE", flow).replace("RULESHERE", rules).replace("SYSHERE", systems).replace("FAQHERE", faq).replace("ENSOHERE", HEROMARK).replace("LDHERE", LD).replace("OGTITLEHERE", e(OG_TITLE)).replace("OGDESCHERE", e(OG_DESC)).replace("OGALTHERE", e(OG_ALT)).replace("TITLEHERE", e(TITLE)).replace("DESCHERE", e(DESC)).replace("SITEHERE", SITE).replace("HOURSVAL", str(HOURS)))
+            .replace("AGENTSHERE", agents).replace("CONNECTSHERE", connects).replace("MAILTOHERE", MAILTO).replace("MAILLINE", MAILLINE).replace("FOOTERHERE", footer_html("")).replace("STMTHERE", " ".join('<span style="--i:%d">%s</span>' % (i, e(w)) for i, w in enumerate(STATEMENT.split()))).replace("CTANOTE", e(CTA_NOTE)).replace("CTACONNECT", e(CTA_CONNECT)).replace("DAYHOURS", json.dumps(DAY_HOURS)).replace("CONNINTRO", e(CONNECT_INTRO)).replace("CONNLABEL", e(CONNECT_LABEL)).replace("CONNHEAD", e(CONNECT_HEAD)).replace("CONNNOTE", e(CONNECT_NOTE)).replace("FLOWHERE", flow).replace("RULESHERE", rules).replace("SYSHERE", systems).replace("FAQHERE", faq).replace("ENSOHERE", HEROMARK).replace("LDHERE", LD).replace("OGTITLEHERE", e(OG_TITLE)).replace("OGDESCHERE", e(OG_DESC)).replace("OGALTHERE", e(OG_ALT)).replace("TITLEHERE", e(TITLE)).replace("DESCHERE", e(DESC)).replace("SITEHERE", SITE).replace("HOURSVAL", str(HOURS)))
 HTML = HTML.replace("DIVHERE", "")   # the animated cell dividers are removed in the v2 structure
 open("../index.html","w").write(HTML)
 open("../llms.txt","w").write(LLMS)
