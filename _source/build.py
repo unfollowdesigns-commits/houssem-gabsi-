@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import html, random
-from cases import INTRO, SERVICES_INTRO, EXAMPLES, CTA_NOTE, CTA_WORK, CTA_CONNECT, NEXT, CASES, WHAT, HOW, SYSTEMS, RULES, FAQ
+from cases import INTRO, WEEK_INTRO, DISCIPLINES, SERVICES_INTRO, EXAMPLES, CTA_NOTE, CTA_WORK, CTA_CONNECT, NEXT, CASES, WHAT, HOW, SYSTEMS, RULES, FAQ
 import re, json
 from urllib.parse import quote
 from parts import AGENTS, FLOW_TRIGGER, FLOW_STEPS, FLOW_END, NUMBERS, DAY_HOURS, CONNECT_INTRO, CONNECTS, CONNECT_NOTE
@@ -88,6 +88,7 @@ faq = "\n".join('<div><h3>%s</h3><p>%s</p></div>' % (e(a), e(b)) for a,b in FAQ)
 SITE = "https://houssem-gabsi.vercel.app/"
 EMAIL = "unfollow.designs@gmail.com"
 HEAD = "Websites, automation and AI, built to work as one."
+HEAD_ACCENT = 2   # how many closing words of the headline take the accent colour
 TITLE = "Websites, automation and AI | Houssem Gabsi"
 OG_TITLE = "Websites, automation and AI, built to work as one"
 DESC = ("A studio of one. Websites, automation and AI set up to work together, for businesses of any size or trade. "
@@ -682,6 +683,51 @@ html.js .rv.done{transition-delay:0s}
  html.js .fnode.o{background:var(--ink)!important;color:var(--wall)!important;transform:none!important}
  html.js .fnode.o .ic{color:var(--wall)!important}
 }
+
+/* ── hero: full-height, type-led ── */
+.hero{min-height:calc(100svh - 58px);display:flex;align-items:center;padding:clamp(40px,7vh,84px) 0 clamp(30px,5vh,56px)}
+.hero .wrap{width:100%}
+.eyebrow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);
+  margin-bottom:clamp(22px,4vh,44px);opacity:0;animation:rise .8s var(--ease) .1s forwards}
+.eyebrow .mark{margin:0 4px 0 0}
+.eyebrow span + span::before{content:"";display:inline-block;width:22px;height:1px;background:var(--sand);vertical-align:middle;margin-right:14px}
+.hero h1{font-size:clamp(2.7rem,8.3vw,8.4rem);max-width:none;line-height:.96;letter-spacing:-.038em;text-wrap:balance}
+.hero h1 .hl{color:var(--ochre)}
+.hbot{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(22px,5vw,80px);align-items:end;margin-top:clamp(28px,5vh,56px)}
+.hero .sub{max-width:50ch;font-size:clamp(17px,1.4vw,21px)}
+.hact .cta{margin-top:0}
+.btn.big2{font-size:clamp(15px,1.2vw,17px);padding:16px 28px}
+.disc{list-style:none;display:flex;flex-wrap:wrap;gap:8px 0;margin-top:clamp(30px,6vh,64px);padding-top:18px;border-top:1px solid var(--sand);
+  font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);opacity:0;animation:rise .8s var(--ease) 1.1s forwards}
+.disc li + li::before{content:"";display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--ochre);margin:0 16px;vertical-align:middle}
+#week .weekwrap{margin-top:clamp(26px,4vh,40px)}
+@media(max-width:560px){.eyebrow span + span{flex-basis:100%}.eyebrow span + span::before{display:none}}
+@media(max-width:860px){.disc{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}.disc li + li::before{display:none}.hbot{grid-template-columns:1fr;align-items:start}.hero{min-height:0;padding-top:clamp(36px,6vh,56px)}}
+@media(prefers-reduced-motion:reduce){.eyebrow,.disc{opacity:1;animation:none}}
+
+/* ── editorial scale: numbered sections, larger headings, services as an index ── */
+main{counter-reset:sec}
+section:not(.close) > .wrap > h2{font-size:clamp(2rem,4.7vw,4.1rem);max-width:17ch;line-height:1;letter-spacing:-.032em}
+section:not(.close) > .wrap > h2::before{counter-increment:sec;content:counter(sec,decimal-leading-zero);display:block;
+  font-family:Archivo,sans-serif;font-size:13px;font-weight:500;letter-spacing:.14em;line-height:1;color:var(--ochre);margin-bottom:clamp(16px,2.4vh,24px)}
+.intro-l{font-size:clamp(16.5px,1.25vw,19px);margin-top:clamp(16px,2.4vh,24px)}
+section{padding:clamp(64px,11vh,140px) 0}
+.offer{grid-template-columns:1fr;gap:0;border-bottom:1px solid var(--sand)}
+.offer > div{border-top:1px solid var(--sand)}
+.card{background:none;border-radius:0;transform:none;padding:clamp(28px,5vh,52px) 0;height:auto;display:grid;
+  grid-template-columns:minmax(0,.42fr) minmax(0,1.15fr) minmax(0,1.35fr);grid-template-areas:"m t d" "l t e";grid-template-rows:auto 1fr;
+  column-gap:clamp(20px,4vw,64px);align-items:start;transition:none}
+.card .pm{grid-area:m;margin-bottom:10px}
+.card .pl{grid-area:l;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin:0}
+.offer .card h3{grid-area:t;font-size:clamp(1.7rem,3.3vw,2.9rem);max-width:14ch;line-height:1.02;letter-spacing:-.028em;transition:color .4s var(--ease)}
+.offer .card p{grid-area:d;margin-top:4px;font-size:clamp(16px,1.2vw,18px);max-width:46ch}
+.card .ex{grid-area:e;grid-template-columns:1fr 1fr;gap:8px 24px;margin-top:20px}
+@media(hover:hover){.card:hover{box-shadow:none}.offer .card:hover h3{color:var(--door)}}
+@media(max-width:860px){.card{grid-template-columns:1fr;grid-template-areas:"m" "l" "t" "d" "e";grid-template-rows:auto;row-gap:10px}.card .ex{grid-template-columns:1fr}}
+.acci > div:has(.demo){max-width:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,300px);column-gap:clamp(24px,6vw,96px);align-items:start}
+.acci > div:has(.demo) > p{grid-column:1;max-width:60ch}
+.acci > div:has(.demo) > .demo{grid-column:2;grid-row:1 / span 3;margin-top:0;justify-self:end}
+@media(max-width:860px){.acci > div:has(.demo){display:block}.acci > div:has(.demo) > .demo{margin-top:20px}}
 </style></head><body>
 <header class="nav" id="nav">
   <a class="brand" href="#top">Houssem Gabsi</a>
@@ -691,16 +737,21 @@ html.js .rv.done{transition-delay:0s}
 
 <main id="top">
 <div class="hero"><div class="wrap">
-  ENSOHERE
-  <div class="htop">
-    <h1>HEADLINE</h1>
-    <div>
-      <p class="sub">INTROHERE</p>
-      <div class="cta"><a class="btn mag" href="MAILTOHERE">Request a free review</a><a class="tl" href="#work">See selected work</a></div>
+  <div class="eyebrow">ENSOHERE<span>Houssem Gabsi</span><span>Independent studio, Tunis</span></div>
+  <h1>HEADLINE</h1>
+  <div class="hbot">
+    <p class="sub">INTROHERE</p>
+    <div class="hact">
+      <div class="cta"><a class="btn big2 mag" href="MAILTOHERE">Request a free review</a><a class="tl" href="#work">See selected work</a></div>
       <p class="cta-note">CTANOTE</p>
     </div>
   </div>
+  <ul class="disc" aria-label="What the studio does">DISCHERE</ul>
+</div></div>
 
+<section id="week"><div class="wrap">
+  <h2>Where the week goes</h2>
+  <p class="intro-l">WEEKINTRO</p>
   <div class="weekwrap">
     <div class="wk-head">
       <div class="sw" id="sw" data-s="before" role="group" aria-label="Show the week before or after"><button type="button" data-s="before" aria-pressed="true">Before</button><button type="button" data-s="after" aria-pressed="false">After</button><i class="thumb"></i></div>
@@ -713,9 +764,9 @@ html.js .rv.done{transition-delay:0s}
         WEEKHERE
       </div>
     </div>
-    <p class="wk-note">A sample week. Ochre is repeated manual work, blue is work that requires a person.</p>
+    <p class="wk-note">A sample week.</p>
   </div>
-</div></div>
+</div></section>
 
 DIVHERE
 
@@ -723,6 +774,14 @@ DIVHERE
   <h2>What the studio does</h2>
   <p class="intro-l">SERVINTRO</p>
   <div class="offer">WHATHERE</div>
+</div></section>
+
+<section id="connections"><div class="wrap">
+  <h2>What gets connected, and what changes</h2>
+  <p class="intro-l">CONNINTRO</p>
+  <ul class="team">CONNECTSHERE</ul>
+  <p class="teamnote">CONNNOTE</p>
+  <div class="ctarow"><p>CTACONNECT</p><a class="btn mag" href="MAILTOHERE">Request a free review</a><span>CTANOTE</span></div>
 </div></section>
 
 <section class="band dark" id="work"><div class="wrap">
@@ -759,13 +818,6 @@ DIVHERE
   FLOWHERE
 </div></section>
 
-<section id="connections"><div class="wrap">
-  <h2>What gets connected, and what changes</h2>
-  <p class="intro-l">CONNINTRO</p>
-  <ul class="team">CONNECTSHERE</ul>
-  <p class="teamnote">CONNNOTE</p>
-  <div class="ctarow"><p>CTACONNECT</p><a class="btn mag" href="MAILTOHERE">Request a free review</a><span>CTANOTE</span></div>
-</div></section>
 
 DIVHERE
 
@@ -941,8 +993,9 @@ faq = "\n".join(
  '<div class="accb"><div class="acci"><div><p>%s</p></div></div></div></div>'
  % (" open" if i==0 else "", "true" if i==0 else "false", e(q), e(a)) for i,(q,a) in enumerate(FAQ))
 
-HEAD_HTML = " ".join('<span style="--w:%d">%s</span>' % (i, e(w)) for i,w in enumerate(HEAD.split()))
-HTML = (HTML.replace("HEADLINE", HEAD_HTML).replace("INTROHERE", e(INTRO)).replace("SERVINTRO", e(SERVICES_INTRO)).replace("WEEKHERE", WEEK)
+_hw = HEAD.split()
+HEAD_HTML = " ".join('<span%s style="--w:%d">%s</span>' % (' class="hl"' if i >= len(_hw)-HEAD_ACCENT else "", i, e(w)) for i,w in enumerate(_hw))
+HTML = (HTML.replace("HEADLINE", HEAD_HTML).replace("INTROHERE", e(INTRO)).replace("WEEKINTRO", e(WEEK_INTRO)).replace("DISCHERE", "".join("<li>%s</li>" % e(x) for x in DISCIPLINES)).replace("SERVINTRO", e(SERVICES_INTRO)).replace("WEEKHERE", WEEK)
             .replace("DAYSHERE", DAYLBL).replace("HOURSCOL", HOURS_COL).replace("WHATHERE", what)
             .replace("CASESHERE", cases).replace("WINDEXHERE", windex).replace("HOWHERE", how)
             .replace("AGENTSHERE", agents).replace("CONNECTSHERE", connects).replace("MAILTOHERE", MAILTO).replace("CTANOTE", e(CTA_NOTE)).replace("CTAWORK", e(CTA_WORK)).replace("CTACONNECT", e(CTA_CONNECT)).replace("NEXTHERE", nextsteps).replace("DAYHOURS", json.dumps(DAY_HOURS)).replace("CONNINTRO", e(CONNECT_INTRO)).replace("CONNNOTE", e(CONNECT_NOTE)).replace("FLOWHERE", flow).replace("RULESHERE", rules).replace("SYSHERE", systems).replace("FAQHERE", faq).replace("ENSOHERE", HEROMARK).replace("LDHERE", LD).replace("OGTITLEHERE", e(OG_TITLE)).replace("OGDESCHERE", e(OG_DESC)).replace("OGALTHERE", e(OG_ALT)).replace("TITLEHERE", e(TITLE)).replace("DESCHERE", e(DESC)).replace("SITEHERE", SITE).replace("HOURSVAL", str(HOURS)))
