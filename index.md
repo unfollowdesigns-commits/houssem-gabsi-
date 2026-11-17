@@ -137,73 +137,73 @@ Works with interview notes and the firm's report template.
 
 ### A skill for every task the team repeats.
 
-Each recurring task is written once as a Claude skill: the steps, the firm's format and its rules. Anyone on the team runs it and gets the same result, and a person approves anything that goes out.
+The proposal, the weekly report, the candidate summary. Each one is written down once as a Claude skill, with the firm's format and its quirks, so whoever runs it gets the same result. Someone still signs off before it leaves.
 
 Works with Claude skills and the firm's own templates.
 
 ### An assistant that knows the firm's own data.
 
-Claude or another assistant is connected to the firm's files, inbox and databases, so anyone on the team can ask a question and get the answer from the source.
+Claude gets read access to the files, the inbox and the database. Ask it which invoices are overdue and it checks, instead of guessing.
 
 Works with Claude connectors (MCP) and the firm's own tools.
 
 ### Bookings confirmed, reminded and rescheduled.
 
-Clients book on one screen. Confirmations, reminders and changes go out on their own, and the calendar stays correct.
+Clients pick a time on one screen. The confirmation goes out, the reminder goes out the day before, and when someone moves, the calendar moves with them.
 
 Works with the calendar, the booking page and payments.
 
 ### Every invoice followed up until it is paid.
 
-Unpaid invoices are tracked and a polite reminder is drafted at each stage. Someone approves before anything is sent.
+When an invoice slips past its date, a polite reminder is drafted and waits for a yes. Then a firmer one, a week later. Nobody has to remember to chase.
 
 Works with the accounting tool and email.
 
 ### New clients onboarded without the paperwork chase.
 
-Forms, documents and signatures are collected in one place, filed correctly, and the team is told when everything is in.
+The new client fills in one form, signs once and uploads what's needed. It all lands in their folder, and the team hears when the last piece arrives.
 
 Works with forms, e-signature and shared drives.
 
 ### Weekly figures prepared before anyone asks.
 
-Numbers are pulled from the tools the firm already uses into one dashboard, and a short summary goes to the people who need it.
+Monday morning, the numbers are already in one place, with a short note in Slack saying what moved. Nobody spent Sunday on a spreadsheet.
 
 Works with spreadsheets, databases and Slack.
 
 ### Orders, stock and listings kept in step.
 
-Sales on one channel update stock and listings everywhere else, so nothing is sold twice and nothing is retyped.
+Something sells on Etsy, and Shopify knows a second later. Stock stays right on every channel, so the last one is never sold twice.
 
 Works with Shopify, Etsy and spreadsheets.
 
 ### A newsletter that assembles itself.
 
-The week's articles, updates and links are gathered into a draft in the firm's voice, ready to review and send.
+By Thursday the week's posts and updates are pulled into a draft that sounds like the firm. Someone reads it, tweaks a line, and sends.
 
 Works with Substack and the firm's email platform.
 
 ### Posts scheduled across every channel.
 
-One approved piece of content is adapted and scheduled for each platform, with the calendar visible to the team.
+One approved piece becomes a LinkedIn post, an Instagram caption and a blog excerpt, each sized for where it goes, and scheduled on a calendar the team can see.
 
 Works with LinkedIn, Instagram and the content calendar.
 
 ### Meeting notes turned into actions.
 
-Calls are summarised, decisions and next steps are recorded in the right system, and each owner is reminded.
+After the call, a summary lands in the CRM with the decisions and who owns what. The reminders go to those people, not to everyone.
 
 Works with the calendar, call recordings and the CRM.
 
 ### Documents filed where they belong.
 
-Incoming files are read, named and placed in the right folder or record, so nobody searches for them later.
+A signed contract arrives as an attachment. It's renamed properly and filed in the client's folder before anyone opens their inbox.
 
 Works with email, shared drives and the firm's database.
 
 ### A website that search engines and AI assistants can read.
 
-Pages are structured so search results and assistants such as ChatGPT, Claude and Perplexity can find the firm, understand it and cite it.
+When someone asks ChatGPT or Perplexity who does this kind of work, the firm's pages are written and marked up so the answer can name it.
 
 Works with the website and its content.
 
@@ -256,12 +256,12 @@ Starting prices in US dollars. The exact price is set after the audit and confir
 
 - **Free review:** Free. A one-page review of where the firm loses time. No call required.
 - **Systems audit:** $1,500. The first fixes ranked by what they return. The fee is credited toward the build.
-- **Automation:** from $3,000. Follow-up, bookings, reports or screening, built inside the tools already in use. A person approves before anything is sent.
-- **AI assistant setup:** from $4,500. Claude or another assistant connected to the firm's own data, with shared instructions and training for the team.
-- **Websites and online shops:** from $5,000. Designed and built end to end, including Shopify and Etsy, with visibility in search and AI answers.
+- **Automation:** from $3,000. Follow-up, bookings, reports or screening, built inside the tools the team already opens every day.
+- **AI assistant setup:** from $4,500. Claude connected to the firm's data, with skills for the repeated tasks and a session to show the team how to use it.
+- **Websites and online shops:** from $5,000. Designed, written and built from scratch, Shopify and Etsy included, and set up to be found in search and AI answers.
 - **Applications and integrations:** from $9,000. Booking applications, dashboards, client portals and custom API or MCP connections.
 - **Brand and content:** from $3,500. Identity, illustration, video and a content system that turns one idea into a week of publishing.
-- **Ongoing support:** $600 a month. Changes, monitoring and new routines as the firm grows. Optional, and cancellable at any time.
+- **Ongoing support:** $600 a month. Small changes, a watchful eye, and new routines as the firm grows. Optional, and easy to stop.
 
 ## What firms ask before they start.
 

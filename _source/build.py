@@ -1555,15 +1555,15 @@ NAVBARHERE
 
 <section id="overlap"><div class="wrap">
   <p class="lab">How the studio works</p>
-  <h2>Websites, connections and AI, in one pair of hands.</h2>
-  <p class="intro-l">Most firms buy a website from one supplier, automation from another and AI from a third, and the three never meet. Loose Ends designs, connects and automates as one piece of work.</p>
+  <h2>Websites, connections and AI, done by the same hands.</h2>
+  <p class="intro-l">Most firms get the website from one agency, the automation from a freelancer and the AI advice from someone else. Then the three never quite fit together. Here it's one person doing all of it, so they do.</p>
   <div class="ov">
     <div class="ov-viz" aria-hidden="true"><canvas id="ovc"></canvas><span class="ov-l l0">Build</span><span class="ov-l l1">Connect</span><span class="ov-l l2">Automate</span><span class="ov-pill">Loose Ends</span></div>
     <ol class="ov-list">
-      <li class="on"><h3>Websites people use.</h3><p>Sites, online shops, booking applications and dashboards, designed and built end to end, in the firm's own voice.</p></li>
-      <li><h3>Tools that talk to each other.</h3><p>Email, calendar, Slack, recruiting systems, Shopify and Etsy, linked through Claude connectors (MCP) or custom APIs, so nothing is retyped.</p></li>
-      <li><h3>Assistants that do the repeated work.</h3><p>Claude set up on the firm's own data, with skills for the tasks the team repeats. A person approves before anything is sent.</p></li>
-      <li class="ov-end"><p>Each one makes the other two more useful. Together they turn an idea into something the firm runs every week.</p></li>
+      <li class="on"><h3>Websites people actually use.</h3><p>Sites, shops, booking pages and dashboards, designed and written to sound like the firm, then built to last.</p></li>
+      <li><h3>Tools that talk to each other.</h3><p>Email, calendar, Slack, the recruiting system, the shop. Linked with Claude connectors (MCP), or a custom API when there isn't one, so nobody copies data from one window to another.</p></li>
+      <li><h3>Assistants that do the repeated work.</h3><p>Claude set up on the firm's own data, with a skill for each task the team keeps redoing. It drafts. Someone on the team decides.</p></li>
+      <li class="ov-end"><p>A website is more useful when it feeds the inbox. An assistant is more useful when it can see the calendar. That's the whole idea.</p></li>
     </ol>
   </div>
 </div></section>
