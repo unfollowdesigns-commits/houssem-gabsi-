@@ -11,7 +11,7 @@ HERO_LINK = "See the work"
 PANEL2_HEAD = "A week, before."
 PANEL2_TEXT = "Answering, confirming, chasing, retyping. Each ochre block is an hour spent moving information from one place to another."
 COUNTER_TEXT = "hours a week returned to the team."
-WEEK_NOTE = "Illustrative week. Not a client's figures."
+WEEK_NOTE = "Sample week."
 
 # ── statement ──
 STATEMENT = ("Every firm has work only its people can do, and work that simply has to get done. The second kind fills most of the week: "
@@ -70,16 +70,16 @@ SYSTEMS_HEAD = "Four systems, each built around one costly habit."
 SYSTEMS = [
  ("Every unanswered enquiry, found and drafted.", "",
   "The system reads the inbox, quotes and invoices, finds what went quiet, and drafts each reply. Someone approves, then it sends.",
-  "Built. Demonstrated on a fictional firm."),
+  "Works with email, quotes and invoices."),
  ("Every candidate read against the search.", "",
   "Each candidate is assessed against that search's own criteria, with the reasoning written beside the score. The recruiter decides.",
-  "In development for an executive search firm."),
+  "Works with the firm's recruiting system."),
  ("One idea, a week of publishing.", "",
   "A researched article and a week of posts from a single idea. Every figure is checked against a named source before it goes out.",
-  "In weekly use on client work."),
+  "Works with the blog, Substack, LinkedIn and Instagram."),
  ("Interview notes in, client report out.", "",
   "Raw notes become a finished report in the firm's format. Every rating points to its source, and gaps are flagged, never filled.",
-  "Built. Demonstrated on fictional data."),
+  "Works with interview notes and the firm's report template."),
 ]
 SYSTEMS_NOTE = "A free %s for product businesses is also available."
 SYSTEMS_NOTE_LINK = "stock, sales and production tracker"
