@@ -13,6 +13,8 @@ Vercel serves the site from the top level of this repo. The Root Directory setti
 - `_source/parts.py`: the capacity grid and the enquiry diagram wording.
 - `_source/icons.py`: the small line icons.
 - `_source/build.py`: layout, styles, motion, and the script that writes `index.html`.
+- `_source/posts/*.json`: the blog posts. Each file is a list of posts; the build writes `/blog/` and one page per post, and adds them to the sitemap and `llms.txt`. Same wording rules as the rest of the site.
+- `_source/scenes.py`: the small moving scenes in the Systems section and on the blog cards.
 
 To change the site: edit the files in `_source`, then run
 
