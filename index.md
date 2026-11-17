@@ -79,6 +79,7 @@ Follow-up, confirmations and reports happen on their own. A person approves what
 - Weekly reports and newsletters
 - Social media scheduling
 - Claude and other AI assistants set up for the team
+- Custom Claude skills for the tasks the team repeats
 - Connectors (MCP) and custom API integrations
 
 ### Create: Identity and content.
@@ -133,6 +134,12 @@ Works with the blog, Substack, LinkedIn and Instagram.
 Raw notes become a finished report in the firm's format. Every rating points to its source, and gaps are flagged, never filled.
 
 Works with interview notes and the firm's report template.
+
+### A skill for every task the team repeats.
+
+Each recurring task is written once as a Claude skill: the steps, the firm's format and its rules. Anyone on the team runs it and gets the same result, and a person approves anything that goes out.
+
+Works with Claude skills and the firm's own templates.
 
 ### An assistant that knows the firm's own data.
 
@@ -336,3 +343,4 @@ Request it from the contact section of the site: https://houssem-gabsi.vercel.ap
 - [Claude vs ChatGPT for business teams: how to choose](https://houssem-gabsi.vercel.app/blog/claude-vs-chatgpt-for-business-teams/)
 - [Website that books clients: turning visitors into bookings](https://houssem-gabsi.vercel.app/blog/website-that-books-clients/)
 - [AI for recruiting firms: using it responsibly in a search](https://houssem-gabsi.vercel.app/blog/ai-for-recruiting-firms/)
+- [Claude Skills for Business: What They Are and How to Use Them](https://houssem-gabsi.vercel.app/blog/claude-skills-for-business/)

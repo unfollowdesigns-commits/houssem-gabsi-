@@ -32,7 +32,7 @@ Keep all of these on the page. Houssem has had to repeat them.
 - Websites, online shops (Shopify, Etsy), booking applications, dashboards, internal tools.
 - Automation inside the tools a business already has: follow-up, bookings, screening, reports, newsletters, social media scheduling.
 - Connections between tools: email, calendar, Slack, spreadsheets, Loxo, BrightHire, Shopify, Etsy, Substack.
-- Setting up Claude and other AI assistants for a team, connected to its own data. Most people use a fraction of what the assistant can do. That gap is the studio's main offer.
+- Setting up Claude and other AI assistants for a team, connected to its own data, including custom Claude skills for the tasks a team repeats. Most people use a fraction of what the assistant can do. That gap is the studio's main offer.
 - SEO and GEO (visibility in AI answers).
 - Brand identity, illustration, content, video editing, motion graphics.
 - Own products: Vero and ZonedInOut.

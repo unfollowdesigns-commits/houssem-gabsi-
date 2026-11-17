@@ -65,7 +65,7 @@ WHAT = [
 # short points listed on each service card. Not part of the v4 wording; kept from the earlier version.
 EXAMPLES = {
  "build": ["Company and marketing websites", "Online shops on Shopify and Etsy", "Booking applications", "Dashboards and reporting", "Internal tools and client portals", "Web applications built to order"],
- "automate": ["Enquiry and invoice follow-up", "Booking confirmations", "Screening of applications and enquiries", "Weekly reports and newsletters", "Social media scheduling", "Claude and other AI assistants set up for the team", "Connectors (MCP) and custom API integrations"],
+ "automate": ["Enquiry and invoice follow-up", "Booking confirmations", "Screening of applications and enquiries", "Weekly reports and newsletters", "Social media scheduling", "Claude and other AI assistants set up for the team", "Custom Claude skills for the tasks the team repeats", "Connectors (MCP) and custom API integrations"],
  "create": ["Brand identity and illustration", "Video editing and motion graphics", "Articles, blog posts and Substack newsletters", "LinkedIn and Instagram content", "Visibility in search and AI answers (SEO and GEO)"],
 }
 
@@ -85,6 +85,9 @@ SYSTEMS = [
  ("Interview notes in, client report out.", "",
   "Raw notes become a finished report in the firm's format. Every rating points to its source, and gaps are flagged, never filled.",
   "Works with interview notes and the firm's report template."),
+ ("A skill for every task the team repeats.", "",
+  "Each recurring task is written once as a Claude skill: the steps, the firm's format and its rules. Anyone on the team runs it and gets the same result, and a person approves anything that goes out.",
+  "Works with Claude skills and the firm's own templates."),
  ("An assistant that knows the firm's own data.", "",
   "Claude or another assistant is connected to the firm's files, inbox and databases, so anyone on the team can ask a question and get the answer from the source.",
   "Works with Claude connectors (MCP) and the firm's own tools."),

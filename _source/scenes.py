@@ -146,6 +146,70 @@ def website():
 
 SCENES = [enquiry, candidates, publishing, report, assistant, bookings, invoices, onboarding,
           figures, orders, newsletter, posts, meeting, documents, website]
+SKILLS_SCENE = 15
 
 def scene(i):
     return '<div class="sviz" aria-hidden="true"><svg viewBox="0 0 320 200">%s</svg></div>' % SCENES[i % len(SCENES)]()
+
+# ── scenes for the Connections cards: the actual screens a connection changes ──
+def emailcal():
+    o = R(14, 18, 142, 76, W, 8, a("u", 200), LN) + T(26, 36, "New message", S, a("f", 300), 8.5) + T(26, 54, "Can we meet on Tuesday?", I, a("f", 400), 9.5)
+    o += R(26, 64, 96, 5, S, 2, a("g", 600)) + R(26, 74, 70, 5, S, 2, a("g", 700))
+    for r in range(3):
+        for c in range(4):
+            o += R(172 + c * 34, 22 + r * 26, 28, 20, W, 4, "", LN)
+    o += T(172, 16, "Calendar", S, "", 8.5) + R(206, 48, 28, 20, B, 4, a("p", 1300)) + T(220, 61.5, "Free", W, a("f", 1400), 8.5, "middle")
+    o += R(14, 108, 142, 76, W, 8, a("u", 1900), LN) + T(26, 126, "Draft reply", S, a("f", 2000), 8.5) + T(26, 144, "Tuesday at 10:00 works.", I, a("f", 2100), 9.5)
+    o += chip(26, 154, 64, B, "Approve", 2900) + tick(98, 160, B, 3100)
+    o += R(206, 48, 28, 20, O, 4, a("p", 3600)) + chip(172, 110, 92, O, "Meeting booked", 3700)
+    return o
+
+def slack():
+    o = R(14, 14, 292, 172, W, 10, "", LN) + T(28, 34, "# approvals", I, "", 10, "start", 600) + P("M14 44 H306", LN, "", 1)
+    o += C(34, 66, 9, B, a("p", 200)) + R(50, 58, 120, 6, S, 3, a("g", 300)) + R(50, 70, 86, 6, S, 3, a("g", 400))
+    o += C(34, 106, 9, O, a("p", 1000)) + T(50, 102, "Draft reply ready for a new enquiry", I, a("f", 1100), 9.5)
+    o += R(50, 110, 200, 30, "#EFEDE5", 6, a("u", 1300)) + R(60, 119, 150, 5, S, 2, a("g", 1500)) + R(60, 129, 110, 5, S, 2, a("g", 1650))
+    o += chip(50, 150, 64, B, "Approve", 2000) + chip(122, 150, 48, W, "Edit", 2100, "p", I).replace('fill="#F7F5EF" ', 'fill="#F7F5EF" stroke="rgba(27,32,28,.2)" ', 1)
+    o += T(186, 164, "Approved, then sent", B, a("f", 3200), 9.5) + tick(286, 155, B, 3300)
+    return o
+
+def recruiting():
+    o = R(14, 18, 138, 164, W, 8, "", LN) + T(26, 36, "Recruiting system", I, "", 9.5, "start", 600)
+    o += "".join(R(26, 48 + k * 26, 112, 16, S, 3) for k in range(4)) + R(26, 48, 112, 16, O, 3, a("g", 400)) + T(32, 60, "New role", W, a("f", 600), 9)
+    o += arrow(152, 96, 172, 1100)
+    o += R(178, 18, 128, 92, W, 8, a("u", 1500), LN) + T(190, 36, "Careers page", I, a("f", 1600), 9.5, "start", 600)
+    o += R(190, 46, 104, 18, B, 4, a("g", 2000)) + R(190, 70, 80, 6, S, 3, a("g", 2200)) + R(190, 82, 60, 6, S, 3, a("g", 2300))
+    o += R(178, 120, 128, 62, W, 8, a("u", 2700), LN) + R(190, 132, 50, 7, I, 3, a("g", 2900)) + R(190, 146, 96, 5, S, 2, a("g", 3000)) + R(190, 156, 80, 5, S, 2, a("g", 3100))
+    o += T(190, 175, "CV in the firm's format", B, a("f", 3300), 8.5)
+    return o
+
+def api():
+    o = R(14, 34, 104, 132, W, 8, "", LN) + T(26, 52, "Their tool", I, "", 9.5, "start", 600)
+    o += "".join(R(26, 64 + k * 22, 80, 12, S, 3) for k in range(4))
+    o += R(202, 34, 104, 132, W, 8, "", LN) + T(214, 52, "Firm system", I, "", 9.5, "start", 600)
+    o += "".join(R(214, 64 + k * 22, 80, 12, "#EFEDE5", 3, "", LN) for k in range(4))
+    for k in range(4):
+        y = 70 + k * 22
+        o += P("M106 %d C 150 %d 158 %d 214 %d" % (y, y, y, y), O if k == 0 else B, a("d", 700 + k * 260), 1.6)
+        o += R(214, 64 + k * 22, 80, 12, B if k else O, 3, a("g", 1500 + k * 260))
+    return o + chip(110, 176, 100, B, "Connected", 3000) + tick(218, 182, B, 3200)
+
+def skills():
+    names = ["Weekly report", "Client proposal", "Candidate summary"]
+    o = R(14, 16, 130, 168, W, 8, "", LN) + T(26, 34, "Skills", I, "", 9.5, "start", 600)
+    for k, n in enumerate(names):
+        y = 44 + k * 36
+        o += R(26, y, 106, 28, "#EFEDE5" if k != 1 else W, 6, "", LN) + T(36, y + 18, n, I, "", 8.6)
+    o += R(26, 80, 106, 28, B, 6, a("p", 500)) + T(36, 98, "Client proposal", W, a("f", 550), 8.6)
+    o += chip(26, 152, 60, O, "Run", 900)
+    o += arrow(146, 100, 168, 1300)
+    o += R(178, 16, 128, 140, W, 8, a("u", 1500), LN) + R(190, 30, 64, 8, I, 3, a("g", 1800))
+    o += "".join(R(190, 48 + k * 14, 100 - (k % 3) * 18, 5, S, 2, a("g", 2000 + k * 120)) for k in range(5))
+    o += T(190, 140, "The firm's format", B, a("f", 2700), 8.5)
+    o += chip(178, 164, 64, B, "Approve", 3100) + tick(250, 170, B, 3300)
+    return o
+
+SCENES.append(skills)
+CONN_SCENES = [assistant, api, emailcal, slack, recruiting, orders, posts, figures, bookings, invoices]
+def conn_scene(i):
+    return '<div class="sviz"><svg viewBox="0 0 320 200">%s</svg></div>' % CONN_SCENES[i % len(CONN_SCENES)]()

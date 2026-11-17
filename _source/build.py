@@ -58,14 +58,15 @@ agents = "\n".join(
  '<li style="--i:%d">%s<b>%s</b><span>%s</span></li>' % (i, svg(AG_IC[i]), e(a), e(b))
  for i,(a,b) in enumerate(AGENTS))
 
-from flows import FLOWS, flow_svg
+from flows import FLOWS
+from scenes import conn_scene
 CN_PRICE = ["AI assistant setup", "Applications and integrations", "Automation", "Automation", "Automation", "Automation", "Brand and content", "Automation", "Automation", "Automation"]
 def conn_detail(i, b):
     steps = FLOWS[i][4] if i < len(FLOWS) else []
     return ('<div class="cnviz" hidden>%s</div><div class="sdet" hidden><p class="sd-txt">%s</p><p class="sd-lab">How it works</p><ol class="sd-steps">%s</ol>'
             '<div class="sd-row"><p class="sd-price"><span>%s</span><b>%s</b></p>'
             '<p class="sd-cta"><a class="btn" href="%s">Request a free review</a><a class="tl" href="/mcp-integrations/">How connections work</a></p></div></div>'
-            % (flow_svg(i) if i < len(FLOWS) else "", e(b), "".join("<li>%s</li>" % e(x) for x in steps),
+            % (conn_scene(i), e(b), "".join("<li>%s</li>" % e(x) for x in steps),
                CN_PRICE[i], "from " + dict((n, v) for n, v, u, d in PRICING)[CN_PRICE[i]], "MAILTOHERE"))
 connects = "\n".join(
  '<li class="cn" style="--i:%d" tabindex="0" role="button" aria-haspopup="dialog" aria-label="%s. Show how it works">%s<b>%s</b><span>%s</span><span class="smore" aria-hidden="true">+</span>%s</li>'
@@ -1538,7 +1539,7 @@ FOOTERHERE
     ["Booking confirmed","Reminder set for the day before","Calendar"],["Weekly figures sent","Dashboard shared with the team","Slack"],
     ["Candidates ranked","Shortlist ready for the recruiter","Recruiting"],["Posts scheduled","LinkedIn and Instagram, Thursday","Content"],
     ["Contract filed","Saved to the client folder","Drive"],["Order synced","Stock updated on every channel","Shop"],
-    ["Meeting notes sent","Actions assigned to their owners","CRM"],["Newsletter drafted","Ready for review","Substack"]];
+    ["Meeting notes sent","Actions assigned to their owners","CRM"],["Proposal drafted","Claude skill, in the firm format","Claude"],["Newsletter drafted","Ready for review","Substack"]];
   var hnote=$('#hnote'), hfl=$('#hflist'), hfh=$('#hfh'), hfi=0, hft=0, hfOn=false, hfHours=0, HFMAX=innerWidth<860?(innerHeight<760?2:3):(innerHeight<780?4:5);
   function hfItem(f,fresh){var li=d.createElement('li');li.className='hf-i'+(fresh?' new':'');
     li.innerHTML='<span class="hf-ic"></span><span class="hf-t"><b>'+f[0]+'</b><small>'+f[1]+'</small></span><span class="hf-tag">'+f[2]+'</span><span class="hf-st">Drafting</span><em class="hf-tm"></em><i class="hf-bar"></i>';
@@ -1626,6 +1627,7 @@ FOOTERHERE
     sxt.textContent=($('h3',tile)||$('b',tile)).textContent;sxd.innerHTML=$('.sdet',tile).innerHTML;
     sx.hidden=false;root.classList.add('sxlock');
     var r1=tile.getBoundingClientRect(), r2=sxRect();
+    if(RM){$$('.a',v).forEach(function(n){n.classList.add('on');});}
     if(!RM){$$('.a',v).forEach(function(n){n.classList.remove('on');});
       sxScene={el:v,on:true,t0:performance.now()+350,off:0,parts:$$('.a',v).map(function(n){return {n:n,t:+n.getAttribute('data-t'),s:false};})};
       tl.push(sxScene);if(!tlRun){tlRun=true;requestAnimationFrame(tlTick);}}
@@ -1814,11 +1816,11 @@ windex = "\n".join('<li><a href="#case-%d">%s<small>%s</small></a></li>' % (i, e
 from scenes import scene
 import re as _re2
 SYS_POST = ["automate-enquiry-follow-up", "ai-candidate-screening-with-reasoning", "content-system-one-idea-a-week-of-posts",
-            "interview-notes-to-client-report", "claude-setup-for-teams", "booking-confirmation-reminder-automation",
+            "interview-notes-to-client-report", "claude-skills-for-business", "claude-setup-for-teams", "booking-confirmation-reminder-automation",
             "automate-invoice-reminders", "ai-client-onboarding-automation", "automate-weekly-reporting", "shopify-etsy-inventory-sync",
             "substack-newsletter-automation", "content-system-one-idea-a-week-of-posts", "meeting-notes-to-crm-actions",
             "ai-document-filing-automation", "generative-engine-optimization-geo"]
-SYS_PRICE = ["Automation", "Automation", "Brand and content", "Automation", "AI assistant setup", "Automation", "Automation", "Automation",
+SYS_PRICE = ["Automation", "Automation", "Brand and content", "Automation", "AI assistant setup", "AI assistant setup", "Automation", "Automation", "Automation",
              "Automation", "Automation", "Brand and content", "Brand and content", "Automation", "Applications and integrations", "Websites and online shops"]
 _PR = {n: (v, u) for n, v, u, d in PRICING}
 def _tools(dd):
@@ -1834,7 +1836,7 @@ def sys_detail(i, a, c, dd):
             % (e(c), "".join("<i>%s</i>" % e(x) for x in _tools(dd)), e(SYS_PRICE[i]), e(price), MAILTO, SYS_POST[i]))
 systems = "\n".join(
  '<article class="stile" tabindex="0" role="button" aria-haspopup="dialog" aria-label="%s. Show details">%s<h3>%s</h3><p class="swith">%s</p><span class="smore" aria-hidden="true">+</span>%s</article>'
- % (e(a), scene(i), e(a), e(dd.replace("Works with ", "").rstrip(".")), sys_detail(i, a, c, dd))
+ % (e(a), scene(15 if i == 4 else (i if i < 4 else i - 1)), e(a), e(dd.replace("Works with ", "").rstrip(".")), sys_detail(i, a, c, dd))
  for i,(a,b,c,dd) in enumerate(SYSTEMS))
 faq = "\n".join(
  '<div class="acc q%s"><h3><button type="button" class="acch" aria-expanded="%s"><span>%s</span><i class="pm2"></i></button></h3>'
