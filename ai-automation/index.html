@@ -1311,11 +1311,95 @@ html.js:not(.hready) .hp1 h1{clip-path:inset(0 0 100% 0);transform:translateY(30
   .wk-viz .cviz{aspect-ratio:595 / 476}.wk-viz .cviz svg{width:100%;height:auto}}
 /* ── hero strands ── */
 .rope{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;transition:opacity .2s linear}
-.rshade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(27,32,28,.82) 0%,rgba(27,32,28,.5) 34%,rgba(27,32,28,0) 62%),linear-gradient(0deg,rgba(27,32,28,.6),rgba(27,32,28,0) 30%)}
+.rshade{position:absolute;inset:0;pointer-events:none;background:radial-gradient(55% 60% at 24% 50%,rgba(27,32,28,.82),rgba(27,32,28,0) 75%)}
 .hero-card::after{display:none}
 .hweek{z-index:1}
 @media(max-width:860px){.rshade{background:linear-gradient(0deg,rgba(27,32,28,.88) 0%,rgba(27,32,28,.55) 55%,rgba(27,32,28,.25) 100%)}}
 @media(prefers-reduced-motion:reduce){.rope{opacity:.7}}
+/* ── navigation with menus ── */
+.nav nav{gap:2px;align-items:center}
+.nav .mt{font:inherit;font-size:14px;color:var(--ink-soft);background:none;border:0;padding:8px 12px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:background-color .2s var(--ease),color .2s var(--ease)}
+.nav .mt i{width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .3s var(--ease)}
+.nav .mt[aria-expanded=true]{background:rgba(27,32,28,.08);color:var(--ink)}
+.nav .mt[aria-expanded=true] i{transform:translateY(1px) rotate(-135deg)}
+.nav .mt.on{color:var(--ink)}
+.nav.mopen{background:rgba(247,245,239,.97)}
+.burger{display:none;width:42px;height:42px;border-radius:50%;border:1px solid rgba(27,32,28,.16);background:none;cursor:pointer;position:relative;margin-left:8px}
+.burger span{position:absolute;left:13px;right:13px;height:1.5px;background:var(--ink);transition:transform .3s var(--ease)}
+.burger span:first-child{top:17px}.burger span:last-child{top:23px}
+.burger[aria-expanded=true] span:first-child{transform:translateY(3px) rotate(45deg)}.burger[aria-expanded=true] span:last-child{transform:translateY(-3px) rotate(-45deg)}
+.mm{position:fixed;z-index:49;top:calc(var(--inset) + 16px + 62px + 8px);left:50%;width:min(var(--wrap),100% - 2 * var(--gut));max-height:calc(100vh - var(--inset) - 16px - 62px - 24px);overflow:auto;overscroll-behavior:contain;
+  border-radius:24px;background:#F7F5EF;color:var(--ink);padding:clamp(18px,2.4vw,32px);box-shadow:0 50px 100px -40px rgba(0,0,0,.45),inset 0 0 0 1px rgba(27,32,28,.08);
+  opacity:0;transform:translate(-50%,-8px);transition:opacity .25s var(--ease),transform .4s var(--ease)}
+.mm[hidden]{display:none}.mm.open{opacity:1;transform:translate(-50%,0)}
+.mp{display:none}.mp.on{display:grid;animation:mpin .35s var(--ease)}
+@keyframes mpin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.mm a{color:inherit;text-decoration:none}
+.mm h3{font-weight:300;letter-spacing:-.015em;line-height:1.15}
+.mlab{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin:18px 0 8px;display:flex;justify-content:space-between}
+.mlab a{border-bottom:1px solid currentColor;letter-spacing:.14em}
+.mlist{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.mlist a{display:block;padding:7px 0;font-size:14.5px;transition:color .2s var(--ease)}
+.mlist a:hover{color:var(--door)}
+.mp-svc{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.mcard{padding:22px;border-radius:16px;background:var(--wall-2)}
+.mcard h3{font-size:1.6rem}.mcard p{margin:8px 0 16px;font-size:14px;color:var(--ink-soft)}
+.mp-work{grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:32px}
+.mwl{list-style:none;margin:0;padding:0}
+.mwl a{display:grid;gap:2px;padding:10px 0;border-bottom:1px solid var(--sand)}
+.mwl b{font-weight:400;font-family:Fraunces,serif;font-size:1.12rem;letter-spacing:-.01em}.mwl span{font-size:13px;color:var(--ink-soft)}
+.mwl a:hover b{color:var(--door)}
+.mwc{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.mwork{position:relative;display:block}
+.mwork .cviz{aspect-ratio:595 / 400;border-radius:14px;box-shadow:none}
+html.js .mm .cviz .d,html.js .wk-viz .cviz .d,html.js .wk-more .cviz .d{opacity:1;transform:none}html.js .mm .cviz .draw,html.js .wk-viz .cviz .draw,html.js .wk-more .cviz .draw{stroke-dashoffset:0}
+.mstat{position:absolute;left:14px;bottom:44px;display:grid;padding:10px 12px;border-radius:10px;background:rgba(27,32,28,.82);color:var(--wall)}
+.mstat b{font-family:Fraunces,serif;font-weight:300;font-size:1.6rem;line-height:1}.mstat small{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.8;max-width:24ch}
+.mkind{display:block;margin-top:10px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.mp-ap{grid-template-columns:1fr}
+.msteps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.mstep{position:relative;display:block;padding:20px 20px 56px;border-radius:16px;background:var(--wall-2);transition:background-color .25s var(--ease)}
+.mstep:hover{background:#D6D2C5}
+.mstep small{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.mstep h3{font-size:1.45rem;margin-top:8px}.mstep p{margin-top:6px;font-size:13.5px;color:var(--ink-soft)}
+.mstep i,.mfeat i{position:absolute;right:16px;bottom:16px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#fff;font-style:normal;font-size:14px}
+.mfoot{display:flex;justify-content:flex-end;gap:28px;margin-top:18px;padding-top:16px;border-top:1px solid var(--sand);font-size:14.5px;font-weight:500}
+.mp-res{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px}
+.mres{list-style:none;margin:0;padding:0}
+.mres a{display:grid;gap:3px;padding:12px 0}.mres b{font-weight:500;font-size:16px}.mres span{font-size:13.5px;color:var(--ink-soft)}
+.mres a:hover b{color:var(--door)}
+.mfeat{position:relative;display:block}.mfeat .sviz{border-radius:14px;margin-bottom:12px}
+.mfeat small{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre)}
+.mfeat h3{font-size:1.3rem;margin-top:6px;padding-right:44px}.mfeat p{font-size:13.5px;color:var(--ink-soft);margin-top:4px;padding-right:44px}
+.mp-mob{grid-template-columns:1fr;gap:0}
+.mp-mob a:not(.btn){display:block;padding:14px 2px;border-bottom:1px solid var(--sand);font-family:Fraunces,serif;font-size:1.5rem;font-weight:300}
+.mp-mob .btn{margin-top:20px;justify-self:start}
+@media(max-width:860px){.burger{display:inline-block}.nav > .btn.sm{display:none}.mm{top:calc(var(--inset) + 10px + 62px + 8px)}}
+@media(prefers-reduced-motion:reduce){.mm,.mp.on{transition:none;animation:none}}
+/* ── overlap ── */
+.ov{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:center;margin-top:var(--h2gap)}
+.ov-viz{position:relative;aspect-ratio:1 / .95}
+.ov-viz canvas{position:absolute;inset:0;width:100%;height:100%}
+.ov-l{position:absolute;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);transition:color .4s var(--ease)}
+.ov-l.on{color:var(--ink)}
+.l0{left:16%;top:16%}.l1{right:16%;top:16%}.l2{left:50%;bottom:6%;transform:translateX(-50%)}
+.ov-pill{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);padding:9px 16px;border-radius:999px;background:var(--ink);color:#E8B07A;font-size:14px;font-weight:500;white-space:nowrap}
+.ov-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--sand)}
+.ov-list li{padding:clamp(22px,3.4vh,34px) 0;border-bottom:1px solid var(--sand);opacity:.35;transition:opacity .5s var(--ease)}
+.ov-list li.on,.ov-list li.ov-end{opacity:1}
+.ov-list h3{font-size:clamp(1.5rem,2.4vw,2.2rem);font-weight:300;letter-spacing:-.02em;line-height:1.1}
+.ov-list p{margin-top:10px;font-size:clamp(15.5px,1.15vw,17px);color:var(--ink-soft);max-width:52ch}
+.ov-list .ov-end{border-bottom:0}.ov-list .ov-end p{color:var(--ink)}
+@media(max-width:860px){.ov{grid-template-columns:1fr}.ov-list li{opacity:1}}
+/* ── commitments: a dark numbered grid ── */
+#commitments .rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid rgba(233,231,222,.14);counter-reset:cm;margin-top:var(--h2gap)}
+#commitments .rules div{counter-increment:cm;padding:clamp(28px,4vw,44px) clamp(18px,2.6vw,36px) clamp(30px,4vw,48px) 0;border-bottom:1px solid rgba(233,231,222,.14);border-top:0}
+#commitments .rules div:not(:nth-child(3n+1)){padding-left:clamp(18px,2.6vw,36px);border-left:1px solid rgba(233,231,222,.14)}
+#commitments .rules div::before{content:counter(cm,decimal-leading-zero);display:block;margin-bottom:18px;font-size:12px;font-weight:500;letter-spacing:.12em;color:#E0A06A}
+#commitments .rules div::after{display:none}
+#commitments .rules h3{color:var(--wall);font-size:clamp(1.4rem,2.1vw,1.9rem)}
+#commitments .rules p{color:rgba(233,231,222,.66);margin-top:12px;font-size:15.5px}
+@media(max-width:860px){#commitments .rules{grid-template-columns:1fr}#commitments .rules div:not(:nth-child(3n+1)){padding-left:0;border-left:0}}
 
 .lphero{padding:clamp(48px,9vh,110px) 0 clamp(28px,5vh,56px)}
 .crumb{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:clamp(20px,3.4vh,36px)}
@@ -1338,11 +1422,27 @@ html.js:not(.hready) .hp1 h1{clip-path:inset(0 0 100% 0);transform:translateY(30
 .rel{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:24px}
 @media(max-width:700px){.lpshort{grid-template-columns:1fr}}
 </style></head><body class="lp">
-<header class="nav sc" id="nav">
-  <a class="brand" href="/">Loose Ends</a>
-  <nav aria-label="Services"><a href="/claude-consulting/">Claude consulting</a><a href="/ai-automation/">AI automation</a><a href="/mcp-integrations/">MCP integrations</a><a href="/websites-and-online-shops/">Websites and online shops</a><a href="/seo-geo/">SEO and GEO</a></nav>
-  <a class="btn sm" href="#contact">Free review</a>
+<header class="nav" id="nav">
+  <a class="brand" href="/#top">Loose Ends</a>
+  <nav aria-label="Main"><button type="button" class="mt" data-m="m1" data-sec="#services" aria-expanded="false">Services<i></i></button><button type="button" class="mt" data-m="m2" data-sec="#work" aria-expanded="false">Work<i></i></button><button type="button" class="mt" data-m="m3" data-sec="#process" aria-expanded="false">Approach<i></i></button><button type="button" class="mt" data-m="m4" data-sec="#questions" aria-expanded="false">Resources<i></i></button><i class="ind" id="ind"></i></nav>
+  <a class="btn sm" href="/#contact">Free review</a>
+  <button type="button" class="burger" data-m="mob" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
 </header>
+<div class="mm" id="mm" hidden><div class="mp mp-svc" id="m1"><div class="mcol"><div class="mcard"><h3>Websites and applications.</h3><p>The site clients judge the firm by and the tools the team opens every morning, designed and built end to end.</p><a class="btn sm" href="/websites-and-online-shops/">Explore build</a></div><p class="mlab">Includes</p><ul class="mlist"><li><a href="/websites-and-online-shops/">Company and marketing websites</a></li><li><a href="/websites-and-online-shops/">Online shops on Shopify and Etsy</a></li><li><a href="/websites-and-online-shops/">Booking applications</a></li><li><a href="/websites-and-online-shops/">Dashboards and reporting</a></li><li><a href="/websites-and-online-shops/">Internal tools and client portals</a></li></ul></div><div class="mcol"><div class="mcard"><h3>Work that runs without anyone doing it.</h3><p>Follow-up, confirmations and reports happen on their own. A person approves what matters before anything is sent.</p><a class="btn sm" href="/ai-automation/">Explore automate</a></div><p class="mlab">Includes</p><ul class="mlist"><li><a href="/ai-automation/">Enquiry and invoice follow-up</a></li><li><a href="/claude-consulting/">Booking confirmations</a></li><li><a href="/mcp-integrations/">Screening of applications and enquiries</a></li><li><a href="/ai-automation/">Weekly reports and newsletters</a></li><li><a href="/claude-consulting/">Social media scheduling</a></li></ul></div><div class="mcol"><div class="mcard"><h3>Identity and content.</h3><p>A visual identity, and a content process that turns one idea into a week of publishing in the firm&#x27;s own voice.</p><a class="btn sm" href="/seo-geo/">Explore create</a></div><p class="mlab">Includes</p><ul class="mlist"><li><a href="/seo-geo/">Brand identity and illustration</a></li><li><a href="/seo-geo/">Video editing and motion graphics</a></li><li><a href="/seo-geo/">Articles, blog posts and Substack newsletters</a></li><li><a href="/seo-geo/">LinkedIn and Instagram content</a></li><li><a href="/seo-geo/">Visibility in search and AI answers (SEO and GEO)</a></li></ul></div></div><div class="mp mp-work" id="m2"><div><p class="mlab">Selected work</p><ul class="mwl"><li><a href="/work/open-roles-entered-once/"><b>Open roles entered once, live everywhere.</b><span>Executive search, Washington D.C.</span></a></li><li><a href="/work/a-house-that-looks-like-itself-online/"><b>A nineteenth-century house that looks like itself online.</b><span>Maison d&#x27;hôte, La Marsa</span></a></li><li><a href="/work/a-class-booked-on-one-screen/"><b>A class booked on one screen, not in a message thread.</b><span>Yoga studio</span></a></li><li><a href="/work/an-ai-assistant-that-works-his-way/"><b>An AI assistant that works the way he does.</b><span>Journalist, video production</span></a></li><li><a href="/work/vero-recruiting-software/"><b>Candidates ranked, with the reasoning behind every score.</b><span>Vero. Recruiting software</span></a></li><li><a href="/work/zonedinout-market-analytics/"><b>A daily risk score for stocks, funds and crypto.</b><span>ZonedInOut. Market analytics</span></a></li></ul></div><div><p class="mlab">Cases <a href="/#work">All work</a></p><div class="mwc"><a class="mwork" href="/work/open-roles-entered-once/"><div class="cviz" aria-hidden="true"><svg viewBox="0 0 595 476"><rect class="d" style="--j:0" x="70" y="104" width="180" height="24" rx="3" fill="var(--door)"/><line class="d" style="--j:3" x1="262" y1="116" x2="333" y2="116" stroke="var(--ochre)" stroke-width="1.6" stroke-dasharray="3 5"/><rect class="d" style="--j:5" x="345" y="104" width="180" height="24" rx="3" fill="var(--door)"/><rect class="d" style="--j:1" x="70" y="162" width="180" height="24" rx="3" fill="var(--door)"/><line class="d" style="--j:4" x1="262" y1="174" x2="333" y2="174" stroke="var(--ochre)" stroke-width="1.6" stroke-dasharray="3 5"/><rect class="d" style="--j:6" x="345" y="162" width="150" height="24" rx="3" fill="var(--ochre)"/><rect class="d" style="--j:2" x="70" y="220" width="180" height="24" rx="3" fill="var(--door)"/><line class="d" style="--j:5" x1="262" y1="232" x2="333" y2="232" stroke="var(--ochre)" stroke-width="1.6" stroke-dasharray="3 5"/><rect class="d" style="--j:7" x="345" y="220" width="168" height="24" rx="3" fill="var(--door)"/><rect class="d" style="--j:3" x="70" y="278" width="180" height="24" rx="3" fill="var(--door)"/><line class="d" style="--j:6" x1="262" y1="290" x2="333" y2="290" stroke="var(--ochre)" stroke-width="1.6" stroke-dasharray="3 5"/><rect class="d" style="--j:8" x="345" y="278" width="124" height="24" rx="3" fill="var(--door)"/><rect class="d" style="--j:4" x="70" y="336" width="180" height="24" rx="3" fill="var(--door)"/><line class="d" style="--j:7" x1="262" y1="348" x2="333" y2="348" stroke="var(--ochre)" stroke-width="1.6" stroke-dasharray="3 5"/><rect class="d" style="--j:9" x="345" y="336" width="172" height="24" rx="3" fill="var(--door)"/></svg></div><span class="mstat"><b>18</b><small>pages on the firm&#x27;s website, fed from its recruiting system</small></span><small class="mkind">Executive search, Washington D.C.</small></a><a class="mwork" href="/work/a-class-booked-on-one-screen/"><div class="cviz" aria-hidden="true"><svg viewBox="0 0 595 476"><rect x="187" y="40" width="221" height="396" rx="28" fill="var(--wall)" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:0" x="211" y="72" width="96" height="12" rx="3" fill="var(--door)"/><rect class="d" style="--j:1" x="211" y="92" width="58" height="7" rx="3" fill="var(--sand)"/><rect class="d" style="--j:2" x="207" y="124" width="181" height="46" rx="8" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:3" x="219" y="137" width="44" height="8" rx="3" fill="var(--door)"/><rect class="d" style="--j:3" x="219" y="151" width="74" height="6" rx="3" fill="var(--sand)"/><circle class="d" style="--j:4" cx="366" cy="147" r="7" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:3" x="207" y="182" width="181" height="46" rx="8" fill="var(--door)"/><rect class="d" style="--j:4" x="219" y="195" width="44" height="8" rx="3" fill="var(--wall)"/><rect class="d" style="--j:4" x="219" y="209" width="74" height="6" rx="3" fill="var(--sand)"/><circle class="d" style="--j:5" cx="366" cy="205" r="7" fill="var(--ochre)"/><rect class="d" style="--j:4" x="207" y="240" width="181" height="46" rx="8" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:5" x="219" y="253" width="44" height="8" rx="3" fill="var(--door)"/><rect class="d" style="--j:5" x="219" y="267" width="74" height="6" rx="3" fill="var(--sand)"/><circle class="d" style="--j:6" cx="366" cy="263" r="7" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:5" x="207" y="298" width="181" height="46" rx="8" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:6" x="219" y="311" width="44" height="8" rx="3" fill="var(--door)"/><rect class="d" style="--j:6" x="219" y="325" width="74" height="6" rx="3" fill="var(--sand)"/><circle class="d" style="--j:7" cx="366" cy="321" r="7" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:8" x="207" y="372" width="181" height="38" rx="19" fill="var(--ochre)"/></svg></div><span class="mstat"><b>One</b><small>phone screen for the schedule, places and payment</small></span><small class="mkind">Yoga studio</small></a></div></div></div><div class="mp mp-ap" id="m3"><div class="msteps"><a class="mstep" href="/#contact"><small>Start here</small><h3>Free review</h3><p>A one-page review of where the firm loses time. No call required.</p><i aria-hidden="true">&rarr;</i></a><a class="mstep" href="/#process"><small>Prove it</small><h3>Systems audit</h3><p>The first fixes ranked by what they return, credited toward the build.</p><i aria-hidden="true">&rarr;</i></a><a class="mstep" href="/#pricing"><small>Build it</small><h3>One fixed price</h3><p>Each build at one price, agreed in writing before work begins.</p><i aria-hidden="true">&rarr;</i></a><a class="mstep" href="/#pricing"><small>Keep it running</small><h3>Ongoing support</h3><p>Changes and new routines as the firm grows. Optional.</p><i aria-hidden="true">&rarr;</i></a></div><p class="mfoot"><a href="/#process">How an engagement works &rarr;</a><a href="/#pricing">Pricing &rarr;</a></p></div><div class="mp mp-res" id="m4"><div><ul class="mres"><li><a href="/blog/"><b>Blog</b><span>Notes on AI assistants, connections, automation and AI visibility</span></a></li><li><a href="/tools/stock-sales-production-tracker/"><b>Free tracker</b><span>Stock, sales and production, for product businesses</span></a></li><li><a href="/#questions"><b>Questions</b><span>What firms ask before they start</span></a></li></ul><p class="mlab">Guides</p><ul class="mlist"><li><a href="/claude-consulting/">Claude consulting</a></li><li><a href="/ai-automation/">AI automation</a></li><li><a href="/mcp-integrations/">MCP integrations</a></li><li><a href="/websites-and-online-shops/">Websites and online shops</a></li><li><a href="/seo-geo/">SEO and GEO</a></li></ul></div><a class="mfeat" href="/blog/claude-skills-for-business/"><div class="sviz" aria-hidden="true"><svg viewBox="0 0 320 200"><rect x="18" y="24" width="190" height="36" rx="14" fill="var(--sand)" class="a u" data-t="300"/><text x="32" y="46" font-size="10" font-weight="500" fill="var(--ink)" text-anchor="start" class="a f" data-t="400">Which invoices are overdue?</text><circle cx="40" cy="84" r="3.5" fill="var(--sand)" class="a p" data-t="1100"/><circle cx="52" cy="84" r="3.5" fill="var(--sand)" class="a p" data-t="1250"/><circle cx="64" cy="84" r="3.5" fill="var(--sand)" class="a p" data-t="1400"/><rect x="96" y="72" width="206" height="62" rx="14" fill="var(--door)" class="a u" data-t="1800"/><rect x="110" y="88" width="150" height="6" rx="3" fill="#F7F5EF" class="a g" data-t="2100"/><rect x="110" y="102" width="120" height="6" rx="3" fill="#F7F5EF" class="a g" data-t="2300"/><rect x="110" y="116" width="90" height="6" rx="3" fill="#F7F5EF" class="a g" data-t="2500"/><rect x="96" y="146" width="124" height="20" rx="10" fill="#F7F5EF" stroke="rgba(27,32,28,.2)" class="a p" data-t="3200"/><text x="158" y="159.5" font-size="9.5" font-weight="500" fill="var(--ink)" text-anchor="middle" class="a f" data-t="3280">From: the firm's data</text></svg></div><small>New</small><h3>Claude skills for business: how a firm turns recurring tasks into one shared way of working</h3><p>A Claude skill is a packaged set of instructions Claude loads when a task needs it, so a weekly report or proposal runs the same way for anyone on the team.</p><i aria-hidden="true">&rarr;</i></a></div><div class="mp mp-mob" id="mob"><a href="/#services">Services</a><a href="/#work">Work</a><a href="/#systems">Systems</a><a href="/#process">Process</a><a href="/#pricing">Pricing</a><a href="/#questions">Questions</a><a href="/blog/">Blog</a><a class="btn" href="/#contact">Request a free review</a></div></div><script>(function(){var d=document,nav=d.getElementById('nav'),mm=d.getElementById('mm');if(!nav||!mm)return;
+var ts=[].slice.call(nav.querySelectorAll('[data-m]')),cur=null,tm=0,fine=matchMedia('(hover:hover) and (pointer:fine)').matches&&innerWidth>860;
+function sync(){ts.forEach(function(t){t.setAttribute('aria-expanded',String(t.getAttribute('data-m')===cur));});}
+function show(id){clearTimeout(tm);if(cur===id)return;cur=id;mm.hidden=false;nav.classList.add('mopen');
+  [].forEach.call(mm.querySelectorAll('.mp'),function(p){p.classList.toggle('on',p.id===id);});sync();requestAnimationFrame(function(){mm.classList.add('open');});}
+function hide(){if(!cur)return;cur=null;sync();mm.classList.remove('open');nav.classList.remove('mopen');tm=setTimeout(function(){if(!cur)mm.hidden=true;},320);}
+ts.forEach(function(t){var id=t.getAttribute('data-m');t.addEventListener('click',function(){if(cur===id)hide();else show(id);});
+  if(fine&&t.classList.contains('mt'))t.addEventListener('mouseenter',function(){show(id);});});
+if(fine){nav.addEventListener('mouseleave',function(e){if(!mm.contains(e.relatedTarget)){clearTimeout(tm);tm=setTimeout(hide,200);}});
+  mm.addEventListener('mouseleave',function(e){if(!nav.contains(e.relatedTarget)){clearTimeout(tm);tm=setTimeout(hide,200);}});
+  mm.addEventListener('mouseenter',function(){clearTimeout(tm);});}
+d.addEventListener('keydown',function(e){if(e.key==='Escape')hide();});
+d.addEventListener('click',function(e){if(cur&&!nav.contains(e.target)&&!mm.contains(e.target))hide();});
+mm.addEventListener('click',function(e){if(e.target.closest('a'))hide();});
+addEventListener('scroll',function(){if(cur&&!fine)return;if(cur&&fine&&scrollY>0&&!mm.matches(':hover'))hide();},{passive:true});})();</script>
 <main>
 <div class="lphero"><div class="wrap">
   <p class="crumb"><a href="/">Loose Ends</a><i>/</i>AI automation</p>
