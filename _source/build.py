@@ -1277,6 +1277,54 @@ html.js:not(.hready) .htxt > *,html.js:not(.hready) .hfeed{opacity:0;transform:t
 @media(max-width:860px){.htools{display:none}}
 @media(max-width:860px) and (max-height:760px){.htools{display:none}}
 @media(prefers-reduced-motion:reduce){.htrack{animation:none}.hmq{-webkit-mask-image:none;mask-image:none}.htrack{flex-wrap:wrap;width:auto}}
+/* ── system cards open into a larger view ── */
+.stile{cursor:pointer;position:relative}
+.smore{position:absolute;right:22px;bottom:20px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;
+  color:var(--ink);border:1px solid rgba(27,32,28,.18);transition:background-color .25s var(--ease),color .25s var(--ease),transform .4s var(--ease)}
+.stile h3,.swith{padding-right:34px}
+@media(hover:hover){.stile:hover .smore{background:var(--ink);color:var(--wall);transform:rotate(90deg)}}
+.stile.sx-src{visibility:hidden}
+html.sxlock,html.sxlock body{overflow:hidden}
+.sx{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:clamp(12px,3vw,32px)}
+.sx[hidden]{display:none}
+.sx-bg{position:absolute;inset:0;background:rgba(20,24,21,.42);-webkit-backdrop-filter:blur(14px) saturate(1.1);backdrop-filter:blur(14px) saturate(1.1);opacity:0;transition:opacity .45s var(--ease)}
+.sx.open .sx-bg{opacity:1}
+.sx-card{position:relative;width:min(780px,100%);max-height:calc(100vh - 2 * clamp(12px,3vw,32px));overflow:auto;overscroll-behavior:contain;border-radius:22px;
+  background:var(--wall-2);transform-origin:0 0;box-shadow:0 70px 140px -50px rgba(0,0,0,.55),inset 0 0 0 1px rgba(27,32,28,.06);padding:14px 14px 28px}
+.sx-body > *{opacity:0;transform:translateY(10px);transition:opacity .35s var(--ease),transform .5s var(--ease)}
+.sx.in .sx-body > *{opacity:1;transform:none}
+.sx.in .sx-body > :nth-child(2){transition-delay:.06s}.sx.in .sx-body > :nth-child(3){transition-delay:.12s}
+.sx-viz .sviz{border-radius:14px}
+.sx-x{position:absolute;top:22px;right:22px;z-index:2;width:38px;height:38px;border-radius:50%;border:0;background:rgba(27,32,28,.78);color:var(--wall);
+  font-size:22px;line-height:1;cursor:pointer;transition:background-color .2s var(--ease),transform .3s var(--ease)}
+.sx-x:hover{background:var(--ink);transform:rotate(90deg)}
+.sx-x:focus-visible{outline:2px solid var(--ochre);outline-offset:3px}
+.sx-body h3{margin:24px 12px 0;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.1;letter-spacing:-.02em;font-weight:300}
+.sd-txt{margin:14px 12px 0;font-size:clamp(16px,1.3vw,18px);line-height:1.55;max-width:58ch}
+.sd-lab{margin:22px 12px 0;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.sd-chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 12px 0}
+.sd-chips i{font-style:normal;font-size:13.5px;padding:6px 12px;border-radius:999px;background:var(--wall);border:1px solid rgba(27,32,28,.1)}
+.sd-row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;margin:26px 12px 0;padding-top:20px;border-top:1px solid var(--sand)}
+.sd-price{display:grid;gap:4px}.sd-price span{font-size:12px;color:var(--ink-soft)}
+.sd-price b{font-family:Fraunces,serif;font-weight:300;font-size:2rem;line-height:1}
+.sd-cta{display:flex;flex-wrap:wrap;align-items:center;gap:18px}
+/* ── hero: more depth and an approval moment ── */
+.hero-card::after{content:"";position:absolute;width:70vmax;height:70vmax;left:45%;top:-30%;pointer-events:none;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(43,76,111,.28),transparent);animation:hdrift 26s ease-in-out infinite alternate}
+@keyframes hdrift{to{transform:translate(-18vmax,22vmax) scale(1.15)}}
+.hp{z-index:1}
+.htoast{position:absolute;left:-46px;top:-26px;z-index:3;display:grid;grid-template-columns:auto auto;align-items:center;column-gap:16px;row-gap:2px;
+  padding:12px 14px 12px 16px;border-radius:14px;background:#F2F0E9;color:var(--ink);box-shadow:0 28px 50px -24px rgba(0,0,0,.65);
+  opacity:0;transform:translateY(12px) scale(.96);transition:opacity .45s var(--ease),transform .6s var(--ease);pointer-events:none}
+.htoast.show{opacity:1;transform:none}
+.ht-k{grid-column:1;font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ochre)}
+.htoast b{grid-column:1;font-weight:500;font-size:13.5px;white-space:nowrap}
+.ht-b{grid-column:2;grid-row:1 / span 2;font-size:12.5px;font-weight:500;padding:7px 13px;border-radius:999px;background:var(--ink);color:var(--wall);transition:background-color .35s var(--ease)}
+.htoast.ok .ht-b{background:#3E8E5E}
+.htoast.ok .ht-b::before{content:"✓ "}
+@media(max-width:1100px){.htoast{left:auto;right:-8px;top:-30px}}
+@media(max-width:860px){.htoast{display:none}}
+@media(prefers-reduced-motion:reduce){.hero-card::after{animation:none}.htoast{display:none}.sx-body > *{opacity:1;transform:none}}
 </style></head><body>
 <header class="nav" id="nav">
   <a class="brand" href="#top">Loose Ends</a>
@@ -1306,6 +1354,7 @@ html.js:not(.hready) .htxt > *,html.js:not(.hready) .hfeed{opacity:0;transform:t
     <div class="htools"><span>Works with</span><div class="hmq">HEROTOOLS</div></div>
     </div>
     <div class="hfeed" id="hfeed" aria-hidden="true">
+      <div class="htoast" id="htoast"><span class="ht-k">Needs approval</span><b id="htt">Reply to a new enquiry</b><span class="ht-b" id="htb">Approve</span></div>
       <div class="hf-hd"><span class="hf-live"><i></i>Handled today</span><span class="hf-s">Sample</span></div>
       <ol class="hf-list" id="hflist"></ol>
       <div class="hf-ft"><span>Hours returned this week</span><b id="hfh">0</b></div>
@@ -1421,6 +1470,13 @@ DIVHERE
   MAILLINE
 </div></section>
 </main>
+<div class="sx" id="sx" hidden>
+  <div class="sx-bg" data-close></div>
+  <div class="sx-card" role="dialog" aria-modal="true" aria-labelledby="sx-t">
+    <button type="button" class="sx-x" data-close aria-label="Close">&times;</button>
+    <div class="sx-body"><div class="sx-viz"></div><h3 id="sx-t"></h3><div class="sx-det"></div></div>
+  </div>
+</div>
 FOOTERHERE
 <script>
 (function(){
@@ -1537,6 +1593,42 @@ FOOTERHERE
         if(en.isIntersecting&&!x.on){x.on=true;x.t0=performance.now()+x.off;}else if(!en.isIntersecting&&x.on){x.on=false;tlSet(x,false);}});
         if(!tlRun&&tl.some(function(x){return x.on;})){tlRun=true;requestAnimationFrame(tlTick);}},{threshold:.35});
     tl.forEach(function(x){tio.observe(x.el);});}
+
+  /* systems: a card opens into a larger view, growing out of its place on the page */
+  var sx=$('#sx'), sxc=$('.sx-card',sx), sxb=$('.sx-body',sx), sxv=$('.sx-viz',sx), sxt=$('#sx-t'), sxd=$('.sx-det',sx), sxFrom=null, sxScene=null, sxBusy=false;
+  function sxRect(){return sxc.getBoundingClientRect();}
+  function sxOpen(tile){if(sxBusy||!sx.hidden)return;sxBusy=true;sxFrom=tile;
+    sxv.innerHTML='';var v=$('.sviz',tile).cloneNode(true);sxv.appendChild(v);
+    sxt.textContent=$('h3',tile).textContent;sxd.innerHTML=$('.sdet',tile).innerHTML;
+    sx.hidden=false;root.classList.add('sxlock');
+    var r1=tile.getBoundingClientRect(), r2=sxRect();
+    if(!RM){$$('.a',v).forEach(function(n){n.classList.remove('on');});
+      sxScene={el:v,on:true,t0:performance.now()+350,off:0,parts:$$('.a',v).map(function(n){return {n:n,t:+n.getAttribute('data-t'),s:false};})};
+      tl.push(sxScene);if(!tlRun){tlRun=true;requestAnimationFrame(tlTick);}}
+    tile.classList.add('sx-src');
+    requestAnimationFrame(function(){sx.classList.add('open');});
+    if(RM||!sxc.animate){sx.classList.add('in');sxBusy=false;$('.sx-x',sx).focus();return;}
+    var a=sxc.animate([{transform:'translate('+(r1.left-r2.left)+'px,'+(r1.top-r2.top)+'px) scale('+(r1.width/r2.width)+','+(r1.height/r2.height)+')',borderRadius:'16px'},
+      {transform:'none',borderRadius:'22px'}],{duration:620,easing:'cubic-bezier(.2,.9,.2,1)'});
+    a.onfinish=function(){sx.classList.add('in');sxBusy=false;$('.sx-x',sx).focus({preventScroll:true});};}
+  function sxClose(){if(sxBusy||sx.hidden)return;sxBusy=true;sx.classList.remove('in');sx.classList.remove('open');
+    var tile=sxFrom, done=function(){sx.hidden=true;root.classList.remove('sxlock');tile.classList.remove('sx-src');sxBusy=false;
+      if(sxScene){tl.splice(tl.indexOf(sxScene),1);sxScene=null;}tile.focus({preventScroll:true});};
+    if(RM||!sxc.animate){done();return;}
+    var r1=tile.getBoundingClientRect(), r2=sxRect();
+    var a=sxc.animate([{transform:'none',borderRadius:'22px',opacity:1},
+      {transform:'translate('+(r1.left-r2.left)+'px,'+(r1.top-r2.top)+'px) scale('+(r1.width/r2.width)+','+(r1.height/r2.height)+')',borderRadius:'16px',opacity:.6}],
+      {duration:420,easing:'cubic-bezier(.4,0,.2,1)'});a.onfinish=done;}
+  $$('.stile').forEach(function(t){t.addEventListener('click',function(ev){if(ev.target.closest('a'))return;sxOpen(t);});
+    t.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();sxOpen(t);}});});
+  $$('[data-close]',sx).forEach(function(b){b.addEventListener('click',sxClose);});
+  addEventListener('keydown',function(ev){if(ev.key==='Escape')sxClose();});
+
+  /* hero: every few seconds a draft waits for approval, then is approved */
+  var hto=$('#htoast'), htt=$('#htt'), htb=$('#htb'), HTX=['Reply to a new enquiry','Reminder for an unpaid invoice','Shortlist for the recruiter','Weekly figures for the team','A LinkedIn post for Thursday'], hti=0;
+  function htCycle(){if(RM||!hfOn||d.hidden)return;htt.textContent=HTX[hti++%HTX.length];hto.classList.remove('ok');htb.textContent='Approve';hto.classList.add('show');
+    setTimeout(function(){hto.classList.add('ok');htb.textContent='Approved';},1500);setTimeout(function(){hto.classList.remove('show');},3400);}
+  if(!RM){setTimeout(htCycle,2600);setInterval(htCycle,7000);}
 
   /* accordions */
   $$('.acch').forEach(function(b){b.addEventListener('click',function(){var a=b.closest('.acc'),o=a.classList.toggle('open');b.setAttribute('aria-expanded',String(o));});});
@@ -1696,8 +1788,29 @@ cases = "\n".join(
  for i,c in enumerate(WORK))
 windex = "\n".join('<li><a href="#case-%d">%s<small>%s</small></a></li>' % (i, e(c["who"]), e(c["kind"])) for i,c in enumerate(WORK))
 from scenes import scene
+import re as _re2
+SYS_POST = ["automate-enquiry-follow-up", "ai-candidate-screening-with-reasoning", "content-system-one-idea-a-week-of-posts",
+            "interview-notes-to-client-report", "claude-setup-for-teams", "booking-confirmation-reminder-automation",
+            "automate-invoice-reminders", "human-in-the-loop-automation", "automate-weekly-reporting", "shopify-etsy-inventory-sync",
+            "content-system-one-idea-a-week-of-posts", "content-system-one-idea-a-week-of-posts", "what-is-mcp-model-context-protocol",
+            "custom-api-integration-when-no-connector", "generative-engine-optimization-geo"]
+SYS_PRICE = ["Automation", "Automation", "Brand and content", "Automation", "AI assistant setup", "Automation", "Automation", "Automation",
+             "Automation", "Automation", "Brand and content", "Brand and content", "Automation", "Applications and integrations", "Websites and online shops"]
+_PR = {n: (v, u) for n, v, u, d in PRICING}
+def _tools(dd):
+    t = dd.replace("Works with ", "").rstrip(".")
+    return [x.strip()[:1].upper() + x.strip()[1:] for x in _re2.split(r",| and ", t) if x.strip()]
+def sys_detail(i, a, c, dd):
+    v, u = _PR[SYS_PRICE[i]]
+    price = ("from %s" % v) if u == "from" else v
+    return ('<div class="sdet" hidden><p class="sd-txt">%s</p>'
+            '<p class="sd-lab">Works with</p><p class="sd-chips">%s</p>'
+            '<div class="sd-row"><p class="sd-price"><span>%s</span><b>%s</b></p>'
+            '<p class="sd-cta"><a class="btn" href="%s">Request a free review</a><a class="tl" href="/blog/%s/">Read the guide</a></p></div></div>'
+            % (e(c), "".join("<i>%s</i>" % e(x) for x in _tools(dd)), e(SYS_PRICE[i]), e(price), MAILTO, SYS_POST[i]))
 systems = "\n".join(
- '<article class="stile" tabindex="0">%s<h3>%s</h3><p class="swith">%s</p></article>' % (scene(i), e(a), e(dd.replace("Works with ", "").rstrip(".")))
+ '<article class="stile" tabindex="0" role="button" aria-haspopup="dialog" aria-label="%s. Show details">%s<h3>%s</h3><p class="swith">%s</p><span class="smore" aria-hidden="true">+</span>%s</article>'
+ % (e(a), scene(i), e(a), e(dd.replace("Works with ", "").rstrip(".")), sys_detail(i, a, c, dd))
  for i,(a,b,c,dd) in enumerate(SYSTEMS))
 faq = "\n".join(
  '<div class="acc q%s"><h3><button type="button" class="acch" aria-expanded="%s"><span>%s</span><i class="pm2"></i></button></h3>'
