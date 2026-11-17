@@ -14,7 +14,7 @@ HERO_TOOLS = ["Gmail", "Outlook", "Google Calendar", "Slack", "Microsoft Teams",
               "QuickBooks", "Xero", "Calendly", "Substack", "Mailchimp", "LinkedIn", "Instagram", "WordPress", "Webflow",
               "Google Drive", "Dropbox", "DocuSign", "Zoom", "Asana", "Loxo", "BrightHire", "Zapier", "Make", "n8n"]
 PANEL2_HEAD = "A week, before."
-PANEL2_TEXT = "Answering, confirming, chasing, retyping. Each ochre block is an hour spent moving information from one place to another."
+PANEL2_TEXT = "Answering, confirming, chasing, retyping. Each loose ochre thread is an hour spent moving information from one place to another."
 COUNTER_TEXT = "hours a week returned to the team."
 WEEK_NOTE = "Sample week."
 

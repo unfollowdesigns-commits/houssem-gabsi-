@@ -5,105 +5,106 @@
   "h1": "AI candidate screening where every score shows its reasoning",
   "desc": "AI candidate screening works when every score shows its reasoning and the source text from the résumé, so the recruiter can check it and make the decision.",
   "category": "AI assistants",
-  "lead": "AI candidate screening is useful when every score comes with the reasoning behind it and the exact lines from the résumé it was based on. The recruiter reads the evidence, agrees or disagrees, and makes the decision. A score with no reasoning is a guess the team cannot check.",
+  "lead": "AI candidate screening earns its place when every score comes with the reasoning behind it and the exact lines from the résumé it rests on. The recruiter reads that evidence, agrees or pushes back, and makes the call. A score with nothing behind it is a guess the team has no way to check.",
   "short": [
-   "A score is only useful if the recruiter can see why it was given.",
-   "Each score should point to the source text in the résumé, word for word.",
-   "The software ranks and drafts; the recruiter decides and approves.",
-   "Outreach drafted from a candidate's own work is read and approved before it is sent."
+   "A score is only worth something if the recruiter can see why it was given.",
+   "Each score points to the lines in the résumé it came from, word for word.",
+   "Software reads, ranks and drafts. The recruiter decides.",
+   "Outreach written from a candidate's own work is read and approved before it goes out."
   ],
   "sections": [
    {
-    "h2": "What is AI candidate screening with reasoning?",
+    "h2": "What does AI candidate screening with reasoning actually mean?",
     "body": [
-     "It is a way of reading a batch of résumés against a role where the software explains itself. For each candidate it gives a score, a short written reason for that score, and the passage from the résumé that supports it. Nothing is hidden behind a number.",
-     "The point is not to replace the recruiter's judgment. The point is to take the first pass of reading, comparing and sorting off the team's desk, while keeping every step open to inspection.",
-     "This approach suits any firm that reads applications in volume, from an independent recruiter to an established search firm. It is a reading aid, not an automatic filter.",
-     "In practice, the recruiter sees the following side by side for every candidate:",
+     "It's a way of reading a batch of résumés against a role where the software has to explain itself. Every candidate gets a score, a short written reason for it, and the passage from the résumé that backs it up. Nothing sits behind a bare number.",
+     "Nobody is trying to replace the recruiter's judgment here. The aim is to take the first read of the pile off the team's desk, the part where résumés get opened, compared and sorted, and to leave every step of it open to inspection.",
+     "It suits any firm that reads applications in volume, from an independent recruiter to an established search firm. Think of it as a reading aid. It doesn't throw anyone out on its own.",
+     "For every candidate, the recruiter sees these side by side:",
      [
       "The score against each requirement of the role.",
-      "A plain sentence saying why the score was given.",
-      "The source text: the exact lines from the résumé the reasoning rests on."
+      "A plain sentence saying why that score was given.",
+      "The source text, meaning the exact lines from the résumé the reasoning rests on."
      ]
     ]
    },
    {
-    "h2": "Why does a bare score not help a recruiter?",
+    "h2": "Why isn't a bare score enough for a recruiter?",
     "body": [
-     "A ranked list with numbers looks tidy, but it raises more questions than it answers. Why is this candidate ahead of that one? Did the software miss a line on page two? Was a job title read too literally?",
-     "Without the reasoning, the recruiter has two choices: trust the number blindly or reread every résumé to check it. The first is risky with a client's search. The second removes the reason for using the software at all.",
-     "When the reasoning and the source text sit beside the score, checking takes a glance. If the reasoning is wrong, the recruiter can see it and overrule it. If it is right, the recruiter moves on with confidence.",
-     "The same applies when a client asks about a shortlist. A consultant who can point to a line in a résumé gives a stronger answer than one who can only point to a number."
+     "A ranked list with numbers looks tidy. Then the questions start. Why is this candidate above that one? Did the software miss something on page two? Did it read a job title too literally?",
+     "With no reasoning on the screen, the recruiter has two options. Trust the number blindly, or reread every résumé to check it. The first is a gamble with a client's search. The second defeats the purpose of using software in the first place.",
+     "Put the reasoning and the source text next to the score and checking takes a glance. If the reasoning is off, the recruiter sees it and overrules it. If it holds up, they move on to the next candidate with some confidence.",
+     "It helps with clients as well. When a client asks why someone made the shortlist, a consultant who can point to a line in a résumé has a far better answer than one who can only point to a number."
     ]
    },
    {
-    "h2": "How does Vero show the reasoning and the source text?",
+    "h2": "How does Vero show its reasoning and the source text?",
     "body": [
-     "Vero is recruiting software made by Loose Ends as one of its own products. It reads a batch of résumés against a role and ranks the candidates. Every score it gives comes with the reasoning and the source text behind it.",
-     "The work it takes on is the slow, repetitive part of a search:",
+     "Vero is recruiting software that Loose Ends makes as one of its own products. It reads a batch of résumés against a role and ranks the candidates, and every score arrives with its reasoning and the source text underneath.",
+     "It takes on the slow, repetitive part of a search:",
      [
-      "Reading each résumé against the role, rather than skimming for keywords.",
-      "Ranking the candidates so the strongest appear first.",
+      "Reading each résumé against the role properly, instead of skimming for keywords.",
+      "Ranking the candidates so the strongest come first.",
       "Showing, for every score, why it was given and which lines it came from.",
-      "Drafting outreach to each candidate from that candidate's own work, not from a generic template."
+      "Drafting outreach to each candidate from that person's own work, with no generic template."
      ],
-     "The decision stays with the recruiter. Vero prepares the shortlist and the drafts; a person reads them, changes what needs changing, and approves each message before it is sent.",
-     "Because the outreach draws on what the candidate has actually done, it reads as a message written for that person. The recruiter can still rewrite it completely; the draft is only a starting point."
+     "The decision stays with the recruiter. Vero prepares the shortlist and the drafts, and a person reads them and changes whatever needs changing.",
+     "Because the outreach draws on what the candidate has actually done, it reads like a message written for them. The recruiter is free to throw a draft away and write the whole thing again. It's only a starting point."
     ]
    },
    {
-    "h2": "How is a candidate assessed against a search's own criteria?",
+    "h2": "Can candidates be scored against a search's own criteria?",
     "body": [
-     "Every search is different. A board role, a technical lead and a regional manager do not share one checklist, and a firm's clients often have requirements that never appear in a job advert.",
-     "For this reason Loose Ends has also built a candidate assessment system for client work that scores candidates against the criteria of a specific search, not a general template. The firm sets the criteria. The system reads each candidate against them and writes its reasoning beside each score.",
-     "This matters for two reasons. The recruiter can defend a shortlist to the client, because each placement on it has a written reason. And when the criteria change halfway through a search, the candidates can be read again against the new ones, with the reasoning updated to match."
+     "Every search is different. A board role, a technical lead and a regional manager don't share a checklist, and clients often have requirements that never make it into the job advert.",
+     "So Loose Ends has also built a candidate assessment system for client work that scores against the criteria of one specific search. The firm sets those criteria. The system reads each candidate against them and writes its reasoning beside every score.",
+     "Two things follow from that. The recruiter can defend a shortlist to the client, because every name on it has a written reason. And if the criteria shift halfway through a search, the candidates can be read again against the new ones, with the reasoning updated to match."
     ]
    },
    {
-    "h2": "What does reasoning beside a score look like?",
+    "h2": "What does reasoning beside a score look like in practice?",
     "body": [
-     "Take a sample role that asks for experience running a regional sales team. A sample candidate's score on that requirement comes with a short reason, such as having led a team across several offices, and beneath it the sentence from the résumé that says so. If the résumé mentions selling but not leading, the reasoning says that too, and the score reflects it.",
-     "This is sample data, written to show the format. The same format makes mistakes easy to spot: if the quoted line does not support the claim, the recruiter sees the mismatch at once and corrects the score."
+     "Take a sample role that asks for experience running a regional sales team. A sample candidate's score on that requirement comes with a short reason, say, having led a team across several offices, and under it the sentence from the résumé that says so. If the résumé mentions selling but never leading, the reasoning says that too, and the score drops to match.",
+     "That's sample data, written to show the format. Mistakes are easy to catch in this layout. When the quoted line doesn't support the claim, the mismatch is right there on the screen and the recruiter corrects the score."
     ]
    },
    {
-    "h2": "Who makes the decision, the software or the recruiter?",
+    "h2": "Who makes the hiring decision, the software or the recruiter?",
     "body": [
-     "The recruiter. This is a design rule in every system the studio builds: the software drafts and prepares, and a person approves before anything is sent to a client or a candidate.",
-     "In a screening workflow, that rule looks like this:",
+     "The recruiter. Every system the studio builds works on the same rule. Software drafts and prepares, and a person approves before anything goes to a client or a candidate.",
+     "In a screening workflow it plays out like this:",
      [
       "The software reads, scores and ranks, and shows its reasoning.",
-      "The recruiter reviews the ranking and overrules any score that is wrong.",
-      "The software drafts outreach for the candidates the recruiter chooses.",
+      "The recruiter reviews the ranking and overrules any score that's wrong.",
+      "The software drafts outreach for the candidates the recruiter picks.",
       "The recruiter reads each draft, edits it if needed, and approves it before it goes out."
      ],
-     "This keeps the firm's name and judgment on every message. It also means a mistake in the software is caught by a person before it reaches anyone outside the firm."
+     "That keeps the firm's name and judgment on every message. And when the software gets something wrong, a person catches it before it reaches anyone outside the firm."
     ]
    },
    {
-    "h2": "What does a firm need before it starts screening this way?",
+    "h2": "What does a firm need before it screens this way?",
     "body": [
-     "Less than most teams expect. The résumés are usually already in a recruiting system or a shared folder. The role description exists. What is often missing is a written list of what the firm actually looks for, beyond the advert.",
-     "Writing that list down is useful on its own: it makes the criteria clear to everyone on the team, and it gives the screening something precise to read against. From there, the screening can sit inside the tools the firm already uses rather than adding another login. To see where screening and the rest of a search lose time in a particular firm, Loose Ends offers a free one-page review, with no call required."
+     "Less than most teams expect. The résumés are usually sitting in a recruiting system or a shared folder already, and the role description exists. What's often missing is a written list of what the firm really looks for, beyond what the advert says.",
+     "That list is worth writing anyway. Everyone on the team gets the same picture of the criteria, and the screening gets something precise to read against. From there it can live inside the tools the firm already uses, with no extra login to remember.",
+     "Loose Ends offers a free one-page review, with no call required, that shows where screening and the rest of a search lose time in a particular firm."
     ]
    }
   ],
   "faq": [
    {
     "q": "Does AI candidate screening make the hiring decision?",
-    "a": "No. The software reads, ranks and explains its scores. The recruiter reviews the reasoning, overrules what is wrong and makes the decision."
+    "a": "No. The software reads, ranks and explains its scores. The recruiter checks the reasoning, overrules anything that's wrong and makes the decision."
    },
    {
     "q": "What is source text in candidate screening?",
-    "a": "It is the exact passage from the résumé that a score is based on. Showing it lets the recruiter check the reasoning in seconds instead of rereading the whole document."
+    "a": "It's the exact passage from the résumé that a score is based on. Seeing it lets the recruiter check the reasoning in seconds instead of rereading the whole document."
    },
    {
     "q": "Are outreach messages sent automatically?",
-    "a": "No. Drafts are written from each candidate's own work, and a person reads and approves every message before it is sent."
+    "a": "No. Drafts are written from each candidate's own work, and a person reads and approves every message before it's sent."
    },
    {
     "q": "Can the screening use a firm's own criteria?",
-    "a": "Yes. The candidate assessment system scores candidates against the criteria of a specific search, set by the firm, with the reasoning written beside each score."
+    "a": "Yes. The candidate assessment system scores candidates against the criteria of a specific search, set by the firm, and writes its reasoning beside each score."
    }
   ],
   "keywords": [
@@ -122,100 +123,101 @@
   "h1": "Sync job listings from the recruiting system to the firm's website",
   "desc": "Open roles can be entered once in the firm's recruiting system and appear on its website automatically, with no retyping. CVs can be reformatted in one step.",
   "category": "Connections",
-  "lead": "A firm can enter each open role once, in its recruiting system, and have it appear on its own website without anyone retyping it. When the role changes or closes in the recruiting system, the website follows. The same connection can put candidate CVs into the firm's format in one step.",
+  "lead": "A firm can enter each open role once, in its recruiting system, and have it show up on its own website without anyone retyping it. Change or close the role in the recruiting system and the website follows. The same connection can put candidate CVs into the firm's format in one step.",
   "short": [
-   "Roles are entered once, in the recruiting system the team already uses.",
-   "The website reads from that system, so listings never drift out of date.",
-   "Candidate CVs are put into the firm's own format in one step.",
+   "Roles are entered once, in the recruiting system the team already works in.",
+   "The website reads from that system, so listings don't drift out of date.",
+   "Candidate CVs go into the firm's own format in one step.",
    "An executive search firm in Washington D.C. works this way today."
   ],
   "sections": [
    {
     "h2": "What does syncing job listings from an ATS to a website mean?",
     "body": [
-     "An ATS, or applicant tracking system, is the recruiting software where a firm keeps its roles, candidates and notes. Loxo is one example. Syncing means the firm's website reads the open roles directly from that system instead of someone copying them across by hand.",
-     "The recruiting system becomes the single place where a role is written. The website shows what is there. Nobody has to remember to update two places.",
-     "The same idea works for any business that keeps listings in one system and shows them in another, whether roles, properties or courses. The system of record stays in charge, and the website follows it."
+     "An ATS, or applicant tracking system, is the recruiting software where a firm keeps its roles, candidates and notes. Loxo is one. Syncing means the website reads open roles straight from that system, so nobody copies them across by hand.",
+     "The recruiting system becomes the one place a role gets written. The website shows whatever is there. Nobody has to remember to update two places anymore.",
+     "It works for any business that keeps listings in one system and shows them in another. Roles, properties, courses. Whichever system holds the record stays in charge, and the website follows it."
     ]
    },
    {
-    "h2": "Why is retyping job listings a problem?",
+    "h2": "Why is retyping job listings such a problem?",
     "body": [
-     "Copying a role from one system into a website editor looks like a small chore. In practice it is a chore that repeats for every new role, every edit and every closed search, and it is usually done by whoever has a spare moment.",
-     "The usual results are familiar to most recruiting teams:",
+     "Copying a role into a website editor looks like a small chore. It doesn't stay small for long. It comes back with every new role, every edit and every closed search, and it usually lands on whoever has a spare minute that afternoon.",
+     "Most recruiting teams will recognize what tends to happen next:",
      [
       "A role that closed weeks ago is still on the website, and candidates keep applying.",
-      "A salary range or location is updated in the recruiting system but not online.",
+      "A salary range or location changes in the recruiting system but not online.",
       "A new role goes live late because nobody had time to copy it.",
       "Small differences in wording creep in between the two versions."
      ],
-     "None of these is dramatic on its own. Together, they make the website less reliable than the system behind it, and they take time from people who should be talking to clients and candidates.",
-     "Retyping also hides the real state of a search. When the website and the recruiting system disagree, nobody is sure which is right, and a consultant has to check before answering a candidate's question."
+     "None of this is a disaster on its own. Added up, it makes the website less reliable than the system behind it, and it eats time that should go to clients and candidates.",
+     "Retyping also blurs the real state of a search. Once the website and the recruiting system disagree, nobody's sure which one is right, and a consultant has to go and check before answering a candidate's question."
     ]
    },
    {
-    "h2": "How does the connection between the recruiting system and the website work?",
+    "h2": "How does the recruiting system talk to the website?",
     "body": [
-     "The website asks the recruiting system for the current list of open roles and shows them in the site's own design. Most recruiting systems, Loxo included, offer a way for other software to read their data. Where no ready connector exists, Loose Ends builds a custom integration to the system's API, the interface it provides for other software.",
-     "A typical setup covers these points:",
+     "The website asks the recruiting system for the current list of open roles and shows them in the site's own design. Most recruiting systems, Loxo included, give other software a way to read their data. Where there's no ready connector, Loose Ends builds a custom integration to the system's API, which is the interface it offers to other software.",
+     "A typical setup settles these points:",
      [
       "Which roles are public and which stay internal, decided by a field in the recruiting system.",
-      "Which details appear online: title, location, summary, and anything else the firm chooses.",
-      "What happens when a role closes: it leaves the website without anyone touching the site.",
+      "Which details appear online, such as title, location, summary and anything else the firm chooses.",
+      "What happens when a role closes. It leaves the website without anyone touching the site.",
       "How a candidate applies, and where that application lands in the recruiting system."
      ],
-     "The team keeps working in the recruiting system exactly as before. The only change is that the website is no longer a second job."
+     "The team keeps working in the recruiting system exactly as before. The website stops being a second job."
     ]
    },
    {
-    "h2": "How can candidate CVs be reformatted in one step?",
+    "h2": "Can candidate CVs be reformatted in one step?",
     "body": [
-     "Search firms usually present candidates to clients in their own format: a consistent layout, the firm's branding, and sections in a fixed order. Candidates send CVs in every format imaginable. Turning one into the other is often done by hand, line by line.",
-     "The same connection can take a CV from the recruiting system and produce a version in the firm's format in one step. The content comes from the candidate's own CV; the layout comes from the firm. A consultant reads the result and approves it before it is sent to a client.",
-     "Because the layout is fixed, every CV the client receives looks the same, which makes candidates easier to compare side by side. Consultants spend their time on the summary and the judgment, not on fonts and margins."
+     "Search firms usually present candidates in their own format, with a consistent layout, the firm's branding and sections in a fixed order. Candidates send CVs in every format imaginable. Converting one into the other often happens by hand, line by line.",
+     "The same connection can take a CV from the recruiting system and produce the firm's version in one step. The content comes from the candidate's CV and the layout comes from the firm. A consultant reads the result and approves it before it goes to a client.",
+     "With a fixed layout, every CV a client receives looks the same, so candidates are easier to compare side by side. Consultants can put their time into the summary and the judgment. Fonts and margins stop being their problem."
     ]
    },
    {
     "h2": "Case: an executive search firm in Washington D.C.",
     "body": [
-     "An executive search firm in Washington D.C. now enters its open roles in its recruiting system, Loxo, and they appear on its website without anyone retyping them. The website was built by Loose Ends.",
-     "Candidate CVs are put into the firm's format in one step. The same database also answers the team's questions through their AI assistant: the recruiting database and the firm's internal chat are connected to the assistant, so a consultant can ask about a role or a candidate without searching by hand.",
+     "An executive search firm in Washington D.C. now enters its open roles in Loxo, its recruiting system, and they appear on its website without anyone retyping them. Loose Ends built the website.",
+     "Candidate CVs go into the firm's format in one step. The same database also answers the team's questions through their AI assistant. Both the recruiting database and the firm's internal chat are connected to the assistant, so a consultant can ask about a role or a candidate instead of searching by hand.",
      "The website is live. Candidate scoring, which reads candidates against a search's criteria and shows its reasoning, is in development."
     ]
    },
    {
     "h2": "Can an AI assistant read the same recruiting data?",
     "body": [
-     "Yes, if it is connected to it. MCP, the Model Context Protocol, is an open standard introduced by Anthropic in November 2024 for connecting AI assistants such as Claude to tools and data. Through a connector, the assistant can read the recruiting database the website already reads from.",
-     "This turns the database into something the team can question in plain language, for example:",
+     "Yes, once it's connected. MCP, the Model Context Protocol, is an open standard Anthropic introduced in November 2024 for connecting AI assistants such as Claude to tools and data. Through a connector, the assistant can read the same recruiting database the website reads from.",
+     "Then the team can put questions to that database in plain language, like these:",
      [
       "Which open roles have had no new candidates this month?",
       "Which candidates in the database have worked in a given sector?",
       "What was last agreed with a client about a search?"
      ],
-     "The assistant answers from the firm's own records. Anything it drafts for a client or a candidate is read and approved by a person before it is sent.",
-     "Because the assistant and the website read the same records, they never disagree with each other. Keeping the recruiting system up to date becomes the one job that keeps everything else right."
+     "Answers come from the firm's own records. Anything the assistant drafts for a client or a candidate goes through the same approval as the CVs.",
+     "Since the assistant and the website read the same records, they can't contradict each other. Keeping the recruiting system current becomes the one job that keeps everything else right."
     ]
    },
    {
     "h2": "What should a firm check before connecting its systems?",
     "body": [
-     "A few things are worth confirming early: whether the recruiting system allows other software to read its data, which fields the team actually keeps up to date, and who decides when a role is public. It also helps to know which searches the firm keeps confidential, since some roles are never advertised. With those settled, the connection is a contained piece of work, and the firm keeps ownership of the code, domain and accounts. To see where retyping and copying cost a particular firm the most time, Loose Ends offers a free one-page review, with no call required."
+     "A few things are worth confirming early. Does the recruiting system let other software read its data? Which fields does the team actually keep up to date? Who decides when a role goes public? It also helps to know which searches are confidential, since some roles are never advertised at all.",
+     "With those settled, the connection is a contained piece of work, and the code, domain and accounts stay with the firm. Loose Ends offers a free one-page review, with no call required, that shows where retyping and copying cost a particular firm the most time."
     ]
    }
   ],
   "faq": [
    {
     "q": "Can Loxo job listings appear on a firm's own website?",
-    "a": "Yes. The website can read open roles from Loxo and show them in the site's own design, so roles are entered once and never retyped."
+    "a": "Yes. The website can read open roles from Loxo and show them in the site's own design, so each role is entered once and never retyped."
    },
    {
     "q": "What happens when a role closes?",
-    "a": "When the role is closed or marked internal in the recruiting system, it leaves the website without anyone editing the site."
+    "a": "Once the role is closed or marked internal in the recruiting system, it drops off the website. Nobody has to edit the site."
    },
    {
     "q": "Does reformatting a CV change what the candidate wrote?",
-    "a": "No. The content comes from the candidate's CV and the layout comes from the firm. A consultant checks and approves the result before it goes to a client."
+    "a": "No. The content comes from the candidate's CV and the layout from the firm. A consultant checks and approves the result before it goes to a client."
    },
    {
     "q": "What if the recruiting system has no ready connector?",
@@ -238,104 +240,105 @@
   "h1": "Turning interview notes into a client report in the firm's format",
   "desc": "Raw interview notes can become a finished client report in the firm's format, with every rating pointing to its source and gaps flagged, never filled in.",
   "category": "Automation",
-  "lead": "Raw interview notes can be turned into a finished client report in the firm's own format, where every rating points back to the line in the notes it came from. Where the notes say nothing, the report says so, instead of filling the gap. A consultant reads and approves the report before it goes to the client.",
+  "lead": "Raw interview notes can become a finished client report in the firm's own format, with every rating pointing back to the line in the notes it came from. Where the notes are silent, the report says so and leaves the gap open. A consultant reads and approves it before the client sees it.",
   "short": [
    "The report follows the firm's own format, section by section.",
-   "Every rating points to the passage in the notes that supports it.",
-   "Missing information is flagged for the consultant, never invented.",
-   "A person approves the report before it is sent to the client."
+   "Each rating links to the passage in the notes behind it.",
+   "Missing information gets flagged for the consultant. Nothing is made up to fill it.",
+   "A person approves the report before it goes to the client."
   ],
   "sections": [
    {
     "h2": "What does turning interview notes into a client report involve?",
     "body": [
-     "After an interview, a consultant usually has a page of rough notes, a transcript or a recording summary. The client expects something else: a clean report in the firm's format, with ratings against the role's criteria and a clear recommendation.",
-     "Getting from one to the other means reading the notes again, sorting each remark under the right heading, rating each criterion, and then retyping it all into the firm's template. The system Loose Ends has built does that sorting and drafting, and leaves the judgment to the consultant.",
-     "The approach is not limited to recruiting. Any firm that turns conversations into written assessments, such as advisers writing up client meetings, has the same chore and can use the same rules."
+     "After an interview, a consultant usually has a page of rough notes, a transcript or a summary from a recording. The client expects something else entirely. They want a clean report in the firm's format, with ratings against the role's criteria and a clear recommendation.",
+     "Getting there means reading the notes again, sorting each remark under the right heading, rating each criterion, then retyping the lot into the firm's template. The system Loose Ends has built does the sorting and drafting. The judgment stays with the consultant.",
+     "Recruiting isn't the only place this applies. Advisers writing up client meetings face the same chore, and so does any firm that turns conversations into written assessments. The same rules work for them."
     ]
    },
    {
     "h2": "Why does writing client reports by hand take so long?",
     "body": [
-     "The thinking happens in the interview. Most of the time afterwards goes on chores that do not need a consultant's experience:",
+     "The thinking happens in the interview. Most of the hours afterwards go on chores that don't need a consultant's experience at all:",
      [
       "Reading back through notes to find what the candidate said about a given topic.",
       "Copying quotes and observations into the right section of the template.",
       "Retyping headings, names, dates and role details that already exist elsewhere.",
       "Checking the format matches the last report sent to the same client."
      ],
-     "These chores also make reports uneven. Two consultants writing about the same candidate will order things differently, and a busy week shows in the result. A system that drafts in a fixed format gives every report the same structure before the consultant adds their view.",
-     "Reports also tend to be written last, because they are the task most easily pushed to the end of the day. A draft that is already in the right shape makes that last task smaller."
+     "Those chores make reports uneven, too. Two consultants writing about the same candidate will order things differently, and a busy week shows in the result. Drafting into a fixed format gives every report the same structure before the consultant adds a view.",
+     "Reports also tend to get written last. They're the easiest task to push to the end of the day, often a Thursday evening once the calls are done. A draft that's already in shape makes that last job much smaller."
     ]
    },
    {
-    "h2": "How does every rating point to its source?",
+    "h2": "How can every rating point to its source?",
     "body": [
-     "Each rating in the draft report carries a reference to the passage in the interview notes it was based on. If the report says a candidate is strong on leading a team through change, the consultant can see the exact remark from the interview that supports it.",
-     "This does two things. It lets the consultant check every rating quickly, without rereading the whole set of notes. And it lets the firm stand behind the report if a client asks why a candidate was rated the way they were.",
-     "Sourcing also protects the candidate. A rating rests on what they said, not on an impression that cannot be traced, and an unfair rating is easier to catch.",
-     "A rating with no source behind it does not appear as a rating. It appears as a question for the consultant."
+     "Each rating in the draft carries a reference to the passage in the interview notes it was based on. If the report says a candidate is strong at leading a team through change, the consultant can open the exact remark from the interview that supports it.",
+     "That helps twice. The consultant can check every rating quickly without rereading the whole set of notes. And the firm can stand behind the report if a client asks why a candidate was rated the way they were.",
+     "It's fairer to the candidate as well. A rating rests on what they said, and an unfair one is easier to spot when its basis is sitting right next to it.",
+     "If a rating has no source behind it, it doesn't show up as a rating. It shows up as a question for the consultant."
     ]
    },
    {
     "h2": "What does a sourced rating look like?",
     "body": [
-     "Here is a sample entry, written to show the format:",
+     "Here's a sample entry, written to show the format:",
      [
       "Criterion: leading a team through a reorganisation.",
       "Rating: strong, on the firm's own scale.",
       "Reasoning: the candidate described running the reorganisation of a department and how they kept people informed.",
       "Source: the line in the interview notes where this was said, linked so the consultant can open it."
      ],
-     "This is sample data. A real report follows whatever rating scale and wording the firm already uses. If the consultant disagrees with a rating, they change it, and the source stays attached so anyone reading the file later can see what the rating was based on."
+     "That's sample data. A real report uses whatever rating scale and wording the firm already uses. If the consultant disagrees with a rating, they change it, and the source stays attached so anyone opening the file later can see what it was based on."
     ]
    },
    {
     "h2": "What happens when the notes leave a gap?",
     "body": [
-     "Interviews rarely cover every criterion. Time runs out, the conversation goes elsewhere, or a topic is left for a second meeting. A careless system would fill that gap with something plausible. This one does not.",
-     "When the notes say nothing about a criterion, the draft report marks it clearly:",
+     "Interviews rarely cover every criterion. Time runs out, the conversation wanders, or a topic gets saved for a second meeting. A careless system would fill the gap with something plausible. This one won't.",
+     "When the notes say nothing about a criterion, the draft marks it plainly:",
      [
       "The criterion is listed with no rating.",
-      "A note explains that the interview did not cover it.",
+      "A note explains that the interview didn't cover it.",
       "The consultant decides whether to follow up with the candidate, rate it from other knowledge, or leave it open in the report."
      ],
-     "Gaps are flagged, never filled. This is the rule that makes the rest of the report trustworthy: whatever is in it came from the interview.",
-     "Flagging gaps also shows where the interview itself could be tighter. If the same criterion is flagged across several candidates, the firm can add it to its interview guide."
+     "Gaps are flagged and left empty. That rule is what makes the rest of the report trustworthy, because everything in it came from the interview.",
+     "Flagged gaps also show where the interview itself could be tighter. If the same criterion keeps getting flagged across several candidates, it probably belongs in the firm's interview guide."
     ]
    },
    {
-    "h2": "Where do the notes come from, and where does the report go?",
+    "h2": "Where do the notes come from, and where does the report end up?",
     "body": [
-     "The system works with the material the firm already has. Notes can be typed by the consultant, taken from a transcript, or drawn from an interview recording tool such as BrightHire. The firm's report template and rating scale are set once.",
-     "The finished draft can be filed against the candidate in the firm's recruiting system, such as Loxo, so the report and the candidate record stay together. Nothing has to be copied from one place to another by hand.",
-     "The format itself belongs to the firm. Headings, rating scale, the order of sections and the wording of the recommendation are taken from the reports the firm already sends, so clients see no change in style."
+     "The system works with whatever material the firm already has. Notes can be typed by the consultant, taken from a transcript, or pulled from an interview recording tool such as BrightHire. The report template and rating scale are set once.",
+     "The finished draft can be filed against the candidate in the firm's recruiting system, Loxo for example, so the report and the candidate record live together. Nobody copies anything from one place to another by hand.",
+     "The format belongs to the firm. Headings, rating scale, section order and the wording of the recommendation all come from reports the firm already sends, so clients won't notice any change in style."
     ]
    },
    {
     "h2": "Who approves the report before the client sees it?",
     "body": [
-     "A consultant, every time. The system drafts and prepares; a person reads the report, adjusts ratings where their judgment differs, fills or confirms the flagged gaps, and approves it before it is sent to the client.",
-     "The consultant's name goes on the report, so the consultant has the last word on everything in it. The system's job is to make that last read quick and well supported, not to replace it. Over time, reports also become more consistent across consultants, because every draft starts from the same structure and the same rules. To see where reporting and other repeated writing cost a particular firm the most time, Loose Ends offers a free one-page review, with no call required."
+     "A consultant, every time. The system drafts and prepares. A person reads the report, adjusts ratings where their judgment differs, fills or confirms the flagged gaps, and approves it before it's sent.",
+     "It's the consultant's name on the report, so the consultant has the last word on everything in it. The system is there to make that last read quick and well supported. Over time, reports also start to look alike across consultants, since every draft begins from the same structure and the same rules.",
+     "Loose Ends offers a free one-page review, with no call required, that shows where reporting and other repeated writing cost a particular firm the most time."
     ]
    }
   ],
   "faq": [
    {
     "q": "Can AI write a candidate report from interview notes?",
-    "a": "It can draft one in the firm's format, with each rating linked to the passage in the notes it came from. A consultant reviews and approves the report before it is sent."
+    "a": "It can draft one in the firm's format, with each rating linked to the passage in the notes it came from. A consultant reviews and approves the report before it's sent."
    },
    {
     "q": "What if the interview did not cover a criterion?",
-    "a": "The report flags the gap and leaves the rating empty. The consultant decides how to handle it; the system never fills it in."
+    "a": "The report flags the gap and leaves the rating empty. The consultant decides what to do about it, and the system never fills it in."
    },
    {
     "q": "Does the report use the firm's own template?",
-    "a": "Yes. The firm's format and rating scale are set once, and every report is drafted to match them."
+    "a": "Yes. The firm's format and rating scale are set once, and every report is drafted to match."
    },
    {
     "q": "Can the notes come from an interview recording tool?",
-    "a": "Yes. Notes can be typed, taken from a transcript, or drawn from a tool such as BrightHire, as long as the firm can export or connect to them."
+    "a": "Yes. Notes can be typed, taken from a transcript, or drawn from a tool such as BrightHire, as long as the firm can export them or connect to it."
    }
   ],
   "keywords": [
@@ -354,9 +357,9 @@
   "h1": "Keeping Shopify, Etsy and spreadsheets in step",
   "desc": "Shopify and Etsy inventory stays in sync when stock lives in one place and every sale updates it, so an item is never sold twice and nothing is retyped.",
   "category": "Connections",
-  "lead": "To keep Shopify and Etsy inventory in sync, stock should be counted in one place, and every sale on either shop should update that count straight away. Both shops then read from the same number, so an item cannot be sold twice. Orders, listings and spreadsheets follow the same rule, so nothing has to be retyped.",
+  "lead": "To keep Shopify and Etsy inventory in sync, count stock in one place and have every sale on either shop update that count straight away. Both shops then read the same number, so an item can't be sold twice. Orders, listings and spreadsheets follow the same rule, and nobody has to retype any of it.",
   "short": [
-   "Pick one place where the true stock count lives.",
+   "Pick one place where the real stock count lives.",
    "Every sale on Shopify or Etsy updates that count, and both shops follow it.",
    "Listings are written once and published to both shops.",
    "Spreadsheets read from the same data instead of being typed up by hand."
@@ -365,92 +368,95 @@
    {
     "h2": "Why do Shopify and Etsy stock counts drift apart?",
     "body": [
-     "Shopify and Etsy each keep their own stock count. Neither knows what the other has sold. When a business sells the same item in both places, the two counts only agree if someone updates them by hand after every sale.",
-     "That works on a quiet week. It stops working when orders come in at night, during a busy season, or while the person who does the updating is away. The result is an item shown as available in one shop after its last unit has already sold in the other.",
-     "The same drift happens with prices, descriptions and photos. Each shop is edited separately, so small differences build up between what the business thinks it sells and what customers actually see."
+     "Shopify and Etsy each keep their own stock count, and neither knows what the other has sold. If a business sells the same item in both, the counts only agree when someone updates them by hand after every sale.",
+     "On a quiet week that's manageable. It falls apart when orders come in overnight, during a busy season, or while the person doing the updating is away. Then an item still shows as available in one shop after its last unit has gone in the other.",
+     "Prices, descriptions and photos drift in the same way. Each shop gets edited separately, and small differences pile up between what the business thinks it sells and what customers actually see."
     ]
    },
    {
     "h2": "What goes wrong when stock is managed by hand?",
     "body": [
-     "The problems are rarely large, but they repeat:",
+     "The problems are rarely big. They just keep coming back:",
      [
       "The last unit sells twice, and one customer has to be contacted, apologized to and refunded.",
-      "Orders are copied from each shop into a spreadsheet, and a line is missed or entered twice.",
-      "A price or description is changed in one shop and not the other.",
-      "Items made to order are listed as in stock because the production list lives somewhere else.",
-      "Time goes on checking and correcting rather than making and selling."
+      "Orders are copied from each shop into a spreadsheet, and a line gets missed or entered twice.",
+      "A price or description changes in one shop and not the other.",
+      "Items made to order show as in stock because the production list lives somewhere else.",
+      "Time goes on checking and correcting when it could go on making and selling."
      ],
-     "Each of these is a chore that exists only because the systems do not talk to each other. Connecting them removes the chore rather than speeding it up.",
-     "There is also a cost in trust. A customer who receives a refund instead of the item they ordered may not order again."
+     "Every one of these chores exists only because the systems don't talk to each other. Connect them and the chore goes away.",
+     "There's a cost in trust as well. A customer who gets a refund instead of the thing they ordered may not come back."
     ]
    },
    {
     "h2": "How does a Shopify and Etsy inventory sync work?",
     "body": [
-     "Both Shopify and Etsy let other software read and update their data through an API, the interface each platform provides for that purpose. A sync uses those interfaces to keep one shared record of stock and to push changes to both shops.",
-     "In a typical setup:",
+     "Both platforms let other software read and update their data through an API, the interface each one provides for exactly that. A sync uses those interfaces to keep one shared record of stock and push changes out to both shops.",
+     "A typical setup looks like this:",
      [
       "One place holds the true stock count for each item. It can be Shopify itself, a spreadsheet or a small database.",
-      "When an order arrives on either shop, the count is reduced in that one place.",
-      "Both shops are updated from the new count, so the item shows the same availability everywhere.",
-      "When stock is added after a delivery or a production run, it is entered once and both shops follow."
+      "When an order arrives on either shop, the count goes down in that one place.",
+      "Both shops update from the new count, so the item shows the same availability everywhere.",
+      "When stock comes in after a delivery or a production run, it's entered once and both shops follow."
      ],
-     "The rule underneath is simple: one count, many shop windows. Whatever the business already uses can stay, as long as it agrees on which record is the true one.",
-     "If something does not match, for example an item sold in one shop that is missing from the other, the sync flags it for a person to check rather than guessing. A person stays in charge of anything unusual."
+     "One count, many shop windows. Whatever the business already uses can stay, as long as everyone agrees which record is the real one.",
+     "When something doesn't match, say an item sold in one shop that's missing from the other, the sync flags it and leaves the call to a person. Anything unusual stays in human hands."
     ]
    },
    {
     "h2": "Can listings and orders stay in step too?",
     "body": [
-     "Yes. The same connection that carries stock can carry listings. A product is written once, with its photos, description and price, and published to both shops. A later change to the price or description is made once and appears in both.",
-     "Orders can flow the other way: from each shop into one list, with the customer, the item and the shop it came from. Nothing is copied by hand, and the team works from a single order list instead of checking two dashboards. Any message to a customer, such as a delay notice, is drafted from the order and approved by a person before it is sent.",
-     "Order data can also feed a weekly report: what sold, through which shop, and what is running low. The report is prepared automatically and read by the team, so decisions about restocking rest on current figures."
+     "Yes. The connection that carries stock can carry listings as well. A product is written once, with its photos, description and price, and published to both shops. Change the price later and it changes in both.",
+     "Orders can flow the other way, from each shop into one list showing the customer, the item and which shop it came from. The team works from that single list and stops flicking between two dashboards. Any message to a customer, such as a delay notice, is drafted from the order and approved by a person before it's sent.",
+     "That order data can feed a weekly report too, covering what sold, through which shop, and what's running low. It's prepared automatically and read by the team, so restocking decisions rest on current figures."
     ]
    },
    {
     "h2": "Where do spreadsheets fit in?",
     "body": [
-     "Many businesses keep a spreadsheet for stock, sales and production because it is flexible and everyone can read it. There is no need to give that up. The spreadsheet can read from the shops automatically, so it stays current without anyone typing orders into it.",
-     "For businesses that want to start with a spreadsheet before connecting anything, Loose Ends offers a free stock, sales and production tracker at https://houssem-gabsi.vercel.app/tools/stock-sales-production-tracker/. For businesses that make their own products, the production side matters as much as the shops. A connected spreadsheet can show what has sold, what is left, and what needs to be made next, in one view."
+     "Plenty of businesses keep a spreadsheet for stock, sales and production because it's flexible and everyone can read it. There's no reason to give it up. The spreadsheet can pull from the shops automatically, so it stays current without anyone typing orders into it on a Sunday night.",
+     "For a business that wants to start with a spreadsheet before connecting anything, Loose Ends offers a free stock, sales and production tracker at https://houssem-gabsi.vercel.app/tools/stock-sales-production-tracker/.",
+     "If the business makes its own products, the production side matters as much as the shops. A connected spreadsheet can show what's sold, what's left and what needs making next, all in one view."
     ]
    },
    {
     "h2": "Which businesses need a Shopify and Etsy sync?",
     "body": [
-     "Any business that sells the same items in more than one place: a maker with an Etsy shop and its own Shopify store, a retailer with a counter and an online shop, or a studio selling prints alongside commissions. The size of the business matters less than the number of places its stock is shown. Once stock appears in two places, it can be wrong in one of them."
+     "Any business selling the same items in more than one place. A maker with an Etsy shop and a Shopify store of their own. A retailer with a counter and an online shop. A studio selling prints alongside commissions.",
+     "Size matters less than the number of places stock is shown. Once it's shown in two places, it can be wrong in one of them."
     ]
    },
    {
     "h2": "What should a business decide before connecting its shops?",
     "body": [
-     "A few decisions make the work clear from the start:",
+     "A few decisions make the work clear from day one:",
      [
       "Which record holds the true stock count.",
       "Whether every product is sold in both shops, or only some.",
       "How made-to-order items and limited runs are shown.",
       "Who on the team approves anything sent to customers, such as delay or refund messages."
      ],
-     "It is also worth listing every place stock is held, including market stalls and wholesale orders, since the count must account for all of them. Once these are settled, the connection is built around the tools the business already has. The code, accounts and data belong to the business. To see where stock, orders and listings cost a particular business the most time, Loose Ends offers a free one-page review, with no call required."
+     "It's worth listing every place stock is held, market stalls and wholesale orders included, because the count has to cover all of them. After that, the connection gets built around the tools the business already has, and the code, accounts and data belong to the business.",
+     "Loose Ends offers a free one-page review, with no call required, that shows where stock, orders and listings cost a particular business the most time."
     ]
    }
   ],
   "faq": [
    {
     "q": "Can Shopify and Etsy share one stock count?",
-    "a": "Yes. A sync keeps one true stock count and updates both shops whenever an order arrives or stock is added, so the same item shows the same availability in both."
+    "a": "Yes. A sync keeps one true stock count and updates both shops whenever an order arrives or stock is added, so an item shows the same availability in both."
    },
    {
     "q": "Does the business have to stop using its spreadsheet?",
-    "a": "No. The spreadsheet can read from both shops automatically, so it stays current without anyone typing orders into it."
+    "a": "No. The spreadsheet can read from both shops automatically, so it stays current and nobody types orders into it."
    },
    {
     "q": "Can product listings be written once for both shops?",
-    "a": "Yes. A listing can be written once and published to Shopify and Etsy, and later changes to price or description appear in both."
+    "a": "Yes. A listing can be written once and published to Shopify and Etsy, and later changes to price or description show up in both."
    },
    {
     "q": "Are customer messages sent automatically?",
-    "a": "No. Messages such as delay or refund notices are drafted from the order, and a person approves them before they are sent."
+    "a": "No. Messages such as delay or refund notices are drafted from the order, and a person approves them before they go out."
    }
   ],
   "keywords": [
@@ -469,35 +475,35 @@
   "h1": "Why bookings should move from Instagram messages to one booking screen",
   "desc": "A business that takes bookings through Instagram or WhatsApp messages should move them to one booking screen showing schedule, places, payment and language.",
   "category": "Building",
-  "lead": "A business that takes bookings through Instagram or WhatsApp messages should move them to a single booking screen, because messages are a poor place to keep a schedule. One screen can show the schedule, the places left, the payment and the choice of language, so customers book themselves. The team stops answering, confirming and chasing each booking by hand.",
+  "lead": "A business that takes bookings through Instagram or WhatsApp messages should move them to a single booking screen, because a chat thread is a poor place to keep a schedule. One screen can show the schedule, the places left, the payment and the choice of language, so customers book themselves. The team stops answering, confirming and chasing every booking by hand.",
   "short": [
-   "Messages scatter bookings across chats; one screen keeps them in one place.",
+   "Messages scatter bookings across chats. One screen keeps them together.",
    "Customers see the schedule and the places left, and book without waiting for a reply.",
-   "Payment is taken at the moment of booking, not chased afterwards.",
+   "Payment is taken when the booking is made, so nobody has to chase it later.",
    "The screen can work in more than one language, such as French and English."
   ],
   "sections": [
    {
-    "h2": "Why do bookings through Instagram or WhatsApp messages cause problems?",
+    "h2": "What's wrong with taking bookings through Instagram or WhatsApp?",
     "body": [
-     "Messaging apps are built for conversation, not for keeping a schedule. Every booking becomes a short exchange: is there a place, what time, how to pay, can a friend come too. Each exchange has to be answered by a person, often outside opening hours.",
-     "The schedule itself ends up in someone's head, a notebook or a spreadsheet updated after the fact. When two people ask for the last place at the same time, there is no single record to settle it. Message-based booking also depends on whoever holds the phone. When that person is teaching, travelling or unwell, bookings wait.",
-     "Messages also get lost. A booking request sinks under newer chats, a reply is read but not answered, and a customer arrives for a session that was never confirmed. For the customer the experience is uncertain too: they wait for a reply before they can plan."
+     "Messaging apps were made for conversation. They were never meant to hold a schedule. Every booking turns into a little exchange about whether there's a place, what time, how to pay and whether a friend can come along. Someone has to answer each one, often outside opening hours.",
+     "The schedule ends up in someone's head, in a notebook, or in a spreadsheet updated after the fact. When two people ask for the last place at the same moment, there's no single record to settle it. And everything depends on whoever holds the phone. If that person is teaching, travelling or ill, bookings wait.",
+     "Messages get lost, too. A request sinks under newer chats, a reply gets read and never sent, and someone turns up for a session that was never confirmed. It's no better for the customer, who has to wait for an answer before they can plan their week."
     ]
    },
    {
-    "h2": "What chores does a booking screen take away?",
+    "h2": "Which chores does a booking screen take away?",
     "body": [
-     "Most of the work in message-based booking is not the booking itself. It is everything around it:",
+     "Most of the work in message-based booking isn't the booking. It's everything around it:",
      [
       "Answering the same questions about times, prices and places.",
       "Confirming each booking by hand, one message at a time.",
       "Chasing payments that were promised in a message and never arrived.",
       "Copying bookings from chats into a calendar or a list.",
-      "Telling people a class is full after they have already planned to come."
+      "Telling people a class is full after they've already planned to come."
      ],
-     "A booking screen handles these in one place. The customer sees what is available, picks it, pays, and receives a confirmation. The team sees the result instead of producing it.",
-     "It also frees the business's messages for the conversations that need a person: a question about an injury, a group booking or a special request. Those conversations get more attention once the routine ones are gone."
+     "A booking screen handles all of that in one place. The customer sees what's available, picks it, pays and gets a confirmation. The team sees the result without having to produce it.",
+     "It also frees the inbox for conversations that need a person, like a question about an injury, a group booking or a special request. Those get more attention once the routine ones are gone."
     ]
    },
    {
@@ -505,61 +511,62 @@
     "body": [
      "A good booking screen answers every question a customer would otherwise send as a message. For most businesses that take bookings, that means:",
      [
-      "The schedule: what is on, and when.",
-      "The places: how many are left for each session.",
-      "The payment: taken at the moment of booking, so a place is only held once it is paid for.",
-      "The language: the same screen in each language the customers speak.",
-      "The confirmation: a clear message after booking, with the details the customer needs."
+      "The schedule, showing what's on and when.",
+      "The places, with how many are left for each session.",
+      "The payment, taken at the moment of booking, so a place is only held once it's paid for.",
+      "The language, with the same screen in each language the customers speak.",
+      "The confirmation, a clear message after booking with the details the customer needs."
      ],
-     "It should work well on a phone, because that is where the customer was when they would have sent the message. Ideally it fits on a single screen, so booking takes less effort than writing a message.",
-     "Payment at booking also makes cancellations simpler. When a place has been paid for, the rules are clear to both sides from the start. Clear prices and session details on the same screen also answer many questions before they are asked."
+     "It has to work well on a phone, because that's where the customer was when they'd have sent the message. Ideally it fits on one screen, so booking takes less effort than typing out a question.",
+     "Paying at booking makes cancellations simpler as well. Once a place is paid for, both sides know the rules from the start. And with clear prices and session details on the same screen, a lot of questions never get asked in the first place."
     ]
    },
    {
     "h2": "Case: a yoga studio's bookings on a single phone screen",
     "body": [
-     "A yoga studio was taking bookings through Instagram messages. Loose Ends built a booking application that puts the schedule, the places and the payment on a single phone screen, in French and English.",
-     "Bookings moved out of Instagram messages into one place. Students choose a class, see whether there is room, and pay in the same screen, in the language they prefer. The application is live."
+     "A yoga studio was taking its bookings through Instagram messages. Loose Ends built a booking application that puts the schedule, the places and the payment on a single phone screen, in French and English.",
+     "Bookings moved out of Instagram messages and into one place. Students pick a class, see whether there's room and pay on the same screen, in whichever language they prefer. The application is live."
     ]
    },
    {
     "h2": "Does moving bookings off Instagram mean leaving Instagram?",
     "body": [
-     "No. Instagram and WhatsApp remain good places to be found and to talk with customers. The change is only that the booking itself happens somewhere built for it.",
-     "In practice, the profile, the posts and the replies all point to the booking screen. When someone asks about a class in a message, the answer is a link rather than a back-and-forth. Any reminders or follow-up messages the system drafts can be set so that a person approves them before they are sent.",
-     "Instagram also stays useful for news about the schedule: a new class, a change of time, a special session. Each post can link straight to the screen where the place is booked. This keeps the personal side of messaging while removing the admin around it."
+     "No. Instagram and WhatsApp are still good places to be found and to talk with customers. The only change is that the booking itself happens somewhere built for it.",
+     "The profile, the posts and the replies all point to the booking screen. When someone asks about a class in a message, the answer is a link instead of a long back-and-forth.",
+     "Instagram stays useful for schedule news as well, like a new class, a change of time or a special session, and each post can link straight to the screen where the place gets booked. The personal side of messaging stays. The admin around it goes."
     ]
    },
    {
     "h2": "What about reminders and cancellations?",
     "body": [
-     "Once bookings live in one place, reminders can come from the same record. A note before the session, a message when a place frees up, or a notice when a class moves can all be prepared by the system. A person approves the wording of each message before it is sent.",
-     "The same record makes cancellations easier to handle. A cancelled place returns to the schedule at once, so the next person can book it instead of asking in a message whether anything has opened up."
+     "With bookings in one place, reminders can come from the same record. The system can prepare a note before the session, a message when a place frees up, or a notice when a class moves. A person approves the wording before any of them is sent.",
+     "Cancellations get easier too. A cancelled place goes straight back into the schedule, so the next person can book it without having to message and ask whether anything's opened up."
     ]
    },
    {
     "h2": "What does a business need to decide before building a booking app?",
     "body": [
-     "A booking application is built to order, around how the business already works. A few questions shape it:",
+     "A booking application is built to order, around how the business already works. A handful of questions shape it:",
      [
-      "What is being booked: classes, rooms, appointments or something else.",
+      "What's being booked: classes, rooms, appointments or something else.",
       "How places are counted, and what happens when a session is full.",
       "How payment is taken, and the rules for cancellations.",
       "Which languages the screen needs.",
-      "Who on the team looks after the schedule once it is live."
+      "Who on the team looks after the schedule once it's live."
      ],
-     "A booking screen is also a record: over time it shows which sessions fill first and which have room, so the schedule can be planned from real bookings. The answers decide the screen, not the other way round. The code, domain and accounts belong to the business, and handover includes training and a named owner for each routine. To see where bookings and messages cost a particular business the most time, Loose Ends offers a free one-page review, with no call required."
+     "Once it's running, the booking screen is also a record. Over time it shows which sessions fill first and which have room, so the schedule can be planned from real bookings. The code, domain and accounts belong to the business, and handover includes training and a named owner for each routine.",
+     "Loose Ends offers a free one-page review, with no call required, that shows where bookings and messages cost a particular business the most time."
     ]
    }
   ],
   "faq": [
    {
     "q": "Why not keep taking bookings through Instagram messages?",
-    "a": "Messages scatter bookings across chats and need a person to answer, confirm and chase each one. A booking screen keeps the schedule in one place and lets customers book themselves."
+    "a": "Messages scatter bookings across chats, and someone has to answer, confirm and chase each one. A booking screen keeps the schedule in one place and lets customers book themselves."
    },
    {
     "q": "Can a booking app take payment?",
-    "a": "Yes. Payment can be taken at the moment of booking, so a place is only held once it is paid for."
+    "a": "Yes. Payment can be taken at the moment of booking, so a place is only held once it's paid for."
    },
    {
     "q": "Can the booking screen work in more than one language?",
@@ -567,7 +574,7 @@
    },
    {
     "q": "Does the business still use Instagram?",
-    "a": "Yes. Instagram stays the place to be found and to talk with customers. Its profile and replies point to the booking screen."
+    "a": "Yes. Instagram is still where people find the business and talk to it. The profile and replies point to the booking screen."
    }
   ],
   "keywords": [
