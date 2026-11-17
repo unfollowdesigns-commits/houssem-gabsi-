@@ -15,6 +15,9 @@ Vercel serves the site from the top level of this repo. The Root Directory setti
 - `_source/build.py`: layout, styles, motion, and the script that writes `index.html`.
 - `_source/posts/*.json`: the blog posts. Each file is a list of posts; the build writes `/blog/` and one page per post, and adds them to the sitemap and `llms.txt`. Same wording rules as the rest of the site.
 - `_source/scenes.py`: the small moving scenes in the Systems section and on the blog cards.
+- `_source/flows.py`: the moving diagram and three steps shown when a Connections card is opened.
+- `_source/make_og.js`: renders the share pictures (`og.png` and `blog/<slug>/og.png`). Run it after the build, with the site served on port 8765, whenever a post or the headline changes.
+- The build also writes `blog/feed.xml` (RSS) and the IndexNow key file at the top level. Do not delete the key file.
 
 To change the site: edit the files in `_source`, then run
 

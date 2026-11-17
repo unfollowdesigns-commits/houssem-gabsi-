@@ -58,8 +58,18 @@ agents = "\n".join(
  '<li style="--i:%d">%s<b>%s</b><span>%s</span></li>' % (i, svg(AG_IC[i]), e(a), e(b))
  for i,(a,b) in enumerate(AGENTS))
 
+from flows import FLOWS, flow_svg
+CN_PRICE = ["AI assistant setup", "Applications and integrations", "Automation", "Automation", "Automation", "Automation", "Brand and content", "Automation", "Automation", "Automation"]
+def conn_detail(i, b):
+    steps = FLOWS[i][4] if i < len(FLOWS) else []
+    return ('<div class="cnviz" hidden>%s</div><div class="sdet" hidden><p class="sd-txt">%s</p><p class="sd-lab">How it works</p><ol class="sd-steps">%s</ol>'
+            '<div class="sd-row"><p class="sd-price"><span>%s</span><b>%s</b></p>'
+            '<p class="sd-cta"><a class="btn" href="%s">Request a free review</a><a class="tl" href="/mcp-integrations/">How connections work</a></p></div></div>'
+            % (flow_svg(i) if i < len(FLOWS) else "", e(b), "".join("<li>%s</li>" % e(x) for x in steps),
+               CN_PRICE[i], "from " + dict((n, v) for n, v, u, d in PRICING)[CN_PRICE[i]], "MAILTOHERE"))
 connects = "\n".join(
- '<li style="--i:%d">%s<b>%s</b><span>%s</span></li>' % (i, svg(ic), e(a), e(b))
+ '<li class="cn" style="--i:%d" tabindex="0" role="button" aria-haspopup="dialog" aria-label="%s. Show how it works">%s<b>%s</b><span>%s</span><span class="smore" aria-hidden="true">+</span>%s</li>'
+ % (i, e(a), svg(ic), e(a), e(b), conn_detail(i, b))
  for i,(ic,a,b) in enumerate(CONNECTS))
 
 flow = ('<div class="flow">'
@@ -201,6 +211,7 @@ HTML = """<!doctype html>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="text/plain" href="/llms.txt" title="Plain-text summary of this site">
 <link rel="alternate" type="text/markdown" href="/index.md">
+<link rel="alternate" type="application/rss+xml" href="/blog/feed.xml" title="Loose Ends blog">
 <meta property="og:site_name" content="Loose Ends">
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="SITEHERE">
@@ -1325,6 +1336,19 @@ html.sxlock,html.sxlock body{overflow:hidden}
 @media(max-width:1100px){.htoast{left:auto;right:-8px;top:-30px}}
 @media(max-width:860px){.htoast{display:none}}
 @media(prefers-reduced-motion:reduce){.hero-card::after{animation:none}.htoast{display:none}.sx-body > *{opacity:1;transform:none}}
+/* ── connections open too ── */
+.team li.cn{position:relative;cursor:pointer;padding-right:44px}
+.team li.cn .smore{right:16px;bottom:16px;width:26px;height:26px;font-size:16px}
+@media(hover:hover){.team li.cn:hover .smore{background:var(--ink);color:var(--wall);transform:rotate(90deg)}.team li.cn:hover b{color:var(--door)}}
+.team li.cn:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
+.team li.cn.sx-src{visibility:hidden}
+.sd-steps{list-style:none;counter-reset:st;display:grid;gap:10px;margin:12px 12px 0;padding:0}
+.sd-steps li{counter-increment:st;display:grid;grid-template-columns:28px 1fr;gap:10px;font-size:15.5px;line-height:1.5}
+.sd-steps li::before{content:counter(st);width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--wall);font-size:12px;font-weight:500}
+/* ── hero headline: lines rise into place on load ── */
+html.js:not(.hready) .hp1 h1{clip-path:inset(0 0 100% 0);transform:translateY(30px)}
+.hp1 h1{transition:clip-path 1.1s cubic-bezier(.2,.8,.2,1),transform 1.1s cubic-bezier(.2,.8,.2,1),opacity .9s var(--ease)}
+@media(prefers-reduced-motion:reduce){html.js .hp1 h1{clip-path:none!important;transform:none!important}}
 </style></head><body>
 <header class="nav" id="nav">
   <a class="brand" href="#top">Loose Ends</a>
@@ -1498,7 +1522,7 @@ FOOTERHERE
   splitAll();
   if(d.fonts&&d.fonts.ready)d.fonts.ready.then(splitAll);
   addEventListener('resize',function(){if(innerWidth===splitW)return;splitW=innerWidth;clearTimeout(splitT);splitT=setTimeout(splitAll,180);});
-  ['.intro-l','.stile','.offer > div','.team li','.teamnote','.flow','.acc','.sysnote','.ctext > *','.cviz','.stl','.close .lead','.close .btn','.close .cnote','.rules div','.ftg > *']
+  ['.intro-l','.stile','.offer > div','.team > li','.teamnote','.flow','.acc','.sysnote','.ctext > *','.cviz','.stl','.close .lead','.close .btn','.close .cnote','.rules div','.ftg > *']
    .forEach(function(sel){$$(sel).forEach(function(n){n.classList.add('rv');n.style.setProperty('--i', Math.min(6,[].indexOf.call(n.parentNode.children,n)));});});
   var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('in');io.unobserve(t);
       setTimeout(function(){t.classList.add('done');},1700);}});},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
@@ -1598,8 +1622,8 @@ FOOTERHERE
   var sx=$('#sx'), sxc=$('.sx-card',sx), sxb=$('.sx-body',sx), sxv=$('.sx-viz',sx), sxt=$('#sx-t'), sxd=$('.sx-det',sx), sxFrom=null, sxScene=null, sxBusy=false;
   function sxRect(){return sxc.getBoundingClientRect();}
   function sxOpen(tile){if(sxBusy||!sx.hidden)return;sxBusy=true;sxFrom=tile;
-    sxv.innerHTML='';var v=$('.sviz',tile).cloneNode(true);sxv.appendChild(v);
-    sxt.textContent=$('h3',tile).textContent;sxd.innerHTML=$('.sdet',tile).innerHTML;
+    sxv.innerHTML='';var v=($('.cnviz .sviz',tile)||$('.sviz',tile)).cloneNode(true);sxv.appendChild(v);if(RM&&v.querySelector('svg').pauseAnimations)v.querySelector('svg').pauseAnimations();
+    sxt.textContent=($('h3',tile)||$('b',tile)).textContent;sxd.innerHTML=$('.sdet',tile).innerHTML;
     sx.hidden=false;root.classList.add('sxlock');
     var r1=tile.getBoundingClientRect(), r2=sxRect();
     if(!RM){$$('.a',v).forEach(function(n){n.classList.remove('on');});
@@ -1619,7 +1643,7 @@ FOOTERHERE
     var a=sxc.animate([{transform:'none',borderRadius:'22px',opacity:1},
       {transform:'translate('+(r1.left-r2.left)+'px,'+(r1.top-r2.top)+'px) scale('+(r1.width/r2.width)+','+(r1.height/r2.height)+')',borderRadius:'16px',opacity:.6}],
       {duration:420,easing:'cubic-bezier(.4,0,.2,1)'});a.onfinish=done;}
-  $$('.stile').forEach(function(t){t.addEventListener('click',function(ev){if(ev.target.closest('a'))return;sxOpen(t);});
+  $$('.stile,.cn').forEach(function(t){t.addEventListener('click',function(ev){if(ev.target.closest('a'))return;sxOpen(t);});
     t.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();sxOpen(t);}});});
   $$('[data-close]',sx).forEach(function(b){b.addEventListener('click',sxClose);});
   addEventListener('keydown',function(ev){if(ev.key==='Escape')sxClose();});
@@ -1985,7 +2009,7 @@ BLOG_CSS = """
 def blog_card(po, i):
     return ('<a class="bcard" href="/blog/%s/" data-cat="%s">%s<small>%s</small><h3>%s</h3><p>%s</p><span>%d min read</span></a>'
             % (po["slug"], e(po["category"]), scene(CAT_SCENE.get(po["category"], i)), e(po["category"]), e(po["h1"]), e(po["desc"]), po["mins"]))
-def page_head(title, desc, url, ogtype, ld):
+def page_head(title, desc, url, ogtype, ld, og=None):
     return """<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -2003,10 +2027,12 @@ def page_head(title, desc, url, ogtype, ld):
 <meta property="og:type" content="%s">
 <meta property="og:title" content="%s">
 <meta property="og:description" content="%s">
-<meta property="og:image" content="%sog.png">
+<meta property="og:image" content="%s">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="%s">
+<link rel="alternate" type="application/rss+xml" href="/blog/feed.xml" title="Loose Ends blog">
 <script type="application/ld+json">
 %s
 </script>
@@ -2018,7 +2044,7 @@ def page_head(title, desc, url, ogtype, ld):
   <nav aria-label="Sections"><a href="/#services">Services</a><a href="/#work">Work</a><a href="/#systems">Systems</a><a href="/blog/">Blog</a></nav>
   <a class="btn sm" href="%s">Free review</a>
 </header>
-""" % (e(title), e(desc), url, url, ogtype, e(title), e(desc), SITE, ld, STYLE, LP_CSS, BLOG_CSS, MAILTO)
+""" % (e(title), e(desc), url, url, ogtype, e(title), e(desc), og or SITE + "og.png", og or SITE + "og.png", ld, STYLE, LP_CSS, BLOG_CSS, MAILTO)
 CLOSE_BLOCK = """<section class="close" id="contact"><div class="wrap">
   <h2>%s</h2>
   <p class="lead">%s</p>
@@ -2034,7 +2060,7 @@ for i, po in enumerate(POSTS):
     ld = json.dumps({"@context":"https://schema.org","@graph":[
       {"@type":"BlogPosting","@id":url+"#post","headline":po["title"],"name":po["h1"],"description":po["desc"],"url":url,
        "mainEntityOfPage":url,"inLanguage":"en","datePublished":BLOG_DATE,"dateModified":BLOG_DATE,"articleSection":po["category"],
-       "keywords":", ".join(po.get("keywords", [])),"wordCount":_words(po),"image":SITE+"og.png",
+       "keywords":", ".join(po.get("keywords", [])),"wordCount":_words(po),"image":url+"og.png" if os.path.exists("../blog/%s/og.png" % po["slug"]) else SITE+"og.png",
        "author":{"@type":"Person","@id":SITE+"#person","name":"Houssem Gabsi","url":SITE},
        "publisher":{"@type":"ProfessionalService","@id":SITE+"#studio","name":"Loose Ends","url":SITE},
        "isPartOf":{"@type":"Blog","@id":SITE+"blog/#blog","name":"Loose Ends blog","url":SITE+"blog/"}},
@@ -2047,7 +2073,8 @@ for i, po in enumerate(POSTS):
     ]}, ensure_ascii=False, indent=1)
     body = "".join('<section><div class="wrap"><h2>%s</h2>%s</div></section>\n' % (e(sec["h2"]), "".join(lp_block(x) for x in sec["body"])) for sec in po["sections"])
     faqh = "".join("<div><h3>%s</h3><p>%s</p></div>" % (e(f["q"]), e(f["a"])) for f in po["faq"])
-    doc = page_head(po["title"] + (" | Loose Ends" if len(po["title"]) <= 52 else ""), po["desc"], url, "article", ld) + """<main class="bpost">
+    doc = page_head(po["title"] + (" | Loose Ends" if len(po["title"]) <= 52 else ""), po["desc"], url, "article", ld,
+                    url + "og.png" if os.path.exists("../blog/%s/og.png" % po["slug"]) else None) + """<main class="bpost">
 <article>
 <div class="lphero"><div class="wrap">
   <p class="crumb"><a href="/">Loose Ends</a><i>/</i><a href="/blog/">Blog</a><i>/</i>%s</p>
@@ -2102,6 +2129,19 @@ if POSTS:
     _md = open("../index.md").read()
     _md += "\n## Blog\n\n" + "\n".join("- [%s](%sblog/%s/)" % (po["title"], SITE, po["slug"]) for po in POSTS) + "\n"
     open("../index.md", "w").write(_md)
+if POSTS:
+    from email.utils import format_datetime
+    import datetime as _dt
+    _when = format_datetime(_dt.datetime(2026, 11, 17, 9, 0, tzinfo=_dt.timezone.utc))
+    _items = "".join(
+        "<item><title>%s</title><link>%sblog/%s/</link><guid>%sblog/%s/</guid><pubDate>%s</pubDate><category>%s</category><description>%s</description></item>"
+        % (e(po["title"]), SITE, po["slug"], SITE, po["slug"], _when, e(po["category"]), e(po["desc"])) for po in POSTS)
+    open("../blog/feed.xml", "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>Loose Ends blog</title>'
+        '<link>%sblog/</link><description>Notes from Loose Ends on AI assistants, connections, automation and visibility in search and AI answers.</description>'
+        '<language>en</language>%s</channel></rss>\n' % (SITE, _items))
+# IndexNow: the key file lets Bing and other engines accept a list of changed pages from this site
+INDEXNOW_KEY = "6f1c2b9e4a7d4e0b8c3f5a2d9e1b7c40"
+open("../%s.txt" % INDEXNOW_KEY, "w").write(INDEXNOW_KEY)
 print("posts", len(POSTS))
 
 TODAY = "2026-11-16"   # update when the pages change

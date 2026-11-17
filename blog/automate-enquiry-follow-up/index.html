@@ -15,10 +15,12 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Automate enquiry follow-up so no quote goes quiet | Loose Ends">
 <meta property="og:description" content="Enquiry follow-up can be automated: a system reads the inbox, quotes and invoices, finds what went quiet and drafts replies a person approves before sending.">
-<meta property="og:image" content="https://houssem-gabsi.vercel.app/og.png">
+<meta property="og:image" content="https://houssem-gabsi.vercel.app/blog/automate-enquiry-follow-up/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://houssem-gabsi.vercel.app/blog/automate-enquiry-follow-up/og.png">
+<link rel="alternate" type="application/rss+xml" href="/blog/feed.xml" title="Loose Ends blog">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -37,7 +39,7 @@
    "articleSection": "Automation",
    "keywords": "automate enquiry follow-up, automated quote follow-up, follow up on quotes automatically, email follow-up automation with approval, unanswered enquiries, sales follow-up system, AI drafted follow-up emails",
    "wordCount": 958,
-   "image": "https://houssem-gabsi.vercel.app/og.png",
+   "image": "https://houssem-gabsi.vercel.app/blog/automate-enquiry-follow-up/og.png",
    "author": {
     "@type": "Person",
     "@id": "https://houssem-gabsi.vercel.app/#person",
@@ -1228,6 +1230,19 @@ html.sxlock,html.sxlock body{overflow:hidden}
 @media(max-width:1100px){.htoast{left:auto;right:-8px;top:-30px}}
 @media(max-width:860px){.htoast{display:none}}
 @media(prefers-reduced-motion:reduce){.hero-card::after{animation:none}.htoast{display:none}.sx-body > *{opacity:1;transform:none}}
+/* ── connections open too ── */
+.team li.cn{position:relative;cursor:pointer;padding-right:44px}
+.team li.cn .smore{right:16px;bottom:16px;width:26px;height:26px;font-size:16px}
+@media(hover:hover){.team li.cn:hover .smore{background:var(--ink);color:var(--wall);transform:rotate(90deg)}.team li.cn:hover b{color:var(--door)}}
+.team li.cn:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
+.team li.cn.sx-src{visibility:hidden}
+.sd-steps{list-style:none;counter-reset:st;display:grid;gap:10px;margin:12px 12px 0;padding:0}
+.sd-steps li{counter-increment:st;display:grid;grid-template-columns:28px 1fr;gap:10px;font-size:15.5px;line-height:1.5}
+.sd-steps li::before{content:counter(st);width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--wall);font-size:12px;font-weight:500}
+/* ── hero headline: lines rise into place on load ── */
+html.js:not(.hready) .hp1 h1{clip-path:inset(0 0 100% 0);transform:translateY(30px)}
+.hp1 h1{transition:clip-path 1.1s cubic-bezier(.2,.8,.2,1),transform 1.1s cubic-bezier(.2,.8,.2,1),opacity .9s var(--ease)}
+@media(prefers-reduced-motion:reduce){html.js .hp1 h1{clip-path:none!important;transform:none!important}}
 
 .lphero{padding:clamp(48px,9vh,110px) 0 clamp(28px,5vh,56px)}
 .crumb{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:clamp(20px,3.4vh,36px)}
