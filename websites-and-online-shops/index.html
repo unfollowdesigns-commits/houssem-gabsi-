@@ -1063,6 +1063,31 @@ html.js .fstep{transition:opacity .5s var(--ease),transform .5s var(--ease)}
   html.js .stp span{color:var(--ink)!important}
   html.js .how li::before,html.js .how h3{color:var(--ink)!important}html.js .how p,html.js .how .tag{color:var(--ink-soft)!important}
   .cviz svg{transform:none!important}}
+/* ── systems: a grid of small scenes that act out the work ── */
+.sgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:var(--h2gap)}
+.stile{display:flex;flex-direction:column;padding:12px 12px 20px;border-radius:var(--r-card);background:var(--wall-2);
+  box-shadow:inset 0 0 0 1px rgba(27,32,28,.06),0 24px 40px -34px rgba(27,32,28,.45);outline:none}
+html.js .stile.rv.in{transition:opacity .7s var(--ease),transform .5s var(--ease)}
+@media(hover:hover){html.js .stile.rv.in:hover{transform:translateY(-4px)}}
+.stile:focus-visible{box-shadow:0 0 0 2px var(--ochre)}
+.sviz{border-radius:10px;background:#EFEDE5;box-shadow:inset 0 0 0 1px rgba(27,32,28,.05);overflow:hidden}
+.sviz svg{display:block;width:100%;height:auto}
+.sviz text{font-family:Archivo,sans-serif;letter-spacing:.01em}
+.stile h3{margin:18px 6px 0;font-size:clamp(1.12rem,1.35vw,1.3rem);line-height:1.2;letter-spacing:-.012em;font-weight:400}
+.swith{margin:10px 6px 0;font-size:13px;line-height:1.45;color:var(--ink-soft)}
+.swith::before{content:"Works with ";color:var(--ochre);font-weight:500}
+html.js .sviz .a{transition:opacity .45s var(--ease),transform .6s var(--ease),stroke-dashoffset .8s var(--ease-io)}
+html.js .sviz .a.f,html.js .sviz .a.u,html.js .sviz .a.p{opacity:0}
+html.js .sviz .a.u{transform:translateY(8px)}
+html.js .sviz .a.p{transform:scale(.4);transform-box:fill-box;transform-origin:center}
+html.js .sviz .a.g{transform:scaleX(0);transform-box:fill-box;transform-origin:0 50%}
+html.js .sviz .a.gy{transform:scaleY(0);transform-box:fill-box;transform-origin:50% 100%}
+html.js .sviz .a.d{stroke-dasharray:1;stroke-dashoffset:1}
+html.js .sviz .a.on{opacity:1;transform:none;stroke-dashoffset:0}
+html.js .sviz .a.x.on{opacity:0}
+@media(max-width:1000px){.sgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.sgrid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html.js .sviz .a{transition:none!important}}
 
 .lphero{padding:clamp(48px,9vh,110px) 0 clamp(28px,5vh,56px)}
 .crumb{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:clamp(20px,3.4vh,36px)}

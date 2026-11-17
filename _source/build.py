@@ -1155,6 +1155,31 @@ html.js .fstep{transition:opacity .5s var(--ease),transform .5s var(--ease)}
   html.js .stp span{color:var(--ink)!important}
   html.js .how li::before,html.js .how h3{color:var(--ink)!important}html.js .how p,html.js .how .tag{color:var(--ink-soft)!important}
   .cviz svg{transform:none!important}}
+/* ── systems: a grid of small scenes that act out the work ── */
+.sgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:var(--h2gap)}
+.stile{display:flex;flex-direction:column;padding:12px 12px 20px;border-radius:var(--r-card);background:var(--wall-2);
+  box-shadow:inset 0 0 0 1px rgba(27,32,28,.06),0 24px 40px -34px rgba(27,32,28,.45);outline:none}
+html.js .stile.rv.in{transition:opacity .7s var(--ease),transform .5s var(--ease)}
+@media(hover:hover){html.js .stile.rv.in:hover{transform:translateY(-4px)}}
+.stile:focus-visible{box-shadow:0 0 0 2px var(--ochre)}
+.sviz{border-radius:10px;background:#EFEDE5;box-shadow:inset 0 0 0 1px rgba(27,32,28,.05);overflow:hidden}
+.sviz svg{display:block;width:100%;height:auto}
+.sviz text{font-family:Archivo,sans-serif;letter-spacing:.01em}
+.stile h3{margin:18px 6px 0;font-size:clamp(1.12rem,1.35vw,1.3rem);line-height:1.2;letter-spacing:-.012em;font-weight:400}
+.swith{margin:10px 6px 0;font-size:13px;line-height:1.45;color:var(--ink-soft)}
+.swith::before{content:"Works with ";color:var(--ochre);font-weight:500}
+html.js .sviz .a{transition:opacity .45s var(--ease),transform .6s var(--ease),stroke-dashoffset .8s var(--ease-io)}
+html.js .sviz .a.f,html.js .sviz .a.u,html.js .sviz .a.p{opacity:0}
+html.js .sviz .a.u{transform:translateY(8px)}
+html.js .sviz .a.p{transform:scale(.4);transform-box:fill-box;transform-origin:center}
+html.js .sviz .a.g{transform:scaleX(0);transform-box:fill-box;transform-origin:0 50%}
+html.js .sviz .a.gy{transform:scaleY(0);transform-box:fill-box;transform-origin:50% 100%}
+html.js .sviz .a.d{stroke-dasharray:1;stroke-dashoffset:1}
+html.js .sviz .a.on{opacity:1;transform:none;stroke-dashoffset:0}
+html.js .sviz .a.x.on{opacity:0}
+@media(max-width:1000px){.sgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.sgrid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html.js .sviz .a{transition:none!important}}
 </style></head><body>
 <header class="nav" id="nav">
   <a class="brand" href="#top">Loose Ends</a>
@@ -1225,7 +1250,7 @@ html.js .fstep{transition:opacity .5s var(--ease),transform .5s var(--ease)}
 <section id="systems"><div class="wrap">
   <p class="lab">SYSLABEL</p>
   <h2>SYSHEAD</h2>
-  <div class="accl">SYSHERE</div>
+  <div class="sgrid">SYSHERE</div>
   <p class="sysnote">SYSNOTE</p>
 </div></section>
 
@@ -1305,7 +1330,7 @@ FOOTERHERE
   splitAll();
   if(d.fonts&&d.fonts.ready)d.fonts.ready.then(splitAll);
   addEventListener('resize',function(){if(innerWidth===splitW)return;splitW=innerWidth;clearTimeout(splitT);splitT=setTimeout(splitAll,180);});
-  ['.intro-l','.offer > div','.team li','.teamnote','.flow','.acc','.sysnote','.ctext > *','.cviz','.stl','.close .lead','.close .btn','.close .cnote','.rules div','.ftg > *']
+  ['.intro-l','.stile','.offer > div','.team li','.teamnote','.flow','.acc','.sysnote','.ctext > *','.cviz','.stl','.close .lead','.close .btn','.close .cnote','.rules div','.ftg > *']
    .forEach(function(sel){$$(sel).forEach(function(n){n.classList.add('rv');n.style.setProperty('--i', Math.min(6,[].indexOf.call(n.parentNode.children,n)));});});
   var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('in');io.unobserve(t);
       setTimeout(function(){t.classList.add('done');},1700);}});},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
@@ -1364,6 +1389,18 @@ FOOTERHERE
           var h=Math.min(24,dt0/DUR*24);clk.textContent=h>=24?'24:00':two(Math.floor(h))+':'+two(Math.floor((h%1)*6)*10);dnow.style.left=(h/24*100)+'%';
           while(di<evs.length&&evs[di].h<=h){fire(evs[di++]);}}
         requestAnimationFrame(tick);})(0);}}
+
+  /* systems: each scene plays its loop while it is on screen */
+  var tl=$$('.stile').map(function(t,i){return {el:t,on:false,t0:0,off:(i%3)*260,
+      parts:$$('.a',t).map(function(n){return {n:n,t:+n.getAttribute('data-t'),s:false};})};}), tlRun=false, LOOP=6400, HOLD=5600;
+  function tlSet(x,v){x.parts.forEach(function(p){var s=typeof v==='number'?(v>=p.t&&v<HOLD):v;if(s!==p.s){p.s=s;p.n.classList.toggle('on',s);}});}
+  function tlTick(now){var any=false;if(!d.hidden)tl.forEach(function(x){if(!x.on)return;any=true;var v=now-x.t0;if(v<0)return;tlSet(x,v%LOOP);});
+    if(any)requestAnimationFrame(tlTick);else tlRun=false;}
+  if(RM){tl.forEach(function(x){tlSet(x,true);});}
+  else{var tio=new IntersectionObserver(function(es){es.forEach(function(en){var x=tl.filter(function(y){return y.el===en.target;})[0];
+        if(en.isIntersecting&&!x.on){x.on=true;x.t0=performance.now()+x.off;}else if(!en.isIntersecting&&x.on){x.on=false;tlSet(x,false);}});
+        if(!tlRun&&tl.some(function(x){return x.on;})){tlRun=true;requestAnimationFrame(tlTick);}},{threshold:.35});
+    tl.forEach(function(x){tio.observe(x.el);});}
 
   /* accordions */
   $$('.acch').forEach(function(b){b.addEventListener('click',function(){var a=b.closest('.acc'),o=a.classList.toggle('open');b.setAttribute('aria-expanded',String(o));});});
@@ -1522,10 +1559,10 @@ cases = "\n".join(
  </article>""" % (i, e(c["kind"]), e(c["who"]), e(c["did"]), e(c["now"]), visit(c), viz(i))
  for i,c in enumerate(WORK))
 windex = "\n".join('<li><a href="#case-%d">%s<small>%s</small></a></li>' % (i, e(c["who"]), e(c["kind"])) for i,c in enumerate(WORK))
+from scenes import scene
 systems = "\n".join(
- '<div class="acc sysr%s"><h3><button type="button" class="acch" aria-expanded="%s"><span class="sysn">%s</span><span class="prob">%s</span><i class="pm2"></i></button></h3>'
- '<div class="accb"><div class="acci"><div><p>%s</p><p class="st">%s</p>%s</div></div></div></div>'
- % (" open" if i==0 else "", "true" if i==0 else "false", e(a), e(b), e(c), e(dd), demo(a)) for i,(a,b,c,dd) in enumerate(SYSTEMS))
+ '<article class="stile" tabindex="0">%s<h3>%s</h3><p class="swith">%s</p></article>' % (scene(i), e(a), e(dd.replace("Works with ", "").rstrip(".")))
+ for i,(a,b,c,dd) in enumerate(SYSTEMS))
 faq = "\n".join(
  '<div class="acc q%s"><h3><button type="button" class="acch" aria-expanded="%s"><span>%s</span><i class="pm2"></i></button></h3>'
  '<div class="accb"><div class="acci"><div><p>%s</p></div></div></div></div>'
