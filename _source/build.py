@@ -4,7 +4,7 @@ from cases import (HEAD_TEXT, INTRO, HERO_BTN, HERO_LINK, PANEL2_HEAD, PANEL2_TE
     WORK_LABEL, WORK_HEAD, CASES, SERVICES_LABEL, SERVICES_HEAD, WHAT, EXAMPLES, SYSTEMS_LABEL, SYSTEMS_HEAD, SYSTEMS, SYSTEMS_NOTE, SYSTEMS_NOTE_LINK,
     CAPACITY_LABEL, CAPACITY_HEAD, CAPACITY_INTRO, ENQUIRY_LABEL, ENQUIRY_HEAD, ENQUIRY_INTRO, COMMIT_LABEL, COMMIT_HEAD, RULES,
     PROCESS_LABEL, PROCESS_HEAD, PROCESS_INTRO, HOW, FAQ_LABEL, FAQ_HEAD, FAQ, CLOSE_HEAD, CLOSE_TEXT, CLOSE_BTN, CLOSE_NOTE,
-    FOOT_DESC, PAGE_TITLE, PAGE_DESC, CTA_NOTE, CTA_CONNECT, PRODUCTS, PRODUCTS_LABEL, ANY_NOTE)
+    FOOT_DESC, PAGE_TITLE, PAGE_DESC, HERO_TOOLS, CTA_NOTE, CTA_CONNECT, PRODUCTS, PRODUCTS_LABEL, ANY_NOTE)
 WORK = CASES + PRODUCTS   # four client cases, then the studio's own products
 import re, json
 from urllib.parse import quote
@@ -1183,7 +1183,7 @@ html.js .sviz .a.x.on{opacity:0}
 /* ── hero, opening screen: headline on the left, handled work arriving on the right ── */
 .hp1{flex-direction:row;align-items:center;justify-content:center;text-align:left;gap:clamp(32px,5vw,80px);padding:calc(62px + 40px) var(--gut) 56px}
 .htxt{flex:1 1 0;min-width:0;max-width:640px}
-.hp1 h1{max-width:13ch;text-wrap:balance;font-size:clamp(2.5rem,5.2vw,4.9rem)}
+.hp1 h1{max-width:13ch;text-wrap:balance;font-size:clamp(2.4rem,min(5.2vw,8.6vh),4.9rem)}
 .hp1 .sub{max-width:48ch;margin-left:0}
 .hp1 .hbtns{justify-content:flex-start}
 .hfeed{flex:0 1 440px;min-width:0;border-radius:18px;background:rgba(233,231,222,.06);border:1px solid rgba(233,231,222,.12);
@@ -1219,6 +1219,29 @@ html.js .sviz .a.x.on{opacity:0}
   .hf-list{margin:10px 0}.hf-i{padding:10px 12px}.hf-tag{display:none}.hf-ft b{font-size:1.5rem}}
 @media(max-width:860px) and (max-height:760px){.hp1 .sub{display:none}}
 @media(prefers-reduced-motion:reduce){.hp1{padding-top:0}.hnote{opacity:1}}
+/* ── hero, round two: tools strip, drafting bar, recency, entrance ── */
+.htools{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:clamp(26px,3.4vw,40px);max-width:560px}
+.htools span{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(233,231,222,.5);margin-right:6px}
+.htools i{font-style:normal;font-size:12.5px;color:rgba(233,231,222,.78);padding:5px 11px;border-radius:999px;border:1px solid rgba(233,231,222,.14);background:rgba(233,231,222,.04)}
+.hf-i{position:relative;overflow:hidden}
+.hf-tm{grid-column:4;justify-self:end;font-style:normal;font-size:11px;color:rgba(233,231,222,.4);margin-top:-2px}
+.hf-st{grid-row:1}
+.hf-i{grid-template-rows:auto auto;row-gap:2px}
+.hf-ic{grid-row:1 / span 2}.hf-t{grid-row:1 / span 2}.hf-tag{grid-row:1 / span 2}
+.hf-bar{position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--ochre);transform-origin:0 50%;transform:scaleX(0);opacity:.9}
+.hf-i:not(.ok) .hf-bar{animation:hfbar 1.1s var(--ease-io) forwards}
+.hf-i.ok .hf-bar{opacity:0;transform:scaleX(1);transition:opacity .5s var(--ease)}
+@keyframes hfbar{to{transform:scaleX(1)}}
+.hf-i:first-child{background:rgba(233,231,222,.11);border-color:rgba(233,231,222,.16)}
+html.js:not(.hready) .htxt > *,html.js:not(.hready) .hfeed{opacity:0;transform:translateY(22px)}
+.htxt > *,.hfeed{transition:opacity .9s var(--ease),transform 1s var(--ease)}
+.htxt > :nth-child(2){transition-delay:.12s}.htxt > :nth-child(3){transition-delay:.22s}.htxt > :nth-child(4){transition-delay:.32s}.hfeed{transition-delay:.3s}
+.hfeed::before{content:"";position:absolute;inset:-30% -20%;z-index:-1;pointer-events:none;
+  background:radial-gradient(40% 40% at 60% 40%,rgba(43,76,111,.55),transparent 70%),radial-gradient(30% 30% at 30% 70%,rgba(180,116,58,.18),transparent 70%)}
+.hfeed{position:relative;isolation:isolate}
+@media(max-width:860px){.htools{display:none}.hf-tm{display:none}}
+@media(min-width:861px) and (max-height:780px){.htools{display:none}}
+@media(prefers-reduced-motion:reduce){html.js .htxt > *,html.js .hfeed{opacity:1!important;transform:none!important}.hf-bar{display:none}}
 </style></head><body>
 <header class="nav" id="nav">
   <a class="brand" href="#top">Loose Ends</a>
@@ -1245,6 +1268,7 @@ html.js .sviz .a.x.on{opacity:0}
     <h1>HEADLINE</h1>
     <p class="sub">INTROHERE</p>
     <div class="hbtns"><a class="btn" href="MAILTOHERE">HEROBTN</a><a class="tl" href="#work">HEROLINK</a></div>
+    <p class="htools"><span>Works with</span>HEROTOOLS</p>
     </div>
     <div class="hfeed" id="hfeed" aria-hidden="true">
       <div class="hf-hd"><span class="hf-live"><i></i>Handled today</span><span class="hf-s">Sample</span></div>
@@ -1395,16 +1419,19 @@ FOOTERHERE
     ["Meeting notes sent","Actions assigned to their owners","CRM"],["Newsletter drafted","Ready for review","Substack"]];
   var hnote=$('#hnote'), hfl=$('#hflist'), hfh=$('#hfh'), hfi=0, hft=0, hfOn=false, hfHours=0, HFMAX=innerWidth<860?(innerHeight<760?2:3):(innerHeight<780?4:5);
   function hfItem(f,fresh){var li=d.createElement('li');li.className='hf-i'+(fresh?' new':'');
-    li.innerHTML='<span class="hf-ic"></span><span class="hf-t"><b>'+f[0]+'</b><small>'+f[1]+'</small></span><span class="hf-tag">'+f[2]+'</span><span class="hf-st">Drafted</span>';
+    li.innerHTML='<span class="hf-ic"></span><span class="hf-t"><b>'+f[0]+'</b><small>'+f[1]+'</small></span><span class="hf-tag">'+f[2]+'</span><span class="hf-st">Drafting</span><em class="hf-tm"></em><i class="hf-bar"></i>';
     return li;}
   function hfPush(){var f=FEED[hfi++%FEED.length], li=hfItem(f,true);hfl.insertBefore(li,hfl.firstChild);
     requestAnimationFrame(function(){requestAnimationFrame(function(){li.classList.remove('new');});});
-    setTimeout(function(){li.classList.add('ok');var st=li.querySelector('.hf-st');if(st)st.textContent='Approved';},900);
+    setTimeout(function(){li.classList.add('ok');var st=li.querySelector('.hf-st');if(st)st.textContent='Approved';},1100);
     while(hfl.children.length>HFMAX)hfl.removeChild(hfl.lastChild);
+    hfTimes();
     if(hfHours<target){hfHours=Math.min(target,hfHours+2);hfh.textContent=hfHours;}}
+  var HFT=['now','2 min','6 min','14 min','31 min'];
+  function hfTimes(){[].forEach.call(hfl.children,function(li,i){var t=li.querySelector('.hf-tm');if(t)t.textContent=HFT[i]||'';});}
   function hfeedOn(on){if(RM||on===hfOn)return;hfOn=on;clearInterval(hft);if(on){hft=setInterval(function(){if(!d.hidden)hfPush();},2200);}}
   FEED.slice(0,HFMAX).reverse().forEach(function(f){var li=hfItem(f,false);li.classList.add('ok');li.querySelector('.hf-st').textContent='Approved';hfl.insertBefore(li,hfl.firstChild);});
-  hfi=HFMAX;hfHours=Math.round(target*.4);hfh.textContent=RM?target:hfHours;
+  hfi=HFMAX;hfTimes();hfHours=Math.round(target*.4);hfh.textContent=RM?target:hfHours;
 
   function heroPaint(p){
     var o1=1-clamp((p-.14)/.10); panel(hp1,o1,-26*(1-o1));
@@ -1428,6 +1455,7 @@ FOOTERHERE
   if(RM){man.forEach(function(c){c.classList.add('c');});hrs.textContent=target;sw.setAttribute('data-s','after');
     $$('button',sw).forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-s')==='after'));});}
   else heroPaint(0);
+  requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.add('hready');});});
   if(!RM)hfeedOn(true);
 
   /* services: one card is open and wide, the other two show only an index and a title */
@@ -1637,7 +1665,7 @@ faq = "\n".join(
 _hw = HEAD.split()
 HEAD_HTML = " ".join('<span%s style="--w:%d">%s</span>' % (' class="hl"' if i >= len(_hw)-HEAD_ACCENT else "", i, e(w)) for i,w in enumerate(_hw))
 HTML = (HTML.replace("HEADLINE", HEAD_HTML).replace("INTROHERE", e(INTRO)).replace("FOOTLINKS", "".join('<a href="/%s/">%s</a>' % (pg["slug"], e(pg["nav"])) for pg in PAGES)).replace("WEEKHERE", WEEK)
-            .replace("COUNTERTXT", e(COUNTER_TEXT)).replace("HEROBTN", e(HERO_BTN)).replace("HEROLINK", e(HERO_LINK)).replace("P2HEAD", e(PANEL2_HEAD)).replace("P2TEXT", e(PANEL2_TEXT))
+            .replace("COUNTERTXT", e(COUNTER_TEXT)).replace("HEROBTN", e(HERO_BTN)).replace("HEROLINK", e(HERO_LINK)).replace("HEROTOOLS", "".join("<i>%s</i>" % e(t) for t in HERO_TOOLS)).replace("P2HEAD", e(PANEL2_HEAD)).replace("P2TEXT", e(PANEL2_TEXT))
             .replace("WEEKNOTE", e(WEEK_NOTE)).replace("STMTLINK", e(STATEMENT_LINK)).replace("WORKLABEL", e(WORK_LABEL)).replace("WORKHEAD", e(WORK_HEAD))
             .replace("SERVLABEL", e(SERVICES_LABEL)).replace("SERVHEAD", e(SERVICES_HEAD)).replace("SYSLABEL", e(SYSTEMS_LABEL)).replace("SYSHEAD", e(SYSTEMS_HEAD))
             .replace("SYSNOTE", e(SYSTEMS_NOTE) % ('<a class="tl" href="/tools/stock-sales-production-tracker/">%s</a>' % e(SYSTEMS_NOTE_LINK)))

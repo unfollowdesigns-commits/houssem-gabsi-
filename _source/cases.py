@@ -8,6 +8,8 @@ INTRO = ("Loose Ends is a one-person studio. It designs and builds the websites,
          "that established firms in the US and Europe work on every day.")
 HERO_BTN = "Request a free review"
 HERO_LINK = "See the work"
+# tool names shown under the hero buttons
+HERO_TOOLS = ["Gmail", "Slack", "Claude", "Shopify", "Substack", "Google Sheets", "Loxo"]
 PANEL2_HEAD = "A week, before."
 PANEL2_TEXT = "Answering, confirming, chasing, retyping. Each ochre block is an hour spent moving information from one place to another."
 COUNTER_TEXT = "hours a week returned to the team."
