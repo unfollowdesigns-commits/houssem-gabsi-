@@ -41,6 +41,7 @@ Keep all of these on the page. Houssem has had to repeat them.
 - Audience: any business, from an independent professional to an established firm. The page must not read as if it serves one industry. Recruiting is one example among several. Not "founders", not "struggling".
 - No background or CV content on the page. It shows what the studio builds.
 - Do not advertise speed of delivery.
+- Prices: the starting prices in `PRICING` (cases.py) were set by Houssem on 17 Nov 2026 at the average market price. Change them only when he asks.
 - The questions section and the hidden structured data are generated from the same list in `cases.py`, so they always match.
 - The page title and search description are set at the end of `cases.py`. The site address is set near the structured data in `build.py`.
 - The wording in `cases.py` was supplied word for word by Houssem (16 Nov 2026). Do not rewrite, shorten or "improve" it.

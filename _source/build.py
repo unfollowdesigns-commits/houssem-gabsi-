@@ -4,7 +4,7 @@ from cases import (HEAD_TEXT, INTRO, HERO_BTN, HERO_LINK, PANEL2_HEAD, PANEL2_TE
     WORK_LABEL, WORK_HEAD, CASES, SERVICES_LABEL, SERVICES_HEAD, WHAT, EXAMPLES, SYSTEMS_LABEL, SYSTEMS_HEAD, SYSTEMS, SYSTEMS_NOTE, SYSTEMS_NOTE_LINK,
     CAPACITY_LABEL, CAPACITY_HEAD, CAPACITY_INTRO, ENQUIRY_LABEL, ENQUIRY_HEAD, ENQUIRY_INTRO, COMMIT_LABEL, COMMIT_HEAD, RULES,
     PROCESS_LABEL, PROCESS_HEAD, PROCESS_INTRO, HOW, FAQ_LABEL, FAQ_HEAD, FAQ, CLOSE_HEAD, CLOSE_TEXT, CLOSE_BTN, CLOSE_NOTE,
-    FOOT_DESC, PAGE_TITLE, PAGE_DESC, HERO_TOOLS, CTA_NOTE, CTA_CONNECT, PRODUCTS, PRODUCTS_LABEL, ANY_NOTE)
+    FOOT_DESC, PAGE_TITLE, PAGE_DESC, HERO_TOOLS, PRICING_LABEL, PRICING_HEAD, PRICING_INTRO, PRICING, CTA_NOTE, CTA_CONNECT, PRODUCTS, PRODUCTS_LABEL, ANY_NOTE)
 WORK = CASES + PRODUCTS   # four client cases, then the studio's own products
 import re, json
 from urllib.parse import quote
@@ -108,8 +108,12 @@ LD = json.dumps({"@context":"https://schema.org","@graph":[
   "areaServed":["United States","Europe"],
   "availableLanguage":LANGS,
   "knowsAbout":["website design and build","booking systems","dashboards","process automation","invoice and quote follow-up","candidate scoring for recruiting firms","integrations with email, Slack, Loxo and BrightHire","newsletter automation","Shopify and Etsy shops","Substack newsletters","setting up Claude and other AI assistants for teams","search engine optimisation","generative engine optimisation","content systems","social media content","video editing","motion graphics","answer engine optimisation","branding"],
-  "hasOfferCatalog":{"@type":"OfferCatalog","name":"Services","itemListElement":[
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":t,"description":d,"provider":{"@id":SITE+"#studio"}}} for _,_,t,d in WHAT]}},
+  "priceRange":"$1,500 to $9,000 and up",
+  "hasOfferCatalog":{"@type":"OfferCatalog","name":"Services and starting prices","itemListElement":[
+    {"@type":"Offer","name":n,"description":d,"priceCurrency":"USD",
+     "priceSpecification":{"@type":"PriceSpecification","priceCurrency":"USD",
+       **({"price":0} if v == "Free" else ({"minPrice":int(v.strip("$").replace(",","")),"unitText":"MONTH"} if u == "a month" else {"minPrice":int(v.strip("$").replace(",",""))}))},
+     "itemOffered":{"@type":"Service","name":n,"provider":{"@id":SITE+"#studio"}}} for n,v,u,d in PRICING]}},
  {"@type":"Person","@id":SITE+"#person","name":"Houssem Gabsi","url":SITE,**({"email":EMAIL} if EMAIL else {}),
   "worksFor":{"@id":SITE+"#studio"},"knowsLanguage":LANGS},
  {"@type":"ItemList","@id":SITE+"#work","name":"Selected work","itemListElement":[
@@ -134,6 +138,8 @@ def _llms():
         L += ["", "### " + c["who"], "", c["did"], "", "Status: " + c["now"]]
     L += ["", "## Systems", ""]
     L += ["- %s: %s Status: %s" % (a, c, d) for a,b,c,d in SYSTEMS]
+    L += ["", "## Pricing", "", PRICING_INTRO, ""]
+    L += ["- %s: %s%s. %s" % (n, v, (" " + u if u == "a month" else "") if v != "Free" else "", d) if u != "from" else "- %s: from %s. %s" % (n, v, d) for n, v, u, d in PRICING]
     L += ["", "## How an engagement starts", ""]
     L += ["%d. %s %s" % (i+1, a, b) for i,(a,b,_) in enumerate(HOW[:3])]
     L += ["", "## Contact", "",
@@ -169,6 +175,8 @@ def _md():
     L += ["- **%s** %s" % (a, b) for a,b in RULES]
     L += ["", "## " + PROCESS_HEAD, "", PROCESS_INTRO, ""]
     L += ["%d. **%s** %s (%s)" % (i+1, a, b, t) for i,(a,b,t) in enumerate(HOW)]
+    L += ["", "## " + PRICING_HEAD, "", PRICING_INTRO, ""]
+    L += ["- **%s:** %s%s. %s" % (n, ("from " if u == "from" else ""), v + (" a month" if u == "a month" else ""), d) for n, v, u, d in PRICING]
     L += ["", "## " + FAQ_HEAD]
     for q,a in FAQ: L += ["", "### " + q, "", a]
     L += ["", "## " + CLOSE_HEAD, "", CLOSE_TEXT, "", CLOSE_NOTE, "",
@@ -1221,7 +1229,7 @@ html.js .sviz .a.x.on{opacity:0}
 @media(prefers-reduced-motion:reduce){.hp1{padding-top:0}.hnote{opacity:1}}
 /* ── hero, round two: tools strip, drafting bar, recency, entrance ── */
 .htools{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:clamp(26px,3.4vw,40px);max-width:560px}
-.htools span{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(233,231,222,.5);margin-right:6px}
+.htools > span{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(233,231,222,.5);margin-right:6px}
 .htools i{font-style:normal;font-size:12.5px;color:rgba(233,231,222,.78);padding:5px 11px;border-radius:999px;border:1px solid rgba(233,231,222,.14);background:rgba(233,231,222,.04)}
 .hf-i{position:relative;overflow:hidden}
 .hf-tm{grid-column:4;justify-self:end;font-style:normal;font-size:11px;color:rgba(233,231,222,.4);margin-top:-2px}
@@ -1242,10 +1250,37 @@ html.js:not(.hready) .htxt > *,html.js:not(.hready) .hfeed{opacity:0;transform:t
 @media(max-width:860px){.htools{display:none}.hf-tm{display:none}}
 @media(min-width:861px) and (max-height:780px){.htools{display:none}}
 @media(prefers-reduced-motion:reduce){html.js .htxt > *,html.js .hfeed{opacity:1!important;transform:none!important}.hf-bar{display:none}}
+/* ── pricing ── */
+.prices{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:var(--h2gap)}
+.price{display:flex;flex-direction:column;padding:22px 22px 24px;border-radius:var(--r-card);background:var(--wall-2);
+  box-shadow:inset 0 0 0 1px rgba(27,32,28,.06),0 24px 40px -34px rgba(27,32,28,.45)}
+.price h3{font-family:Archivo,sans-serif;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);line-height:1.3}
+.price .pr{display:flex;align-items:baseline;gap:8px;margin-top:18px}
+.price .pr b{font-family:Fraunces,serif;font-weight:300;font-size:clamp(2.1rem,3vw,2.7rem);line-height:1;letter-spacing:-.02em;color:var(--ink)}
+.price .pr small{font-size:13px;color:var(--ink-soft)}
+.price .pr small:first-child{order:-1}
+.price > p:last-child{margin-top:16px;font-size:14.5px;line-height:1.5;color:var(--ink-soft)}
+.price.free{background:var(--ink);color:var(--wall)}
+.price.free h3,.price.free > p:last-child{color:rgba(233,231,222,.7)}
+.price.free .pr b{color:var(--ochre)}
+@media(max-width:1000px){.prices{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.prices{grid-template-columns:1fr}}
+/* ── hero tools: one moving line ── */
+.htools{display:flex;align-items:center;gap:14px;flex-wrap:nowrap;max-width:600px;overflow:hidden}
+.htools > span{flex:none}
+.hmq{flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 88%,transparent)}
+.htrack{display:flex;gap:8px;width:max-content;animation:hmq 60s linear infinite}
+.htrack i{flex:none}
+@media(hover:hover){.htools:hover .htrack{animation-play-state:paused}}
+@keyframes hmq{to{transform:translateX(-50%)}}
+@media(min-width:861px) and (max-height:780px){.htools{display:flex}}
+@media(max-width:860px){.htools{display:none}}
+@media(max-width:860px) and (max-height:760px){.htools{display:none}}
+@media(prefers-reduced-motion:reduce){.htrack{animation:none}.hmq{-webkit-mask-image:none;mask-image:none}.htrack{flex-wrap:wrap;width:auto}}
 </style></head><body>
 <header class="nav" id="nav">
   <a class="brand" href="#top">Loose Ends</a>
-  <nav aria-label="Sections"><a href="#services">Services</a><a href="#work">Work</a><a href="#systems">Systems</a><a href="#process">Process</a><a href="#questions">Questions</a><a href="/blog/">Blog</a><i class="ind" id="ind"></i></nav>
+  <nav aria-label="Sections"><a href="#services">Services</a><a href="#work">Work</a><a href="#systems">Systems</a><a href="#process">Process</a><a href="#pricing">Pricing</a><a href="#questions">Questions</a><a href="/blog/">Blog</a><i class="ind" id="ind"></i></nav>
   <a class="btn sm mag" href="MAILTOHERE">Free review</a>
 </header>
 
@@ -1268,7 +1303,7 @@ html.js:not(.hready) .htxt > *,html.js:not(.hready) .hfeed{opacity:0;transform:t
     <h1>HEADLINE</h1>
     <p class="sub">INTROHERE</p>
     <div class="hbtns"><a class="btn" href="MAILTOHERE">HEROBTN</a><a class="tl" href="#work">HEROLINK</a></div>
-    <p class="htools"><span>Works with</span>HEROTOOLS</p>
+    <div class="htools"><span>Works with</span><div class="hmq">HEROTOOLS</div></div>
     </div>
     <div class="hfeed" id="hfeed" aria-hidden="true">
       <div class="hf-hd"><span class="hf-live"><i></i>Handled today</span><span class="hf-s">Sample</span></div>
@@ -1361,6 +1396,13 @@ DIVHERE
   <p class="intro-l">PROINTRO</p>
   <div class="track" aria-hidden="true"><i id="trk"></i></div>
   <ol class="how">HOWHERE</ol>
+</div></section>
+
+<section id="pricing"><div class="wrap">
+  <p class="lab">PRILABEL</p>
+  <h2>PRIHEAD</h2>
+  <p class="intro-l">PRIINTRO</p>
+  <div class="prices">PRICESHERE</div>
 </div></section>
 
 DIVHERE
@@ -1561,7 +1603,7 @@ ASK_Q = ("Tell me about Loose Ends (houssem-gabsi.vercel.app), a studio run by H
 ASK = [("ChatGPT", "https://chatgpt.com/?q="), ("Claude", "https://claude.ai/new?q="), ("Perplexity", "https://www.perplexity.ai/search?q=")]
 def footer_html(home):
     sec = "".join('<a href="%s#%s">%s</a>' % (home, i, n) for i, n in
-                  [("services","Services"),("work","Work"),("systems","Systems"),("process","Process"),("questions","Questions")]) + '<a href="/blog/">Blog</a>'
+                  [("services","Services"),("work","Work"),("systems","Systems"),("process","Process"),("pricing","Pricing"),("questions","Questions")]) + '<a href="/blog/">Blog</a>'
     pgs = "".join('<a href="/%s/">%s</a>' % (pg["slug"], e(pg["nav"])) for pg in PAGES)
     contact = ('<a href="mailto:%s">%s</a>' % (EMAIL, EMAIL)) if EMAIL else '<a href="%s#contact">Request a free review</a>' % home
     ask = "".join('<a href="%s%s" target="_blank" rel="noopener">%s</a>' % (u, quote(ASK_Q), n) for n, u in ASK)
@@ -1665,7 +1707,7 @@ faq = "\n".join(
 _hw = HEAD.split()
 HEAD_HTML = " ".join('<span%s style="--w:%d">%s</span>' % (' class="hl"' if i >= len(_hw)-HEAD_ACCENT else "", i, e(w)) for i,w in enumerate(_hw))
 HTML = (HTML.replace("HEADLINE", HEAD_HTML).replace("INTROHERE", e(INTRO)).replace("FOOTLINKS", "".join('<a href="/%s/">%s</a>' % (pg["slug"], e(pg["nav"])) for pg in PAGES)).replace("WEEKHERE", WEEK)
-            .replace("COUNTERTXT", e(COUNTER_TEXT)).replace("HEROBTN", e(HERO_BTN)).replace("HEROLINK", e(HERO_LINK)).replace("HEROTOOLS", "".join("<i>%s</i>" % e(t) for t in HERO_TOOLS)).replace("P2HEAD", e(PANEL2_HEAD)).replace("P2TEXT", e(PANEL2_TEXT))
+            .replace("COUNTERTXT", e(COUNTER_TEXT)).replace("HEROBTN", e(HERO_BTN)).replace("HEROLINK", e(HERO_LINK)).replace("HEROTOOLS", '<span class="htrack">%s</span>' % ("".join("<i>%s</i>" % e(t) for t in HERO_TOOLS) * 2)).replace("PRILABEL", e(PRICING_LABEL)).replace("PRIHEAD", e(PRICING_HEAD)).replace("PRIINTRO", e(PRICING_INTRO)).replace("PRICESHERE", "".join('<div class="price%s"><h3>%s</h3><p class="pr">%s<b>%s</b>%s</p><p>%s</p></div>' % (" free" if v == "Free" else "", e(n), ('<small>%s</small>' % e(u)) if u == "from" else "", e(v), ('<small>%s</small>' % e(u)) if u and u != "from" else "", e(d)) for n, v, u, d in PRICING)).replace("P2HEAD", e(PANEL2_HEAD)).replace("P2TEXT", e(PANEL2_TEXT))
             .replace("WEEKNOTE", e(WEEK_NOTE)).replace("STMTLINK", e(STATEMENT_LINK)).replace("WORKLABEL", e(WORK_LABEL)).replace("WORKHEAD", e(WORK_HEAD))
             .replace("SERVLABEL", e(SERVICES_LABEL)).replace("SERVHEAD", e(SERVICES_HEAD)).replace("SYSLABEL", e(SYSTEMS_LABEL)).replace("SYSHEAD", e(SYSTEMS_HEAD))
             .replace("SYSNOTE", e(SYSTEMS_NOTE) % ('<a class="tl" href="/tools/stock-sales-production-tracker/">%s</a>' % e(SYSTEMS_NOTE_LINK)))

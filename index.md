@@ -243,6 +243,19 @@ The first step is free. The audit findings belong to the firm whether or not any
 4. **Hand it over.** The team is trained and every routine has a named owner. Code, domain and accounts belong to the firm. (Handover)
 5. **Stay, if useful.** Optional monthly support. (Optional)
 
+## One fixed price for every build, agreed in writing.
+
+Starting prices in US dollars. The exact price is set after the audit and confirmed in writing before work begins. There is no hourly billing.
+
+- **Free review:** Free. A one-page review of where the firm loses time. No call required.
+- **Systems audit:** $1,500. The first fixes ranked by what they return. The fee is credited toward the build.
+- **Automation:** from $3,000. Follow-up, bookings, reports or screening, built inside the tools already in use. A person approves before anything is sent.
+- **AI assistant setup:** from $4,500. Claude or another assistant connected to the firm's own data, with shared instructions and training for the team.
+- **Websites and online shops:** from $5,000. Designed and built end to end, including Shopify and Etsy, with visibility in search and AI answers.
+- **Applications and integrations:** from $9,000. Booking applications, dashboards, client portals and custom API or MCP connections.
+- **Brand and content:** from $3,500. Identity, illustration, video and a content system that turns one idea into a week of publishing.
+- **Ongoing support:** $600 a month. Changes, monitoring and new routines as the firm grows. Optional, and cancellable at any time.
+
 ## What firms ask before they start.
 
 ### What does Loose Ends build for a firm?

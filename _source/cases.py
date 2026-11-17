@@ -9,7 +9,10 @@ INTRO = ("Loose Ends is a one-person studio. It designs and builds the websites,
 HERO_BTN = "Request a free review"
 HERO_LINK = "See the work"
 # tool names shown under the hero buttons
-HERO_TOOLS = ["Gmail", "Slack", "Claude", "Shopify", "Substack", "Google Sheets", "Loxo"]
+HERO_TOOLS = ["Gmail", "Outlook", "Google Calendar", "Slack", "Microsoft Teams", "Claude", "ChatGPT", "Notion", "Airtable",
+              "Google Sheets", "Excel", "HubSpot", "Salesforce", "Pipedrive", "Shopify", "Etsy", "WooCommerce", "Stripe",
+              "QuickBooks", "Xero", "Calendly", "Substack", "Mailchimp", "LinkedIn", "Instagram", "WordPress", "Webflow",
+              "Google Drive", "Dropbox", "DocuSign", "Zoom", "Asana", "Loxo", "BrightHire", "Zapier", "Make", "n8n"]
 PANEL2_HEAD = "A week, before."
 PANEL2_TEXT = "Answering, confirming, chasing, retyping. Each ochre block is an hour spent moving information from one place to another."
 COUNTER_TEXT = "hours a week returned to the team."
@@ -151,6 +154,21 @@ HOW = [
  ("Build one thing.", "The fix with the most hours in it, at one price agreed in writing.", "Fixed price"),
  ("Hand it over.", "The team is trained and every routine has a named owner. Code, domain and accounts belong to the firm.", "Handover"),
  ("Stay, if useful.", "Optional monthly support.", "Optional"),
+]
+
+# ── pricing. Set by Houssem on 17 Nov 2026 at the average market price for this work (US dollars, starting prices). ──
+PRICING_LABEL = "Pricing"
+PRICING_HEAD = "One fixed price for every build, agreed in writing."
+PRICING_INTRO = "Starting prices in US dollars. The exact price is set after the audit and confirmed in writing before work begins. There is no hourly billing."
+PRICING = [
+ ("Free review", "Free", "", "A one-page review of where the firm loses time. No call required."),
+ ("Systems audit", "$1,500", "", "The first fixes ranked by what they return. The fee is credited toward the build."),
+ ("Automation", "$3,000", "from", "Follow-up, bookings, reports or screening, built inside the tools already in use. A person approves before anything is sent."),
+ ("AI assistant setup", "$4,500", "from", "Claude or another assistant connected to the firm's own data, with shared instructions and training for the team."),
+ ("Websites and online shops", "$5,000", "from", "Designed and built end to end, including Shopify and Etsy, with visibility in search and AI answers."),
+ ("Applications and integrations", "$9,000", "from", "Booking applications, dashboards, client portals and custom API or MCP connections."),
+ ("Brand and content", "$3,500", "from", "Identity, illustration, video and a content system that turns one idea into a week of publishing."),
+ ("Ongoing support", "$600", "a month", "Changes, monitoring and new routines as the firm grows. Optional, and cancellable at any time."),
 ]
 
 # ── questions. The hidden structured data is generated from this same list. ──
