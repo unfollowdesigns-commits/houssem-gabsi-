@@ -3,101 +3,101 @@
   "slug": "what-is-mcp-model-context-protocol",
   "title": "What Is MCP? Model Context Protocol in Plain Language",
   "h1": "What is MCP (Model Context Protocol), and what does it change for a firm",
-  "desc": "MCP, the Model Context Protocol, is an open standard that connects AI assistants to a firm's tools and data. How a connector works and what to connect first.",
+  "desc": "MCP, the Model Context Protocol, is an open standard that lets AI assistants reach a firm's tools and data. How a connector works, and what to connect first.",
   "category": "Connections",
-  "lead": "MCP, the Model Context Protocol, is an open standard introduced by Anthropic in November 2024 that lets an AI assistant connect to other tools and data: email, calendars, files, databases and business software. For a firm, it means the assistant can read and act on the firm's own information instead of only what someone pastes into the chat.",
+  "lead": "MCP, the Model Context Protocol, is an open standard Anthropic introduced in November 2024. It lets an AI assistant connect to other tools and data, such as email, calendars, files, databases and business software. For a firm, that means the assistant can read and act on the firm's own information, instead of only what someone pastes into the chat.",
   "short": [
-   "MCP is an open standard for connecting AI assistants to tools and data, introduced by Anthropic in November 2024.",
+   "MCP is an open standard, introduced by Anthropic in November 2024, for connecting AI assistants to tools and data.",
    "A connector (an MCP server) sits between the assistant and one tool, and decides what the assistant can see and do there.",
-   "Permissions matter more than the technology: start with read access and keep a person approving anything sent to a client.",
-   "Connect first the tool the team copies from most often, usually email, calendar, a shared drive or the main client database."
+   "Permissions matter more than the technology. Start with read access, and have a person approve anything sent to a client.",
+   "Connect first the tool the team copies from most. That's usually email, calendar, a shared drive or the main client database."
   ],
   "sections": [
    {
     "h2": "What is MCP, in plain language?",
     "body": [
-     "MCP stands for Model Context Protocol. It is a shared set of rules that describes how an AI assistant asks another piece of software for information, and how that software answers. Anthropic introduced it as an open standard in November 2024, and other AI companies and software makers have since adopted it.",
-     "The easiest comparison is a standard plug. Before a shared plug exists, every device needs its own adapter. Once the plug is agreed, any device that follows it fits any socket that follows it. MCP plays that role between AI assistants and the tools a firm already uses.",
-     "Without a connection, an assistant only knows what it was trained on and what someone types or pastes into the conversation. With a connection, it can look things up in the firm's own records, at the moment the question is asked."
+     "MCP stands for Model Context Protocol. It's an agreed set of rules for how an AI assistant asks another piece of software for information, and how that software answers. Anthropic released it as an open standard in November 2024, and other AI companies and software makers have since adopted it.",
+     "Think of a standard plug. Before everyone agrees on one, each device needs its own adapter. Once the plug is agreed, anything built to it fits any socket built to it. MCP does that job between AI assistants and the tools a firm already uses.",
+     "Without a connection, an assistant knows what it was trained on and whatever someone types into the conversation. That's all. Connect it, and it can look things up in the firm's records at the moment the question is asked."
     ]
    },
    {
     "h2": "What does MCP change for a firm's AI assistant?",
     "body": [
-     "Most of the time spent with an assistant today goes into feeding it. Someone opens the client file, copies the relevant part, pastes it in, asks the question, then copies the answer back into another tool. The assistant is capable, but it is working blind.",
-     "Once the assistant is connected to the firm's tools, the same work looks different:",
+     "Watch someone use an assistant today and most of the effort goes into feeding it. They open the client file, copy the relevant part, paste it in, ask the question, then copy the answer back into another tool. The assistant is capable enough. It just can't see anything.",
+     "Connected to the firm's tools, the same assistant can do things like these:",
      [
-      "It can find the latest thread with a client in the inbox instead of waiting for someone to paste it.",
-      "It can check the calendar before drafting a reply that proposes a meeting time.",
-      "It can read a record in the client or candidate database and answer a question about it.",
-      "It can prepare a document from a template stored in the shared drive and file it in the right folder.",
-      "It can draft a message, which a person then reads and approves before it goes to a client."
+      "Find the latest thread with a client in the inbox, without anyone pasting it in.",
+      "Check the calendar before drafting a reply that suggests a meeting time.",
+      "Read a record in the client or candidate database and answer a question about it.",
+      "Prepare a document from a template in the shared drive and file it in the right folder.",
+      "Draft a reply to a client and leave it waiting in the drafts folder."
      ],
-     "The assistant has not become smarter. It has been given access to the information the team already holds, which is usually what was missing."
+     "None of this makes the assistant smarter. It gets access to what the team already holds, which was usually the missing piece."
     ]
    },
    {
     "h2": "How does an MCP connector work?",
     "body": [
-     "A connector, also called an MCP server, is a small program that sits between the assistant and one tool. It tells the assistant what it can do in that tool, such as search messages, read a record or create a draft. When the assistant needs something, it asks the connector, and the connector fetches it from the tool and hands it back.",
-     "In practice, the steps look like this:",
+     "A connector, also called an MCP server, is a small program that sits between the assistant and one tool. It tells the assistant what it's allowed to do there, such as search messages, read a record or create a draft. When the assistant needs something, it asks the connector, which fetches it from the tool and hands it back.",
+     "Here's what happens, step by step:",
      [
-      "A team member asks the assistant a question that needs outside information.",
-      "The assistant sees which connectors are available and which actions each one offers.",
-      "It calls the right action, for example a search in the recruiting database.",
-      "The connector checks the permissions it was given, then runs the request in the tool.",
-      "The result comes back to the assistant, which uses it in its answer and can say where it came from."
+      "A team member asks a question that needs outside information.",
+      "The assistant checks which connectors are available and what each one offers.",
+      "It calls the right action, say a search in the recruiting database.",
+      "The connector checks its permissions, then runs the request in the tool.",
+      "The result comes back, and the assistant uses it in its answer and can say where it came from."
      ],
-     "Many common tools already have ready connectors, and Claude offers a directory of them. When a tool has none, a connector can be built against the tool's own API, the interface the software provides for other programs."
+     "Plenty of common tools already have ready connectors, and Claude keeps a directory of them. If a tool has none, a connector can be built against the tool's API, the interface the software offers to other programs."
     ]
    },
    {
     "h2": "What do permissions mean, and why do they matter?",
     "body": [
-     "A connector acts with the access it is given, usually the access of the person who signs in. If that person can read every client file, the assistant can too. If the connector is allowed to send email, the assistant can send email. Setting permissions is the most important decision in the whole setup.",
-     "A careful setup separates three kinds of access. Read access lets the assistant look things up. Draft access lets it prepare messages and documents without sending them. Write or send access lets it change records or send things on the firm's behalf.",
-     "Loose Ends starts with read access, adds draft access where a routine needs it, and keeps a person approving anything that goes to a client. Most assistants also ask for confirmation before an action that changes something, and that confirmation should stay switched on. It is also worth checking which data the firm is comfortable letting the assistant see at all, and leaving sensitive folders out."
+     "A connector acts with the access it's given, which is usually the access of whoever signs in. If that person can open every client file, so can the assistant. If the connector is allowed to send email, the assistant can send email. Of all the decisions in the setup, this one matters most.",
+     "It helps to separate three levels. Read access lets the assistant look things up. Draft access lets it prepare messages and documents without sending them. Write or send access lets it change records or send things on the firm's behalf.",
+     "Loose Ends starts with read access and adds draft access where a routine needs it. A person approves anything that goes to a client. Most assistants also ask for confirmation before an action that changes something, and that setting should stay on. Before connecting anything, decide which data the firm is comfortable letting the assistant see at all, and leave sensitive folders out."
     ]
    },
    {
     "h2": "What should a firm connect first?",
     "body": [
-     "The best first connection is the tool the team copies from most often. A simple test: watch a normal week and note every time someone opens one tool only to copy text into the assistant or into another tool. That tool is the first candidate.",
-     "For most firms, the order looks something like this:",
+     "Start with the tool the team copies from most. There's an easy way to find it. Watch an ordinary week and note every time someone opens a tool only to copy text into the assistant or into another tool. Whichever tool keeps coming up goes first.",
+     "In most firms the order runs roughly like this:",
      [
       "Email and calendar, because answering, confirming and scheduling touch almost every role.",
-      "The shared drive or document store, so the assistant can work from the firm's own templates, past proposals and notes.",
-      "The main client, case or candidate database, where the questions that matter most are answered.",
-      "Team chat such as Slack, so the assistant can find decisions that were made in a conversation and never written down."
+      "The shared drive or document store, so the assistant can work from the firm's templates, past proposals and notes.",
+      "The main client, case or candidate database, where the questions that matter most get answered.",
+      "Team chat such as Slack, where decisions get made in conversation and are never written down anywhere else."
      ],
-     "One connection used well is worth more than several that nobody trusts. Add the next one once the team relies on the first."
+     "One connection the team trusts beats several it doesn't. Add the next once people rely on the first."
     ]
    },
    {
     "h2": "How does Loose Ends set up MCP connections?",
     "body": [
-     "The studio connects Claude and other assistants to the tools a firm already has: email, calendar, Slack, spreadsheets and databases, Loxo, BrightHire, Shopify, Etsy and Substack, using any ready Claude connector and building a custom API integration when none exists. Each connection is set up with the narrowest access that does the job, and tested on real questions from the team before handover.",
-     "At handover, every routine that uses a connection has a named owner inside the firm, and the team is trained on what the assistant can and cannot reach. The code, accounts and access belong to the firm, not to the studio.",
-     "To see where a connection would save the team the most retyping and copying, ask Loose Ends for the free one-page review of where the firm loses time; no call is required."
+     "The studio connects Claude and other assistants to the tools a firm already runs on: email, calendar, Slack, spreadsheets and databases, Loxo, BrightHire, Shopify, Etsy and Substack. It uses a ready Claude connector where one exists and builds a custom API integration where none does. Each connection gets the narrowest access that does the job, and it's tested on real questions from the team before handover.",
+     "At handover, every routine that uses a connection has a named owner inside the firm. The team learns what the assistant can and can't reach. Code, accounts and access belong to the firm.",
+     "To find out where a connection would save the most copying and retyping, ask Loose Ends for the free one-page review of where the firm loses time. No call is needed."
     ]
    }
   ],
   "faq": [
    {
     "q": "Is MCP only for Claude?",
-    "a": "No. Anthropic introduced MCP as an open standard, and other AI assistants and tools have adopted it. A connector built to the standard can work with any assistant that supports it."
+    "a": "No. Anthropic released MCP as an open standard, and other AI assistants and tools have adopted it. A connector built to the standard works with any assistant that supports it."
    },
    {
     "q": "Does connecting an assistant to our tools mean it can send email on its own?",
-    "a": "Only if the connector is given that permission. A careful setup gives read and draft access first, and a person approves anything before it is sent to a client."
+    "a": "Only if the connector has that permission. A careful setup starts with read and draft access, and a person approves anything before it goes to a client."
    },
    {
     "q": "What if the tool we use has no MCP connector?",
-    "a": "If the tool has an API, a connector can usually be built against it. That takes more work and needs maintenance, so it is worth doing for the tools the team uses every day."
+    "a": "If it has an API, a connector can usually be built against it. That takes more work and needs looking after, so it's worth it for tools the team uses every day."
    },
    {
     "q": "Do we need a developer to use MCP?",
-    "a": "Ready connectors can often be switched on from the assistant's settings. Choosing permissions, testing, and building connectors for tools without one is where outside help is useful."
+    "a": "Not always. Ready connectors can often be switched on from the assistant's settings. Outside help earns its place in choosing permissions, testing, and building connectors for tools that don't have one."
    }
   ],
   "keywords": [
@@ -116,93 +116,93 @@
   "h1": "How to set up Claude for a team so it works from the firm's own data",
   "desc": "Setting up Claude for a team means a shared workspace, projects that hold the firm's context, connections to its tools, reusable instructions and training.",
   "category": "AI assistants",
-  "lead": "Setting up Claude for a team means more than buying seats. A useful setup gives the team a shared workspace, projects that hold the firm's own context, connections to the tools where its data lives, written instructions for the tasks it repeats every week, and training so each person knows what to ask.",
+  "lead": "Buying seats is the easy part of setting up Claude for a team. A useful setup adds a shared workspace, projects that hold the firm's own context, connections to the tools where its data lives, written instructions for the tasks it repeats every week, and training so each person knows what to ask.",
   "short": [
-   "Start with a shared workspace and a project for each area of work, holding the firm's own documents and context.",
-   "Connect the assistant to the tools the team copies from most, so it works from live records instead of pasted text.",
-   "Write reusable instructions for weekly tasks, so the same job runs the same way whoever asks.",
-   "Train the team on real tasks and give each routine a named owner inside the firm."
+   "Begin with a shared workspace and one project per area of work, holding the firm's own documents.",
+   "Connect the assistant to the tools the team copies from most, so it reads live records instead of pasted text.",
+   "Write reusable instructions for weekly tasks, so the same job comes out the same way whoever asks.",
+   "Train the team on its real tasks, and give each routine a named owner inside the firm."
   ],
   "sections": [
    {
     "h2": "What does a Claude setup for a team include?",
     "body": [
-     "A team that signs up and starts typing gets a capable assistant that knows nothing about the firm. Every conversation starts from zero, and each person explains the same background again. The setup is the work of giving the assistant that background once, so the team can spend its time on the actual task.",
-     "A complete setup covers five parts:",
+     "Sign a team up, let everyone start typing, and they get a capable assistant that knows nothing about the firm. Every conversation starts from zero. Each person explains the same background again, and then again next week.",
+     "Setup is the work of giving the assistant that background once, so the team can spend its time on the task itself. A complete setup covers these parts:",
      [
-      "A shared workspace where the team's accounts, settings and access are managed in one place.",
-      "Projects that hold the firm's own context: how it writes, what it offers, its templates and reference documents.",
+      "A shared workspace, where the team's accounts, settings and access are managed in one place.",
+      "Projects that hold the firm's context: how it writes, what it offers, its templates and reference documents.",
       "Connections to the tools where the firm's data lives, such as email, calendar, shared drive and the main database.",
       "Reusable instructions for the tasks the team repeats every week.",
-      "Training and ownership, so people use it and someone keeps it current."
+      "Training and ownership, so people actually use it and someone keeps it current."
      ]
     ]
    },
    {
     "h2": "How should the workspace and projects be organised?",
     "body": [
-     "The workspace is the firm's account: who has access, which features are switched on, which connections are allowed. It should be set up by one person who understands what data the firm is comfortable sharing with the assistant.",
-     "Projects are where the real value sits. A project groups conversations around one area of work and holds the documents and instructions the assistant should always have at hand. A firm might have one project for client proposals, one for recruiting, one for marketing content and one for internal reporting.",
-     "Each project should contain the firm's own material: past proposals that worked, the house style for reports, the description of services, the standard terms. When a team member opens that project, the assistant already knows how the firm writes and what it offers. Nobody has to paste it in again.",
-     "It is worth keeping projects few and clearly named at the start. A team that opens the assistant and sees a handful of projects matching its real areas of work knows where to begin. Old drafts and personal experiments belong in personal space, not in the shared projects."
+     "The workspace is the firm's account. It decides who has access, which features are on and which connections are allowed. One person should set it up, ideally someone who knows what data the firm is comfortable sharing with an assistant.",
+     "Projects are where most of the value sits. A project groups conversations around one area of work and keeps the documents and instructions the assistant should always have to hand. A firm might have one for client proposals, one for recruiting, one for marketing content and one for internal reporting.",
+     "Fill each project with the firm's own material. Past proposals that won work. The house style for reports. The description of services and the standard terms. Open the project and the assistant already knows how the firm writes and what it sells, so nobody pastes that in again.",
+     "Keep projects few and clearly named at first. A team that opens the assistant and sees a short list matching its real areas of work knows where to begin. Old drafts and personal experiments belong in personal space."
     ]
    },
    {
     "h2": "Which connections should come first?",
     "body": [
-     "The assistant becomes much more useful once it can reach the firm's records directly. Claude connects to other tools through MCP, the Model Context Protocol, an open standard introduced by Anthropic in November 2024. Many common tools already have a ready connector.",
-     "The right first connection is the tool the team copies from most. In many firms that is email and calendar, then the shared drive, then the main client or candidate database. Each connection starts with read access. Draft access is added where a routine needs it, and a person approves anything before it is sent to a client.",
-     "Where a tool has no ready connector, Loose Ends builds the integration against the tool's own API, so the assistant can still work from that data."
+     "Once the assistant can reach the firm's records directly, it gets a lot more useful. Claude connects to other tools through MCP, the Model Context Protocol, an open standard Anthropic introduced in November 2024. Many common tools already have a ready connector.",
+     "Pick the tool the team copies from most. In a lot of firms that's email and calendar, then the shared drive, then the main client or candidate database. Every connection starts with read access. Draft access comes later, where a routine needs it, and a person approves anything before it's sent to a client.",
+     "If a tool has no ready connector, Loose Ends builds the integration against that tool's API, so the assistant can still work from its data."
     ]
    },
    {
     "h2": "How do reusable instructions work for weekly tasks?",
     "body": [
-     "Most teams repeat the same handful of tasks every week: the client update, the pipeline summary, the newsletter draft, the meeting notes turned into actions. When each person asks for these in their own words, the results vary and the assistant has to be corrected each time.",
-     "A reusable instruction writes the task down once. It says what the task is for, which sources to use, what format the result takes, what to check, and where a person must approve. Claude supports this through project instructions and saved skills, so a team member can start the task with a short request and get the same structure every time.",
-     "Good instructions for a weekly task usually state:",
+     "Every team has its weekly repeats. The client update. The pipeline summary. The newsletter draft, and the meeting notes turned into actions. When each person asks for these in their own words, the results wander and someone has to correct the assistant every time.",
+     "A reusable instruction writes the task down once. It says what the task is for, which sources to use, what shape the result takes, what to check, and where someone has to sign off. Claude handles this through project instructions and saved skills, so a short request starts the task and the structure comes out the same each time.",
+     "Good instructions for a weekly task usually cover:",
      [
-      "The goal of the task and who reads the result.",
-      "Where the information comes from, for example the calendar for the past week and the client folder.",
+      "What the task is for, and who reads the result.",
+      "Where the information comes from, for example last week's calendar and the client folder.",
       "The exact format, with a short example of a good result.",
-      "What the assistant must never fill in on its own, such as figures or dates it cannot find.",
-      "The point where a person reviews and approves before anything goes out."
+      "Anything the assistant must never fill in by itself, such as figures or dates it can't find.",
+      "The point where a person reviews the work before it goes anywhere."
      ]
     ]
    },
    {
     "h2": "How was this done for a journalist working in video?",
     "body": [
-     "Loose Ends set up the AI assistant of a journalist who works in video. The setup was built around his editorial week, not around the software's defaults.",
-     "The work started from how his week actually runs: the tasks he repeats, the order he does them in, and where video production sits in that week. Those tasks were then written down as instructions the assistant follows, so they now run the same way every time, with video production at the centre.",
-     "The point of the case is the approach rather than the tool. The assistant was shaped to the person's working week, instead of the person adjusting to whatever the assistant offered by default. The work was delivered in 2026."
+     "Loose Ends set up the AI assistant of a journalist who works in video. It was built around his editorial week, not around the software's defaults.",
+     "The work began with how his week actually runs. Which tasks he repeats, the order he does them in, and where video production falls. Those tasks were then written down as instructions the assistant follows, and they now run the same way every time, with video production at the centre.",
+     "What carries over to other firms is the approach. The assistant was shaped to one person's working week, so he never had to bend his week around whatever the assistant did out of the box. The work was delivered in 2026."
     ]
    },
    {
     "h2": "How should a team be trained, and who owns the setup?",
     "body": [
-     "Training works best on the team's own tasks. A general session on what AI can do is quickly forgotten. A session where each person runs their own weekly report through the project, sees the result and corrects the instruction is remembered, because it saves them work the same week.",
-     "Every routine also needs a named owner inside the firm. That person keeps the project documents current, adjusts instructions when the work changes, and is the first to notice when a connection stops returning what it should. Without an owner, a good setup slowly drifts out of date.",
-     "Loose Ends delivers this as a fixed-price build agreed in writing, followed by handover with training and a named owner for every routine. The accounts and access belong to the firm. To see which weekly tasks would gain most from a setup like this, ask Loose Ends for the free one-page review of where the firm loses time; no call is required."
+     "Train people on their own tasks. A general session on what AI can do is forgotten within days. A session where each person runs their own weekly report through the project, looks at the result and fixes the instruction tends to stick, because it saves them work that same week.",
+     "Every routine also needs a named owner inside the firm. That person keeps the project documents current, adjusts instructions when the work changes, and is usually the first to spot a connection that has stopped returning what it should. Without an owner, even a good setup drifts out of date.",
+     "Loose Ends delivers this as a build at one fixed price agreed in writing, then a handover with training and a named owner for every routine. Accounts and access belong to the firm. To see which weekly tasks would gain most from a setup like this, ask Loose Ends for the free one-page review of where the firm loses time. No call is needed."
     ]
    }
   ],
   "faq": [
    {
     "q": "Is a Claude setup only for large firms?",
-    "a": "No. The same approach works for an independent professional and for an established firm. A single person benefits from projects and reusable instructions as much as a team does."
+    "a": "No. The same approach works for an independent professional and for an established firm. One person gets as much from projects and reusable instructions as a team does."
    },
    {
     "q": "Can Claude send emails for the team?",
-    "a": "With the right connection it can draft them. In a setup by Loose Ends, a person reads and approves anything before it is sent to a client."
+    "a": "With the right connection it can draft them. In a Loose Ends setup, a person reads and approves anything before it goes to a client."
    },
    {
     "q": "What is the difference between a project and a connection?",
-    "a": "A project holds context the assistant always has, such as templates and house style. A connection lets the assistant reach live records in another tool, such as the inbox or the client database."
+    "a": "A project holds context the assistant always has, like templates and house style. A connection lets it reach live records in another tool, like the inbox or the client database."
    },
    {
     "q": "How do we keep the setup up to date?",
-    "a": "Give each routine a named owner who updates its documents and instructions when the work changes. Optional monthly support is available if the firm prefers outside help."
+    "a": "Give each routine a named owner who updates its documents and instructions when the work changes. Optional monthly support is there if the firm would rather have outside help."
    }
   ],
   "keywords": [
@@ -219,95 +219,95 @@
   "slug": "ai-assistant-adoption-gap",
   "title": "AI Assistant Adoption Gap: Why Teams Use So Little of It",
   "h1": "Why most teams use a fraction of what their AI assistant can do, and how to close the gap",
-  "desc": "Most teams use a fraction of their AI assistant because of the blank page, no access to the firm's data, no shared instructions and no owner. Here is the fix.",
+  "desc": "Most teams use a fraction of their AI assistant because of the blank page, no access to the firm's data, no shared instructions and no owner. Each has a fix.",
   "category": "AI assistants",
-  "lead": "Most teams use a fraction of what their AI assistant can do because it was switched on, not set up. The usual causes are the blank-page problem, no access to the firm's own data, no shared instructions for repeated tasks and nobody owning the setup, and each one has a practical fix.",
+  "lead": "Most teams use a fraction of what their AI assistant can do because it was switched on and never set up. The causes repeat from firm to firm: the blank page, no access to the firm's own data, no shared instructions for repeated tasks, and nobody owning the setup. Each one has a practical fix.",
   "short": [
-   "The gap is rarely about the assistant's ability; it is about how it was introduced to the team.",
-   "Four causes repeat: the blank page, no access to the firm's data, no shared instructions, no owner.",
-   "Each cause has a fix: starting tasks, connections, written instructions and a named owner.",
-   "A person still approves anything the assistant prepares before it is sent to a client."
+   "The gap rarely comes from the assistant's ability. It comes from how the assistant was introduced to the team.",
+   "The same causes come up again and again: the blank page, no access to the firm's data, no shared instructions, no owner.",
+   "Each has a fix: ready starting tasks, connections, written instructions and a named owner.",
+   "A person still approves anything the assistant prepares before it goes to a client."
   ],
   "sections": [
    {
     "h2": "What is the AI assistant adoption gap?",
     "body": [
-     "The adoption gap is the distance between what an AI assistant can do for a firm and what the team actually uses it for. In many firms the licences are paid, the assistant is open in a browser tab, and it is used to rephrase an email or summarise a document now and then.",
-     "Meanwhile, the chores that take real time continue by hand: answering routine enquiries, confirming bookings, chasing unpaid invoices, retyping details from one tool into another, filing documents. The assistant could prepare much of this work, but nobody has shown it how.",
-     "Closing this gap is the main offer of Loose Ends. The causes are predictable, and so are the fixes.",
-     "The gap is rarely about the assistant's ability, and rarely about the team's willingness. It comes from how the assistant was introduced: handed over as an empty box, with no link to the firm's records, no agreed way of doing the common tasks, and nobody responsible for making it work. Each of these can be fixed on its own, and the fixes add up."
+     "It's the distance between what an AI assistant could do for a firm and what the team actually uses it for. In plenty of firms the licences are paid and the assistant sits open in a browser tab. Now and then someone asks it to rephrase an email or summarise a document.",
+     "Meanwhile the chores that eat real time carry on by hand. Answering routine enquiries. Confirming bookings. Chasing unpaid invoices, retyping details from one tool into the next, filing documents. The assistant could prepare much of that work, but nobody has shown it how.",
+     "Closing this gap is the main offer at Loose Ends. The causes are predictable, and so are the fixes.",
+     "Ability is rarely the problem, and neither is the team's willingness. The trouble is how the assistant arrived. It was handed over as an empty box, with no link to the firm's records, no agreed way of doing the common tasks and nobody responsible for making it work. Each of those can be fixed separately, and the fixes add up."
     ]
    },
    {
     "h2": "Why does the blank page stop people?",
     "body": [
-     "An empty chat box asks the user to know what to ask and how to ask it. Most people are busy and have a task in front of them, not a prompt. Faced with a blank page, they ask for something small, get an average result, and conclude the tool is only good for small things.",
-     "The fix is to stop starting from blank. For each role, write down the tasks that person repeats and turn them into ready starting points:",
+     "An empty chat box expects the user to know what to ask and how to phrase it. Most people are busy and have a task in front of them, with no prompt in mind. So they ask for something small, get an average result, and decide the tool is only good for small things.",
+     "Stop starting from blank. For each role, write down the tasks that person repeats and turn them into ready starting points:",
      [
-      "A set of named tasks per role, such as the Monday client update or the weekly pipeline summary.",
-      "For each task, a saved instruction the person can start with a short request.",
-      "A good example of the finished result, so the assistant knows what to aim for.",
-      "A short note on what the person should check before using the result."
+      "Named tasks per role, such as the Monday client update or the weekly pipeline summary.",
+      "A saved instruction for each task, which the person starts with a short request.",
+      "An example of a good finished result, so the assistant knows what to aim for.",
+      "A short note on what to check before using the result."
      ],
-     "When the first use of the assistant saves real time on a real task, people come back to it."
+     "If the first proper use saves time on an actual task, people come back to it."
     ]
    },
    {
     "h2": "Why does no access to the firm's data matter so much?",
     "body": [
-     "An assistant that cannot see the firm's records can only work with what is pasted into it. Every useful request then starts with someone opening another tool, finding the right text, copying it and pasting it in. That copying is often the very chore the team hoped to remove.",
-     "Connections fix this. Through MCP, the Model Context Protocol, an open standard introduced by Anthropic in November 2024, an assistant such as Claude can reach email, calendar, shared drives, team chat and business databases directly. Where a tool has no ready connector, an integration can be built against its API.",
-     "Each connection should start with read access, add draft access where a routine needs it, and keep a person approving anything before it goes to a client. The goal is an assistant that answers from the firm's own information, at the moment the question is asked."
+     "An assistant that can't see the firm's records can only work with what gets pasted in. So every useful request starts with someone opening another tool, finding the right text, copying it and pasting it. That copying is often the exact chore the team hoped to get rid of.",
+     "Connections fix this. MCP, the Model Context Protocol, is an open standard Anthropic introduced in November 2024. Through it, an assistant such as Claude can reach email, calendar, shared drives, team chat and business databases directly. When a tool has no ready connector, an integration can be built against its API.",
+     "Each connection should begin with read access, with draft access added where a routine needs it. What the firm ends up with is an assistant that answers from its own records, at the moment someone asks."
     ]
    },
    {
     "h2": "What goes wrong without shared instructions?",
     "body": [
-     "When every person writes their own request for the same task, the firm gets as many versions of that task as it has people. Reports come back in different formats. One person remembers to check the figures and another does not. When someone leaves, their way of asking leaves with them.",
-     "Shared instructions turn a task into a routine. They are written once, stored where the whole team can use them, and say the same things each time: the goal, the sources, the format, what must never be guessed, and where a person approves. Assistants such as Claude support this through projects that hold the firm's context and reusable instructions.",
-     "Written instructions also make quality visible. When a result is wrong, the team corrects the instruction, and every later run improves, rather than one person learning a private trick.",
-     "Instructions should also say where a person must approve. A weekly client update prepared by the assistant is a draft until someone has read it, checked it against the record and sent it. Writing that step into the instruction keeps it from being skipped on a busy day."
+     "If every person writes their own request for the same task, the firm gets as many versions of that task as it has people. Reports come back in different shapes. One person remembers to check the figures and another doesn't. When someone leaves, their way of asking walks out with them.",
+     "Shared instructions turn a task into a routine. They're written once and kept where the whole team can reach them. Each one covers the goal, the sources, the format, what must never be guessed, and where a person signs off. Claude supports this with projects that hold the firm's context and reusable instructions.",
+     "Written instructions also make quality visible. When a result is wrong, the team fixes the instruction and every later run improves. Nobody is sitting on a private trick.",
+     "Put the approval step in the instruction itself. A weekly client update prepared by the assistant is a draft until someone has read it, checked it against the record and sent it. Once that step is written down, it doesn't get skipped on a busy Friday."
     ]
    },
    {
     "h2": "Why does the setup need an owner?",
     "body": [
-     "Tools that belong to everyone tend to belong to no one. Without an owner, documents in the assistant's projects go out of date, connections break without anyone noticing, and instructions describe how the work was done last year.",
-     "An owner does not need to be technical. The role is to keep the setup in step with the work:",
+     "Tools that belong to everyone end up belonging to no one. Without an owner, the documents in the assistant's projects go stale. Connections break and nobody notices. Instructions describe how the work was done last year.",
+     "The owner doesn't need to be technical. The job is keeping the setup in step with the work:",
      [
-      "Update the reference documents when services, prices or templates change.",
+      "Update reference documents when services, prices or templates change.",
       "Adjust an instruction when the team reports a poor result.",
-      "Notice when a connection stops returning what it should, and get it fixed.",
-      "Bring new team members through the routines they will use."
+      "Spot a connection that has stopped returning what it should, and get it fixed.",
+      "Walk new team members through the routines they'll use."
      ],
-     "Loose Ends hands over every routine with a named owner inside the firm, for this reason."
+     "That's why Loose Ends hands over every routine with a named owner inside the firm."
     ]
    },
    {
     "h2": "How does a firm close the gap in practice?",
     "body": [
-     "The order matters. Training people before the assistant can reach the firm's data teaches them to paste. Writing instructions before choosing the tasks produces instructions nobody uses. A sound sequence is: find the chores that cost the most time, connect the tools those chores depend on, write the instructions, then train the team on those exact tasks.",
-     "This is the sequence the studio follows. It starts with a free one-page review of where the firm loses time, then a paid audit that ranks the first fixes, with the fee credited toward the build. The build is done at one fixed price agreed in writing, followed by handover with training and a named owner for every routine. The code, domain and accounts belong to the firm.",
-     "Throughout, the design rule stays the same: the assistant drafts and prepares, and a person approves before anything is sent to a client. The first step is the free one-page review of where the firm loses time, which needs no call."
+     "Order matters. Train people before the assistant can reach the firm's data and they learn to paste. Write instructions before choosing the tasks and nobody uses them. A sounder order is to find the chores that cost the most time, connect the tools those chores depend on, write the instructions, and then train the team on those exact tasks.",
+     "The studio works in that order. It starts with a free one-page review of where the firm loses time, then a paid audit that ranks the first fixes, with the fee credited toward the build. The build is done at one fixed price agreed in writing. Handover includes training and a named owner for every routine, and the code, domain and accounts belong to the firm.",
+     "The design rule holds the whole way through. The assistant drafts and prepares, and people decide what goes out. The first step is that free one-page review of where the firm loses time, and it needs no call."
     ]
    }
   ],
   "faq": [
    {
     "q": "Is the gap caused by people resisting AI?",
-    "a": "Usually not. Most teams use the assistant for small tasks because it was switched on without access to the firm's data or any ready starting points. When it saves time on a real task, people use it."
+    "a": "Usually not. Most teams stick to small tasks because the assistant was switched on with no access to the firm's data and no ready starting points. Once it saves time on an actual task, people use it."
    },
    {
     "q": "Does closing the gap mean the assistant acts on its own?",
-    "a": "No. The assistant prepares drafts, summaries and documents, and a person approves anything before it is sent to a client."
+    "a": "No. It prepares drafts, summaries and documents, and a person approves anything before it's sent to a client."
    },
    {
     "q": "Which cause should a firm fix first?",
-    "a": "Usually access to the firm's data, because without it the other fixes still leave the team copying and pasting. Then shared instructions, training and an owner."
+    "a": "Usually access to the firm's data. Without it, the other fixes still leave the team copying and pasting. Then come shared instructions, training and an owner."
    },
    {
     "q": "Does this apply only to Claude?",
-    "a": "The causes are the same for any AI assistant. Loose Ends sets up Claude and other assistants, connected to the firm's own data."
+    "a": "The causes are the same with any AI assistant. Loose Ends sets up Claude and other assistants, connected to the firm's own data."
    }
   ],
   "keywords": [
@@ -324,97 +324,97 @@
   "slug": "connect-claude-to-recruiting-database",
   "title": "Connect Claude to a Recruiting Database Such as Loxo",
   "h1": "How to connect an AI assistant to a recruiting database such as Loxo",
-  "desc": "Connecting Claude to a recruiting database such as Loxo lets a search firm's team query its own candidate data in plain language, with access controlled.",
+  "desc": "Connecting Claude to a recruiting database such as Loxo lets a search firm's team question its own candidate data in plain language, with access controlled.",
   "category": "Connections",
-  "lead": "Connecting an AI assistant such as Claude to a recruiting database such as Loxo lets a search firm's team ask questions of its own candidate and role data in plain language, instead of building searches by hand or exporting lists. The connection is made through a connector or an integration with the database's API, with access limited to what the team needs and a person approving anything sent to a candidate or client.",
+  "lead": "Connect an AI assistant such as Claude to a recruiting database such as Loxo, and a search firm's team can ask questions of its own candidate and role data in plain language. Nobody has to build searches by hand or export lists. The link runs through a connector or an integration with the database's API, with access limited to what the team needs and a person approving anything sent to a candidate or client.",
   "short": [
-   "A connected assistant answers questions from the firm's own candidate and role records, not from general knowledge.",
-   "The connection runs through MCP or an integration built against the recruiting system's API.",
-   "Start with read access, decide which fields the assistant may see, and keep a person approving outreach.",
-   "An executive search firm in Washington D.C. uses this setup alongside roles that flow from Loxo to its website."
+   "A connected assistant answers from the firm's own candidate and role records.",
+   "The connection runs through MCP or through an integration built against the recruiting system's API.",
+   "Start with read access, and decide in writing which fields the assistant may see.",
+   "An executive search firm in Washington D.C. uses this setup, alongside open roles that flow from Loxo to its website."
   ],
   "sections": [
    {
     "h2": "What does connecting an assistant to a recruiting database do?",
     "body": [
-     "A search firm's knowledge sits in its recruiting database: candidates, their history, notes from calls, roles open and closed, who was presented where. Getting answers out of it usually means building a search in the system, exporting a list, or asking the colleague who remembers.",
-     "Once the assistant is connected, the team can ask in plain language. Examples of the kind of questions a team can put to its own data:",
+     "A search firm's memory lives in its recruiting database. Candidates and their history, notes from calls, roles open and closed, who was presented where. Getting an answer out of it usually means building a search, exporting a list, or asking the colleague who remembers.",
+     "With the assistant connected, the team asks in plain language. Questions like these:",
      [
       "Which candidates have been placed or presented for similar roles before?",
       "What do the call notes say about this candidate's interest in moving?",
-      "Which open roles have had no new candidates added recently?",
+      "Which open roles haven't had a new candidate added lately?",
       "Summarise the history of this client's searches with the firm.",
       "Draft a shortlist note from these candidates' records, for a consultant to review."
      ],
-     "The assistant answers from the firm's records and can point to the record it used, so the consultant can check it."
+     "Answers come from the firm's records, and the assistant can point to the record it used so the consultant can check."
     ]
    },
    {
     "h2": "How does the connection work technically?",
     "body": [
-     "There are two routes. The first is MCP, the Model Context Protocol, an open standard introduced by Anthropic in November 2024 for connecting AI assistants to tools and data. If a connector exists for the recruiting system, it can be switched on and given the right permissions.",
-     "The second route, when no ready connector fits, is an integration built against the recruiting system's own API, the interface it provides for other software. Loose Ends builds these integrations and exposes them to the assistant as a connector, so the team experiences the same thing either way: a question in the chat, an answer from the database.",
-     "In both cases, the connector decides which actions the assistant can take, such as searching candidates, reading a record or reading notes, and passes each request to the database with the permissions it was given.",
-     "The assistant does not copy the whole database into the chat. It asks for the records it needs to answer the question in front of it, and the answer can show which records were used. That keeps answers checkable, and it means the database stays the single place where candidate information is kept and corrected."
+     "There are two routes. The first is MCP, the Model Context Protocol, an open standard Anthropic introduced in November 2024 for connecting AI assistants to tools and data. If a connector exists for the recruiting system, it can be switched on and given the right permissions.",
+     "The second route is for when no ready connector fits. An integration is built against the recruiting system's own API, the interface it offers other software. Loose Ends builds these and presents them to the assistant as a connector, so the team sees the same thing either way. A question goes into the chat, and the answer comes from the database.",
+     "In both cases the connector decides which actions the assistant can take, such as searching candidates, reading a record or reading notes. It passes each request to the database with the permissions it was given.",
+     "The whole database never lands in the chat. The assistant fetches the records it needs for the question in front of it, and the answer can show which ones it used. That keeps answers checkable. It also keeps the database as the one place where candidate information is stored and corrected."
     ]
    },
    {
     "h2": "What permissions should a search firm set?",
     "body": [
-     "Candidate data is personal data, and a search firm holds it in trust. Before connecting, the firm should decide what the assistant may see and do, and write it down.",
+     "Candidate data is personal data, and a search firm holds it in trust. Before connecting anything, decide what the assistant may see and do, and write it down.",
      "A careful starting point:",
      [
-      "Read access only at first. The assistant searches and reads; it does not edit or delete records.",
-      "A clear decision on which fields are included, and which sensitive fields are left out.",
-      "Access tied to the team members who already have access to the database, not wider.",
-      "Any message to a candidate or client is drafted only, and a consultant approves it before it is sent.",
+      "Read access only at first. The assistant searches and reads. It doesn't edit or delete records.",
+      "A clear decision on which fields are included, and which sensitive ones stay out.",
+      "Access limited to team members who already have access to the database.",
+      "Messages to candidates or clients drafted only, with a consultant approving each one before it's sent.",
       "A named owner who reviews the connection when the database or the team changes."
      ],
-     "The firm should also check that its use of the assistant fits its own data policies and the terms it gives candidates."
+     "It's also worth checking that the firm's use of the assistant fits its own data policies and the terms it gives candidates."
     ]
    },
    {
     "h2": "How was this set up for an executive search firm in Washington D.C.?",
     "body": [
-     "Loose Ends works with an executive search firm in Washington D.C. that runs its searches in Loxo. The work connects the firm's recruiting system to the rest of its tools so that information is entered once.",
-     "Open roles go into Loxo and appear on the firm's eighteen-page website without anyone retyping them. Candidate CVs are put into the firm's format in one step. The same database answers the team's questions through their AI assistant: the recruiting database and the firm's internal chat are connected to the assistant, so a consultant can ask a question and get an answer from the firm's own records.",
+     "Loose Ends works with an executive search firm in Washington D.C. that runs its searches in Loxo. The work connects the recruiting system to the firm's other tools, so information gets entered once.",
+     "Open roles go into Loxo and appear on the firm's eighteen-page website without anyone retyping them. Candidate CVs are put into the firm's format in one step. And the same database answers the team's questions through their AI assistant. Both the recruiting database and the firm's internal chat are connected to it, so a consultant can ask a question and get an answer from the firm's records.",
      "The website is live. Candidate scoring is in development."
     ]
    },
    {
     "h2": "Where does candidate assessment fit?",
     "body": [
-     "A connected database makes another step possible: assessing candidates against a search's own criteria. Loose Ends has built candidate assessment that scores against the criteria set for that search and shows the reasoning beside the score, so a consultant can see why, not only how high.",
-     "The studio's own recruiting software, Vero, follows the same principle. It reads a batch of résumés against a role, ranks candidates, shows the reasoning and the source text behind every score, and drafts outreach from each candidate's own work. The decision stays with the recruiter, and outreach is approved by a person before it is sent.",
-     "The common rule is that the system prepares and explains, and the consultant decides."
+     "Once the database is connected, candidates can also be assessed against a search's own criteria. Loose Ends has built assessment that scores against the criteria set for that search and puts the reasoning beside the score. A consultant sees why a candidate scored as they did, as well as how high.",
+     "Vero, the studio's own recruiting software, works on the same principle. It reads a batch of résumés against a role, ranks the candidates, and shows the reasoning and source text behind every score. It also drafts outreach from each candidate's own work. The decision stays with the recruiter.",
+     "In every case the system prepares and explains. The consultant decides."
     ]
    },
    {
     "h2": "What should a firm prepare before connecting?",
     "body": [
-     "The quality of the answers depends on the quality of the records. Before connecting, it helps to know which fields the team fills in reliably and which are often empty, so the assistant is not asked to answer from data that is not there.",
-     "It also helps to collect the questions the team asks most often in a normal week. Those questions become the test set: the connection is ready when it answers them correctly and points to the right records.",
-     "Finally, the team needs to know where the assistant lives in its day. A search firm that already talks in an internal chat tool can connect that chat as well, so a consultant asks a question where the team already works, rather than opening yet another window. Training then covers the firm's own questions, what the assistant can see, and what still needs a consultant's judgement.",
-     "Loose Ends builds this at one fixed price agreed in writing, with training and a named owner at handover, and the code and accounts belong to the firm. To see where a connected database would save the team the most retyping and searching, ask for the free one-page review of where the firm loses time; no call is required."
+     "Answers are only as good as the records behind them. Before connecting, find out which fields the team fills in reliably and which are often empty. Then nobody asks the assistant to answer from data that isn't there.",
+     "Collect the questions the team asks most in an ordinary week, too. They become the test set. The connection is ready when it answers them correctly and points to the right records.",
+     "Last, work out where the assistant fits in the team's day. A search firm that already talks in an internal chat tool can connect that chat as well. Consultants then ask questions where they already work, instead of opening yet another window. Training covers the firm's own questions, what the assistant can see, and what still needs a consultant's judgement.",
+     "Loose Ends builds this at one fixed price agreed in writing, with training and a named owner at handover, and the code and accounts belong to the firm. To see where a connected database would save the team the most retyping and searching, ask for the free one-page review of where the firm loses time. No call is needed."
     ]
    }
   ],
   "faq": [
    {
     "q": "Can Claude connect to Loxo?",
-    "a": "Yes. Loose Ends has connected an executive search firm's Loxo database to its AI assistant, through an integration with the system's API exposed to the assistant as a connector."
+    "a": "Yes. Loose Ends has connected an executive search firm's Loxo database to its AI assistant, through an integration with Loxo's API that the assistant uses as a connector."
    },
    {
     "q": "Will the assistant change or delete candidate records?",
-    "a": "Not if it is given read access only, which is the recommended starting point. Write access can be added later for specific, approved routines."
+    "a": "Not with read access only, which is the recommended start. Write access can be added later for specific routines the firm has approved."
    },
    {
     "q": "Can the assistant contact candidates directly?",
-    "a": "In a setup by Loose Ends, it drafts messages only. A consultant reads and approves each one before it is sent."
+    "a": "In a Loose Ends setup it only drafts messages. A consultant reads and approves each one before it's sent."
    },
    {
     "q": "Does this work with recruiting systems other than Loxo?",
-    "a": "The approach is the same for any recruiting system that has a connector or an API. The fields, permissions and tests are set for each system."
+    "a": "The approach is the same for any recruiting system that has a connector or an API. Fields, permissions and tests are set up for each one."
    }
   ],
   "keywords": [
@@ -431,94 +431,94 @@
   "slug": "custom-api-integration-when-no-connector",
   "title": "Custom API Integration When No Connector Exists",
   "h1": "What to do when a tool has no ready connector: a custom API integration",
-  "desc": "When a tool has no ready connector, a custom integration can be built against its API. Here is what it involves, the risks, the maintenance and who owns it.",
+  "desc": "When a tool has no ready connector, a custom integration can be built against its API. What that involves, the risks, the upkeep, and who owns the result.",
   "category": "Connections",
-  "lead": "When a tool a firm depends on has no ready connector for its AI assistant or its other software, the usual answer is a custom integration built against the tool's own API. It involves reading the tool's documentation, deciding exactly what data moves and who can act on it, building and testing the link, and agreeing who maintains and owns it afterwards.",
+  "lead": "When a tool a firm depends on has no ready connector for its AI assistant or its other software, the usual answer is a custom integration built against the tool's own API. Building one means reading the tool's documentation, deciding exactly what data moves and who can act on it, building and testing the link, and agreeing who looks after it and owns it afterwards.",
   "short": [
-   "An API is the interface a tool provides for other software; most business tools have one.",
-   "A custom integration connects to that API and can be exposed to an assistant such as Claude as an MCP connector.",
-   "The main risks are access that is too wide, changes to the tool's API, and nobody owning the result.",
-   "The firm should own the code and accounts, and a person should approve anything sent to a client."
+   "An API is the interface a tool offers other software. Most business tools have one.",
+   "A custom integration talks to that API, and it can be exposed to an assistant such as Claude as an MCP connector.",
+   "The main risks are access that's too wide, changes to the tool's API, and nobody owning the result.",
+   "The firm should own the code and the accounts, including the API keys."
   ],
   "sections": [
    {
     "h2": "What does it mean when a tool has no connector?",
     "body": [
-     "A connector is a ready-made link between two pieces of software. For AI assistants, connectors usually follow MCP, the Model Context Protocol, an open standard introduced by Anthropic in November 2024. Popular tools such as email, calendars and shared drives often have one.",
-     "Many tools that firms rely on do not. A specialist industry database, a booking system, a client portal or an older internal tool may have no connector at all. The team then fills the gap by hand: exporting, copying, retyping, filing. The tool may be essential, yet it stays outside every automation and outside the assistant's reach.",
-     "If the tool has an API, that gap can usually be closed with a custom integration."
+     "A connector is a ready-made link between two pieces of software. For AI assistants, connectors usually follow MCP, the Model Context Protocol, an open standard Anthropic introduced in November 2024. Popular tools like email, calendars and shared drives often have one.",
+     "Plenty of the tools firms rely on don't. A specialist industry database, a booking system, a client portal, an older internal tool. The team covers the gap by hand, exporting, copying, retyping and filing. The tool might be central to the work and still sit outside every automation and out of the assistant's reach.",
+     "If it has an API, that gap can usually be closed with a custom integration."
     ]
    },
    {
     "h2": "What is an API, and how does a custom integration use it?",
     "body": [
-     "An API, or application programming interface, is the door a tool provides for other software. Instead of a person clicking through screens, a program sends a request, such as list open roles or create a booking, and the tool answers in a structured format.",
-     "A custom integration is a small program that talks to that API on the firm's behalf. It can move data between tools on a schedule or when something changes, and it can be wrapped as an MCP connector so an assistant such as Claude can use it directly. Loose Ends builds integrations this way, so the same work serves both automations and the assistant.",
-     "Most APIs require a key or a sign-in that identifies who is making the request. That key carries the same weight as a password. It should be created under an account the firm controls, stored securely, and given only the access the integration needs. If the relationship with the builder ends, the firm can replace the key without losing the integration."
+     "API stands for application programming interface. It's the door a tool provides for other software. A program sends a request, such as list open roles or create a booking, and the tool answers in a structured format, with nobody clicking through screens.",
+     "A custom integration is a small program that talks to that API for the firm. It can move data between tools on a schedule or whenever something changes. It can also be wrapped as an MCP connector so an assistant such as Claude can use it directly. Loose Ends builds them that way, so one piece of work serves both the automations and the assistant.",
+     "Most APIs want a key or a sign-in that identifies who's asking. Treat that key like a password. Create it under an account the firm controls, store it securely, and give it only the access the integration needs. If the firm parts ways with the builder, it can replace the key and keep the integration."
     ]
    },
    {
     "h2": "What does building a custom integration involve?",
     "body": [
-     "The work is less about code than about decisions. A sound build goes through these steps:",
+     "Most of the work is decisions. The code comes after them. A sound build goes through these steps:",
      [
-      "Read the tool's API documentation to see what it allows, what it limits and how it handles sign-in.",
-      "Agree exactly which data moves, in which direction, and what may never be touched.",
-      "Choose the narrowest access that does the job, starting with read access where possible.",
+      "Read the tool's API documentation to see what it allows, what it limits and how sign-in works.",
+      "Agree exactly which data moves, in which direction, and what must never be touched.",
+      "Pick the narrowest access that does the job, starting with read access where possible.",
       "Build the integration and test it on a copy or a small set of real records.",
       "Add a review step wherever the result reaches a client, so a person approves it first.",
-      "Record how it works, where it runs and who to contact if it stops."
+      "Write down how it works, where it runs and who to contact if it stops."
      ],
-     "A typical example: a firm enters open roles in its recruiting system, and an integration places them on its website, so nobody retypes them. Loose Ends built this for an executive search firm in Washington D.C., where open roles go into Loxo and appear on the firm's website, and the same database answers the team's questions through its AI assistant."
+     "Here's a typical case. A firm enters open roles in its recruiting system, and an integration places them on its website, so nobody retypes them. Loose Ends built this for an executive search firm in Washington D.C. Open roles go into Loxo and appear on the firm's website, and the same database answers the team's questions through its AI assistant."
     ]
    },
    {
     "h2": "What are the risks of a custom integration?",
     "body": [
-     "A custom integration is real software, and it carries real responsibilities. The main risks are predictable:",
+     "A custom integration is real software and comes with real responsibilities. The risks are predictable, though:",
      [
-      "Access that is too wide. An integration that can write to every record can also damage every record if something goes wrong.",
-      "Changes to the API. The tool's maker can change or retire parts of its API, and the integration has to follow.",
-      "Silent failure. If an integration stops and nobody is told, the team assumes work is happening that is not.",
-      "Personal data. Moving client or candidate data between tools must respect the firm's data policies and the tool's terms of use.",
-      "Dependence on one builder. If only the original builder understands the integration, the firm is exposed when that changes."
+      "Access that's too wide. An integration that can write to every record can damage every record if something goes wrong.",
+      "Changes to the API. The tool's maker can change or retire parts of it, and the integration has to keep up.",
+      "Silent failure. If an integration stops and nobody's told, the team assumes work is happening when it isn't.",
+      "Personal data. Moving client or candidate data between tools has to respect the firm's data policies and the tool's terms of use.",
+      "Dependence on one builder. If only the original builder understands it, the firm is exposed when that relationship changes."
      ],
-     "Each risk has a plain answer: narrow permissions, a check that reports failures to a named person, written documentation, and code the firm owns.",
-     "Testing deserves its own attention. An integration should be tried on ordinary records, on records with missing or unusual fields, and on the case where the tool does not answer at all. The behaviour in each case should be decided in advance: skip and report, retry later, or stop and alert the owner. A quiet guess is never the right behaviour when the data reaches a client."
+     "Each has a plain answer. Narrow permissions. A check that reports failures to a named person. Written documentation. Code the firm owns.",
+     "Testing needs its own attention. Try the integration on ordinary records, on records with missing or odd fields, and on the case where the tool doesn't answer at all. Decide in advance what happens each time, whether that's skip and report, retry later, or stop and alert the owner. When the data reaches a client, a quiet guess is never acceptable."
     ]
    },
    {
     "h2": "Who maintains the integration, and who owns it?",
     "body": [
-     "An integration needs looking after for as long as it is used. Someone has to notice when it fails, update it when the tool changes its API, and adjust it when the firm changes how it works. That responsibility should be agreed before the build, not discovered after.",
-     "With Loose Ends, the code, domain and accounts belong to the firm, including the API keys and the account the integration runs under. At handover, the integration has a named owner inside the firm and written notes on how it works. The firm can then maintain it itself, hand it to another developer, or take optional monthly support from the studio."
+     "An integration needs looking after for as long as it's in use. Someone has to notice when it fails, update it when the tool changes its API, and adjust it when the firm changes how it works. Agree who that is before the build starts. Finding out afterwards is how integrations get abandoned.",
+     "With Loose Ends, the code, domain and accounts belong to the firm, including the API keys and the account the integration runs under. At handover the integration has a named owner inside the firm and written notes on how it works. From there the firm can maintain it itself, hand it to another developer, or take optional monthly support from the studio."
     ]
    },
    {
     "h2": "When is a custom integration worth building?",
     "body": [
-     "Not every gap justifies one. A custom integration earns its keep when a tool is used every day, when the team copies from it often, and when errors in that copying cost the firm. A tool opened once a month is usually better handled by hand or with an export.",
-     "It is also worth checking first whether a ready connector, an official plug-in or a built-in export already covers the need. A custom build is the answer when those options do not exist or do not reach the data the team needs.",
-     "Loose Ends builds integrations at one fixed price agreed in writing, after a paid audit that ranks the first fixes, with the audit fee credited toward the build. The first step is the free one-page review of where the firm loses time, which needs no call."
+     "Not every gap justifies one. It pays off when a tool is used every day, when the team copies from it often, and when mistakes in that copying cost the firm something. A tool opened once a month is usually better handled by hand or with an export.",
+     "Check first whether a ready connector, an official plug-in or a built-in export already covers the need. Build custom only when none of those exist or none of them reach the data the team needs.",
+     "Loose Ends builds integrations at one fixed price agreed in writing, after a paid audit that ranks the first fixes, with the audit fee credited toward the build. The first step is the free one-page review of where the firm loses time, and it needs no call."
     ]
    }
   ],
   "faq": [
    {
     "q": "Can any tool be connected to an AI assistant?",
-    "a": "Most tools with an API can be. A tool with no API, and no export, is much harder to connect reliably, and the honest answer may be to keep that step manual."
+    "a": "Most tools with an API can. A tool with no API and no export is much harder to connect reliably, and the honest answer may be to keep that step manual."
    },
    {
     "q": "Is a custom integration the same as an MCP connector?",
-    "a": "Not always. A custom integration is the link to the tool's API; it can be wrapped as an MCP connector so an assistant such as Claude can use it, or run on its own to move data between tools."
+    "a": "Not always. The integration is the link to the tool's API. It can be wrapped as an MCP connector for an assistant such as Claude, or run on its own to move data between tools."
    },
    {
     "q": "What happens when the tool changes its API?",
-    "a": "The integration has to be updated. A check that reports failures to a named owner means the change is noticed quickly instead of after weeks of missing data."
+    "a": "The integration has to be updated. With a check that reports failures to a named owner, the change gets noticed quickly, before weeks of data go missing."
    },
    {
     "q": "Who owns the integration after it is built?",
-    "a": "With Loose Ends, the firm owns the code, domain and accounts. It can maintain the integration itself, hand it to another developer, or take optional monthly support."
+    "a": "With Loose Ends, the firm owns the code, domain and accounts. It can maintain the integration itself, pass it to another developer, or take optional monthly support."
    }
   ],
   "keywords": [
