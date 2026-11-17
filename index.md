@@ -290,3 +290,21 @@ Request it from the contact section of the site: https://houssem-gabsi.vercel.ap
 - [SEO and GEO: Visibility in Search and AI Answers](https://houssem-gabsi.vercel.app/seo-geo/)
 - [Stock, sales and production tracker](https://houssem-gabsi.vercel.app/tools/stock-sales-production-tracker/)
 - [Short guide for AI assistants](https://houssem-gabsi.vercel.app/llms.txt)
+
+## Blog
+
+- [What Is MCP? Model Context Protocol in Plain Language](https://houssem-gabsi.vercel.app/blog/what-is-mcp-model-context-protocol/)
+- [Claude Setup for Teams: Working From the Firm's Own Data](https://houssem-gabsi.vercel.app/blog/claude-setup-for-teams/)
+- [AI Assistant Adoption Gap: Why Teams Use So Little of It](https://houssem-gabsi.vercel.app/blog/ai-assistant-adoption-gap/)
+- [Connect Claude to a Recruiting Database Such as Loxo](https://houssem-gabsi.vercel.app/blog/connect-claude-to-recruiting-database/)
+- [Custom API Integration When No Connector Exists](https://houssem-gabsi.vercel.app/blog/custom-api-integration-when-no-connector/)
+- [Automate enquiry follow-up so no quote goes quiet](https://houssem-gabsi.vercel.app/blog/automate-enquiry-follow-up/)
+- [Automate invoice reminders with a person approving each one](https://houssem-gabsi.vercel.app/blog/automate-invoice-reminders/)
+- [Booking confirmation and reminder automation, explained](https://houssem-gabsi.vercel.app/blog/booking-confirmation-reminder-automation/)
+- [Human-in-the-loop automation: approve before it sends](https://houssem-gabsi.vercel.app/blog/human-in-the-loop-automation/)
+- [Automate weekly reporting: figures ready before anyone asks](https://houssem-gabsi.vercel.app/blog/automate-weekly-reporting/)
+- [Generative engine optimization (GEO): how firms get cited](https://houssem-gabsi.vercel.app/blog/generative-engine-optimization-geo/)
+- [Structured data and llms.txt: what each one does](https://houssem-gabsi.vercel.app/blog/structured-data-and-llms-txt/)
+- [Content system: one idea into an article and a week of posts](https://houssem-gabsi.vercel.app/blog/content-system-one-idea-a-week-of-posts/)
+- [AI assistant for journalists: an editorial week around video](https://houssem-gabsi.vercel.app/blog/ai-assistant-for-journalists-and-video/)
+- [Brand identity for a guesthouse, drawn from the building](https://houssem-gabsi.vercel.app/blog/brand-identity-for-a-guesthouse/)
