@@ -20,7 +20,7 @@ STATEMENT_LINK = "How an engagement works"
 
 # ── selected work. who = title, kind = label, did = text, now = proof line ──
 WORK_LABEL = "Selected work"
-WORK_HEAD = "Four clients. Each started with one loose end."
+WORK_HEAD = "Every piece of work started with one loose end."
 CASES = [
  dict(kind="Executive search, Washington D.C.", who="Open roles entered once, live everywhere.",
   did="Roles go into the firm's recruiting system and appear on its eighteen-page website without anyone retyping them. Candidate CVs are put into the firm's format in one step. The same database now answers the team's questions through their AI assistant.",
@@ -66,7 +66,7 @@ EXAMPLES = {
 
 # ── systems: (title, "", text, status) ──
 SYSTEMS_LABEL = "Systems"
-SYSTEMS_HEAD = "Four systems, each built around one costly habit."
+SYSTEMS_HEAD = "Each system is built around one costly habit."
 SYSTEMS = [
  ("Every unanswered enquiry, found and drafted.", "",
   "The system reads the inbox, quotes and invoices, finds what went quiet, and drafts each reply. Someone approves, then it sends.",
@@ -96,7 +96,7 @@ ENQUIRY_INTRO = "From the form to a reply ready for approval, with no manual ste
 
 # ── commitments ──
 COMMIT_LABEL = "Commitments"
-COMMIT_HEAD = "Six things that hold on every engagement."
+COMMIT_HEAD = "What holds on every engagement."
 RULES = [
  ("One price, agreed in advance.", "Confirmed in writing before work begins. If the scope grows, the new price is agreed before the additional work starts."),
  ("You own everything.", "The code, the domain and the accounts are yours, and are transferred on request at no additional cost."),
@@ -123,7 +123,7 @@ FAQ_LABEL = "Questions"
 FAQ_HEAD = "What firms ask before they start."
 FAQ = [
  ("What does Loose Ends build for a firm?",
-  "For a firm of ten to fifty people it is usually three things: the follow-up nobody has time to send, the booking or intake process clients pass through, and the reports someone prepares by hand every week. The work is connecting the tools already in use, not replacing them."),
+  "For most firms it is three things: the follow-up nobody has time to send, the booking or intake process clients pass through, and the reports someone prepares by hand every week. The work is connecting the tools already in use, not replacing them."),
  ("What happens when a system gets something wrong?",
   "Nothing reaches a client without a person approving it, so a wrong draft is caught at that step and corrected there. That approval is a design rule, not a setting that can be switched off."),
  ("Who owns what is built?",

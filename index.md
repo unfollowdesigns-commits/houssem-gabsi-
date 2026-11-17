@@ -4,7 +4,7 @@ Loose Ends is a one-person studio. It designs and builds the websites, automatio
 
 Every firm has work only its people can do, and work that simply has to get done. The second kind fills most of the week: answering, confirming, chasing, retyping. Systems take that part. People keep the judgement, and approve everything that leaves the building.
 
-## Four clients. Each started with one loose end.
+## Every piece of work started with one loose end.
 
 ### Open roles entered once, live everywhere.
 
@@ -112,7 +112,7 @@ Claude reaches a firm's tools through connectors, known as MCP. Where a connecto
 
 Nothing is replaced. The tools stay where they are and start working together.
 
-## Four systems, each built around one costly habit.
+## Each system is built around one costly habit.
 
 ### Every unanswered enquiry, found and drafted.
 
@@ -162,7 +162,7 @@ From the form to a reply ready for approval, with no manual step.
 5. Added to the weekly report
 6. Ready for your approval
 
-## Six things that hold on every engagement.
+## What holds on every engagement.
 
 - **One price, agreed in advance.** Confirmed in writing before work begins. If the scope grows, the new price is agreed before the additional work starts.
 - **You own everything.** The code, the domain and the accounts are yours, and are transferred on request at no additional cost.
@@ -185,7 +185,7 @@ The first step is free. The audit findings belong to the firm whether or not any
 
 ### What does Loose Ends build for a firm?
 
-For a firm of ten to fifty people it is usually three things: the follow-up nobody has time to send, the booking or intake process clients pass through, and the reports someone prepares by hand every week. The work is connecting the tools already in use, not replacing them.
+For most firms it is three things: the follow-up nobody has time to send, the booking or intake process clients pass through, and the reports someone prepares by hand every week. The work is connecting the tools already in use, not replacing them.
 
 ### What happens when a system gets something wrong?
 

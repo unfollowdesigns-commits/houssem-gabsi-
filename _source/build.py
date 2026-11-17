@@ -126,7 +126,7 @@ def _llms():
          "Works with firms in the US and Europe, in English, French and Arabic." + ((" Contact: " + EMAIL) if EMAIL else ""), "",
          "Site: " + SITE, "", "## Services", ""]
     L += ["- %s: %s" % (t, d) for _,_,t,d in WHAT]
-    L += ["", "## Cases", "", "Four pieces of client work. Clients are not named."]
+    L += ["", "## Cases", "", "Client work. Clients are not named."]
     for c in CASES[:4]:
         L += ["", "### " + c["who"], "", c["kind"], "", c["did"], "", "Status: " + c["now"]]
     L += ["", "## " + PRODUCTS_LABEL]

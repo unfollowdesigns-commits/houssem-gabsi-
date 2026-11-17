@@ -50,6 +50,7 @@ Keep all of these on the page. Houssem has had to repeat them.
 - Work is titled by its result, not by the client type.
 - A person approves before anything is sent. Say it wherever it applies.
 
+- No counts in headings or wording ("four clients", "six things", "five stages"). Readers do not need the number, and it makes the studio look small (Houssem, 17 Nov 2026).
 - The studio is called Loose Ends. Wording speaks as the studio, never as 'I'. Use the loose end idea in three places only: process step 1, the work heading and the closing heading.
 
 ### Other rules
