@@ -1507,6 +1507,13 @@ html.js .mm .cviz .d,html.js .wk-viz .cviz .d,html.js .wk-more .cviz .d{opacity:
 @media(max-width:860px){#commitments .rules{grid-template-columns:1fr}#commitments .rules div:not(:nth-child(3n+1)){padding-left:0;border-left:0}}
 /* the week story is told by the threads themselves: loose and ochre before, tied and calm after */
 .hweek{display:none!important}
+/* ── hero: shorter scroll, no counters ── */
+.hero-track{height:250vh}
+@media(max-width:860px){.hero-track{height:220vh}}
+.hcount,.hf-ft{display:none!important}
+.hafter b{font-size:clamp(2.8rem,6.4vw,5.4rem);line-height:1.04;letter-spacing:-.02em;color:var(--wall)}
+.hafter span{margin-top:14px;max-width:44ch}
+@media(prefers-reduced-motion:reduce){.hero-track{height:auto!important}}
 </style></head><body>
 NAVBARHERE
 
@@ -1544,7 +1551,7 @@ NAVBARHERE
     <p class="hp-t">P2TEXT</p>
   </div>
   <div class="hp hp4" id="hp4">
-    <p class="hfinal"><b>HOURSVAL</b><span>COUNTERTXT</span></p>
+    <p class="hfinal hafter"><b>A week, after.</b><span>The same work, running on its own. A person still approves what goes out.</span></p>
     <div class="sw" id="sw" data-s="before" role="group" aria-label="Show the week before or after"><button type="button" data-s="before" aria-pressed="true">Before</button><button type="button" data-s="after" aria-pressed="false">After</button><i class="thumb"></i></div>
   </div>
   <p class="hnote" id="hnote">WEEKNOTE</p>
