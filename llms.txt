@@ -94,7 +94,7 @@ Request a free review from the contact section of the site: https://houssem-gabs
 
 - [Home](https://houssem-gabsi.vercel.app/): the whole studio on one page.
 - [The home page as Markdown](https://houssem-gabsi.vercel.app/index.md)
-- [Claude Consulting and Setup for Business](https://houssem-gabsi.vercel.app/claude-consulting/): Claude consulting for businesses of any size: setup, connection to your own tools and data, reusable instructions and team training. One person, end to end.
+- [Claude Consulting and Setup for Business](https://houssem-gabsi.vercel.app/claude-consulting/): Claude consulting for businesses of any size: setup, connection to your own tools and data, reusable instructions and team training. Designed and built end to end.
 - [AI Automation Services for Business](https://houssem-gabsi.vercel.app/ai-automation/): AI automation built inside the tools a business already has: follow-up, bookings, screening, reports, newsletters and publishing. A person approves before anything is sent.
 - [MCP Integrations: Connect Claude to Your Tools](https://houssem-gabsi.vercel.app/mcp-integrations/): MCP integration services: Claude connected to email, Slack, Shopify, Etsy, Substack, spreadsheets, Loxo, BrightHire and the tools specific to your business.
 - [Website and Online Shop Design: Shopify and Etsy](https://houssem-gabsi.vercel.app/websites-and-online-shops/): Websites, booking applications and online shops on Shopify and Etsy, designed and built by one person and connected to the rest of your tools.

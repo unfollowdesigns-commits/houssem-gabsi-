@@ -1245,7 +1245,7 @@ html.js:not(.hready) .htxt > *,html.js:not(.hready) .hfeed{opacity:0;transform:t
 </style></head><body>
 <header class="nav" id="nav">
   <a class="brand" href="#top">Loose Ends</a>
-  <nav aria-label="Sections"><a href="#services">Services</a><a href="#work">Work</a><a href="#systems">Systems</a><a href="#process">Process</a><a href="#questions">Questions</a><i class="ind" id="ind"></i></nav>
+  <nav aria-label="Sections"><a href="#services">Services</a><a href="#work">Work</a><a href="#systems">Systems</a><a href="#process">Process</a><a href="#questions">Questions</a><a href="/blog/">Blog</a><i class="ind" id="ind"></i></nav>
   <a class="btn sm mag" href="MAILTOHERE">Free review</a>
 </header>
 
@@ -1502,7 +1502,7 @@ FOOTERHERE
   /* one smoothed scroll loop drives everything that follows the page */
   var sy=scrollY, nav=$('#nav'), h1=$('.hero h1'), mk=$('.hero .mark'),
       flow=$('.flow'), fl=$$('.fline i'), fs=$$('.fstep'), fo=$('.fnode.o'), trk=$('#trk'), howl=$('.how'), how=$$('.how li'),
-      links=$$('.nav nav a'), ind=$('#ind'), secs=links.map(function(a){return $(a.getAttribute('href'));}),
+      links=$$('.nav nav a'), ind=$('#ind'), secs=links.map(function(a){var h=a.getAttribute('href');return h.charAt(0)==='#'?$(h):null;}),
       wi=$$('.windex li'), cs=$$('.case'), pf=0, pt=0, act=-2, wact=-2;
   function frame(){
     /* do nothing while the page is still: the work below only matters when the scroll position changes */
@@ -1561,7 +1561,7 @@ ASK_Q = ("Tell me about Loose Ends (houssem-gabsi.vercel.app), a studio run by H
 ASK = [("ChatGPT", "https://chatgpt.com/?q="), ("Claude", "https://claude.ai/new?q="), ("Perplexity", "https://www.perplexity.ai/search?q=")]
 def footer_html(home):
     sec = "".join('<a href="%s#%s">%s</a>' % (home, i, n) for i, n in
-                  [("services","Services"),("work","Work"),("systems","Systems"),("process","Process"),("questions","Questions")])
+                  [("services","Services"),("work","Work"),("systems","Systems"),("process","Process"),("questions","Questions")]) + '<a href="/blog/">Blog</a>'
     pgs = "".join('<a href="/%s/">%s</a>' % (pg["slug"], e(pg["nav"])) for pg in PAGES)
     contact = ('<a href="mailto:%s">%s</a>' % (EMAIL, EMAIL)) if EMAIL else '<a href="%s#contact">Request a free review</a>' % home
     ask = "".join('<a href="%s%s" target="_blank" rel="noopener">%s</a>' % (u, quote(ASK_Q), n) for n, u in ASK)
@@ -1766,30 +1766,195 @@ for pg in PAGES:
   <p class="crumb"><a href="/">Loose Ends</a><i>/</i>%(nav)s</p>
   <h1 class="lph1">%(h1)s</h1>
   <p class="lplead">%(lead)s</p>
-  <div class="cta"><a class="btn big2" href="%(mailto)s">Request a free review</a><a class="tl" href="/#work">See selected work</a></div>
+  <div class="cta"><a class="btn big2" href="%(mailto)s">Request a free review</a><a class="tl" href="/#work">See the work</a></div>
   <p class="cta-note">%(ctanote)s</p>
   <ul class="ex lpshort">%(short)s</ul>
 </div></div>
 %(body)s<section><div class="wrap"><h2>Questions</h2><div class="lpfaq">%(faq)s</div></div></section>
 <section><div class="wrap"><h2>Related services</h2><div class="rel">%(rel)s</div></div></section>
 <section class="close" id="contact"><div class="wrap">
-  <h2>Find out where your business is losing time.</h2>
-  <p class="lead">A free one-page review of your follow-up, booking and administration. No call required.</p>
-  <a class="btn big" href="%(mailto)s">Request a free review</a>
+  <h2>%(closehead)s</h2>
+  <p class="lead">%(closetext)s</p>
+  <a class="btn big" href="%(mailto)s">%(closebtn)s</a>
+  <p class="cnote">%(closenote)s</p>
   %(mailline)s
 </div></section>
 </main>
 %(footer)s
 </body></html>""" % dict(title=e(ptitle), desc=e(pg["desc"]), url=url, ogtitle=e(pg["title"]), site=SITE, ld=ld, style=STYLE, lpcss=LP_CSS,
         navlinks=NAVLINKS, mailto=MAILTO, nav=e(pg["nav"]), h1=e(pg["h1"]), lead=e(pg["lead"]), ctanote=e(CTA_NOTE),
-        short="".join("<li>%s</li>" % e(x) for x in pg["short"]), body=body, faq=faqh, rel=rel, mailline=MAILLINE, footer=footer_html("/"))
+        short="".join("<li>%s</li>" % e(x) for x in pg["short"]), body=body, faq=faqh, rel=rel, mailline=MAILLINE, footer=footer_html("/"), closehead=e(CLOSE_HEAD), closetext=e(CLOSE_TEXT), closebtn=e(CLOSE_BTN), closenote=e(CLOSE_NOTE))
     os.makedirs("../" + pg["slug"], exist_ok=True)
     open("../%s/index.html" % pg["slug"], "w").write(doc)
+
+# ── blog: posts live as JSON files in _source/posts/, one list per file. Same rules as the rest of the wording. ──
+import glob, re as _re
+POSTS = []
+for _f in sorted(glob.glob("posts/*.json")):
+    POSTS += json.load(open(_f))
+BLOG_DATE = "2026-11-17"
+CAT_SCENE = {"AI assistants": 4, "Connections": 0, "Automation": 6, "Building": 5, "Search and AI visibility": 14}
+CAT_ORDER = ["AI assistants", "Connections", "Automation", "Building", "Search and AI visibility"]
+def _words(po):
+    t = [po["lead"]] + [x if isinstance(x, str) else " ".join(x) for sec in po["sections"] for x in sec["body"]]
+    return len(" ".join(t).split())
+for po in POSTS:
+    po["mins"] = max(3, round(_words(po) / 220))
+BLOG_CSS = """
+.bmeta{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:clamp(18px,3vh,28px);font-size:13.5px;color:var(--ink-soft)}
+.bmeta b{font-weight:500;color:var(--ochre)}
+.bshort{max-width:760px;margin-top:clamp(28px,5vh,44px);padding:22px 26px;border-radius:var(--r-card);background:var(--wall-2);box-shadow:inset 0 0 0 1px rgba(27,32,28,.06)}
+.bshort > b{display:block;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px}
+.bshort ul{list-style:none;display:grid;gap:8px;margin:0;padding:0}
+.bshort li{padding-left:22px;position:relative;font-size:16.5px;line-height:1.5}
+.bshort li::before{content:"";position:absolute;left:0;top:.7em;width:10px;height:2px;background:var(--ochre)}
+.bpost section{padding:clamp(26px,4vh,44px) 0}
+.bpost section h2{font-size:clamp(1.6rem,2.6vw,2.3rem);max-width:30ch;line-height:1.1}
+.bpost section h2::before{content:none!important}
+.bcats{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(24px,4vh,36px)}
+.bcats button{font:inherit;font-size:13.5px;padding:8px 14px;border-radius:999px;border:1px solid rgba(27,32,28,.18);background:none;color:var(--ink);cursor:pointer;transition:background-color .2s var(--ease),color .2s var(--ease)}
+.bcats button[aria-pressed=true]{background:var(--ink);color:var(--wall);border-color:var(--ink)}
+.bgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:clamp(28px,4vh,44px)}
+.bcard{display:flex;flex-direction:column;padding:12px 12px 22px;border-radius:var(--r-card);background:var(--wall-2);text-decoration:none;color:var(--ink);
+  box-shadow:inset 0 0 0 1px rgba(27,32,28,.06),0 24px 40px -34px rgba(27,32,28,.45);transition:transform .4s var(--ease)}
+@media(hover:hover){.bcard:hover{transform:translateY(-4px)}.bcard:hover h3{color:var(--door)}}
+.bcard .sviz{margin-bottom:16px}
+.bcard small{display:block;margin:0 6px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre)}
+.bcard h3{margin:10px 6px 0;font-size:clamp(1.15rem,1.4vw,1.35rem);line-height:1.2;letter-spacing:-.012em;font-weight:400;transition:color .2s var(--ease)}
+.bcard p{margin:10px 6px 0;font-size:14.5px;line-height:1.5;color:var(--ink-soft)}
+.bcard span{margin:14px 6px 0;font-size:12.5px;color:var(--ink-soft)}
+.bcard[hidden]{display:none}
+@media(max-width:1000px){.bgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.bgrid{grid-template-columns:1fr}}
+"""
+def blog_card(po, i):
+    return ('<a class="bcard" href="/blog/%s/" data-cat="%s">%s<small>%s</small><h3>%s</h3><p>%s</p><span>%d min read</span></a>'
+            % (po["slug"], e(po["category"]), scene(CAT_SCENE.get(po["category"], i)), e(po["category"]), e(po["h1"]), e(po["desc"]), po["mins"]))
+def page_head(title, desc, url, ogtype, ld):
+    return """<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>%s</title>
+<meta name="description" content="%s">
+<meta name="author" content="Houssem Gabsi">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="theme-color" content="#E9E7DE">
+<link rel="canonical" href="%s">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="Plain-text summary of this site">
+<meta property="og:site_name" content="Loose Ends">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="%s">
+<meta property="og:type" content="%s">
+<meta property="og:title" content="%s">
+<meta property="og:description" content="%s">
+<meta property="og:image" content="%sog.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+%s
+</script>
+<link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>%s%s%s</style></head><body class="lp">
+<header class="nav sc" id="nav">
+  <a class="brand" href="/">Loose Ends</a>
+  <nav aria-label="Sections"><a href="/#services">Services</a><a href="/#work">Work</a><a href="/#systems">Systems</a><a href="/blog/">Blog</a></nav>
+  <a class="btn sm" href="%s">Free review</a>
+</header>
+""" % (e(title), e(desc), url, url, ogtype, e(title), e(desc), SITE, ld, STYLE, LP_CSS, BLOG_CSS, MAILTO)
+CLOSE_BLOCK = """<section class="close" id="contact"><div class="wrap">
+  <h2>%s</h2>
+  <p class="lead">%s</p>
+  <a class="btn big" href="%s">%s</a>
+  <p class="cnote">%s</p>
+  %s
+</div></section>""" % (e(CLOSE_HEAD), e(CLOSE_TEXT), MAILTO, e(CLOSE_BTN), e(CLOSE_NOTE), MAILLINE)
+BYPOST = {po["slug"]: po for po in POSTS}
+for i, po in enumerate(POSTS):
+    url = SITE + "blog/" + po["slug"] + "/"
+    rel = [q for q in POSTS if q["category"] == po["category"] and q is not po][:3]
+    rel += [q for q in POSTS if q is not po and q not in rel][:3 - len(rel)]
+    ld = json.dumps({"@context":"https://schema.org","@graph":[
+      {"@type":"BlogPosting","@id":url+"#post","headline":po["title"],"name":po["h1"],"description":po["desc"],"url":url,
+       "mainEntityOfPage":url,"inLanguage":"en","datePublished":BLOG_DATE,"dateModified":BLOG_DATE,"articleSection":po["category"],
+       "keywords":", ".join(po.get("keywords", [])),"wordCount":_words(po),"image":SITE+"og.png",
+       "author":{"@type":"Person","@id":SITE+"#person","name":"Houssem Gabsi","url":SITE},
+       "publisher":{"@type":"ProfessionalService","@id":SITE+"#studio","name":"Loose Ends","url":SITE},
+       "isPartOf":{"@type":"Blog","@id":SITE+"blog/#blog","name":"Loose Ends blog","url":SITE+"blog/"}},
+      {"@type":"BreadcrumbList","itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Loose Ends","item":SITE},
+        {"@type":"ListItem","position":2,"name":"Blog","item":SITE+"blog/"},
+        {"@type":"ListItem","position":3,"name":po["h1"],"item":url}]},
+      {"@type":"FAQPage","@id":url+"#faq","mainEntity":[
+        {"@type":"Question","name":f["q"],"acceptedAnswer":{"@type":"Answer","text":f["a"]}} for f in po["faq"]]},
+    ]}, ensure_ascii=False, indent=1)
+    body = "".join('<section><div class="wrap"><h2>%s</h2>%s</div></section>\n' % (e(sec["h2"]), "".join(lp_block(x) for x in sec["body"])) for sec in po["sections"])
+    faqh = "".join("<div><h3>%s</h3><p>%s</p></div>" % (e(f["q"]), e(f["a"])) for f in po["faq"])
+    doc = page_head(po["title"] + " | Loose Ends", po["desc"], url, "article", ld) + """<main class="bpost">
+<article>
+<div class="lphero"><div class="wrap">
+  <p class="crumb"><a href="/">Loose Ends</a><i>/</i><a href="/blog/">Blog</a><i>/</i>%s</p>
+  <h1 class="lph1">%s</h1>
+  <p class="bmeta"><b>%s</b><span>By Houssem Gabsi</span><span>%d min read</span><time datetime="%s">17 November 2026</time></p>
+  <p class="lplead">%s</p>
+  <div class="bshort"><b>In short</b><ul>%s</ul></div>
+</div></div>
+%s<section><div class="wrap"><h2>Questions</h2><div class="lpfaq">%s</div></div></section>
+</article>
+<section><div class="wrap"><h2>Keep reading</h2><div class="bgrid">%s</div></div></section>
+%s
+</main>
+%s
+</body></html>""" % (e(po["category"]), e(po["h1"]), e(po["category"]), po["mins"], BLOG_DATE, e(po["lead"]),
+        "".join("<li>%s</li>" % e(x) for x in po["short"]), body, faqh, "".join(blog_card(q, j) for j, q in enumerate(rel)), CLOSE_BLOCK, footer_html("/"))
+    os.makedirs("../blog/" + po["slug"], exist_ok=True)
+    open("../blog/%s/index.html" % po["slug"], "w").write(doc)
+if POSTS:
+    url = SITE + "blog/"
+    cats = [c for c in CAT_ORDER if any(po["category"] == c for po in POSTS)]
+    ld = json.dumps({"@context":"https://schema.org","@graph":[
+      {"@type":"Blog","@id":url+"#blog","url":url,"name":"Loose Ends blog","inLanguage":"en",
+       "description":"Notes from Loose Ends on setting up AI assistants, connecting tools, automating repeated work, building websites and applications, and visibility in search and AI answers.",
+       "publisher":{"@id":SITE+"#studio"},
+       "blogPost":[{"@type":"BlogPosting","headline":po["title"],"url":url+po["slug"]+"/","datePublished":BLOG_DATE} for po in POSTS]},
+      {"@type":"BreadcrumbList","itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Loose Ends","item":SITE},{"@type":"ListItem","position":2,"name":"Blog","item":url}]}]}, ensure_ascii=False, indent=1)
+    doc = page_head("Blog: AI assistants, automation, connections and AI visibility | Loose Ends",
+        "How firms set up AI assistants, connect their tools with MCP and APIs, automate repeated work, and get found in search and AI answers.", url, "website", ld) + """<main>
+<div class="lphero"><div class="wrap">
+  <p class="crumb"><a href="/">Loose Ends</a><i>/</i>Blog</p>
+  <h1 class="lph1">Notes on the work a firm repeats, and how it is rebuilt.</h1>
+  <p class="lplead">How Loose Ends sets up AI assistants, connects a firm's tools, automates the answering, confirming, chasing and retyping, and makes a firm easy to find in search and AI answers.</p>
+  <div class="bcats" role="group" aria-label="Filter by topic"><button type="button" aria-pressed="true" data-cat="">All</button>%s</div>
+  <div class="bgrid" id="bgrid">%s</div>
+</div></div>
+%s
+</main>
+%s
+<script>(function(){var b=document.querySelectorAll('.bcats button'),c=document.querySelectorAll('.bcard');
+[].forEach.call(b,function(x){x.addEventListener('click',function(){var k=x.getAttribute('data-cat');
+[].forEach.call(b,function(y){y.setAttribute('aria-pressed',String(y===x));});
+[].forEach.call(c,function(z){z.hidden=!!k&&z.getAttribute('data-cat')!==k;});});});})();</script>
+</body></html>""" % ("".join('<button type="button" aria-pressed="false" data-cat="%s">%s</button>' % (e(c), e(c)) for c in cats),
+        "".join(blog_card(po, i) for i, po in enumerate(POSTS)), CLOSE_BLOCK, footer_html("/"))
+    os.makedirs("../blog", exist_ok=True)
+    open("../blog/index.html", "w").write(doc)
+    _ll = open("../llms.txt").read()
+    _ll += "\n## Blog\n\n" + "\n".join("- [%s](%sblog/%s/): %s" % (po["title"], SITE, po["slug"], po["desc"]) for po in POSTS) + "\n"
+    open("../llms.txt", "w").write(_ll)
+    _md = open("../index.md").read()
+    _md += "\n## Blog\n\n" + "\n".join("- [%s](%sblog/%s/)" % (po["title"], SITE, po["slug"]) for po in POSTS) + "\n"
+    open("../index.md", "w").write(_md)
+print("posts", len(POSTS))
 
 TODAY = "2026-11-16"   # update when the pages change
 SM = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
       '  <url><loc>%s</loc><lastmod>%s</lastmod></url>' % (SITE, TODAY)]
 SM += ['  <url><loc>%s%s/</loc><lastmod>%s</lastmod></url>' % (SITE, pg["slug"], TODAY) for pg in PAGES]
+SM += ['  <url><loc>%sblog/</loc><lastmod>%s</lastmod></url>' % (SITE, BLOG_DATE)] if POSTS else []
+SM += ['  <url><loc>%sblog/%s/</loc><lastmod>%s</lastmod></url>' % (SITE, po['slug'], BLOG_DATE) for po in POSTS]
 SM += ['  <url><loc>%stools/stock-sales-production-tracker/</loc><lastmod>2026-10-26</lastmod></url>' % SITE, '</urlset>', '']
 open("../sitemap.xml","w").write("\n".join(SM))
 print("pages", len(PAGES))

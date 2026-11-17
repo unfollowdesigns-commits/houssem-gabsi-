@@ -9,9 +9,9 @@ PAGES = [
   slug="claude-consulting",
   nav="Claude consulting",
   title="Claude Consulting and Setup for Business",
-  desc="Claude consulting for businesses of any size: setup, connection to your own tools and data, reusable instructions and team training. One person, end to end.",
+  desc="Claude consulting for businesses of any size: setup, connection to your own tools and data, reusable instructions and team training. Designed and built end to end.",
   h1="Claude consulting and setup for business",
-  lead="Most teams that pay for Claude use it for single questions and little else. I set it up so it works inside the business: connected to your own tools and data, given the instructions your work needs, and taught to the people who will use it.",
+  lead="Most teams that pay for Claude use it for single questions and little else. Loose Ends sets it up so it works inside the business: connected to your own tools and data, given the instructions your work needs, and taught to the people who will use it.",
   short=["Claude connected to your email, calendar, documents, shop and customer records",
          "Recurring tasks written once and reused by the whole team",
          "A person approves anything before it reaches a client",
@@ -25,10 +25,10 @@ PAGES = [
       "Training: short sessions built around your own work, not generic prompts."]]),
    ("What changes once Claude is set up properly", [
      "The difference is that people stop starting from a blank page. Anyone on the team can ask a question and get the answer from your own data. Replies, reports and first drafts are prepared in your voice. The weekly tasks nobody enjoys follow a consistent process.",
-     "Nothing is sent to a client without a member of your team approving it. That is a design rule in every system I build."]),
+     "Nothing is sent to a client without a member of your team approving it. That is a design rule in every system the studio builds."]),
    ("An example from client work", [
-     "A journalist working in video had access to AI tools but was getting little practical value from them. I configured his assistant around his editorial week rather than the software's defaults. Recurring weekly tasks now follow a consistent, repeatable process, with video production at the centre.",
-     "For an executive search firm, I connected the firm's recruiting database and internal chat to its AI assistant, so the team can query its own candidate data."]),
+     "A journalist working in video had access to AI tools but was getting little practical value from them. The studio configured his assistant around his editorial week rather than the software's defaults. Recurring weekly tasks now follow a consistent, repeatable process, with video production at the centre.",
+     "For an executive search firm, the studio connected the firm's recruiting database and internal chat to its AI assistant, so the team can query its own candidate data."]),
    ("What Claude can be connected to", [
      "Email and calendar, Slack, spreadsheets and databases, Shopify and Etsy, Substack, and the specialist software of your trade, such as Loxo and BrightHire in recruiting. If a tool can share its data, it can usually be connected.",
      "These connections are built on the Model Context Protocol, or MCP, the open standard for linking an AI assistant to tools and data."]),
@@ -59,7 +59,7 @@ PAGES = [
   title="AI Automation Services for Business",
   desc="AI automation built inside the tools a business already has: follow-up, bookings, screening, reports, newsletters and publishing. A person approves before anything is sent.",
   h1="AI automation services for business",
-  lead="AI automation means the repeated work in a business is done by a system, inside the tools the business already uses, with a person approving anything that goes out. I find that work, then build what removes it.",
+  lead="AI automation means the repeated work in a business is done by a system, inside the tools the business already uses, with a person approving anything that goes out. Loose Ends finds that work, then builds what removes it.",
   short=["Follow-up on enquiries, quotes and invoices",
          "Booking confirmations and reminders",
          "Screening of applications and enquiries",
@@ -73,7 +73,7 @@ PAGES = [
       "Reporting: weekly figures sent to the people who need them, without anyone preparing them.",
       "Content: one idea turned into a researched article and a week of posts, published on schedule."]]),
    ("How it is different from buying another tool", [
-     "Most automation products ask you to move your work into them. I work the other way: the systems are built around your existing email, calendar, spreadsheets and databases. Nothing is replaced. The tools stay where they are and start working together.",
+     "Most automation products ask you to move your work into them. Loose Ends works the other way: the systems are built around your existing email, calendar, spreadsheets and databases. Nothing is replaced. The tools stay where they are and start working together.",
      "Every system drafts and prepares. A member of your team approves before anything reaches a client."]),
    ("Systems already built", [
      ["Invoice and quote follow-up: reviews the inbox, quotes and invoices, and drafts a reply for each item that has gone quiet.",
@@ -108,7 +108,7 @@ PAGES = [
   title="MCP Integrations: Connect Claude to Your Tools",
   desc="MCP integration services: Claude connected to email, Slack, Shopify, Etsy, Substack, spreadsheets, Loxo, BrightHire and the tools specific to your business.",
   h1="MCP integrations: connect Claude to your business tools",
-  lead="MCP, the Model Context Protocol, is the open standard that lets an AI assistant such as Claude connect to the tools and data a business already has. I design and build those connections, so the assistant works with your live information and not with what someone remembers to paste in.",
+  lead="MCP, the Model Context Protocol, is the open standard that lets an AI assistant such as Claude connect to the tools and data a business already has. Loose Ends designs and builds those connections, so the assistant works with your live information and not with what someone remembers to paste in.",
   short=["Email, calendar and Slack",
          "Shopify, Etsy and Substack",
          "Spreadsheets and databases",
@@ -126,7 +126,7 @@ PAGES = [
      "An assistant that cannot see your data can only answer in general terms. Once it is connected, it can read the inbox, check the calendar, look up an order or a candidate, and prepare the next step. That is the gap between using a fraction of what Claude can do and using it properly.",
      "The method does not change with the trade. If a tool can share its data, it can be connected to the others and to an AI assistant."]),
    ("An example from client work", [
-     "For an executive search firm in Washington D.C., I connected the firm's recruiting database and internal chat to its AI assistant, so the team can query its own candidate data. Open roles on the firm's website are synchronised from the same recruiting system, so they are no longer maintained by hand in two places."]),
+     "For an executive search firm in Washington D.C., the studio connected the firm's recruiting database and internal chat to its AI assistant, so the team can query its own candidate data. Open roles on the firm's website are synchronised from the same recruiting system, so they are no longer maintained by hand in two places."]),
    ("Control and approval", [
      "Each connection is given only the access it needs. Every system drafts and prepares, and a member of your team approves before anything is sent. You own the accounts and the code, and they are transferred on request at no additional cost."]),
   ],
@@ -148,13 +148,13 @@ PAGES = [
   title="Website and Online Shop Design: Shopify and Etsy",
   desc="Websites, booking applications and online shops on Shopify and Etsy, designed and built by one person and connected to the rest of your tools.",
   h1="Website and online shop design, connected to the rest of your business",
-  lead="I design and build websites, booking applications and online shops, and connect them to the tools behind them, so an enquiry, a booking or an order reaches the right place without anyone retyping it.",
+  lead="Loose Ends designs and builds websites, booking applications and online shops, and connect them to the tools behind them, so an enquiry, a booking or an order reaches the right place without anyone retyping it.",
   short=["Company and marketing websites",
          "Online shops on Shopify and Etsy",
          "Booking applications",
          "Dashboards and internal tools"],
   sections=[
-   ("What I build", [
+   ("What the studio builds", [
      ["Company and marketing websites, designed around the identity of the business.",
       "Online shops on Shopify and Etsy, with orders, stock and listings kept in step.",
       "Booking applications, with schedule, availability and payment on a single screen.",
@@ -176,7 +176,7 @@ PAGES = [
    ("Can you redesign an existing website?",
     "Yes. Most projects start from a site the business has outgrown. The existing content and accounts are kept where they still serve."),
    ("Do you work in languages other than English?",
-    "Yes. I work in English, French and Arabic, and have built bilingual sites in French and English."),
+    "Yes. The studio works in English, French and Arabic, and have built bilingual sites in French and English."),
    ("Who owns the website when it is finished?",
     "You do. The code, the domain and the accounts are yours, and are transferred on request at no additional cost."),
   ],
@@ -188,7 +188,7 @@ PAGES = [
   title="SEO and GEO: Visibility in Search and AI Answers",
   desc="SEO and generative engine optimisation: sites and content structured so Google, ChatGPT, Claude and Perplexity can find them, understand them and cite them.",
   h1="SEO and GEO: visibility in search and in AI answers",
-  lead="People now find businesses in two places: search results, and the answers given by AI assistants such as ChatGPT, Claude and Perplexity. I structure a site and its content so both can find it, understand it and cite it.",
+  lead="People now find businesses in two places: search results, and the answers given by AI assistants such as ChatGPT, Claude and Perplexity. Loose Ends structures a site and its content so both can find it, understand it and cite it.",
   short=["Search engine optimisation",
          "Generative engine optimisation (GEO)",
          "Structured data and answer-first pages",
@@ -204,9 +204,9 @@ PAGES = [
       "A plain-text summary of the site for AI assistants.",
       "Technical basics: fast pages, clean addresses, a sitemap, and no blocked crawlers."]]),
    ("Content that keeps working", [
-     "A site ranks for what it publishes. My content system turns one idea into a researched article and a week of posts. Every figure is verified against a named source before publication, and each piece is structured to be cited by search engines and AI assistants. It is in weekly use on client work."]),
+     "A site ranks for what it publishes. The studio's content system turns one idea into a researched article and a week of posts. Every figure is verified against a named source before publication, and each piece is structured to be cited by search engines and AI assistants. It is in weekly use on client work."]),
    ("This site as an example", [
-     "This site is built the way I build for clients: structured data for the studio, its services, its work and its questions; a plain-text summary for assistants; fonts and files served from its own address; and one page for each service."]),
+     "This site is built the way the studio builds for clients: structured data for the studio, its services, its work and its questions; a plain-text summary for assistants; fonts and files served from its own address; and one page for each service."]),
   ],
   faq=[
    ("What is the difference between SEO and GEO?",

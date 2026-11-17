@@ -138,7 +138,7 @@ RULES = [
  ("Nothing reaches your clients without approval.", "Every system drafts and prepares. A member of your team approves before anything is sent."),
  ("Honest advice on what to build.", "If a piece of work will not repay its cost, you will hear that in the first conversation."),
  ("One person does the work.", "Houssem Gabsi runs every engagement himself, which is also why Loose Ends takes on a limited number of projects at a time."),
- ("Plain language.", "Everything built is explained, and why, in terms your team can repeat without me in the room."),
+ ("Plain language.", "Everything built is explained, and why, in terms the team can repeat without the studio in the room."),
 ]
 
 # ── process: (title, text, label) ──
