@@ -42,7 +42,7 @@ PRODUCTS = [
   did="The platform reads a batch of résumés against a role and ranks the candidates. Every score shows its reasoning and the source text it came from. Outreach is drafted from each candidate's own work, and the decision stays with the recruiter.",
   now="In use."),
  dict(kind="ZonedInOut. Market analytics", who="A daily risk score for stocks, funds and crypto.",
-  did="Each trading day, every listed stock, fund and cryptocurrency is scored on how far its price has moved from its average, with an entry zone and a stop level. Past calls are published and graded. It is a scoring system, not financial advice.",
+  did="Each trading day, stocks, funds and cryptocurrencies are scored on how far the price has moved from its average, with an entry zone and a stop level. Past calls are published and graded. It is a scoring system, not financial advice.",
   now="In use."),
 ]
 
