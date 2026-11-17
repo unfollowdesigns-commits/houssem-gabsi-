@@ -131,7 +131,7 @@ def _llms():
         L += ["", "### " + c["who"], "", c["kind"], "", c["did"], "", "Status: " + c["now"]]
     L += ["", "## " + PRODUCTS_LABEL]
     for c in PRODUCTS:
-        L += ["", "### " + c["who"], "", c["did"], "", "Status: " + c["now"], "", "Link: " + c["link"]]
+        L += ["", "### " + c["who"], "", c["did"], "", "Status: " + c["now"]]
     L += ["", "## Systems", ""]
     L += ["- %s: %s Status: %s" % (a, c, d) for a,b,c,d in SYSTEMS]
     L += ["", "## How an engagement starts", ""]
@@ -152,7 +152,7 @@ def _md():
         L += ["", "### " + c["who"], "", c["kind"], "", c["did"], "", c["now"]]
     L += ["", "## " + PRODUCTS_LABEL]
     for c in PRODUCTS:
-        L += ["", "### " + c["who"], "", c["kind"], "", c["did"], "", c["now"], "", c["link"]]
+        L += ["", "### " + c["who"], "", c["kind"], "", c["did"], "", c["now"]]
     L += ["", "## " + SERVICES_HEAD]
     for m,k,t,dsc in WHAT:
         L += ["", "### %s: %s" % (k, t), "", dsc, ""] + ["- " + x for x in EXAMPLES[m]]

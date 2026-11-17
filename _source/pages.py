@@ -164,7 +164,7 @@ PAGES = [
      ["An eighteen-page website for an executive search firm in Washington D.C., with open roles synchronised from the firm's recruiting system.",
       "A bilingual website and visual identity for a guesthouse in La Marsa, drawn from the house itself: its tiles, doors and objects.",
       "A mobile-first booking application for a yoga studio, in French and English.",
-      "Two products of my own: Vero, a recruiting platform that explains every score, and ZonedInOut, a daily entry-risk score for stocks and crypto."]]),
+      "The studio's own products: Vero, recruiting software that shows the reasoning behind every candidate score, and ZonedInOut, a daily risk score for stocks, funds and crypto."]]),
    ("Built to be found", [
      "Every site is structured for search engines and for AI assistants: clear headings, direct answers, structured data and a plain-text summary that assistants can read. See SEO and GEO for how that works."]),
    ("Ownership", [

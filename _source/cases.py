@@ -36,14 +36,14 @@ CASES = [
   now="Delivered 2026."),
 ]
 # Own products. Shown under the four client cases, with their own small label (Houssem, 16 Nov 2026: "we did all of that").
-PRODUCTS_LABEL = "Own products"
+PRODUCTS_LABEL = "Products"
 PRODUCTS = [
- dict(kind="Own product, 2026", who="A recruiting platform that explains every score.",
-  did="Vero, a web application that reads a batch of résumés against a role, ranks the candidates, and shows the reasoning and the source text behind every score. It also drafts outreach based on each candidate's own work. The decision stays with a person.",
-  now="Live.", link="https://vero-woad.vercel.app/", img="vero.jpg", alt="The Vero home page: Hiring intelligence that reads between the lines."),
- dict(kind="Own product, 2026", who="A daily entry-risk score for stocks and crypto.",
-  did="ZonedInOut, a website that scores stocks, ETFs and cryptocurrencies every trading day on how far the price has moved from its average, with an entry zone and a stop level for each. Past calls are published and graded. It is a scoring system, not financial advice.",
-  now="Live.", link="https://zonedinout.vercel.app/", img="zonedinout.jpg", alt="The ZonedInOut home page: Know the risk before you enter."),
+ dict(kind="Vero. Recruiting software", who="Candidates ranked, with the reasoning behind every score.",
+  did="The platform reads a batch of résumés against a role and ranks the candidates. Every score shows its reasoning and the source text it came from. Outreach is drafted from each candidate's own work, and the decision stays with the recruiter.",
+  now="In use."),
+ dict(kind="ZonedInOut. Market analytics", who="A daily risk score for stocks, funds and crypto.",
+  did="Each trading day, every listed stock, fund and cryptocurrency is scored on how far its price has moved from its average, with an entry zone and a stop level. Past calls are published and graded. It is a scoring system, not financial advice.",
+  now="In use."),
 ]
 
 # ── services: (mark, label, title, text) ──

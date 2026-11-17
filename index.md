@@ -38,27 +38,23 @@ His assistant is set up around his editorial week, not the software's defaults. 
 
 Delivered 2026.
 
-## Own products
+## Products
 
-### A recruiting platform that explains every score.
+### Candidates ranked, with the reasoning behind every score.
 
-Own product, 2026
+Vero. Recruiting software
 
-Vero, a web application that reads a batch of résumés against a role, ranks the candidates, and shows the reasoning and the source text behind every score. It also drafts outreach based on each candidate's own work. The decision stays with a person.
+The platform reads a batch of résumés against a role and ranks the candidates. Every score shows its reasoning and the source text it came from. Outreach is drafted from each candidate's own work, and the decision stays with the recruiter.
 
-Live.
+In use.
 
-https://vero-woad.vercel.app/
+### A daily risk score for stocks, funds and crypto.
 
-### A daily entry-risk score for stocks and crypto.
+ZonedInOut. Market analytics
 
-Own product, 2026
+Each trading day, every listed stock, fund and cryptocurrency is scored on how far its price has moved from its average, with an entry zone and a stop level. Past calls are published and graded. It is a scoring system, not financial advice.
 
-ZonedInOut, a website that scores stocks, ETFs and cryptocurrencies every trading day on how far the price has moved from its average, with an entry zone and a stop level for each. Past calls are published and graded. It is a scoring system, not financial advice.
-
-Live.
-
-https://zonedinout.vercel.app/
+In use.
 
 ## Websites, automation and content, built as one system.
 
