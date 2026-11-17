@@ -1791,9 +1791,9 @@ from scenes import scene
 import re as _re2
 SYS_POST = ["automate-enquiry-follow-up", "ai-candidate-screening-with-reasoning", "content-system-one-idea-a-week-of-posts",
             "interview-notes-to-client-report", "claude-setup-for-teams", "booking-confirmation-reminder-automation",
-            "automate-invoice-reminders", "human-in-the-loop-automation", "automate-weekly-reporting", "shopify-etsy-inventory-sync",
-            "content-system-one-idea-a-week-of-posts", "content-system-one-idea-a-week-of-posts", "what-is-mcp-model-context-protocol",
-            "custom-api-integration-when-no-connector", "generative-engine-optimization-geo"]
+            "automate-invoice-reminders", "ai-client-onboarding-automation", "automate-weekly-reporting", "shopify-etsy-inventory-sync",
+            "substack-newsletter-automation", "content-system-one-idea-a-week-of-posts", "meeting-notes-to-crm-actions",
+            "ai-document-filing-automation", "generative-engine-optimization-geo"]
 SYS_PRICE = ["Automation", "Automation", "Brand and content", "Automation", "AI assistant setup", "Automation", "Automation", "Automation",
              "Automation", "Automation", "Brand and content", "Brand and content", "Automation", "Applications and integrations", "Websites and online shops"]
 _PR = {n: (v, u) for n, v, u, d in PRICING}
