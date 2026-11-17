@@ -1282,6 +1282,45 @@ html.js .sviz .a.x.on{opacity:0}
 @media(max-width:1000px){.sgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.sgrid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html.js .sviz .a{transition:none!important}}
+/* ── hero, opening screen: headline on the left, handled work arriving on the right ── */
+.hp1{flex-direction:row;align-items:center;justify-content:center;text-align:left;gap:clamp(32px,5vw,80px);padding:calc(62px + 40px) var(--gut) 56px}
+.htxt{flex:1 1 0;min-width:0;max-width:640px}
+.hp1 h1{max-width:13ch;text-wrap:balance;font-size:clamp(2.5rem,5.2vw,4.9rem)}
+.hp1 .sub{max-width:48ch;margin-left:0}
+.hp1 .hbtns{justify-content:flex-start}
+.hfeed{flex:0 1 440px;min-width:0;border-radius:18px;background:rgba(233,231,222,.06);border:1px solid rgba(233,231,222,.12);
+  box-shadow:0 40px 80px -50px rgba(0,0,0,.8),inset 0 1px 0 rgba(233,231,222,.08);padding:16px 16px 14px;backdrop-filter:blur(6px)}
+.hf-hd,.hf-ft{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:rgba(233,231,222,.6);padding:2px 4px}
+.hf-live{display:inline-flex;align-items:center;gap:8px;color:var(--wall);font-weight:500;letter-spacing:.02em}
+.hf-live i{width:7px;height:7px;border-radius:50%;background:#6FBF8B;box-shadow:0 0 0 4px rgba(111,191,139,.16)}
+.hf-s{font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.hf-list{list-style:none;margin:12px 0;padding:0;display:grid;gap:8px}
+.hf-i{display:grid;grid-template-columns:8px minmax(0,1fr) auto 78px;column-gap:12px;align-items:center;
+  padding:12px 14px;border-radius:12px;background:rgba(233,231,222,.07);border:1px solid rgba(233,231,222,.08);
+  transition:opacity .6s var(--ease),transform .7s var(--ease),background-color .5s var(--ease)}
+.hf-i.new{opacity:0;transform:translateY(-14px) scale(.98)}
+.hf-ic{width:8px;height:8px;border-radius:50%;background:var(--ochre);transition:background-color .4s var(--ease)}
+.hf-i.ok .hf-ic{background:#6FBF8B}
+.hf-t{min-width:0;display:grid;gap:2px}
+.hf-t b{font-weight:500;font-size:14px;color:var(--wall);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hf-t small{font-size:12.5px;color:rgba(233,231,222,.6);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hf-tag{font-size:11px;color:rgba(233,231,222,.55);border:1px solid rgba(233,231,222,.16);border-radius:999px;padding:3px 9px}
+.hf-st{justify-self:end;white-space:nowrap;font-size:11px;font-weight:500;color:var(--ochre);transition:color .4s var(--ease)}
+.hf-i.ok .hf-st{color:#8FD3A6}
+.hf-i.ok .hf-st::before{content:"✓ "}
+.hf-ft{border-top:1px solid rgba(233,231,222,.1);padding-top:12px}
+.hf-ft b{font-family:Fraunces,serif;font-weight:300;font-size:1.9rem;line-height:1;color:var(--ochre);font-variant-numeric:tabular-nums}
+.hnote{opacity:0}
+@media(max-width:1000px){.hfeed{flex-basis:380px}}
+@media(max-width:860px){
+  .hp1{flex-direction:column;align-items:stretch;justify-content:center;gap:22px;padding:calc(10px + 62px + 26px) var(--gut) 60px}
+  .hf-i{grid-template-columns:8px minmax(0,1fr) auto}
+  .hp1 h1{font-size:clamp(2.2rem,9.4vw,3rem)}
+  .hp1 .sub{font-size:15px}
+  .hfeed{flex:none;padding:12px 12px 10px}
+  .hf-list{margin:10px 0}.hf-i{padding:10px 12px}.hf-tag{display:none}.hf-ft b{font-size:1.5rem}}
+@media(max-width:860px) and (max-height:760px){.hp1 .sub{display:none}}
+@media(prefers-reduced-motion:reduce){.hp1{padding-top:0}.hnote{opacity:1}}
 </style></head><body>
 <header class="nav" id="nav">
   <a class="brand" href="#top">Loose Ends</a>
@@ -1304,9 +1343,16 @@ html.js .sviz .a.x.on{opacity:0}
   </div>
   <p class="hcount" id="hcount"><b id="hrs">0</b><span>hours a week returned to the team.</span></p>
   <div class="hp hp1" id="hp1">
+    <div class="htxt">
     <h1><span style="--w:0">The</span> <span style="--w:1">work</span> <span style="--w:2">a</span> <span style="--w:3">firm</span> <span style="--w:4">repeats</span> <span style="--w:5">every</span> <span style="--w:6">week,</span> <span style="--w:7">rebuilt</span> <span style="--w:8">to</span> <span style="--w:9">run</span> <span class="hl" style="--w:10">on</span> <span class="hl" style="--w:11">its</span> <span class="hl" style="--w:12">own.</span></h1>
     <p class="sub">Loose Ends is a one-person studio. It designs and builds the websites, automations and content systems that established firms in the US and Europe work on every day.</p>
     <div class="hbtns"><a class="btn" href="#contact">Request a free review</a><a class="tl" href="#work">See the work</a></div>
+    </div>
+    <div class="hfeed" id="hfeed" aria-hidden="true">
+      <div class="hf-hd"><span class="hf-live"><i></i>Handled today</span><span class="hf-s">Sample</span></div>
+      <ol class="hf-list" id="hflist"></ol>
+      <div class="hf-ft"><span>Hours returned this week</span><b id="hfh">0</b></div>
+    </div>
   </div>
   <div class="hp hp2" id="hp2">
     <p class="hp-h">A week, before.</p>
@@ -1316,7 +1362,7 @@ html.js .sviz .a.x.on{opacity:0}
     <p class="hfinal"><b>22</b><span>hours a week returned to the team.</span></p>
     <div class="sw" id="sw" data-s="before" role="group" aria-label="Show the week before or after"><button type="button" data-s="before" aria-pressed="true">Before</button><button type="button" data-s="after" aria-pressed="false">After</button><i class="thumb"></i></div>
   </div>
-  <p class="hnote">Sample week.</p>
+  <p class="hnote" id="hnote">Sample week.</p>
   <span class="hscroll" id="hscroll" aria-hidden="true">Scroll</span>
 </div>
 </div>
@@ -1559,11 +1605,30 @@ html.js .sviz .a.x.on{opacity:0}
   var hrs=$('#hrs'), target=22, wk=$('#week'), sw=$('#sw'), pin=$('#pin'), man=$$('i.m',wk), maxK=Math.max(1,man.length-1),
       hw=$('#hweek'), hp1=$('#hp1'), hp2=$('#hp2'), hp4=$('#hp4'), hcount=$('#hcount'), hscr=$('#hscroll'), sp=0, lastCleared=-1, lastSw='';
   function panel(el,o,y){el.style.opacity=o.toFixed(3);el.style.transform='translateY('+y.toFixed(1)+'px)';el.style.pointerEvents=o>.6?'auto':'none';}
+  /* hero feed: handled work arrives one item at a time, each one approved before it is sent */
+  var FEED=[["Enquiry answered","Reply drafted, approved and sent","Inbox"],["Invoice followed up","Reminder approved and sent","Accounting"],
+    ["Booking confirmed","Reminder set for the day before","Calendar"],["Weekly figures sent","Dashboard shared with the team","Slack"],
+    ["Candidates ranked","Shortlist ready for the recruiter","Recruiting"],["Posts scheduled","LinkedIn and Instagram, Thursday","Content"],
+    ["Contract filed","Saved to the client folder","Drive"],["Order synced","Stock updated on every channel","Shop"],
+    ["Meeting notes sent","Actions assigned to their owners","CRM"],["Newsletter drafted","Ready for review","Substack"]];
+  var hnote=$('#hnote'), hfl=$('#hflist'), hfh=$('#hfh'), hfi=0, hft=0, hfOn=false, hfHours=0, HFMAX=innerWidth<860?(innerHeight<760?2:3):(innerHeight<780?4:5);
+  function hfItem(f,fresh){var li=d.createElement('li');li.className='hf-i'+(fresh?' new':'');
+    li.innerHTML='<span class="hf-ic"></span><span class="hf-t"><b>'+f[0]+'</b><small>'+f[1]+'</small></span><span class="hf-tag">'+f[2]+'</span><span class="hf-st">Drafted</span>';
+    return li;}
+  function hfPush(){var f=FEED[hfi++%FEED.length], li=hfItem(f,true);hfl.insertBefore(li,hfl.firstChild);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){li.classList.remove('new');});});
+    setTimeout(function(){li.classList.add('ok');var st=li.querySelector('.hf-st');if(st)st.textContent='Approved';},900);
+    while(hfl.children.length>HFMAX)hfl.removeChild(hfl.lastChild);
+    if(hfHours<target){hfHours=Math.min(target,hfHours+2);hfh.textContent=hfHours;}}
+  function hfeedOn(on){if(RM||on===hfOn)return;hfOn=on;clearInterval(hft);if(on){hft=setInterval(function(){if(!d.hidden)hfPush();},2200);}}
+  FEED.slice(0,HFMAX).reverse().forEach(function(f){var li=hfItem(f,false);li.classList.add('ok');li.querySelector('.hf-st').textContent='Approved';hfl.insertBefore(li,hfl.firstChild);});
+  hfi=HFMAX;hfHours=Math.round(target*.4);hfh.textContent=RM?target:hfHours;
+
   function heroPaint(p){
     var o1=1-clamp((p-.14)/.10); panel(hp1,o1,-26*(1-o1));
     var i2=clamp((p-.26)/.08), x2=1-clamp((p-.44)/.12); panel(hp2,Math.min(i2,x2),26*(1-i2)-26*(1-x2));
     var o4=clamp((p-.88)/.10); panel(hp4,o4,26*(1-o4));
-    hw.style.opacity=(.25+.75*clamp((p-.14)/.12)-.7*o4).toFixed(3);
+    var gw=clamp((p-.12)/.12);hw.style.opacity=(gw-.7*o4).toFixed(3);hnote.style.opacity=gw.toFixed(3);hfeedOn(p<.16);
     hcount.style.opacity=(clamp((p-.2)/.08)*(1-o4)).toFixed(3);
     hscr.style.opacity=p>.05?0:1;
     var cleared=0; for(var i=0;i<man.length;i++){var on=p>.44+.40*(i/maxK); if(on)cleared++; if(on!==man[i]._c){man[i]._c=on;man[i].classList.toggle('c',on);}}
@@ -1581,6 +1646,7 @@ html.js .sviz .a.x.on{opacity:0}
   if(RM){man.forEach(function(c){c.classList.add('c');});hrs.textContent=target;sw.setAttribute('data-s','after');
     $$('button',sw).forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-s')==='after'));});}
   else heroPaint(0);
+  if(!RM)hfeedOn(true);
 
   /* services: one card is open and wide, the other two show only an index and a title */
   var offs=$$('.offer > .svc');
