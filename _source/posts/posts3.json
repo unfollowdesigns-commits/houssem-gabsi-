@@ -42,7 +42,7 @@
      "Vero is recruiting software that Loose Ends makes as one of its own products. It reads a batch of résumés against a role and ranks the candidates, and every score arrives with its reasoning and the source text underneath.",
      "It takes on the slow, repetitive part of a search:",
      [
-      "Reading each résumé against the role properly, instead of skimming for keywords.",
+      "Reading each résumé properly against the role, well beyond a skim for keywords.",
       "Ranking the candidates so the strongest come first.",
       "Showing, for every score, why it was given and which lines it came from.",
       "Drafting outreach to each candidate from that person's own work, with no generic template."
@@ -96,7 +96,7 @@
    },
    {
     "q": "What is source text in candidate screening?",
-    "a": "It's the exact passage from the résumé that a score is based on. Seeing it lets the recruiter check the reasoning in seconds instead of rereading the whole document."
+    "a": "It's the exact passage from the résumé that a score is based on. Seeing it lets the recruiter check the reasoning in seconds, with no need to reread the whole document."
    },
    {
     "q": "Are outreach messages sent automatically?",
@@ -180,7 +180,7 @@
     "h2": "Case: an executive search firm in Washington D.C.",
     "body": [
      "An executive search firm in Washington D.C. now enters its open roles in Loxo, its recruiting system, and they appear on its website without anyone retyping them. Loose Ends built the website.",
-     "Candidate CVs go into the firm's format in one step. The same database also answers the team's questions through their AI assistant. Both the recruiting database and the firm's internal chat are connected to the assistant, so a consultant can ask about a role or a candidate instead of searching by hand.",
+     "Candidate CVs go into the firm's format in one step. The same database also answers the team's questions through their AI assistant. Both the recruiting database and the firm's internal chat are connected to the assistant, so a consultant can ask about a role or a candidate without searching by hand.",
      "The website is live. Candidate scoring, which reads candidates against a search's criteria and shows its reasoning, is in development."
     ]
    },
@@ -362,7 +362,7 @@
    "Pick one place where the real stock count lives.",
    "Every sale on Shopify or Etsy updates that count, and both shops follow it.",
    "Listings are written once and published to both shops.",
-   "Spreadsheets read from the same data instead of being typed up by hand."
+   "Spreadsheets read from the same data, so nobody types them up by hand."
   ],
   "sections": [
    {
@@ -532,7 +532,7 @@
     "h2": "Does moving bookings off Instagram mean leaving Instagram?",
     "body": [
      "No. Instagram and WhatsApp are still good places to be found and to talk with customers. The only change is that the booking itself happens somewhere built for it.",
-     "The profile, the posts and the replies all point to the booking screen. When someone asks about a class in a message, the answer is a link instead of a long back-and-forth.",
+     "The profile, the posts and the replies all point to the booking screen. When someone asks about a class in a message, the answer is a link, and that's the end of the back-and-forth.",
      "Instagram stays useful for schedule news as well, like a new class, a change of time or a special session, and each post can link straight to the screen where the place gets booked. The personal side of messaging stays. The admin around it goes."
     ]
    },
