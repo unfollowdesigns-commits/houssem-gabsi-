@@ -1403,7 +1403,7 @@ html.js .sviz .a.x.on{opacity:0}
 .hp1 .sub{max-width:48ch;margin-left:0}
 .hp1 .hbtns{justify-content:flex-start}
 .hfeed{flex:0 1 440px;min-width:0;border-radius:18px;background:rgba(233,231,222,.06);border:1px solid rgba(233,231,222,.12);
-  box-shadow:0 40px 80px -50px rgba(0,0,0,.8),inset 0 1px 0 rgba(233,231,222,.08);padding:16px 16px 14px;backdrop-filter:blur(6px)}
+  box-shadow:0 40px 80px -50px rgba(0,0,0,.8),inset 0 1px 0 rgba(233,231,222,.08);padding:16px 16px 14px;background-color:rgba(27,32,28,.55)}
 .hf-hd,.hf-ft{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:rgba(233,231,222,.6);padding:2px 4px}
 .hf-live{display:inline-flex;align-items:center;gap:8px;color:var(--wall);font-weight:500;letter-spacing:.02em}
 .hf-live i{width:7px;height:7px;border-radius:50%;background:#6FBF8B;box-shadow:0 0 0 4px rgba(111,191,139,.16)}
@@ -1709,6 +1709,10 @@ html.js .mm .cviz .d,html.js .wk-viz .cviz .d,html.js .wk-more .cviz .d{opacity:
 .hafter b{font-size:clamp(2.8rem,6.4vw,5.4rem);line-height:1.04;letter-spacing:-.02em;color:var(--wall)}
 .hafter span{margin-top:14px;max-width:44ch}
 @media(prefers-reduced-motion:reduce){.hero-track{height:auto!important}}
+/* smoothness: the floating bar is solid instead of blurred, and the moving layers get their own compositor layer */
+.nav{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(236,234,226,.94)}
+.rope{will-change:contents;transform:translateZ(0)}
+.hp{will-change:opacity,transform}
 </style></head><body>
 <header class="nav" id="nav">
   <a class="brand" href="#top">Loose Ends</a>
@@ -2067,8 +2071,8 @@ addEventListener('scroll',function(){if(cur&&!fine)return;if(cur&&fine&&scrollY>
   /* hero: loose ends. Threads drift loose across the card, are gathered and tied into the feed, and work travels along them.
      The pointer loosens the threads it passes; they settle back on their own. */
   var rcv=$('#rope'), ropeP=0, THN=0;
-  (function(){if(!rcv||!rcv.getContext)return;var cx=rcv.getContext('2d'),card=rcv.parentNode,fd=$('#hfeed'),W=0,H=0,DPR=Math.min(2,window.devicePixelRatio||1),
-    SM=innerWidth<860,N=SM?24:44,TH=[],DT=[],vis=true,last=0,t0=0,mx=-1e4,my=-1e4,ax=0,ay=0,ah=0,fax=0,fay=0,fah=0,rnd=Math.random;
+  (function(){if(!rcv||!rcv.getContext)return;var cx=rcv.getContext('2d'),card=rcv.parentNode,fd=$('#hfeed'),W=0,H=0,DPR=Math.min(1.25,window.devicePixelRatio||1),
+    SM=innerWidth<860,N=SM?22:40,TH=[],DT=[],vis=true,last=0,t0=0,mx=-1e4,my=-1e4,ax=0,ay=0,ah=0,fax=0,fay=0,fah=0,rnd=Math.random;
     for(var i=0;i<N;i++)TH.push({y:rnd(),ph:rnd()*6.283,sp:.6+rnd()*.8,lx:.22+rnd()*.5,ly:.15+rnd()*.7,o:rnd()<.45,c:rnd()<.16,w:.5+rnd()*.9,k:N>1?i/(N-1)-.5:0,d:0});
     THN=N;for(var j=0;j<(SM?9:20);j++)DT.push({i:(rnd()*N)|0,u:rnd(),s:.00010+rnd()*.00012});
     var sp=d.createElement('canvas');sp.width=sp.height=48;var sg=sp.getContext('2d'),g=sg.createRadialGradient(24,24,0,24,24,24);
@@ -2083,17 +2087,26 @@ addEventListener('scroll',function(){if(cur&&!fine)return;if(cur&&fine&&scrollY>
         T=SM?[-24,y0,W*.35,y0+s1*8,ax+th.k*ah*.6,ay-H*.18,ax+th.k*ah,ay]:[-24,y0,W*.34,y0+s1*10,ax-W*.2,ay+th.k*ah*.9,ax,ay+th.k*ah],o=[];
       for(var q=0;q<8;q++)o.push(L[q]+(T[q]-L[q])*tie);return o;}
     function at(P,u){var v=1-u;return [v*v*v*P[0]+3*v*v*u*P[2]+3*v*u*u*P[4]+u*u*u*P[6],v*v*v*P[1]+3*v*v*u*P[3]+3*v*u*u*P[5]+u*u*u*P[7]];}
-    function frame(t){var b=ez(clamp((ropeP-.14)/.10)),hero=1-ez(clamp((ropeP-.12)/.12)),tie=(RM?1:ez((t-t0-500)/2600))*hero;ax=fax+(W*.5-fax)*b;ay=fay+(H*.4-fay)*b;ah=fah+(H*.05-fah)*b;cx.clearRect(0,0,W,H);var P=[];
-      for(var i=0;i<N;i++){var th=TH[i],m=pts(th,t,tie),mid=at(m,.55),f=Math.max(0,1-Math.hypot(mid[0]-mx,mid[1]-my)/170);th.d+=(f-th.d)*.07;
-        var ti=Math.max(tie,ez(clamp((ropeP-(.44+.40*i/Math.max(1,N-1)))/.06)))*(1-.75*th.d);m=pts(th,t,ti);P[i]=[m,ti];
-        cx.beginPath();cx.moveTo(m[0],m[1]);cx.bezierCurveTo(m[2],m[3],m[4],m[5],m[6],m[7]);
-        cx.strokeStyle=ti<.5?(th.o?'rgba(214,146,80,'+(.5-.3*ti)+')':'rgba(226,220,206,'+(.13+.1*ti)+')'):(th.c?'rgba(214,146,80,'+(.3+.4*ti)+')':'rgba(170,196,228,'+(.12+.3*ti)+')');cx.lineWidth=th.w;cx.stroke();
-        if(b>.01&&ti>.5){var e2=(ti-.5)*2*b,ey=H*.5+th.k*H*.78,sy=m[7];cx.beginPath();cx.moveTo(m[6],sy);cx.bezierCurveTo(m[6]+W*.16,sy,W*.78,ey,W+24,ey);
-          cx.strokeStyle=th.c?'rgba(214,146,80,'+(.45*e2)+')':'rgba(170,196,228,'+(.32*e2)+')';cx.stroke();}
-        if(ti<.97){cx.fillStyle='rgba(226,220,206,'+(.5*(1-ti))+')';cx.beginPath();cx.arc(m[6],m[7],1.6,0,6.283);cx.fill();}}
-      {cx.globalCompositeOperation='lighter';for(var j=0;j<DT.length;j++){var dt=DT[j],pp=P[dt.i];if(pp[1]<.8)continue;
+    /* colours: pale and ochre when loose, blue (and a few ochre) when tied. Threads are grouped by colour so each frame needs only a few strokes. */
+    var C0=[[226,220,206],[214,146,80]],C1=[[170,196,228],[214,146,80]];
+    function frame(t){var b=ez(clamp((ropeP-.14)/.10)),hero=1-ez(clamp((ropeP-.12)/.12)),tie=(RM?1:ez((t-t0-500)/2600))*hero;
+      ax=fax+(W*.5-fax)*b;ay=fay+(H*.4-fay)*b;ah=fah+(H*.05-fah)*b;cx.clearRect(0,0,W,H);
+      var P=[],G={},E=new Path2D(),XG={};
+      for(var i=0;i<N;i++){var th=TH[i],m0=pts(th,t,Math.max(tie,.5)),mid=at(m0,.55),f=Math.max(0,1-Math.hypot(mid[0]-mx,mid[1]-my)/170);th.d+=(f-th.d)*.06;
+        var ti=Math.max(tie,ez(clamp((ropeP-(.42+.42*i/Math.max(1,N-1)))/.14)))*(1-.7*th.d),m=pts(th,t,ti);P[i]=[m,ti];
+        var a0=th.o?C0[1]:C0[0],a1=th.c?C1[1]:C1[0],st=Math.round(ti*5)/5,al=th.o?(.46-.2*st):(.13+.06*st);al=al*(1-st)+(th.c?.3+.35*st:.12+.28*st)*st;
+        var key=Math.round(a0[0]+(a1[0]-a0[0])*st)+','+Math.round(a0[1]+(a1[1]-a0[1])*st)+','+Math.round(a0[2]+(a1[2]-a0[2])*st)+','+(Math.round(al*20)/20)+'|'+(th.w>1?1.2:.75);
+        var g=G[key]||(G[key]=new Path2D());g.moveTo(m[0],m[1]);g.bezierCurveTo(m[2],m[3],m[4],m[5],m[6],m[7]);
+        if(b>.01&&ti>.4){var e2=Math.round(clamp((ti-.4)/.6)*b*5)/5,ey=H*.5+th.k*H*.78,sy=m[7],xk=(th.c?'214,146,80,'+(.42*e2).toFixed(2):'170,196,228,'+(.3*e2).toFixed(2));
+          var xg=XG[xk]||(XG[xk]=new Path2D());xg.moveTo(m[6],sy);xg.bezierCurveTo(m[6]+W*.16,sy,W*.78,ey,W+24,ey);}
+        if(ti<.9){E.moveTo(m[6]+1.5,m[7]);E.arc(m[6],m[7],1.5,0,6.283);}}
+      cx.lineCap='round';
+      for(var k in G){var sp2=k.split('|'),c4=sp2[0].split(',');cx.strokeStyle='rgba('+c4[0]+','+c4[1]+','+c4[2]+','+c4[3]+')';cx.lineWidth=+sp2[1];cx.stroke(G[k]);}
+      cx.lineWidth=.75;for(var x in XG){cx.strokeStyle='rgba('+x+')';cx.stroke(XG[x]);}
+      cx.fillStyle='rgba(226,220,206,'+(.45*(1-tie)).toFixed(2)+')';cx.fill(E);
+      cx.globalCompositeOperation='lighter';for(var j=0;j<DT.length;j++){var dt=DT[j],pp=P[dt.i];if(pp[1]<.8)continue;
         var q=at(pp[0],dt.u),z=7+9*Math.sin(dt.u*3.14);cx.globalAlpha=Math.min(1,(pp[1]-.8)/.2)*Math.min(1,dt.u*6)*Math.min(1,(1-dt.u)*8);cx.drawImage(sp,q[0]-z/2,q[1]-z/2,z,z);}
-        cx.globalAlpha=1;cx.globalCompositeOperation='source-over';}}
+      cx.globalAlpha=1;cx.globalCompositeOperation='source-over';}
     function tick(now){if(!vis||d.hidden){last=0;return;}if(!t0)t0=now;var dt=last?Math.min(50,now-last):16;last=now;
       for(var j=0;j<DT.length;j++){var q=DT[j];q.u+=q.s*dt;if(q.u>1){q.u=0;q.i=(Math.random()*N)|0;}}frame(now);requestAnimationFrame(tick);}
     size();addEventListener('resize',function(){size();if(RM)frame(0);});
@@ -2160,7 +2173,7 @@ addEventListener('scroll',function(){if(cur&&!fine)return;if(cur&&fine&&scrollY>
       $$('button',sw).forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-s')===s));});}}
   function herostep(vh){var tot=pin.offsetHeight-vh; if(tot<60)return;
     var p=clamp((scrollY-pin.offsetTop)/tot);
-    sp+=(p-sp)*.16; if(Math.abs(p-sp)<.0005)sp=p; else busy=30;
+    sp+=(p-sp)*.1; if(Math.abs(p-sp)<.0004)sp=p; else busy=30;
     heroPaint(sp);}
   sw.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
     if(RM){var a=b.getAttribute('data-s')==='after';man.forEach(function(c){c.classList.toggle('c',a);});sw.setAttribute('data-s',a?'after':'before');
