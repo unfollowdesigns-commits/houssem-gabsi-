@@ -5,87 +5,87 @@
   "h1": "Claude skills for business: how a firm turns recurring tasks into one shared way of working",
   "desc": "A Claude skill is a packaged set of instructions Claude loads when a task needs it, so a weekly report or proposal runs the same way for anyone on the team.",
   "category": "AI assistants",
-  "lead": "A Claude skill is a packaged set of instructions, with optional reference files and scripts, that Claude loads when a task calls for it. For a business, that means a recurring task such as a weekly report, a client proposal or a candidate summary runs the same way for anyone on the team, instead of depending on who wrote the prompt that day. Loose Ends writes and tests these skills with the team, connects them to the firm's own data, and keeps a person in charge of anything sent to a client.",
+  "lead": "A Claude skill is a packaged set of instructions, with optional reference files and scripts, that Claude loads when a task calls for it. For a business, it means a recurring task like a weekly report, a client proposal or a candidate summary runs the same way whoever on the team asks for it. Loose Ends writes and tests these skills with the team, connects them to the firm's data, and keeps a person in charge of anything sent to a client.",
   "short": [
    "A Claude skill is a written procedure Claude loads when a task calls for it, so the task runs the same way for everyone.",
-   "Good candidates are tasks the team repeats with a set format: reports, proposals, summaries, posts in the firm's voice.",
-   "Skills describe how the work is done; connectors (MCP) give Claude access to the firm's data. Most useful setups need both.",
+   "Good candidates are tasks the team repeats in a set format, such as reports, proposals, summaries and posts in the firm's voice.",
+   "Skills describe how the work is done, and connectors (MCP) give Claude access to the firm's data. Most useful setups need both.",
    "The firm owns its skills, a named person maintains each one, and a person approves anything sent to a client."
   ],
   "sections": [
    {
     "h2": "What is a Claude skill, in plain language?",
     "body": [
-     "Anthropic introduced Agent Skills for Claude in October 2025. A skill is a folder: a main file of instructions written in ordinary language, and, where useful, reference files such as templates, style guides or examples, and small scripts for steps that must be exact.",
-     "Claude keeps a short description of each skill in view. When a request matches that description, it loads the full instructions and follows them. When the request has nothing to do with the skill, the skill stays out of the way.",
-     "The practical difference is consistency. Without a skill, each person on the team explains the task in their own words and gets a slightly different result. With a skill, the explanation is written once, agreed by the team, and used by everyone."
+     "Anthropic introduced Agent Skills for Claude in October 2025. A skill is a folder. Inside is a main file of instructions in ordinary language, plus, where useful, reference files such as templates, style guides or examples, and small scripts for steps that have to be exact.",
+     "Claude keeps a short description of each skill in view. When a request matches it, Claude loads the full instructions and follows them. When the request has nothing to do with the skill, the skill stays out of the way.",
+     "What changes in practice is consistency. Without a skill, each person explains the task in their own words and gets a slightly different result. With one, the explanation is written once, agreed by the team and used by everyone."
     ]
    },
    {
     "h2": "Which recurring tasks make good skills?",
     "body": [
-     "The best candidates are tasks the team already does often, in a format it already knows, where the hard part is remembering every step and every house rule. Typical examples:",
+     "The best candidates are tasks the team already does often, in a format it already knows, where the hard part is remembering every step and every house rule. For example:",
      [
-      "A weekly report pulled from the same sources, in the same order, with the same headings.",
-      "A client proposal in the firm's structure, using its standard terms and its own descriptions of services.",
+      "A weekly report pulled from the same sources, in the same order, under the same headings.",
+      "A client proposal in the firm's structure, with its standard terms and its own descriptions of services.",
       "A candidate summary against a search's criteria, with the reasoning and the source text beside each point.",
       "A post or newsletter in the firm's voice, with every figure checked against a named source.",
       "Meeting notes turned into actions, owners and dates, filed in the right place.",
       "Interview notes turned into a client report in the firm's format, with gaps flagged rather than filled."
      ],
-     "Tasks that are rare, or different every time, usually do not need a skill. A good test: if a new member of the team would need a page of instructions to do the task properly, that page is the start of a skill."
+     "Rare tasks, or ones that differ every time, usually don't need a skill. One test works well. If a new member of the team would need a page of instructions to do the task properly, that page is the start of a skill."
     ]
    },
    {
     "h2": "How is a skill written and tested with the team?",
     "body": [
-     "A skill is only as good as the procedure behind it, so the work starts with the people who already do the task. Loose Ends follows the same steps each time:",
+     "A skill can't be better than the procedure behind it, so the work starts with whoever does the task now. Loose Ends goes through the same steps each time:",
      [
-      "Sit with the person who does the task now and write down every step, including the ones they no longer notice.",
+      "Sit with the person who does the task today and write down every step, including the ones they've stopped noticing.",
       "Collect real examples of good output, and a few that went wrong, to show Claude the difference.",
-      "Write the instructions in plain language, with the firm's terms, format and rules, and add templates or reference files where they help.",
+      "Write the instructions in plain language with the firm's terms, format and rules, adding templates or reference files where they help.",
       "Run the skill on real past cases and compare the result with what the team actually produced.",
-      "Adjust the wording until the team agrees the output is what they would have written, then hand it over."
+      "Adjust the wording until the team agrees the output is what they'd have written, then hand it over."
      ],
-     "Testing is where most of the value is found. A skill that works on one example often misses an exception the team handles by habit, such as a client who always wants figures in a separate table. Those exceptions go into the instructions, so the skill handles them for everyone."
+     "Testing is where most of the value turns up. A skill that works on one example often misses an exception the team handles out of habit, like a client who always wants figures in a separate table. Those exceptions go into the instructions, and from then on the skill handles them for everyone."
     ]
    },
    {
     "h2": "How do skills work alongside connectors to the firm's data?",
     "body": [
-     "A skill describes how a task is done. A connector gives Claude access to the place the information lives. Connectors are built on MCP, the Model Context Protocol, an open standard Anthropic introduced in November 2024 for connecting AI assistants to tools and data.",
-     "The two fit together. A weekly report skill says which figures to gather, how to lay them out and what to flag. Connectors to the firm's spreadsheets, calendar, email or recruiting system let Claude read those figures directly, instead of someone copying and pasting them into the chat.",
-     "Without connectors, a skill still works, but someone has to supply the material by hand. Without a skill, connectors give Claude access to the data but no agreed way of using it. Loose Ends usually sets up both together, and builds a custom API integration when a tool has no connector yet."
+     "A skill describes how a task is done. A connector gives Claude access to where the information lives. Connectors are built on MCP, the Model Context Protocol, an open standard Anthropic introduced in November 2024 for connecting AI assistants to tools and data.",
+     "They fit together well. A weekly report skill says which figures to gather, how to lay them out and what to flag. Connectors to the firm's spreadsheets, calendar, email or recruiting system let Claude read those figures directly, so nobody has to paste them into the chat.",
+     "A skill still works without connectors, but then someone has to feed it the material by hand. Connectors without a skill give Claude the data and no agreed way of using it. Loose Ends usually sets up both together, and builds a custom API integration when a tool has no connector yet."
     ]
    },
    {
     "h2": "What does this look like in practice?",
     "body": [
-     "For a journalist working in video, Loose Ends set up his AI assistant around his editorial week rather than the software's defaults. The tasks he repeats now run the same way every time, with video production at the centre. That is the core idea of a skill: a task written down once and repeated reliably.",
-     "The studio's content system follows the same principle. It turns one idea into a researched article and a week of posts, with every figure checked against a named source. The procedure is fixed; only the idea changes.",
-     "For an executive search firm in Washington D.C., the recruiting database and the internal chat are connected to the team's AI assistant, so the same data that feeds the website also answers the team's questions. Skills sit on top of connections like these and decide how the answers are put together."
+     "For a journalist working in video, Loose Ends set up his AI assistant around his editorial week instead of the software's defaults. The tasks he repeats now run the same way every time, with video production at the centre. That's the idea behind a skill, in one line. A task is written down once and then repeated reliably.",
+     "The studio's content system works on the same principle. It turns one idea into a researched article and a week of posts, with every figure checked against a named source. The procedure stays fixed. Only the idea changes.",
+     "At an executive search firm in Washington D.C., the recruiting database and the internal chat are connected to the team's AI assistant, so the data that feeds the website also answers the team's questions. Skills sit on top of connections like these and decide how the answers get put together."
     ]
    },
    {
     "h2": "Who owns and maintains a firm's skills?",
     "body": [
-     "The skills belong to the firm, like the code, the domain and the accounts in every Loose Ends project. They are written files the firm can read, change and keep, not something locked inside the studio.",
-     "Each skill has a named owner on the team. When a template changes, a new service is added or a client asks for a different format, that person updates the instructions, and everyone gets the change at once. Handover includes training for the owner, so small edits do not need the studio. Optional monthly support is there for larger changes or new skills."
+     "The firm does, just as it owns the code, the domain and the accounts in every Loose Ends project. Skills are written files the firm can read, change and keep. Nothing is locked away at the studio.",
+     "Each skill has a named owner on the team. When a template changes, a new service is added or a client asks for a different format, that person updates the instructions and everyone gets the change at once. Handover includes training for the owner, so small edits don't need the studio. Optional monthly support covers bigger changes or new skills."
     ]
    },
    {
     "h2": "Who approves what a skill produces?",
     "body": [
-     "A skill drafts and prepares. It does not decide what goes to a client. In every system Loose Ends builds, a person approves before anything is sent to a client, whether it is a proposal, a report, a candidate summary or a reply to an enquiry.",
-     "This rule is written into the skill itself. The instructions end with a draft for review, never with sending. The time saved comes from the drafting, the gathering and the retyping, not from removing the person who signs off.",
+     "A skill drafts and prepares. A person decides what goes to a client. In every system Loose Ends builds, someone approves a proposal, report, candidate summary or reply to an enquiry before it's sent.",
+     "That rule is written into the skill itself. The instructions end with a draft for review and never with sending. The time saved comes from the drafting, the gathering and the retyping, and the person who signs off stays exactly where they were.",
      "To see which recurring tasks in the firm would make good skills, start with the free one-page review of where the firm loses time, with no call required."
     ]
    }
   ],
   "faq": [
    {
-    "q": "What is the difference between a Claude skill and a saved prompt?",
-    "a": "A saved prompt is text someone pastes in each time. A skill is a packaged set of instructions, with optional reference files and scripts, that Claude loads on its own when a task calls for it, so the whole team gets the same procedure."
+    "q": "What's the difference between a Claude skill and a saved prompt?",
+    "a": "A saved prompt is text someone pastes in each time. A skill is a packaged set of instructions, with optional reference files and scripts, that Claude loads by itself when a task calls for it, so the whole team gets the same procedure."
    },
    {
     "q": "Do Claude skills need connectors to work?",
@@ -93,11 +93,11 @@
    },
    {
     "q": "Can a skill send emails or documents to clients on its own?",
-    "a": "Skills built by Loose Ends stop at a draft. A person on the team approves anything before it is sent to a client."
+    "a": "Skills built by Loose Ends stop at a draft. A person on the team approves anything before it's sent to a client."
    },
    {
     "q": "Who can change a skill after handover?",
-    "a": "The firm owns its skills, and a named person on the team maintains each one. The instructions are plain written files, so updating them does not require the studio."
+    "a": "The firm owns its skills, and a named person on the team maintains each one. The instructions are plain written files, so updating them doesn't require the studio."
    }
   ],
   "keywords": [

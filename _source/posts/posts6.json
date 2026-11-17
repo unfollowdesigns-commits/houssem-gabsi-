@@ -5,10 +5,10 @@
   "h1": "What AI automation costs for a firm, and what drives the price",
   "desc": "AI automation at Loose Ends starts from $3,000 at a fixed price agreed in writing. Scope, tools, approval steps, data quality and upkeep set the final figure.",
   "category": "Automation",
-  "lead": "At Loose Ends, AI automation starts from $3,000, agreed as one fixed price in writing before any work begins, with no hourly billing. The final price depends on five things: how much of the work is in scope, how many tools have to be connected, how many approval steps a person needs, how clean the firm's data is, and how much upkeep the system will need. This post explains each one, and how the studio's other starting prices fit around it.",
+  "lead": "At Loose Ends, AI automation starts from $3,000. The price is fixed and agreed in writing before work begins, and nothing is billed by the hour. Where a job lands above that depends on how much is in scope, how many tools need connecting, how many approval steps a person needs, how clean the firm's data is, and how much upkeep the system will need. This post walks through each one and shows where the studio's other starting prices sit.",
   "short": [
    "AI automation at Loose Ends starts from $3,000, as one fixed price agreed in writing.",
-   "Scope, the number of tools, approval steps, data quality and maintenance decide the final figure.",
+   "Scope, the number of tools, approval steps, data quality and upkeep decide the final figure.",
    "A fixed price puts the risk of underestimating on the studio, not on the firm.",
    "Ongoing support from $600 a month is optional and can be cancelled."
   ],
@@ -16,8 +16,8 @@
    {
     "h2": "What does AI automation cost for a firm?",
     "body": [
-     "The honest answer is a starting price and a list of what moves it. Automation built by Loose Ends starts from $3,000. That figure covers a single routine inside the tools the firm already uses, such as drafting replies to enquiries that went quiet, or preparing invoice reminders for a person to approve and send.",
-     "Larger work sits in other brackets, because it involves more than one routine or a new piece of software. These are the studio's starting prices, in US dollars:",
+     "A starting price, plus a list of what moves it. Automation built by Loose Ends starts from $3,000. That covers a single routine inside the tools the firm already uses, like drafting replies to enquiries that went quiet, or preparing invoice reminders for someone to approve and send.",
+     "Bigger jobs sit in other brackets, because they involve several routines or a new piece of software. These are the studio's starting prices, in US dollars:",
      [
       "Free one-page review of where the firm loses time, no call required.",
       "Systems audit from $1,500, with the fee credited toward the build.",
@@ -28,43 +28,44 @@
       "Brand and content from $3,500.",
       "Ongoing support from $600 a month, optional and cancellable."
      ],
-     "Every one of these ends in a single price written down before work starts. The firm knows the cost of the build before it commits to it."
+     "Each of these ends in a single price, written down before work starts. The firm knows what the build costs before it commits to anything."
     ]
    },
    {
     "h2": "What drives the price of an automation?",
     "body": [
-     "Two automations that sound alike can differ a great deal in effort. A reminder that reads one spreadsheet and drafts one email is a short job. A follow-up system that reads the inbox, the quotes and the invoices, works out which conversations went quiet and drafts a reply for each one is a larger one. These are the five factors that decide where a job lands:",
+     "Two automations that sound alike can take very different amounts of work. A reminder that reads one spreadsheet and drafts one email is a short job. A follow-up system that reads the inbox, the quotes and the invoices, works out which conversations went quiet and drafts a reply to each is a much bigger one. These factors decide where a job lands:",
      [
-      "Scope: how many routines are included, and how many exceptions each one has to handle.",
-      "Number of tools: every system the automation reads from or writes to needs its own connection, testing and error handling.",
-      "Approval steps: where a person checks a draft before it goes to a client, the system needs a clear place to show it and a record of who approved it.",
-      "Data quality: if names, dates or statuses are typed differently across tools, part of the work is cleaning or matching them first.",
-      "Maintenance: tools change their settings and connections over time, so a system that touches many of them needs more care after handover."
+      "Scope. How many routines are included, and how many exceptions each one has to handle.",
+      "Number of tools. Every system the automation reads from or writes to needs its own connection, testing and error handling.",
+      "Approval steps. Where a person checks a draft before it goes to a client, the system needs a clear place to show it and a record of who approved it.",
+      "Data quality. If names, dates or statuses are typed differently across tools, part of the work is cleaning or matching them first.",
+      "Upkeep. Tools change their settings and connections over time, so a system that touches many of them needs more care after handover."
      ],
-     "None of these is a reason to avoid automation. They are the questions the studio asks before quoting, so the price reflects the actual job."
+     "None of them is a reason to put automation off. They're the questions the studio asks before quoting, so the price matches the job in front of it."
     ]
    },
    {
     "h2": "Why do approval steps and data quality matter so much?",
     "body": [
-     "Every system Loose Ends builds drafts and prepares, and a person approves before anything is sent to a client. That rule is not optional, and it shapes the build. The approval screen has to show the draft, the source it came from and a simple way to correct it. That takes design work, and it is worth it, because it is what lets a team trust the system.",
-     "Data quality is the factor firms most often underestimate. If one tool records a client as a company name and another as a contact's email, the automation has to match them before it can do anything useful. Sometimes the cleanest fix is a small change in how the team enters data. Sometimes it is a matching step inside the build. Either way, it is cheaper to find it before the price is agreed than halfway through."
+     "Every system Loose Ends builds drafts and prepares, and a person approves before anything goes to a client. That rule isn't up for negotiation, and it shapes the build. The approval screen has to show the draft, where it came from and an easy way to correct it. That's design work. It's also what lets a team trust the system, so it earns its cost.",
+     "Firms tend to underestimate data quality. If one tool records a client by company name and another by a contact's email, the automation has to match them before it can do anything useful.",
+     "Sometimes the cleanest fix is a small change in how the team enters data. Sometimes it's a matching step inside the build. Either way, it's much cheaper to find before the price is agreed than halfway through the work."
     ]
    },
    {
     "h2": "Fixed price or hourly billing: which is better for the firm?",
     "body": [
-     "Hourly billing asks the firm to carry the risk of the estimate being wrong. If the work takes longer, the bill grows, and the firm has no fixed number to plan around. It also makes every question to the builder feel like a cost.",
-     "A fixed price works the other way. The studio studies the job, names a price, and writes down what is included. If the work takes longer than expected, that is the studio's problem. The firm can plan, compare and decide with one number in front of it.",
-     "A fixed price only works if the scope is clear. That is why the larger builds start with a paid systems audit, and why the written agreement lists what the system will do and what it will not."
+     "Hourly billing leaves the firm holding the risk that the estimate was wrong. If the work runs long, the bill grows, and there's no fixed number to plan around. Every question to the builder starts to feel like it's on the meter.",
+     "A fixed price flips that around. The studio studies the job, names a price and writes down what's included. If the work takes longer than expected, that's the studio's problem. The firm gets one number to plan, compare and decide with.",
+     "This only works when the scope is clear. That's why larger builds start with a paid systems audit, and why the written agreement spells out what the system will do and what it won't."
     ]
    },
    {
-    "h2": "What is included in the price, and what comes after?",
+    "h2": "What's included in the price, and what comes after?",
     "body": [
-     "The build price covers the work from first connection to handover. At handover, the team is trained on the system, and every routine has a named owner inside the firm, so nothing runs without someone responsible for it. The code, the domain and the accounts belong to the firm, not to the studio.",
-     "After that, the firm has a choice. Many systems run quietly for long stretches with no attention. Others touch tools that change often, and benefit from someone watching them. For those, ongoing support starts from $600 a month. It is optional, and it can be cancelled.",
+     "The build price covers everything from the first connection to handover. At handover the team is trained, and every routine gets a named owner inside the firm, so nothing runs without someone responsible for it. The code, the domain and the accounts belong to the firm.",
+     "After that, it's the firm's call. Plenty of systems run for long stretches without needing any attention. Others touch tools that change often and do better with someone keeping an eye on them. For those, ongoing support starts from $600 a month. It's optional, and it can be cancelled.",
      [
       "Included: building, testing, the approval step, training and handover.",
       "Belongs to the firm: code, domain and accounts.",
@@ -75,27 +76,28 @@
    {
     "h2": "How can a firm keep the cost of automation down?",
     "body": [
-     "The cheapest automation is the one that targets the right chore first. A routine the team repeats every day, such as answering the same enquiry, confirming the same booking or chasing the same invoice, returns more than a complex system that runs once a month. Starting small and adding routines later also keeps each step easy to check.",
-     "A firm can also prepare: agree where client data lives, keep naming consistent across tools, and decide who will own each routine after handover. The first step costs nothing. Loose Ends offers a free one-page review of where the firm loses time, with no call required."
+     "Pick the right chore first. A routine the team repeats every day, such as answering the same enquiry, confirming the same booking or chasing the same invoice, pays back more than a complicated system that runs once a month. Starting small and adding routines later keeps each step easy to check, too.",
+     "A bit of preparation helps as well. Agree where client data lives, keep names consistent across tools, and decide who will own each routine after handover. None of that needs a builder, and all of it makes the build easier to scope.",
+     "The first step costs nothing. Loose Ends offers a free one-page review of where the firm loses time, with no call required."
     ]
    }
   ],
   "faq": [
    {
     "q": "How much does AI automation cost at Loose Ends?",
-    "a": "Automation starts from $3,000, as one fixed price agreed in writing. The final figure depends on scope, the number of tools, approval steps, data quality and maintenance."
+    "a": "Automation starts from $3,000, as one fixed price agreed in writing. The final figure depends on scope, the number of tools, approval steps, data quality and upkeep."
    },
    {
     "q": "Does Loose Ends bill by the hour?",
-    "a": "No. Every build is quoted as one fixed price agreed in writing before work begins."
+    "a": "No. Every build is quoted as one fixed price, agreed in writing before work begins."
    },
    {
     "q": "Is monthly support required after the build?",
-    "a": "No. Ongoing support starts from $600 a month, and it is optional and cancellable. The code, domain and accounts belong to the firm either way."
+    "a": "No. Ongoing support starts from $600 a month, and it's optional and cancellable. The code, domain and accounts belong to the firm either way."
    },
    {
     "q": "Is there a way to start without paying?",
-    "a": "Yes. The free one-page review shows where the firm loses time, and no call is required to get it."
+    "a": "Yes. The free one-page review shows where the firm loses time, and you don't need a call to get it."
    }
   ],
   "keywords": [
@@ -114,10 +116,10 @@
   "h1": "Why a systems audit comes before any automation build",
   "desc": "A systems audit finds where a firm's week goes and ranks fixes by what they return, before any build. At Loose Ends it costs $1,500, credited to the build.",
   "category": "Automation",
-  "lead": "A systems audit comes before automation because it shows where the firm's week actually goes, and which fixes are worth paying for first. Without it, a firm tends to automate the chore that is most visible rather than the one that costs the most. At Loose Ends the audit starts from $1,500, ends in a written document that ranks the first fixes, and the fee is credited toward the build.",
+  "lead": "A systems audit comes before automation because it shows where the firm's week goes, and which fixes are worth paying for first. Skip it, and firms tend to automate the most visible chore instead of the most expensive one. At Loose Ends the audit starts from $1,500 and ends in a written document that ranks the first fixes. The fee is credited toward the build.",
   "short": [
    "The audit finds where the team's time goes before anything is built.",
-   "It ranks fixes by what they return, not by how interesting they are to build.",
+   "It ranks fixes by what they return to the firm.",
    "It ends in a written document the firm keeps, whoever builds the fixes.",
    "The fee, from $1,500, is credited toward the build."
   ],
@@ -125,36 +127,36 @@
    {
     "h2": "What is a systems audit?",
     "body": [
-     "A systems audit is a structured look at the tools a firm uses and the work that moves between them. It follows the routine chores: answering enquiries, confirming bookings, chasing invoices, retyping details from one system into another, copying notes into reports, filing documents. For each one, it records who does it, how often, in which tools, and where it breaks.",
-     "It is not a sales pitch for software. The point is to see the work as it is, so that any later build fits the firm rather than the other way round. Some findings lead to automation. Others lead to a simpler change, such as one shared template or one agreed place for client data."
+     "It's a structured look at the tools a firm uses and the work that passes between them. The audit follows the routine chores, such as answering enquiries, confirming bookings, chasing invoices, retyping details from one system into another, copying notes into reports and filing documents. For each one it records who does it, how often, in which tools, and where it breaks.",
+     "Nobody is selling software here. The point is to see the work as it is, so a later build fits the firm. Some findings lead to automation. Others lead to something smaller, like one shared template or one agreed place for client data. Occasionally the right finding is that nothing needs building yet, and the document says so."
     ]
    },
    {
     "h2": "Why not start building straight away?",
     "body": [
-     "Starting with the build is tempting, because the chore that annoys the team most feels like the obvious target. But the most annoying chore is not always the most expensive one. A task that takes a few minutes, repeated many times a day across a team, often costs more than a large task done once a month.",
-     "Building without an audit also carries hidden risks:",
+     "It's tempting. The chore that annoys the team most looks like the obvious target. Annoying and expensive aren't the same thing, though. A task that takes a few minutes, repeated many times a day across a team, often costs more than a big task done once a month.",
+     "Building without an audit carries other risks too:",
      [
       "The automation copies a broken process instead of fixing it.",
       "Data turns out to be inconsistent across tools, and the build stalls halfway.",
-      "Nobody inside the firm owns the routine after handover, so it slowly stops being used.",
+      "Nobody inside the firm owns the routine after handover, so it slowly falls out of use.",
       "The fixed price is set on guesses, which is unfair to both sides."
      ],
-     "An audit removes most of these before money is committed to a build."
+     "An audit clears most of these away before money goes into a build."
     ]
    },
    {
     "h2": "How does the audit find where the week goes?",
     "body": [
-     "The audit starts with the people who do the work, not with the software. Loose Ends looks at the inbox, the calendar, the spreadsheets, the client records and any recruiting, booking or shop systems the firm uses, and asks the team to walk through a normal week.",
-     "The useful questions are concrete. Who answers new enquiries, and how long do they wait? Where is a client's information typed more than once? Which follow-ups get forgotten? Which reports are rebuilt by hand each week? The answers show the chores that repeat, the hand-offs that drop things, and the places where the same fact lives in two tools and disagrees.",
-     "The audit also notes what already works. A routine the team handles well by hand may not need changing at all, and saying so is part of the job. Leaving good habits alone keeps the later build smaller, cheaper and easier for the team to adopt."
+     "It starts with the people who do the work. Loose Ends looks at the inbox, the calendar, the spreadsheets, the client records and any recruiting, booking or shop systems the firm runs, then asks the team to walk through a normal week.",
+     "The useful questions are concrete. Who answers new enquiries, and how long do those enquiries wait? Where does a client's information get typed more than once? Which follow-ups get forgotten? Which reports are rebuilt by hand every week? The answers point to the chores that repeat, the hand-offs that drop things, and the places where one fact lives in two tools and the two disagree.",
+     "The audit notes what already works as well. If the team handles a routine well by hand, it may not need changing, and saying so is part of the job. Leaving good habits alone keeps the later build smaller, and easier for the team to take on."
     ]
    },
    {
     "h2": "How are fixes ranked by what they return?",
     "body": [
-     "Each possible fix is weighed against the others on a few plain questions. The aim is to choose the first fixes, not to plan everything at once:",
+     "Each possible fix is weighed against the others using a few plain questions. The aim is to pick the first fixes. Planning everything at once can wait.",
      [
       "How often does the chore happen, and how much of the team's time does it take?",
       "What does it cost when it goes wrong, such as a missed enquiry or a late invoice?",
@@ -162,29 +164,30 @@
       "Where does a person need to approve before anything reaches a client?",
       "Who inside the firm will own the routine after handover?"
      ],
-     "A fix that touches a frequent chore, in few tools, with clean data, usually goes first. A fix that depends on a data clean-up or on a tool the firm plans to replace may wait. The ranking makes that reasoning visible, so the firm can disagree with it before anything is built."
+     "A fix that touches a frequent chore, in few tools, with clean data, usually goes first. One that depends on a data clean-up, or on a tool the firm plans to replace, may wait. The ranking shows that reasoning openly, so the firm can push back on it before anything is built."
     ]
    },
    {
     "h2": "What does the audit document contain?",
     "body": [
-     "The audit ends in a written document that belongs to the firm. It is written in plain language, so that the people who run the business can read it without a technical guide. It contains:",
+     "It's a written document that belongs to the firm. It's in plain language, so the people running the business can read it without a technical guide. Inside:",
      [
       "A map of the tools the firm uses and how work moves between them.",
       "The routine chores found, with who does them and where they break.",
-      "The ranked list of first fixes, with the reasoning for each position.",
+      "The ranked list of first fixes, with the reasoning behind each position.",
       "For each fix, what it would change, which tools it touches and where a person approves before anything is sent.",
-      "Data problems to resolve first, and simple changes the team can make on its own.",
-      "A fixed price for the recommended build, with what it includes and excludes."
+      "Data problems to sort out first, and small changes the team can make on its own.",
+      "A fixed price for the recommended build, with what it includes and leaves out."
      ],
-     "The firm can take the document to any builder. If it chooses Loose Ends, the audit fee is credited toward the build, so the firm does not pay twice for the same thinking."
+     "The firm can take the document to any builder. If it picks Loose Ends, the audit fee is credited toward the build, so the firm doesn't pay twice for the same thinking."
     ]
    },
    {
     "h2": "How does the audit fit the rest of the process?",
     "body": [
-     "The audit is the second step of four. First comes a free one-page review of where the firm loses time, with no call required. If the review shows enough to act on, the paid audit ranks the first fixes. Then the build runs at one fixed price agreed in writing. Last comes handover, with training for the team and a named owner for every routine. Monthly support is available afterwards, and it is optional.",
-     "For a firm that is unsure whether automation is worth it at all, the free one-page review is the place to start."
+     "It sits between the free review and the build. First comes a free one-page review of where the firm loses time, with no call required. If that shows enough to act on, the paid audit ranks the first fixes. The build then runs at one fixed price agreed in writing, based on what the audit found.",
+     "Handover follows, with training for the team and a named owner for every routine. Monthly support is available after that, and it's optional.",
+     "For a firm that isn't sure automation is worth it at all, the free one-page review is the place to start."
     ]
    }
   ],
@@ -195,11 +198,11 @@
    },
    {
     "q": "Does the firm have to use Loose Ends for the build?",
-    "a": "No. The audit document belongs to the firm, and it can be taken to any builder."
+    "a": "No. The audit document belongs to the firm, and it can go to any builder."
    },
    {
     "q": "Is an audit needed for every project?",
-    "a": "Not always. A single, well-defined routine may be clear from the free one-page review; larger or less certain work benefits from the audit first."
+    "a": "Not always. A single, well-defined routine may be clear enough from the free one-page review. Larger or less certain work is better off with the audit first."
    }
   ],
   "keywords": [
@@ -218,9 +221,9 @@
   "h1": "Claude or ChatGPT for a business team: what matters more than the model",
   "desc": "Claude or ChatGPT for a team? Both can do the work. What decides the result is the link to the firm's data, shared instructions, permissions and training.",
   "category": "AI assistants",
-  "lead": "For most business teams, the choice between Claude and ChatGPT matters less than how the chosen assistant is set up. Both are capable general assistants with business plans, and both can be connected to outside tools. What decides whether a team gets real use from either is the connection to the firm's own data, shared instructions, sensible permissions and training.",
+  "lead": "For most business teams, picking Claude or ChatGPT matters less than how the chosen assistant is set up. Both are capable general assistants with business plans, and both can connect to outside tools. Whether a team gets real use from either comes down to the connection to the firm's data, shared instructions, sensible permissions and training.",
   "short": [
-   "Both Claude and ChatGPT are capable assistants with plans for teams.",
+   "Claude and ChatGPT are both capable assistants with plans for teams.",
    "The connection to the firm's own data matters more than the model.",
    "Shared instructions, permissions and training decide whether the team uses it well.",
    "Pick the one that fits the firm's tools and policies, then set it up properly."
@@ -229,74 +232,76 @@
    {
     "h2": "Which is better for a business team, Claude or ChatGPT?",
     "body": [
-     "There is no single answer that holds for every firm, and anyone who offers one should be asked why. Claude is made by Anthropic and ChatGPT by OpenAI. Both write, summarize, analyze documents and answer questions well, and both release new versions often. A comparison made today may not hold in a few months.",
-     "That is why Loose Ends does not start with the model. A firm can get little from the strongest assistant if it knows nothing about the firm's clients, files or way of working. It can get a great deal from either one if it is connected and configured properly. The questions that follow are the ones that decide the result."
+     "No single answer holds for every firm, and anyone who offers one should be asked why. Claude is made by Anthropic and ChatGPT by OpenAI. Both write, summarize, analyze documents and answer questions well. Both also release new versions often, so a comparison made today may be stale in a few months.",
+     "So Loose Ends doesn't start with the model. The strongest assistant is of little use if it knows nothing about the firm's clients, files or way of working. Either one can do a great deal once it's connected and configured properly. The questions below are the ones that decide the result."
     ]
    },
    {
     "h2": "Can the assistant reach the firm's own data?",
     "body": [
-     "An assistant that can only see what someone pastes into it does a fraction of what it could. The bigger gain comes when it can read the firm's own records: the inbox, the calendar, shared documents, spreadsheets, the client database, the recruiting or booking system.",
-     "Claude connects to tools through MCP, the Model Context Protocol, an open standard introduced by Anthropic in November 2024 for connecting AI assistants to tools and data. Other assistants, ChatGPT among them, also offer ways to connect to outside tools, and the options change often. Before choosing, a firm should check:",
+     "An assistant that only sees what someone pastes into it does a small part of what it could. The bigger gain comes when it can read the firm's records: the inbox, the calendar, shared documents, spreadsheets, the client database, the recruiting or booking system.",
+     "Claude connects to tools through MCP, the Model Context Protocol, an open standard Anthropic introduced in November 2024 for connecting AI assistants to tools and data. ChatGPT and other assistants also offer ways to connect to outside tools, and the options change often. Before choosing, a firm should check these points:",
      [
       "Which of its tools already have a ready connection for each assistant.",
       "Whether a missing tool can be connected through a custom API integration.",
-      "Whether the connection reads only, or can also write and change records.",
-      "Where the data goes, and what the plan's terms say about how it is used."
+      "Whether the connection only reads, or can also write and change records.",
+      "Where the data goes, and what the plan's terms say about how it's used."
      ]
     ]
    },
    {
     "h2": "Does the team share one set of instructions?",
     "body": [
-     "When each person writes their own prompts, the team gets a different answer for the same task depending on who asked. Shared instructions fix that. Both products let a team save instructions and reference files for repeated work, so the assistant knows the firm's tone, formats and rules before anyone types a request.",
-     "Good shared instructions are specific to the firm. They describe how a client report is laid out, which words the firm never uses, what a draft must always include, and what the assistant should never do. They turn a general assistant into one that works the way the team works. They also make the assistant's output easier to check, because everyone knows what a correct answer should look like. This is where most of the setup time goes, and it is time well spent whichever product the firm chooses."
+     "When everyone writes their own prompts, the same task gets a different answer depending on who asked. Shared instructions fix that problem for the whole team. Both products let a team save instructions and reference files for repeated work, so the assistant knows the firm's tone, formats and rules before anyone types a request.",
+     "Good shared instructions are specific to the firm. They describe how a client report is laid out, which words the firm never uses, what a draft must always include and what the assistant must never do. With them, a general assistant starts working the way the team works.",
+     "They also make the output easier to check, because everyone knows what a correct answer looks like. Most of the setup time goes here, and it's time well spent whichever product the firm picks."
     ]
    },
    {
     "h2": "Who can see what: permissions and approval",
     "body": [
-     "A business assistant connected to real data needs the same care as any other system with access to client information. Business plans of both products include admin controls, and the details should be checked against the firm's own policies. The practical questions are simple:",
+     "An assistant connected to real data needs the same care as any other system with access to client information. Business plans for both products include admin controls, and the details should be checked against the firm's policies. The practical questions are plain ones.",
      [
       "Who can connect which tools, and who can see what those tools return?",
-      "Which actions can the assistant take on its own, and which need a person?",
+      "Which actions can the assistant take by itself, and which need a person?",
       "How is a departing team member's access removed?",
       "Is anything sent to a client without a person approving it first?"
      ],
-     "The last question has a fixed answer in every system Loose Ends sets up. The assistant drafts and prepares, and a person approves before anything is sent to a client."
+     "In every system Loose Ends sets up, that last question has a fixed answer. The assistant drafts and prepares, and a person approves before anything is sent to a client."
     ]
    },
    {
     "h2": "Why does training decide whether it gets used?",
     "body": [
-     "Most teams use a fraction of what their assistant can do. They ask it to rewrite an email, and never ask it to read last month's notes and prepare a client report, or to check a contract against the firm's standard terms. The gap is rarely the model. It is that nobody showed the team what the assistant could do with their own work.",
-     "Training closes that gap when it uses the team's real tasks rather than generic examples. Each person sees the assistant handle a chore they actually do: answering, chasing, retyping, filing. Each routine gets a named owner who keeps its instructions up to date.",
-     "Training is also where the team learns the limits. An assistant can be wrong with confidence, so people need to know which outputs to check closely, how to ask it for its sources, and when a task should stay with a person. A team that understands the limits uses the assistant more, not less, because it knows where it can be trusted."
+     "Most teams use a fraction of what their assistant can do. They ask it to rewrite an email. They never ask it to read last month's notes and prepare a client report, or to check a contract against the firm's standard terms. The model is rarely the problem. Nobody showed the team what it could do with their own work, using examples from their own week.",
+     "Training closes that gap when it uses the team's real tasks. Each person watches the assistant handle a chore they actually do, whether that's answering, chasing, retyping or filing. Each routine gets a named owner who keeps its instructions current.",
+     "Training is also where people learn the limits. An assistant can be confidently wrong, so the team needs to know which outputs to check closely, how to ask for sources, and when a task should stay with a person. Teams that understand the limits tend to use the assistant more, because they know where it can be trusted."
     ]
    },
    {
     "h2": "What does a setup around one person's week look like?",
     "body": [
-     "One example from the studio's work: a journalist working in video had his AI assistant set up around his editorial week, not around the software's defaults. The tasks he repeats now run the same way every time, with video production at the centre. The value came from the setup, which would have been the same kind of work in either product.",
-     "For a firm still choosing, the sensible order is to list the tools the assistant must reach, check which product connects to them under acceptable terms, and then put the effort into instructions and training. AI assistant setup at Loose Ends starts from $4,500 at a fixed price. To see where an assistant would save the team time, start with the free one-page review."
+     "One example comes from the studio's own work. A journalist working in video had his AI assistant set up around his editorial week instead of the software's defaults. The tasks he repeats now run the same way every time, with video production at the centre. The value came from the setup, and that would have been the same kind of work in either product.",
+     "For a firm still choosing, a sensible order is to list the tools the assistant must reach, check which product connects to them on acceptable terms, and then put the effort into instructions and training. AI assistant setup at Loose Ends starts from $4,500 at a fixed price.",
+     "To see where an assistant would save the team time, start with the free one-page review."
     ]
    }
   ],
   "faq": [
    {
     "q": "Is Claude or ChatGPT more accurate?",
-    "a": "Both are capable, and both change often, so a fixed ranking goes out of date quickly. For a business team, the connection to the firm's data and the quality of its instructions usually matter more."
+    "a": "Both are capable, and both change often, so any fixed ranking goes out of date fast. For a business team, the connection to the firm's data and the quality of its instructions usually matter more."
    },
    {
     "q": "Can a firm use both?",
-    "a": "Yes, some firms do. It doubles the work of instructions, permissions and training, so most teams are better served by setting up one properly."
+    "a": "Yes, some firms do. It doubles the work on instructions, permissions and training, so most teams do better setting up one properly."
    },
    {
     "q": "Does Loose Ends set up ChatGPT as well as Claude?",
     "a": "Yes. The studio sets up Claude and other AI assistants for a team, connected to its own data."
    },
    {
-    "q": "Will the assistant send emails to clients on its own?",
+    "q": "Will the assistant email clients on its own?",
     "a": "Not in a system set up by Loose Ends. The assistant drafts, and a person approves before anything reaches a client."
    }
   ],
@@ -316,25 +321,25 @@
   "h1": "A firm website that turns visitors into enquiries and bookings",
   "desc": "A website that books clients answers questions plainly, offers a booking path tied to the calendar and inbox, follows up, and is found in search and AI.",
   "category": "Building",
-  "lead": "A website that books clients does three things well: it answers a visitor's questions plainly, it offers one clear path to enquire or book that is connected to the firm's calendar and inbox, and it makes sure nobody who reaches out is forgotten. Bilingual pages and visibility in search and AI answers bring the right visitors in the first place. Loose Ends builds websites and online shops from $5,000 at a fixed price agreed in writing.",
+  "lead": "A website that books clients answers a visitor's questions plainly, offers one clear way to enquire or book that's tied to the firm's calendar and inbox, and makes sure nobody who gets in touch is forgotten. Pages in each client's language, and visibility in search and AI answers, bring the right visitors in. Loose Ends builds websites and online shops from $5,000, at a fixed price agreed in writing.",
   "short": [
    "Answer the visitor's real questions on the page, in plain words.",
-   "Give one clear path to book or enquire, tied to the calendar and inbox.",
+   "Give one clear way to book or enquire, tied to the calendar and inbox.",
    "Follow up every enquiry, with a person approving each reply.",
-   "Serve each audience in its own language and be easy to find in search and AI answers."
+   "Speak to each audience in its own language, and be easy to find in search and AI answers."
   ],
   "sections": [
    {
     "h2": "What makes a website book clients rather than just describe the firm?",
     "body": [
-     "Many firm websites are brochures. They say who the firm is and what it believes, and then leave the visitor to work out how to take the next step. A website built to book clients is organised around that next step. Every page helps a visitor decide, and every page shows how to act on the decision.",
-     "The difference is mostly in the questions the site answers and in what happens after someone clicks. A good page is not longer or louder. It is clearer, and it is connected to the tools the team already uses to answer, confirm and follow up."
+     "A lot of firm websites are brochures. They say who the firm is and what it believes, then leave the visitor to work out the next step alone. A site built to book clients is organised around that next step. Every page helps a visitor decide, and shows them how to act on it.",
+     "Most of the difference lies in which questions the site answers, and in what happens after someone clicks. A good page is clearer. It's also connected to the tools the team already uses to answer, confirm and follow up."
     ]
    },
    {
     "h2": "Which questions should the site answer?",
     "body": [
-     "Visitors arrive with a few practical questions. If the site answers them, the enquiry that follows is better informed, and the team spends less time answering the same things by email. The pages should say, in plain words:",
+     "Visitors arrive with a handful of practical questions. When the site answers them, the enquiry that follows is better informed, and the team stops answering the same things by email. In plain words, the pages should say:",
      [
       "What the firm does, and for whom.",
       "How the work is done, step by step.",
@@ -342,44 +347,44 @@
       "Where the firm works, and in which languages.",
       "How to book or enquire, and what happens next."
      ],
-     "Answers belong near the top of each page, not after several paragraphs of introduction. A short questions section at the end of a service page catches the rest. Each answer written on the site is one fewer email the team has to write by hand."
+     "Put the answers near the top of each page. Several paragraphs of introduction first only push them out of sight. A short questions section at the end of a service page catches whatever's left, and every answer written there is one email fewer for the team."
     ]
    },
    {
     "h2": "How should the booking or enquiry path work?",
     "body": [
-     "One clear path works better than several half-finished ones. For a firm that sells appointments or classes, that path is a booking screen that shows real availability. For a firm that sells larger projects, it is a short enquiry form that asks only what the team needs to reply well.",
-     "Either way, the path should connect to the tools behind it. A booking should land in the calendar without anyone copying it across, and the confirmation should go out from the firm's own address. An enquiry should arrive in the inbox or the client database already sorted, so nobody has to retype names and details. The fewer manual steps, the fewer enquiries are lost between the website and the team.",
-     "The path should also work on a phone, since many visitors arrive that way. That means short forms, large buttons, and a booking screen that shows dates and times without scrolling sideways. A visitor who can finish the booking on the spot is less likely to leave it for later and forget."
+     "One clear path beats several half-finished ones. For a firm that sells appointments or classes, that's a booking screen showing real availability. For a firm that sells larger projects, it's a short enquiry form asking only what the team needs to reply well.",
+     "Either way, the path should be wired to the tools behind it. A booking lands in the calendar without anyone copying it across, and the confirmation goes out from the firm's own address. An enquiry arrives in the inbox or the client database already sorted, so nobody retypes names and details. Each manual step removed is one less place for an enquiry to get lost between the website and the team.",
+     "It has to work on a phone as well, because plenty of visitors arrive that way. That means short forms, big buttons, and a booking screen that shows dates and times without sideways scrolling. Someone who can finish booking on the spot is less likely to put it off and forget."
     ]
    },
    {
     "h2": "What happens after someone enquires?",
     "body": [
-     "The website's job does not end when the form is sent. Enquiries that receive no reply, or a late one, are the most common place where a firm loses work it had already earned. A follow-up routine closes that gap:",
+     "The website's job doesn't end when the form is sent. An enquiry that gets no reply, or a late one, is where firms most often lose work they'd already earned. A follow-up routine closes that gap:",
      [
-      "Each new enquiry is logged in one place, with its source page.",
-      "A first reply is drafted from the enquiry's own details.",
-      "A person reads and approves the reply before it is sent.",
+      "Each new enquiry is logged in one place, with the page it came from.",
+      "A first reply is drafted from the details in the enquiry.",
+      "A person reads and approves the reply before it's sent.",
       "Enquiries that go quiet are flagged, and a follow-up is drafted for approval.",
-      "Bookings receive a confirmation and a reminder before the appointment."
+      "Bookings get a confirmation, and a reminder before the appointment."
      ],
-     "Nothing in this routine writes to a client on its own. The system prepares, and a person approves before anything is sent."
+     "The routine never writes to a client by itself. It prepares everything, and the team stays in charge of what goes out. A slow reply costs more than a missing feature, so this part deserves as much care as the design."
     ]
    },
    {
     "h2": "Does a firm need pages in more than one language?",
     "body": [
-     "If the firm serves clients in more than one language, the answer is usually yes. A visitor who reads the site in their own language is more likely to understand the offer and to book. Bilingual pages should be written for each audience, not run through a translator and left alone, and each language should have its own address so search engines can show the right version.",
-     "Two examples from the studio's work show this. A yoga studio's booking app puts the schedule, the places and the payment on a single phone screen, in French and English, and bookings moved out of Instagram messages into one place. A guesthouse in La Marsa, a nineteenth-century house, has an identity drawn by hand from its own tiles, doors and objects, carried through a website in French and English that is in development."
+     "If it serves clients in more than one language, usually yes. People who read the site in their own language understand the offer better and are more likely to book. Each language version should be written for its audience instead of being run through a translator and left alone. Each should also have its own address, so search engines can show the right one.",
+     "Two pieces of the studio's work show this. A yoga studio's booking app puts the schedule, places and payment on one phone screen, in French and English, and bookings moved out of Instagram messages into one place. A guesthouse in La Marsa, a nineteenth-century house, has an identity drawn by hand from its own tiles, doors and objects, carried through a website in French and English that's now in development."
     ]
    },
    {
     "h2": "How does the site get found in search and AI answers?",
     "body": [
-     "A website that books clients still needs visitors. Search engines and AI assistants such as ChatGPT, Claude, Perplexity and Google's AI answers increasingly decide which firms people see first. The basics are the same for both: pages that load quickly, answer questions directly, and describe the firm consistently.",
-     "Loose Ends adds schema.org structured data, which describes the firm, its services and its questions in a format machines read reliably. Where it helps, the studio also adds an llms.txt file, a proposed convention for a plain-text summary aimed at AI assistants. None of this guarantees a ranking or a citation. It makes the site easy to read, which is the part the firm controls.",
-     "For a view of where the firm's current site loses enquiries, start with the free one-page review."
+     "A site that books clients still needs visitors. More and more, search engines and AI assistants such as ChatGPT, Claude, Perplexity and Google's AI answers decide which firms people see first. The basics are the same for both. Pages should load quickly, answer questions directly and describe the firm consistently.",
+     "Loose Ends adds schema.org structured data, which describes the firm, its services and its questions in a format machines can read reliably. Where it helps, the studio also adds an llms.txt file, a proposed convention for a plain-text summary aimed at AI assistants. None of this guarantees a ranking or a citation. It makes the site easy to read, and that's the part the firm controls.",
+     "To see where the firm's current site loses enquiries, start with the free one-page review."
     ]
    }
   ],
@@ -390,15 +395,15 @@
    },
    {
     "q": "Can the website connect to the firm's existing calendar and inbox?",
-    "a": "Yes. Bookings and enquiries are connected to the tools the firm already uses, so nobody copies details across by hand."
+    "a": "Yes. Bookings and enquiries go into the tools the firm already uses, so nobody copies details across by hand."
    },
    {
     "q": "Will replies to enquiries be sent automatically?",
-    "a": "No. Replies and follow-ups are drafted for the team, and a person approves each one before it is sent."
+    "a": "No. Replies and follow-ups are drafted for the team, and a person approves each one before it's sent."
    },
    {
-    "q": "Who owns the website after it is built?",
-    "a": "The firm does. The code, the domain and the accounts belong to the firm."
+    "q": "Who owns the website after it's built?",
+    "a": "The firm does. The code, the domain and the accounts all belong to the firm."
    }
   ],
   "keywords": [
@@ -417,7 +422,7 @@
   "h1": "How an executive search or recruiting firm uses AI responsibly across a search",
   "desc": "AI helps a recruiting firm with sourcing notes, CV formatting, assessment with reasoning, outreach drafts and client reports, while the recruiter decides.",
   "category": "AI assistants",
-  "lead": "A recruiting or executive search firm can use AI responsibly at every stage of a search: tidying sourcing notes, putting CVs into the firm's format, assessing candidates against the search's own criteria with the reasoning shown, drafting outreach and preparing client reports. The rule that keeps it responsible is simple. The AI prepares and explains, and the recruiter reviews, decides and approves anything that reaches a candidate or a client.",
+  "lead": "A recruiting or executive search firm can use AI responsibly at every stage of a search. It can tidy sourcing notes, put CVs into the firm's format, assess candidates against the search's own criteria with the reasoning shown, draft outreach and prepare client reports. What keeps it responsible is one rule. The AI prepares and explains, and the recruiter reviews, decides and approves anything that reaches a candidate or a client.",
   "short": [
    "AI can take on the retyping, formatting and first drafts across a search.",
    "Every assessment should show its reasoning and the source text behind it.",
@@ -428,50 +433,50 @@
    {
     "h2": "Where does AI fit in a recruiting search?",
     "body": [
-     "A search produces a great deal of text: role briefs, sourcing notes, CVs, interview notes, messages to candidates and reports to the client. Much of the recruiter's week goes into moving that text from one place to another and reshaping it, rather than judging people. That is where AI is most useful and least risky. Formatting a CV or tidying a note involves little judgment, and a mistake there is easy to spot and correct.",
-     "The stages where it helps most are these:",
+     "A search produces a lot of text. Role briefs, sourcing notes, CVs, interview notes, messages to candidates, reports to the client. Much of a recruiter's week goes on moving that text around and reshaping it, which leaves less time for judging people. That's the part of the job clients are paying for.",
+     "That's where AI is most useful and least risky. Formatting a CV or tidying a note takes little judgment, and a mistake there is easy to spot and fix. It helps most at these stages:",
      [
-      "Sourcing notes: turning scattered notes into a consistent record in the recruiting system.",
-      "CV formatting: putting each candidate's CV into the firm's own format in one step.",
-      "Candidate assessment: reading CVs against the search's criteria and showing the reasoning.",
-      "Outreach drafts: writing a first message based on the candidate's own work.",
-      "Client reports: assembling notes and ratings into the firm's report format."
+      "Sourcing notes, turned from scattered jottings into a consistent record in the recruiting system.",
+      "CV formatting, with each candidate's CV put into the firm's own format in one step.",
+      "Candidate assessment, reading CVs against the search's criteria and showing the reasoning.",
+      "Outreach drafts, with a first message based on the candidate's own work.",
+      "Client reports, with notes and ratings assembled into the firm's report format."
      ],
-     "At each stage the output is a draft or a recommendation, never a decision."
+     "At every stage, what comes out is a draft or a recommendation for the recruiter. The decision is never the software's."
     ]
    },
    {
     "h2": "How should candidate assessment work responsibly?",
     "body": [
-     "Assessment is the stage where care matters most, because a score can look more certain than it is. A responsible system scores candidates against the criteria the firm set for this search, not against a generic idea of a good candidate. Beside every score, it shows the reasoning and the exact passage from the CV that supports it.",
-     "That lets the recruiter check the work instead of trusting it. If the reasoning is weak or the source text says something else, the recruiter sees it at once and overrules it. Where the CV is silent on a criterion, the system should say so plainly rather than guess. Gaps are flagged, never filled.",
-     "Two further habits help. The criteria for each search should be agreed with the client and written down before any CV is read, so the assessment measures what the client actually asked for. And the recruiter should review the full ranked list, not only the top of it, because a strong candidate with an unusual background can sit lower than they deserve."
+     "This is where care matters most, because a score can look more certain than it is. A responsible system scores candidates against the criteria the firm set for this particular search, and against nothing more generic. Beside every score it shows the reasoning and the exact passage from the CV behind it.",
+     "The recruiter can then check the work instead of trusting it. Weak reasoning, or source text that says something different, is visible straight away and easy to overrule. When a CV says nothing about a criterion, the system should say that plainly. Gaps are flagged, never filled.",
+     "Other habits help too. Agree the criteria for each search with the client and write them down before any CV is read, so the assessment measures what the client asked for. Then have the recruiter go through the whole ranked list, because a strong candidate with an unusual background can easily sit lower than they deserve."
     ]
    },
    {
     "h2": "What does Vero do in a search?",
     "body": [
-     "Vero is recruiting software built by Loose Ends as one of its own products. It reads a batch of résumés against a role and ranks the candidates. For every score, it shows the reasoning and the source text behind it, so the recruiter can see why a candidate sits where they do.",
-     "Vero also drafts outreach from each candidate's own work, so a first message refers to something the candidate actually did rather than a template line. The decision stays with the recruiter, at every step: who to contact, who to put forward, and what to say.",
-     "Showing the source text matters for another reason. When a client asks why a candidate was put forward or left out, the recruiter can point to the passage and the criterion, rather than to an unexplained number."
+     "Vero is recruiting software Loose Ends built as one of its own products. It reads a batch of résumés against a role and ranks the candidates. Every score comes with the reasoning and the source text behind it, so the recruiter can see why a candidate sits where they do.",
+     "It also drafts outreach from each candidate's own work, so a first message mentions something the candidate actually did. The recruiter decides at every step: who to contact, who to put forward, and what to say.",
+     "Showing the source text pays off in another way. When a client asks why someone was put forward or left out, the recruiter can point to the passage and the criterion. An unexplained number wouldn't satisfy the client, and it shouldn't satisfy the recruiter either."
     ]
    },
    {
     "h2": "How does this look inside an executive search firm?",
     "body": [
-     "One example from the studio's client work is an executive search firm in Washington D.C. Its open roles go into the firm's recruiting system, Loxo, and appear on the firm's website without anyone retyping them. Candidate CVs are put into the firm's format in one step.",
-     "The same database also answers the team's questions through their AI assistant, because the recruiting database and the firm's internal chat are connected to it. A recruiter can ask about a candidate or a search and get an answer drawn from the firm's own records. The website is live, and candidate scoring is in development."
+     "One example from the studio's client work is an executive search firm in Washington D.C. Its open roles go into the firm's recruiting system, Loxo, and appear on its website without anyone retyping them. Candidate CVs are put into the firm's format in one step.",
+     "The same database answers the team's questions through their AI assistant, because the recruiting database and the firm's internal chat are connected to it. A recruiter can ask about a candidate or a search and get an answer drawn from the firm's records. The website is live, and candidate scoring is in development."
     ]
    },
    {
     "h2": "How are outreach and client reports kept under control?",
     "body": [
-     "Anything that leaves the firm carries its name, so it goes through a person first. Outreach drafts are prepared for the recruiter, who edits, approves and sends them. Client reports follow the same pattern. Interview notes are turned into a report in the firm's own format, with every rating pointing to the note it came from, and gaps flagged rather than filled.",
-     "A few rules keep this safe in practice:",
+     "Anything that leaves the firm carries its name, so a person sees it first. Outreach drafts are prepared for the recruiter, who edits, approves and sends them. Client reports work the same way. Interview notes become a report in the firm's own format, with every rating pointing to the note it came from and gaps flagged instead of filled.",
+     "In practice, a few rules keep this safe:",
      [
-      "A person approves every message before it is sent to a candidate or a client.",
+      "A person approves every message before it's sent to a candidate or a client.",
       "Every rating and claim in a report can be traced to its source.",
-      "Missing information is marked as missing, not invented.",
+      "Missing information is marked as missing.",
       "Each routine has a named owner inside the firm who checks it stays accurate."
      ]
     ]
@@ -479,7 +484,7 @@
    {
     "h2": "What should a recruiting firm set up first?",
     "body": [
-     "The best first step is usually the chore that eats the most time with the least judgment involved. For many firms that is retyping: copying roles to the website, reformatting CVs, or rebuilding reports by hand. Connecting the recruiting system to the website and to the team's assistant often comes next. Assessment comes after the firm has agreed its criteria in writing for each search.",
+     "Usually the chore that eats the most time with the least judgment involved. For many firms that's retyping, whether it's copying roles to the website, reformatting CVs or rebuilding reports by hand. Connecting the recruiting system to the website and to the team's assistant tends to come next. Assessment comes once the firm has agreed its criteria in writing for each search, because scoring against loose criteria only produces confident-looking guesses.",
      "Loose Ends connects tools such as Loxo and BrightHire, sets up AI assistants for teams, and builds the routines around them at a fixed price. To see where a recruiting team's week goes, start with the free one-page review."
     ]
    }
@@ -491,15 +496,15 @@
    },
    {
     "q": "Can AI work with Loxo?",
-    "a": "Yes. Loose Ends has connected Loxo to a firm's website and to its AI assistant, so open roles and candidate records do not need retyping."
+    "a": "Yes. Loose Ends has connected Loxo to a firm's website and to its AI assistant, so open roles and candidate records don't need retyping."
    },
    {
     "q": "How does a recruiter check an AI assessment?",
-    "a": "Each score sits beside its reasoning and the source text from the CV, so the recruiter can confirm or overrule it."
+    "a": "Each score sits beside its reasoning and the source text from the CV, so the recruiter can confirm it or overrule it."
    },
    {
-    "q": "Will candidates receive messages written by AI without review?",
-    "a": "Not in a system built by Loose Ends. Outreach is drafted, and a person approves each message before it is sent."
+    "q": "Will candidates get AI-written messages nobody reviewed?",
+    "a": "Not in a system built by Loose Ends. Outreach is drafted, and a person approves each message before it's sent."
    }
   ],
   "keywords": [

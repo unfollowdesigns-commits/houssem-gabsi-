@@ -5,89 +5,90 @@
   "h1": "How to connect Slack to Claude and the firm's other tools",
   "desc": "Connecting Slack to Claude puts approvals, alerts and questions where the team already talks, with each person seeing only what their own access allows.",
   "category": "Connections",
-  "lead": "Connecting Slack to Claude means the team can ask the assistant questions, receive alerts and approve drafts inside the channels it already uses, instead of switching between tools. Slack becomes the place where work is reported and signed off, while the records stay in the email, calendar, spreadsheets and databases the firm already runs. Done well, the assistant only sees what each person is allowed to see.",
+  "lead": "Connecting Slack to Claude lets the team ask the assistant questions, get alerts and approve drafts in the channels where it already talks. The records stay where they are, in email, the calendar, spreadsheets and databases. Set up properly, the assistant sees only what each person is allowed to see.",
   "short": [
-   "Slack becomes the place where the team asks, is alerted and approves, not another inbox to check.",
-   "Claude can read from and write to Slack through a connector, and reach the firm's other tools the same way.",
-   "Approvals happen in a message: a person reads the draft and signs it off before anything goes to a client.",
-   "Permissions follow each person's own access, and private channels stay private unless the firm decides otherwise."
+   "Slack becomes the place where the team asks questions, gets alerts and signs off work.",
+   "Claude reads and posts in Slack through a connector, and reaches the firm's other tools the same way.",
+   "A person reads each draft in Slack and approves it before anything goes to a client.",
+   "Each person's own access decides what the assistant can see, and private channels stay private unless the firm says otherwise."
   ],
   "sections": [
    {
     "h2": "What does connecting Slack to Claude actually do?",
     "body": [
-     "There are two directions. In one, Claude reads Slack: it can search channels the person has access to, summarize a long thread, or find the message where a decision was made. In the other, routines post into Slack: a reminder, an alert or a draft waiting for approval appears in the right channel at the right moment.",
-     "Claude connects to Slack and to many other tools through connectors built on MCP, the Model Context Protocol. MCP is an open standard introduced by Anthropic in November 2024 for connecting AI assistants to tools and data. A separate article on this site explains MCP in more detail; for this piece, the useful point is that Slack is one connection among several, and the value comes from linking it to the rest."
+     "It works in two directions. Claude can read Slack, which means searching the channels a person has access to, summing up a long thread, or finding the message where a decision was made. Routines can also post into Slack. A reminder, an alert or a draft waiting for sign-off shows up in the right channel when it's needed.",
+     "The link runs through connectors built on MCP, the Model Context Protocol. MCP is an open standard Anthropic introduced in November 2024 for connecting AI assistants to tools and data, and there's a separate article on this site about it. What matters here is that Slack is one connection among several. It gets useful once it's tied to the rest."
     ]
    },
    {
     "h2": "Why put approvals and alerts in Slack?",
     "body": [
-     "Most firms already have a channel where people say \"can someone check this\" or \"did the client reply\". The chores behind those messages are real: chasing a colleague for a sign-off, copying a figure from a spreadsheet into a thread, confirming that a booking went through. Putting the routine's output in the same place removes the copying and the chasing.",
-     "Typical messages a connected routine posts:",
+     "Most firms already have a channel full of messages like \"can someone check this\" or \"did the client reply?\". Behind each one sits a small chore. Chasing a colleague for a sign-off. Copying a figure from a spreadsheet into a thread. Confirming that a booking actually went through.",
+     "When a routine posts its output in that same channel, most of the copying and chasing goes away. Some typical messages:",
      [
-      "A drafted reply to a client enquiry, with buttons or a short instruction to approve, edit or discard.",
-      "A note that an invoice has gone unpaid past its due date, with the drafted reminder attached.",
-      "A morning list of the day's bookings, with any that are still unconfirmed marked.",
-      "An alert that a form came in incomplete, naming the missing field.",
-      "A weekly summary drawn from the spreadsheet or database, posted at the same time each week."
+      "A drafted reply to a client enquiry, with a button or a short instruction to approve, edit or discard it.",
+      "A note that an invoice is past its due date, with the drafted reminder attached.",
+      "A morning list of the day's bookings, with the unconfirmed ones marked.",
+      "An alert that a form came in incomplete, naming the field that's missing.",
+      "A weekly summary pulled from the spreadsheet or database, posted at the same time each week."
      ],
-     "Each of these replaces a check someone used to do by hand. None of them sends anything to a client on its own: a person reads the draft in Slack and approves it first."
+     "Each one replaces a check somebody used to do by hand, usually between other jobs. None of them sends anything to a client by itself. A person reads the draft in Slack and approves it first."
     ]
    },
    {
-    "h2": "How does asking the assistant inside Slack work?",
+    "h2": "Can the team ask the assistant questions inside Slack?",
     "body": [
-     "With Claude available in Slack, a team member can ask a question in a direct message or in a thread and get an answer drawn from the tools the firm has connected. \"What did the client agree to on the last call?\" or \"Which open roles have no shortlist yet?\" become questions instead of searches across several systems.",
-     "The answer is only as good as the connection behind it. If the assistant can read the calendar, the shared drive and the database, it can answer across them. If it can only read Slack, it will answer from Slack alone. Part of the setup is deciding which sources the assistant should use for which kinds of question, and writing that down so the team knows where answers come from."
+     "Yes. With Claude in Slack, someone can ask in a direct message or a thread and get an answer drawn from whatever tools the firm has connected. \"What did the client agree to on the last call?\" \"Which open roles still have no shortlist?\" Those stop being searches across several systems and turn into a quick question.",
+     "An answer can only be as good as the connection behind it. If the assistant reads the calendar, the shared drive and the database, it can answer across all of them. If it only reads Slack, it answers from Slack. Part of the setup is deciding which sources serve which kinds of question, then writing that down so the team knows where an answer came from. When no connected source covers a question, the assistant should say so plainly, and the team should expect that."
     ]
    },
    {
     "h2": "Who sees what? Permissions and private channels",
     "body": [
-     "Permissions are the first thing to settle, not the last. A connected assistant should act with the access of the person using it, so a junior team member cannot reach a partner's private files simply by asking the assistant. Slack's own rules on public channels, private channels and direct messages still apply.",
-     "The points the studio settles with the firm before anything is switched on:",
+     "Settle permissions first. A connected assistant should act with the access of whoever is using it, so a junior team member can't reach a partner's private files by asking the assistant nicely. Slack's own rules for public channels, private channels and direct messages still apply.",
+     "Before anything is switched on, the studio agrees these points with the firm:",
      [
       "Which channels a routine may post in, and which it may read.",
       "Whether the assistant can read private channels at all, and for whom.",
-      "Which tools beyond Slack it connects to, and with whose account.",
+      "Which tools beyond Slack it connects to, and under whose account.",
       "Who can approve which kind of draft, and what happens if nobody does.",
-      "Where a log of each routine's actions is kept, so anyone can check what happened."
+      "Where each routine's log of actions is kept, so anyone can check what happened."
      ],
-     "Writing these down is dull, but it is what lets a firm trust the setup. It also makes handover clear: every routine has a named owner on the team."
+     "It's dull work. It's also what lets a firm trust the setup, and it makes handover clean, because every routine ends up with a named owner on the team."
     ]
    },
    {
     "h2": "An example: a recruiting database and internal chat connected to the assistant",
     "body": [
-     "For an executive search firm in Washington D.C., the studio connected the firm's recruiting system, Loxo, and its internal chat to the team's AI assistant. The same database that holds roles and candidates now answers the team's questions through the assistant, so nobody has to open the system and retype a search to find out where a role stands.",
-     "The same firm's open roles go from Loxo onto its website without anyone retyping them, and candidate CVs are put into the firm's format in one step. The website is live, and candidate scoring is in development. The point for this article is the pattern: the chat is where the team asks, and the database stays the single record."
+     "For an executive search firm in Washington D.C., the studio connected the firm's recruiting system, Loxo, and its internal chat to the team's AI assistant. The database that holds roles and candidates now answers the team's questions through the assistant. Nobody has to open Loxo and rerun a search to find out where a role stands.",
+     "Open roles at the same firm go from Loxo onto its website without anyone retyping them, and candidate CVs are put into the firm's format in one step. The website is live, and candidate scoring is in development. What carries over to other firms is the pattern. The chat is where people ask, and the database stays the one record."
     ]
    },
    {
     "h2": "How does Loose Ends set it up?",
     "body": [
-     "The work starts with the firm's own chores, not with Slack's feature list. The studio looks at what people currently chase, confirm or copy by hand, and picks the routines where a message in the right channel saves a step. Each routine drafts and prepares; a person approves before anything reaches a client.",
-     "The build is done at one fixed price agreed in writing, and the firm owns the accounts and the code. Handover includes training for the team and a named owner for every routine, with optional monthly support afterwards. Loose Ends offers a free one-page review of where the firm loses time, with no call required, and it is the simplest way to see which of these routines would pay off first."
+     "The starting point is the firm's own chores. The studio looks at what people currently chase, confirm or copy by hand, and picks the routines where one message in the right channel saves a step. Each routine drafts and prepares the work, and people make the calls.",
+     "The build is done at one fixed price agreed in writing, and the firm owns the accounts and the code. Handover includes training for the team and a named owner for every routine, with optional monthly support after that.",
+     "The easiest way to begin is the free one-page review of where the firm loses time, no call required, which shows which of these routines would pay off first."
     ]
    }
   ],
   "faq": [
    {
     "q": "Can Claude read every Slack channel?",
-    "a": "Only the channels the connected account is allowed to see. Private channels and direct messages stay private unless the firm deliberately grants access."
+    "a": "Only the channels the connected account is allowed to see. Private channels and direct messages stay private unless the firm deliberately opens them up."
    },
    {
     "q": "Can a Slack routine send emails to clients on its own?",
-    "a": "In the systems Loose Ends builds, no. The routine posts a draft in Slack and a person approves it before it is sent."
+    "a": "Not in the systems Loose Ends builds. The routine posts a draft in Slack, and a person approves it before it's sent."
    },
    {
     "q": "Does this work with tools other than Slack?",
-    "a": "Yes. The same approach connects email, calendar, spreadsheets, databases and systems such as Loxo or Shopify, through a Claude connector where one exists or a custom integration where it does not."
+    "a": "Yes. The same approach connects email, calendar, spreadsheets, databases and systems such as Loxo or Shopify, through a Claude connector where one exists or a custom integration where it doesn't."
    },
    {
-    "q": "Is Slack required?",
-    "a": "No. Some teams prefer Microsoft Teams or email for approvals. Slack is useful when the team already talks there."
+    "q": "Do we need Slack for this?",
+    "a": "No. Some teams prefer Microsoft Teams or email for approvals. Slack makes sense when the team already talks there."
    }
   ],
   "keywords": [
@@ -103,91 +104,93 @@
   "slug": "ai-client-onboarding-automation",
   "title": "Client onboarding automation without the paperwork chase",
   "h1": "Client onboarding automation: forms, documents and signatures without the chase",
-  "desc": "Client onboarding automation collects forms, documents and signatures, files them, chases what is missing and tells the team when it is all in, with approval.",
+  "desc": "Client onboarding automation collects forms, documents and signatures, files them, drafts reminders for what's missing and tells the team when it's all in.",
   "category": "Automation",
-  "lead": "Client onboarding automation gathers what a new client has to provide, such as forms, identity documents and a signed agreement, files each item in the right place and tells the team when everything is in. The chasing is drafted for the team, and a person approves every message before it goes to the client. The firm's people stop tracking paperwork by hand and start the actual work sooner.",
+  "lead": "Client onboarding automation collects what a new client has to send, such as forms, identity documents and a signed agreement. It files each item in the right place, drafts reminders for anything missing, and tells the team when the file is complete. The team stops tracking paperwork by hand and gets to the actual work sooner.",
   "short": [
-   "Onboarding is mostly collecting, checking, chasing and filing: chores a routine can prepare.",
-   "Forms, uploads and e-signature feed one checklist per client, kept in the firm's own tools.",
-   "Reminders for missing items are drafted, and a person approves each one before it is sent.",
-   "The team gets a single message when a client's file is complete."
+   "Onboarding is mostly collecting, checking, chasing and filing, and a routine can prepare all of it.",
+   "Forms, uploads and e-signatures feed one checklist per client, kept in the firm's own tools.",
+   "Reminders for missing items are drafted, and a person approves each one before it goes out.",
+   "The team gets one message when a client's file is complete."
   ],
   "sections": [
    {
     "h2": "What is client onboarding automation?",
     "body": [
-     "Every new client brings a list of things the firm needs before work can start: contact details, a signed engagement letter, sometimes identity documents, billing information, access to an account or a set of files. Onboarding automation is a routine that asks for those things, notices what has arrived, files it and keeps track of what is still missing.",
-     "It does not replace the welcome call or the judgment about whether to take a client on. It replaces the follow-up emails, the checking of inboxes for attachments, the copying of details into the client database and the question asked across the office: \"Has the signed letter come back yet?\""
+     "Before work can start, every new client owes the firm a few things. Contact details, a signed engagement letter, billing information, sometimes identity documents or access to an account. An onboarding routine asks for those, notices what has arrived, files it and keeps a running list of what's still missing.",
+     "The welcome call stays. So does the judgment about whether to take the client on. What goes is the follow-up email, the hunt through the inbox for attachments, the retyping into the client database, and the question asked across the office every few days: \"Has the signed letter come back yet?\""
     ]
    },
    {
     "h2": "Where does the paperwork chase come from?",
     "body": [
-     "The chase usually comes from details scattered across places. The form answers are in one tool, the documents arrive as email attachments, the signature request lives in an e-signature service, and the checklist is in someone's head or a spreadsheet nobody updates. Each piece is simple. Keeping them in step is the tiring part.",
-     "The chores that pile up are familiar:",
+     "Mostly from things living in different places. Form answers sit in one tool. Documents come in as email attachments. The signature request lives in an e-signature service, and the checklist is in someone's head or in a spreadsheet nobody updates. None of it is hard. Keeping it all in step is what wears people down.",
+     "The chores that pile up will sound familiar:",
      [
-      "Sending the same welcome email and form link to each new client.",
-      "Opening attachments to see which document arrived and whether it is the right one.",
+      "Sending the same welcome email and form link to every new client.",
+      "Opening attachments to see which document arrived and whether it's the right one.",
       "Retyping names, addresses and billing details from a form into the database.",
       "Chasing a client who has signed but not uploaded, or uploaded but not signed.",
-      "Telling the person who starts the work that the file is complete."
-     ]
+      "Letting the person who starts the work know that the file is complete."
+     ],
+     "Each of these takes a few minutes. Repeated for every new client, they fill afternoons that were meant for client work, and they're the first thing to slip when the office is busy."
     ]
    },
    {
     "h2": "How does an automated onboarding routine work?",
     "body": [
-     "The routine follows one checklist per type of client, agreed with the firm in advance. When a new client is marked as accepted, the routine prepares the welcome message, the form link and the signature request, and a person approves them before they go out. From then on it watches for answers, uploads and the signed agreement.",
-     "A typical sequence looks like this:",
+     "It works from one checklist per type of client, agreed with the firm beforehand. When a client is marked as accepted, the routine prepares the welcome message, the form link and the signature request for the team to send. From then on it watches for answers, uploads and the signed agreement.",
+     "A typical run looks like this:",
      [
-      "The client fills in a form; the answers go straight into the client record, with no retyping.",
+      "The client fills in a form, and the answers go straight into the client record.",
       "Uploaded documents are named by a fixed rule and filed in the client's folder.",
       "The e-signature service reports when the agreement is signed, and the record is updated.",
-      "Anything missing after a set interval produces a drafted reminder for a person to approve.",
-      "When every item is in, the team receives one message, in Slack or by email, saying the file is ready."
+      "Anything still missing after a set interval produces a drafted reminder.",
+      "When every item is in, the team gets one message, in Slack or by email, saying the file is ready."
      ],
-     "The checklist is visible to the team at any point, so nobody has to ask where a client stands. When a client sends something by email instead of through the form, the routine picks it up from the inbox and files it in the same way, so the client is never asked to resend."
+     "The team can see the checklist at any point, so nobody needs to ask where a client stands. Clients don't always use the form, of course. If one emails a document instead, the routine picks it up from the inbox and files it the same way, and the client is never asked to send it again."
     ]
    },
    {
     "h2": "What stays with a person?",
     "body": [
-     "Anything sent to the client is approved by a person first. That includes the welcome message, every reminder and any reply to a client's question. The routine drafts in the firm's tone, and someone on the team reads it and signs it off.",
-     "Decisions also stay with people. Whether a document is acceptable, whether an unusual answer on the form needs a conversation, and whether to waive a step for a long-standing client are judgment calls. The routine can flag them, for instance when an upload looks like the wrong type of document, but it does not decide.",
-     "The firm also decides how long documents are kept and who can open them. The routine files each item where the firm's access rules already apply, so a client's identity documents are not left in a shared inbox for anyone to see."
+     "Everything sent to the client. The welcome message, each reminder and any answer to a client's question are drafted in the firm's tone, then read and approved by someone on the team before they go.",
+     "Judgment calls stay too. Is this document acceptable? Does an odd answer on the form need a conversation? Should a long-standing client skip a step? The routine can flag things, for instance an upload that looks like the wrong kind of document. It doesn't decide.",
+     "The firm also sets how long documents are kept and who can open them. Each item is filed where the firm's access rules already apply, so a client's identity documents aren't sitting in a shared inbox for anyone to open."
     ]
    },
    {
     "h2": "Which tools does it connect?",
     "body": [
-     "The routine works inside the tools the firm already uses rather than adding a new portal by default. That usually means the email account, a form tool, an e-signature service, a shared drive or document store, and the client database or spreadsheet. Where a Claude connector exists for a tool, the studio uses it; where none exists, it builds a custom API integration.",
-     "Some firms do want a client portal, a single page where the client sees what is still needed and uploads it. Loose Ends builds those too, as a web application made to order. The checklist behind it is the same either way."
+     "By default the routine works inside the tools the firm already has, with no new portal. Usually that means the email account, a form tool, an e-signature service, a shared drive or document store, and the client database or spreadsheet. If a Claude connector exists for a tool, the studio uses it. If not, it builds a custom API integration.",
+     "Some firms do want a client portal, one page where the client sees what's outstanding and uploads it. Loose Ends builds those as well, as a web application made to order. The checklist underneath is the same either way. A portal tends to suit firms whose clients send documents over a long stretch. For a short list, email and a form usually do the job."
     ]
    },
    {
     "h2": "How does Loose Ends build it?",
     "body": [
-     "The studio starts by writing down the firm's current onboarding steps as they actually happen, including the informal ones. From that list it agrees one checklist per type of client, the naming rule for files, the reminder schedule and who approves what. The build is then done at one fixed price agreed in writing, and the code and accounts belong to the firm.",
-     "At handover the team is trained, each routine has a named owner, and optional monthly support is available. A related article on this site covers why human approval is built into every automation the studio makes. Loose Ends offers a free one-page review of where the firm loses time, with no call required, and it is the simplest way to see which of these routines would pay off first."
+     "The first step is writing down how onboarding happens today, informal steps included. From that, the studio and the firm agree a checklist per type of client, a naming rule for files, a reminder schedule and who approves what. The build is then done at one fixed price agreed in writing, and the code and accounts belong to the firm.",
+     "At handover the team is trained and each routine gets a named owner, with optional monthly support afterwards. Another article on this site explains why human approval is built into every automation the studio makes.",
+     "A sensible first step is the free one-page review of where the firm loses time, with no call required, which shows which routines would pay off first."
     ]
    }
   ],
   "faq": [
    {
-    "q": "Does onboarding automation send emails to clients without checking?",
-    "a": "No. Every message to a client is drafted and then approved by a person on the team before it is sent."
+    "q": "Does onboarding automation email clients without anyone checking?",
+    "a": "No. Every message to a client is drafted, then approved by a person on the team before it's sent."
    },
    {
     "q": "Which e-signature tools can it work with?",
-    "a": "Most e-signature services offer a way to report when a document is signed. Loose Ends connects the one the firm already uses, through a connector or a custom integration."
+    "a": "Most e-signature services can report when a document is signed. Loose Ends connects the one the firm already uses, through a connector or a custom integration."
    },
    {
     "q": "Do clients need to create an account?",
-    "a": "Not necessarily. The routine can work through email and a form link. A client portal is an option when the firm wants one."
+    "a": "Not necessarily. The routine can run through email and a form link. A client portal is an option if the firm wants one."
    },
    {
     "q": "Can the checklist differ by type of client?",
-    "a": "Yes. Each type of client can have its own list of required items, reminders and approvers."
+    "a": "Yes. Each type of client can have its own required items, reminders and approvers."
    }
   ],
   "keywords": [
@@ -203,92 +206,94 @@
   "slug": "meeting-notes-to-crm-actions",
   "title": "Meeting notes to CRM actions: summaries, decisions, owners",
   "h1": "Meeting notes turned into CRM actions, with people kept in charge",
-  "desc": "Meeting notes to CRM actions: each call is summarized, decisions and next steps are recorded in the CRM, owners are reminded, and people keep the decisions.",
+  "desc": "Meeting notes to CRM actions: each call is summarized, decisions and next steps go into the CRM, owners get reminded, and people keep the decisions.",
   "category": "Automation",
-  "lead": "Turning meeting notes into CRM actions means each call's summary, decisions and next steps are written into the client record, and each next step gets an owner and a reminder. Nobody has to retype notes after the meeting or remember who promised what. A person checks the summary, and anything that goes to the client is approved before it is sent.",
+  "lead": "Turning meeting notes into CRM actions means each call's summary, decisions and next steps land on the client record, and every next step gets an owner and a reminder. Nobody retypes notes after the meeting or tries to remember who promised what. A person checks the summary before it's saved.",
   "short": [
    "After each call, a summary, the decisions and the next steps are drafted from the notes or transcript.",
-   "They are recorded on the right client or deal in the CRM, not left in a notebook or an inbox.",
+   "They're recorded on the right client or deal in the CRM, instead of staying in a notebook.",
    "Each next step has an owner and a date, and the owner is reminded where they already work.",
-   "Commitments, pricing and anything sent to the client stay human decisions."
+   "Commitments, pricing and anything sent to the client stay with people."
   ],
   "sections": [
    {
-    "h2": "Why do meeting notes rarely reach the CRM?",
+    "h2": "Why do meeting notes rarely make it into the CRM?",
     "body": [
-     "Most firms agree that the CRM, the client relationship database, should hold the full story of each client. In practice the notes from a call sit in a notebook, a document or a recording, and the step of retyping them into the CRM is the one that gets skipped when the day is full.",
-     "The cost shows up later. A colleague takes over a client and cannot see what was agreed. A promised follow-up is forgotten because it lived only in one person's notes. The firm has the information; it is simply in the wrong place.",
-     "The chores behind the gap are small and repetitive: retyping notes, copying action points into an email, setting reminders by hand, and asking a colleague after the fact what was decided. Each takes a few minutes, which is exactly why each is easy to postpone and then forget."
+     "Ask any firm and they'll say the CRM, the client relationship database, should hold the whole story of each client. Then look at where the notes from Tuesday's call actually are. A notebook, a document, a recording. Retyping them into the CRM is the step that gets dropped on a busy day, and once a week has passed, it rarely happens at all.",
+     "It costs the firm later. A colleague takes over a client and can't see what was agreed, so they ask the client again. A promised follow-up disappears because it only existed in one person's notes. The information was there all along, in the wrong place.",
+     "The chores behind this are small and repetitive. Retyping notes, copying action points into an email, setting reminders by hand, asking a colleague afterwards what was decided. Each takes a few minutes, which is exactly why each one gets put off and then forgotten."
     ]
    },
    {
     "h2": "What does a meeting notes to CRM routine do?",
     "body": [
-     "The routine starts from what the firm already produces: typed notes, a transcript from the call software, or a short voice memo after the meeting. It reads that material and drafts a structured record in the firm's own format.",
+     "It starts from what the firm already produces. That might be typed notes, a transcript from the call software, or a quick voice memo recorded after the meeting. The routine reads it and drafts a structured record in the firm's own format.",
      "A typical record holds:",
      [
       "A short summary of the call in plain sentences.",
       "The decisions made, each stated once and clearly.",
       "Next steps, each with an owner and a due date.",
-      "Open questions that nobody answered during the call.",
+      "Open questions nobody answered during the call.",
       "Links to the source notes or transcript, so anyone can check the wording."
      ],
-     "The draft is attached to the right client or deal in the CRM. The person who ran the meeting reads it, corrects anything that is off, and confirms it. Only then does it become part of the client's history, where colleagues can find it months later without asking."
+     "The draft is attached to the right client or deal in the CRM. Whoever ran the meeting reads it, fixes what's off and confirms it. Only then does it join the client's history, where a colleague can find it months later without having to ask."
     ]
    },
    {
     "h2": "How are owners reminded?",
     "body": [
-     "Each next step becomes a task in the CRM with a named owner and a date. The reminder reaches the owner where they already work, for example a Slack message or an email, rather than requiring them to check another screen.",
-     "If a step is overdue, the routine can tell the owner and, if the firm chooses, the person responsible for the client. It does not chase the client directly. A short list of open steps per client can also be posted each week, so the team sees at a glance what was promised and what is still waiting. Where the next step is a message to the client, such as a summary email or a proposal, the routine drafts it and a person approves it before it is sent."
+     "Each next step becomes a CRM task with a named owner and a date. The reminder goes wherever the owner already works, usually a Slack message or an email, so there's no extra screen to check and nobody sets a reminder by hand.",
+     "When a step runs late, the routine tells the owner and, if the firm wants, the person responsible for the client. It never chases the client directly. A weekly list of open steps per client can also go to the team, which makes it easy to see what was promised and what's still waiting.",
+     "Sometimes the next step is a message to the client, like a summary email or a proposal. The routine drafts it, and a person approves it before it's sent."
     ]
    },
    {
     "h2": "What stays a human decision?",
     "body": [
-     "A summary is a record, not a decision. The routine writes down what was said; people decide what to do about it. The studio is explicit about the line, and writes it into the setup.",
+     "A summary records what was said. Deciding what to do about it is a job for people, and the studio writes that line into the setup so nobody has to guess where it sits.",
      [
       "Whether the summary is accurate and complete enough to keep.",
       "Any commitment on price, scope or timing.",
-      "Anything sent to the client, which a person approves first.",
-      "Changing a deal's stage or a client's status in the CRM.",
-      "Sensitive remarks that should not be recorded at all."
+      "Anything that goes out to the client.",
+      "Moving a deal to another stage or changing a client's status in the CRM.",
+      "Sensitive remarks that shouldn't be recorded at all."
      ],
-     "Where the notes are unclear, the routine says so rather than guessing. A gap is flagged for the person to fill, never filled with something plausible."
+     "When the notes are unclear, the routine says so. A gap gets flagged for the person to fill. It never gets filled with something that merely sounds plausible."
     ]
    },
    {
     "h2": "An example: interview notes turned into a client report",
     "body": [
-     "One system the studio has built takes interview notes and turns them into a client report in the firm's own format. Every rating in the report points to its source in the notes, and gaps are flagged, never filled. The firm's consultant reviews the report before it reaches the client.",
-     "The same principle applies to any meeting. The output is only useful if each line can be traced back to what was actually said, and if the person responsible still reads it before it counts. A separate article on this site covers the interview notes case in more depth.",
-     "That traceability matters most when a record is read long after the meeting. A colleague who picks up the client later can see not only what was decided but where the decision was stated, and can judge for themselves how firm it was. Without the link back to the source, a summary is just another person's opinion of the call."
+     "One system the studio has built takes interview notes and turns them into a client report in the firm's own format. Every rating in the report points to its source in the notes. Gaps are flagged, never filled, and the firm's consultant reviews the report before the client sees it.",
+     "Any meeting works the same way. The output is only worth keeping if each line traces back to what was actually said, and if the person responsible still reads it before it counts. There's a separate article on this site about the interview notes case.",
+     "Traceability matters most when someone reads the record long after the call. A colleague picking up the client much later can see what was decided and also where it was said, and can judge for themselves how firm it was. Without that link back to the source, a summary is one person's opinion of the call."
     ]
    },
    {
     "h2": "Which CRMs and tools does it work with?",
     "body": [
-     "The routine works with the CRM the firm already has, whether that is a dedicated sales CRM, a recruiting system such as Loxo, or a well-kept spreadsheet. Notes and transcripts can come from the calendar, the call software, a shared drive or email.",
-     "Where a Claude connector exists for a tool, Loose Ends uses it; where none exists, the studio builds a custom API integration. The build is done at one fixed price agreed in writing, the firm owns the code and accounts, and every routine has a named owner after handover. Loose Ends offers a free one-page review of where the firm loses time, with no call required, and it is the simplest way to see which of these routines would pay off first."
+     "Whatever the firm already uses. That might be a dedicated sales CRM, a recruiting system such as Loxo, or a well-kept spreadsheet. Notes and transcripts can come from the calendar, the call software, a shared drive or email. The record format is agreed first, so drafts look the same whichever tool holds them.",
+     "Where a Claude connector exists for a tool, Loose Ends uses it, and where there isn't one the studio builds a custom API integration. The build is done at one fixed price agreed in writing. The firm owns the code and accounts, and every routine has a named owner after handover.",
+     "To see which of these routines would pay off first, start with the free one-page review of where the firm loses time, which needs no call."
     ]
    }
   ],
   "faq": [
    {
     "q": "Does the routine record calls?",
-    "a": "Not by itself. It works from notes, transcripts or memos the firm already produces, and the firm decides what is recorded and kept."
+    "a": "Not by itself. It works from notes, transcripts or memos the firm already produces, and the firm decides what gets recorded and kept."
    },
    {
     "q": "What if the summary gets something wrong?",
-    "a": "The person who ran the meeting reviews the draft before it is saved as final. Each line links to the source, so errors are easy to spot and correct."
+    "a": "The person who ran the meeting reviews the draft before it's saved. Each line links to the source, so mistakes are easy to spot and fix."
    },
    {
     "q": "Can it send the follow-up email to the client?",
-    "a": "It drafts the email. A person reads it and approves it before it is sent."
+    "a": "It drafts the email. A person reads it and approves it before it goes."
    },
    {
     "q": "Does this need a particular CRM?",
-    "a": "No. It works with the system the firm already uses, through a connector or a custom integration."
+    "a": "No. It works with the system the firm already has, through a connector or a custom integration."
    }
   ],
   "keywords": [
@@ -306,67 +311,71 @@
   "h1": "AI document filing: documents read, named and filed where they belong",
   "desc": "AI document filing reads email attachments and uploads, names each file by the firm's rules and files it in the right folder or record, with an audit trail.",
   "category": "Automation",
-  "lead": "AI document filing automation reads each incoming document, works out what it is and who it belongs to, names it by the firm's own rules and files it in the right folder or database record. It covers email attachments, shared drives and uploads, and it keeps a log of every move. Anything it is unsure about goes to a person instead of being guessed.",
+  "lead": "AI document filing automation reads each incoming document, works out what it is and who it belongs to, names it by the firm's rules and files it in the right folder or database record. It handles email attachments, shared drives and uploads, and logs every move it makes. When it isn't sure, it hands the document to a person instead of guessing.",
   "short": [
-   "Documents arrive by email, upload and shared drive; the routine reads each one and decides where it goes.",
-   "Files are named by a fixed rule the firm agrees once, so they can be found later.",
+   "Documents arrive by email, upload and shared drive, and the routine reads each one and decides where it goes.",
+   "Files are named by one rule the firm agrees once, so they can be found later.",
    "Every action is logged, so anyone can see what was filed, where and when.",
-   "Unclear documents go to a person, and some kinds of document are better left unautomated."
+   "Unclear documents go to a person, and some kinds of document are better left alone."
   ],
   "sections": [
    {
     "h2": "What does AI document filing do?",
     "body": [
-     "Filing sounds trivial until it is counted across a team. Someone opens an attachment, works out whether it is an invoice, a contract or a CV, renames it, finds the right client folder and saves it, then perhaps updates a record in the database. Every one of those steps is copying and filing that a routine can prepare.",
-     "An AI model is useful here because documents rarely follow one layout. It can read a scanned letter, a supplier's invoice or a résumé and pick out the details the filing rule needs: the client, the date, the type of document, a reference number. Plain rules then decide the name and the place. The model reads; the firm's rules decide. That split keeps the result predictable, because the same kind of document always ends up in the same kind of place under the same kind of name."
+     "Filing looks trivial until someone counts how often the team does it. Open the attachment. Work out whether it's an invoice, a contract or a CV. Rename it, find the client folder, save it, maybe update the database. Every one of those steps is copying and filing that a routine can prepare. Done by hand, it's also where files end up called \"scan_final_final\" in the wrong folder.",
+     "An AI model helps because documents rarely share a layout. It can read a scanned letter, a supplier invoice or a résumé and pick out what the filing rule needs, such as the client, the date, the document type and a reference number. Plain rules then set the name and the place. The model reads and the firm's rules decide.",
+     "That split is what makes the result predictable. The same kind of document always lands in the same kind of place, under the same kind of name."
     ]
    },
    {
     "h2": "Where do the documents come from?",
     "body": [
-     "The routine watches the places documents actually arrive, rather than asking the team to change habits:",
+     "The routine watches the places documents already arrive, so the team doesn't have to change its habits:",
      [
       "Email attachments sent to a shared address or to named team members.",
       "Files dropped into an inbox folder on the shared drive.",
       "Uploads through a website form or a client portal.",
       "Exports from other systems, such as reports or statements."
      ],
-     "Each one is read, classified and filed into the place the firm already uses: a folder on the shared drive, a record in the client database, or a field in a system such as Loxo. Nothing about where the team saves files has to change. Where a document belongs to a record, such as an invoice to a client or a CV to a candidate, the routine links the two, so the file can be found from the record as well as from the folder."
+     "Each document is read, sorted and filed where the firm already keeps things: a folder on the shared drive, a record in the client database, or a field in a system such as Loxo. When a document belongs to a record, like an invoice to a client or a CV to a candidate, the routine links the two. The file can then be found from the record or from the folder."
     ]
    },
    {
     "h2": "Why do naming rules matter so much?",
     "body": [
-     "A filing routine is only as good as the rule it follows. If the firm agrees how files are named, for example client name, then document type, then date, every document can be found by anyone, by search or by eye. Without a rule, an automated system just produces mess faster.",
-     "The studio writes the rule down with the firm before building anything. It covers the order of the parts, how dates are written, what happens to duplicates, and how versions of the same document are told apart. The rule is kept in plain words so the team can follow it by hand too. Existing folders are usually left as they are at first; the routine applies the rule to new documents, and older files can be renamed later in a separate, checked pass."
+     "A filing routine is only as good as its rule. Agree how files are named, say client name, then document type, then date, and anyone can find a document by search or by eye. Without a rule, automation just makes a mess faster.",
+     "The studio writes the rule down with the firm before building anything. It covers the order of the parts, how dates are written, what happens to duplicates and how versions of one document are told apart. It stays in plain words, so the team can follow it by hand too, on days when they save a file themselves.",
+     "Existing folders are usually left alone at first. The rule applies to new documents, and older files can be renamed later in a separate pass that someone checks."
     ]
    },
    {
     "h2": "How does the audit trail work?",
     "body": [
-     "Every action the routine takes is logged: which document arrived, what the routine read from it, the name it gave, where it filed it and when. If a file seems to be missing, anyone on the team can look it up in the log instead of searching every folder.",
-     "The log also makes mistakes easy to correct. If a document was filed under the wrong client, the entry shows what the routine read and why it chose that place, so the rule can be adjusted. The original file is never deleted by the routine; it is moved or copied, and the log records which. The log is kept somewhere the team already looks, such as a spreadsheet or a channel, rather than inside a tool only the builder can open."
+     "Every action the routine takes gets logged: which document came in, what the routine read from it, the name it chose, where it filed it and when. If a file seems to be missing, anyone can look it up in the log instead of opening every folder.",
+     "The log also makes mistakes easy to fix. If something was filed under the wrong client, the entry shows what the routine read and why it picked that place, so the rule can be adjusted. The routine never deletes an original. It moves or copies, and the log records which.",
+     "The log lives somewhere the team already looks, such as a spreadsheet or a channel. Hiding it inside a tool only the builder can open would defeat the purpose."
     ]
    },
    {
     "h2": "What should not be automated?",
     "body": [
-     "Some documents are better handled by a person from the start, and the routine is set up to pass them on rather than file them:",
+     "Some documents are better off with a person from the start. The routine is set up to pass these on instead of filing them:",
      [
-      "Documents the routine cannot classify with confidence.",
+      "Documents it can't classify with confidence.",
       "Anything that needs a reply to a client, which a person drafts or approves.",
       "Legal notices, complaints and anything with a deadline attached.",
       "Highly sensitive personal documents the firm prefers to handle by hand.",
       "Deleting or overwriting files, which the routine never does."
      ],
-     "These go to a review list, with the routine's best reading attached, so the person deciding has a head start without the decision being taken for them."
+     "They go to a review list with the routine's best reading attached. The person deciding gets a head start, and the decision stays theirs. Over time, the list shows which kinds of document keep landing there, which is a good hint about where the rule needs work."
     ]
    },
    {
     "h2": "An example: CVs put into the firm's format in one step",
     "body": [
-     "For an executive search firm in Washington D.C., candidate CVs arrive in every layout imaginable. The studio built a step that puts each CV into the firm's own format in one go, so nobody retypes a career history into a template. The candidate data sits in the firm's recruiting system, Loxo, which also feeds open roles onto the firm's website without retyping.",
-     "The same idea applies to invoices, contracts, statements or supplier documents in any business. The firm decides the format and the place; the routine does the reading, renaming and copying. The build is done at one fixed price agreed in writing, and the firm owns the code and accounts. Loose Ends offers a free one-page review of where the firm loses time, with no call required, and it is the simplest way to see which of these routines would pay off first."
+     "Candidate CVs arrive in every layout imaginable. For an executive search firm in Washington D.C., the studio built a step that puts each CV into the firm's own format in one go, so nobody retypes a career history into a template. The candidate data sits in the firm's recruiting system, Loxo, which also feeds open roles onto the firm's website without retyping.",
+     "Invoices, contracts, statements and supplier documents work the same way in any business. The firm decides the format and the place, and the routine does the reading, renaming and copying. The build is done at one fixed price agreed in writing, and the firm owns the code and accounts.",
+     "The free one-page review of where the firm loses time, with no call required, is the simplest way to see which routines would pay off first."
     ]
    }
   ],
@@ -377,14 +386,14 @@
    },
    {
     "q": "Will it delete the original files?",
-    "a": "No. The routine moves or copies files and logs each action. It never deletes or overwrites."
+    "a": "No. The routine moves or copies files and logs each action. It never deletes or overwrites anything."
    },
    {
     "q": "Which storage does it work with?",
-    "a": "It works with the shared drive, document store or database the firm already uses, through a Claude connector or a custom integration."
+    "a": "The shared drive, document store or database the firm already uses, through a Claude connector or a custom integration."
    },
    {
-    "q": "What happens when it is unsure?",
+    "q": "What happens when it's unsure?",
     "a": "The document goes to a review list with the routine's reading attached, and a person decides where it belongs."
    }
   ],
@@ -403,25 +412,26 @@
   "h1": "Substack newsletter automation: the week's work assembled into a draft",
   "desc": "Substack newsletter automation gathers the week's articles and updates into a draft in the firm's voice, ready for a person to review and send.",
   "category": "Automation",
-  "lead": "Substack newsletter automation gathers the week's articles, posts and updates into a newsletter draft written in the firm's own voice, and leaves it ready for review. A person reads it, edits it and decides when to send. The same approach works with other email platforms, not only Substack.",
+  "lead": "Substack newsletter automation pulls the week's articles, posts and updates into a newsletter draft written in the firm's voice, and leaves it ready for review. A person reads it, edits it and decides when it goes out. Other email platforms work the same way.",
   "short": [
-   "The routine collects what the firm published or announced during the week from the places it already lives.",
-   "It drafts the newsletter in the firm's voice, using a style guide agreed in advance.",
-   "Every figure and claim points back to its source, so the reviewer can check it quickly.",
-   "A person reviews and approves the draft; nothing is sent to subscribers automatically."
+   "The routine collects what the firm published or announced during the week, from wherever it already lives.",
+   "It drafts the newsletter in the firm's voice, following a style guide agreed in advance.",
+   "Every figure and claim points back to its source, so the reviewer can check it fast.",
+   "A person reviews and approves the draft. Nothing goes to subscribers automatically."
   ],
   "sections": [
    {
     "h2": "Why does the weekly newsletter keep slipping?",
     "body": [
-     "A newsletter is usually the last task of the week. Someone has to remember what was published, find the links, copy the best lines, write an introduction and format it all. The writing is the enjoyable part; the gathering and copying are what make it slip.",
-     "Most of the material already exists. Articles are on the website or the blog, updates are in Slack or a shared document, events are on the calendar and posts are on LinkedIn or Instagram. The newsletter is a matter of collecting and arranging them, which is exactly the part a routine can prepare. The aim is not to remove the editor but to hand the editor a draft that is already complete enough to improve."
+     "It's usually the last job of the week. Someone has to remember what was published, dig out the links, copy the best lines, write an introduction and format the lot. Writing is the enjoyable bit. The gathering and copying are what push it to next Tuesday, and then to the Tuesday after that, until subscribers forget they signed up.",
+     "Most of the material already exists. Articles are on the website or blog, updates are in Slack or a shared document, events are on the calendar, and posts are on LinkedIn or Instagram. Collecting and arranging them is the part a routine can prepare.",
+     "The editor stays. What changes is that the editor starts from a draft that's already complete enough to improve, instead of a blank page late on a Friday."
     ]
    },
    {
     "h2": "How does an automated newsletter draft work?",
     "body": [
-     "The routine runs on a set day. It looks at the sources the firm has chosen, picks up what is new since the last issue, and assembles a draft in the agreed structure.",
+     "On a set day, the routine checks the sources the firm has chosen, picks up whatever is new since the last issue, and builds a draft in the agreed structure:",
      [
       "New articles from the website or blog, each with a short summary and link.",
       "Team updates or announcements gathered from a channel or shared document.",
@@ -429,41 +439,43 @@
       "Selected posts from LinkedIn, Instagram or other social accounts.",
       "An opening paragraph drafted in the firm's voice, for the editor to rewrite or keep."
      ],
-     "The draft is placed in the email platform as an unsent draft, or shared for comment first. The editor's job becomes editing, not assembling. If a week is quiet, the draft says so and suggests a shorter issue, rather than padding the newsletter with filler to reach a usual length."
+     "The draft lands in the email platform unsent, or goes round for comments first, so the editor's time goes on editing. In a quiet week the draft says so and suggests a shorter issue, instead of padding it out to the usual length."
     ]
    },
    {
     "h2": "How does it keep the firm's voice?",
     "body": [
-     "Voice is the part readers notice first, and the part most automated newsletters get wrong. A draft that sounds like a generic assistant tells subscribers that nobody at the firm wrote it, even when someone did review it. Voice is therefore written down before the first draft. The studio works with the firm on a short style guide: how the newsletter opens, how formal it is, words the firm uses and words it avoids, and how long each item should be. Past issues the firm likes are used as examples.",
-     "The routine follows that guide every week, which keeps the newsletter consistent even when different people edit it. When the editor changes something repeatedly, the guide is updated so the next draft starts closer to what the firm wants. The guide also lists what the newsletter never does, such as making promises about results or quoting a figure without a source, so those rules hold even when the editor is in a hurry."
+     "Readers notice voice first, and most automated newsletters get it wrong. A draft that sounds like a generic assistant tells subscribers nobody at the firm wrote it, even when someone did review it.",
+     "So the voice is written down before the first draft. The studio and the firm put together a short style guide covering how the newsletter opens, how formal it is, words the firm uses and avoids, and how long each item runs. Past issues the firm likes serve as examples.",
+     "The routine follows that guide every week, which keeps issues consistent even when different people edit them. If the editor keeps changing the same thing, the guide gets updated and the next draft starts closer. The guide also lists what the newsletter never does, like promising results or quoting a figure without a source, so those rules hold on a rushed Friday afternoon."
     ]
    },
    {
-    "h2": "Who reviews it before it is sent?",
+    "h2": "Who reviews it before it's sent?",
     "body": [
-     "A person always does. The newsletter goes to clients, readers or subscribers, and the studio's rule is that anything sent to clients is approved by a person first. The routine never presses send.",
-     "The review is made easier by how the draft is built:",
+     "A person, every time, with no exceptions for a busy week. The newsletter goes to clients, readers or subscribers, and the studio's rule is that anything sent to clients is approved by a person first. The routine never presses send.",
+     "The way the draft is built makes that review quicker:",
      [
       "Each item links to its source, so a claim or figure can be checked in a click.",
-      "Anything the routine was unsure about is marked for attention rather than smoothed over.",
+      "Anything the routine was unsure about is marked for attention instead of smoothed over.",
       "Gaps, such as a missing link or image, are flagged instead of filled with a guess."
      ],
-     "Once approved, the issue is scheduled or sent from the platform by the person who approved it. The routine records which items went out, so the next draft does not repeat them. Over time that record also shows the editor which kinds of item the firm sends most often, which is useful when deciding what the newsletter is for."
+     "Once it's approved, the person who approved it schedules or sends it from the platform. The routine records which items went out so the next draft doesn't repeat them. Over time that record shows the editor what the firm sends most often, which helps when deciding what the newsletter is for. If the answer is mostly articles, the newsletter can lean into that. If it's mostly team news, it can say so in the subject line."
     ]
    },
    {
     "h2": "Does this only work with Substack?",
     "body": [
-     "No. Substack is one of the platforms the studio connects, and it suits writers and firms that publish essays and want subscribers in one place. Firms that send through another email platform can use the same approach: the draft is prepared where the editor works and sent from the tool the firm already pays for.",
-     "Where a platform has a Claude connector, Loose Ends uses it. Where it does not, the studio builds a custom API integration, or prepares the draft in a shared document ready to paste if the platform offers no way in. The same draft can also feed short posts for LinkedIn or Instagram, scheduled only after a person approves them."
+     "No. Substack is one of the platforms the studio connects, and it suits writers and firms that publish essays and want their subscribers in one place. Firms on another email platform can use the same approach, with the draft prepared where the editor works and sent from the tool the firm already pays for.",
+     "If the platform has a Claude connector, Loose Ends uses it. If not, the studio builds a custom API integration, or prepares the draft in a shared document ready to paste when the platform offers no way in. The same draft can feed short posts for LinkedIn or Instagram as well, scheduled only once someone has approved them."
     ]
    },
    {
     "h2": "An example: one idea into an article and a week of posts",
     "body": [
-     "The studio has built a content system that turns one idea into a researched article and a week of posts, with every figure checked against a named source. A newsletter routine is a natural next step from that system: the week's article and posts become the raw material for the issue, already checked and in the firm's voice.",
-     "A separate article on this site describes the content system in more detail. The newsletter build is done at one fixed price agreed in writing, the firm owns the accounts and code, and each routine has a named owner after handover. Loose Ends offers a free one-page review of where the firm loses time, with no call required, and it is the simplest way to see which of these routines would pay off first."
+     "The studio has built a content system that turns one idea into a researched article and a week of posts, with every figure checked against a named source. A newsletter routine follows on naturally from it. The week's article and posts become raw material for the issue, already checked and already in the firm's voice.",
+     "A separate article on this site goes into the content system in more detail. The newsletter build is done at one fixed price agreed in writing, the firm owns the accounts and code, and each routine has a named owner after handover.",
+     "For a view of which routines would pay off first, the free one-page review of where the firm loses time is the place to start, and it needs no call."
     ]
    }
   ],
@@ -474,7 +486,7 @@
    },
    {
     "q": "Can it write in our own voice?",
-    "a": "Yes. It follows a style guide agreed with the firm and past issues you choose as examples, and the guide is updated as the editor makes changes."
+    "a": "Yes. It follows a style guide agreed with the firm, plus past issues you pick as examples, and the guide is updated as the editor makes changes."
    },
    {
     "q": "Which sources can it gather from?",
@@ -482,7 +494,7 @@
    },
    {
     "q": "Does it work with email platforms other than Substack?",
-    "a": "Yes. The draft can be prepared for other email platforms through a connector or a custom integration, or in a shared document ready to paste."
+    "a": "Yes. The draft can be prepared for other platforms through a connector or a custom integration, or in a shared document ready to paste."
    }
   ],
   "keywords": [
