@@ -1546,6 +1546,76 @@ html.sxlock,html.sxlock body{overflow:hidden}
 html.js:not(.hready) .hp1 h1{clip-path:inset(0 0 100% 0);transform:translateY(30px)}
 .hp1 h1{transition:clip-path 1.1s cubic-bezier(.2,.8,.2,1),transform 1.1s cubic-bezier(.2,.8,.2,1),opacity .9s var(--ease)}
 @media(prefers-reduced-motion:reduce){html.js .hp1 h1{clip-path:none!important;transform:none!important}}
+/* ── enquiry form dialog ── */
+.fx{position:fixed;inset:0;z-index:210;display:grid;place-items:center;padding:clamp(12px,3vw,32px)}
+.fx[hidden]{display:none}
+.fx-bg{position:absolute;inset:0;background:rgba(20,24,21,.45);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);opacity:0;transition:opacity .35s var(--ease)}
+.fx-card{position:relative;width:min(680px,100%);max-height:calc(100vh - 2 * clamp(12px,3vw,32px));overflow:auto;overscroll-behavior:contain;border-radius:22px;
+  background:#F3F1EA;color:var(--ink);padding:clamp(24px,4vw,44px);box-shadow:0 70px 140px -50px rgba(0,0,0,.55);
+  opacity:0;transform:translateY(24px) scale(.97);transition:opacity .4s var(--ease),transform .55s cubic-bezier(.2,.9,.2,1)}
+.fx.open .fx-bg{opacity:1}.fx.open .fx-card{opacity:1;transform:none}
+.fx-card h2{font-size:clamp(1.9rem,3.6vw,2.6rem);line-height:1.06;letter-spacing:-.02em;font-weight:300;max-width:20ch}
+.fx-card h2::before{content:none!important}
+.fx-sub{margin-top:12px;color:var(--ink-soft);font-size:15.5px;max-width:52ch}
+.fx-card label{display:grid;gap:7px;margin-top:18px;font-size:14px;font-weight:500}
+.fx-card label small{font-weight:400;color:var(--ink-soft)}
+.fx-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fx-card input:not([type=checkbox]),.fx-card textarea,.fx-card select{font:inherit;font-weight:400;font-size:16px;width:100%;padding:12px 14px;border-radius:12px;
+  border:1px solid rgba(27,32,28,.16);background:#fff;color:var(--ink);transition:border-color .2s var(--ease),box-shadow .2s var(--ease)}
+.fx-card input:focus,.fx-card textarea:focus,.fx-card select:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(43,76,111,.15)}
+.fx-card fieldset{border:0;margin:18px 0 0;padding:0}.fx-card legend{font-size:14px;font-weight:500;margin-bottom:9px}
+.fx-chips{display:flex;flex-wrap:wrap;gap:8px}
+.fx-chips label{margin:0;display:inline-block;cursor:pointer}
+.fx-chips input{position:absolute;opacity:0;pointer-events:none}
+.fx-chips span{display:inline-block;padding:9px 14px;border-radius:999px;border:1px solid rgba(27,32,28,.18);background:#fff;font-weight:400;font-size:14px;transition:background-color .2s var(--ease),color .2s var(--ease)}
+.fx-chips input:checked + span{background:var(--ink);color:var(--wall);border-color:var(--ink)}
+.fx-chips input:focus-visible + span{outline:2px solid var(--ochre);outline-offset:2px}
+.fx-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:26px;padding-top:20px;border-top:1px solid var(--sand)}
+.fx-msg{font-size:14px;color:var(--door);margin:0}
+@media(max-width:560px){.fx-row{grid-template-columns:1fr;gap:0}}
+@media(prefers-reduced-motion:reduce){.fx-card,.fx-bg{transition:none}}
+/* ── case pages ── */
+.wk-hero{padding:calc(var(--inset) + 16px + 62px + clamp(48px,8vh,96px)) 0 clamp(36px,6vh,64px)}
+.wk-hero .crumb{margin-bottom:clamp(22px,3vh,32px)}
+.wk-h1{font-size:clamp(2.5rem,5.6vw,5.1rem);line-height:1.02;letter-spacing:-.025em;font-weight:300;max-width:16ch;text-wrap:balance}
+.wk-lead{margin-top:clamp(22px,3vh,32px);max-width:58ch;font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:var(--ink-soft)}
+.wk-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.wk-chips span{font-size:14px;padding:7px 14px;border-radius:999px;border:1px solid rgba(27,32,28,.16);background:#F7F5EF}
+.wk-viz{margin:0 var(--inset);border-radius:var(--r-panel);overflow:hidden;background:linear-gradient(160deg,#E6E3D9,var(--wall-2) 60%)}
+.wk-viz .cviz{max-width:1100px;margin:0 auto;aspect-ratio:16 / 7.2;box-shadow:none;background:none;border-radius:0}
+.wk-viz .cviz svg{height:100%;width:auto;margin:0 auto}
+.wk-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--sand)}
+.wk-stats div{padding:clamp(28px,4vw,48px) clamp(16px,2.4vw,32px) clamp(28px,4vw,44px) 0}
+.wk-stats div + div{border-left:1px solid var(--sand);padding-left:clamp(16px,2.4vw,32px)}
+.wk-stats b{display:block;font-family:Fraunces,serif;font-weight:300;font-size:clamp(2.2rem,4.4vw,4rem);line-height:1;letter-spacing:-.025em}
+.wk-stats span{display:block;margin-top:14px;font-size:14.5px;color:var(--ink-soft);max-width:30ch}
+.wk-body{display:grid;grid-template-columns:minmax(0,.38fr) minmax(0,1fr);gap:clamp(32px,7vw,110px);padding:clamp(56px,9vh,110px) 0}
+.wk-side{position:sticky;top:110px;align-self:start}
+.wk-side dl{margin:0}
+.wk-side dt{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);padding-top:16px}
+.wk-side dd{margin:6px 0 0;padding-bottom:16px;border-bottom:1px solid var(--sand);font-size:15.5px}
+.wk-side .btn{margin-top:26px}
+.wk-sec + .wk-sec{margin-top:clamp(56px,9vh,104px)}
+.wk-sec h2{font-size:var(--t-h2);line-height:1.04;letter-spacing:-.02em;font-weight:300;max-width:20ch}
+.wk-sec h2::before{content:none!important}
+.wk-sec p:not(.lab){margin-top:18px;max-width:62ch;font-size:clamp(16.5px,1.2vw,18px);line-height:1.6;color:var(--ink-soft)}
+.wk-steps{list-style:none;margin:clamp(24px,4vh,36px) 0 0;padding:0;border-top:1px solid var(--sand)}
+.wk-steps li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:0 20px;padding:22px 0;border-bottom:1px solid var(--sand)}
+.wk-steps li > span{font-size:12px;font-weight:500;letter-spacing:.1em;color:var(--ink-soft);padding-top:6px}
+.wk-steps h3{font-size:var(--t-h3s);font-weight:300;letter-spacing:-.015em;line-height:1.15}
+.wk-steps li p{grid-column:2;margin-top:8px!important}
+.wk-pull{margin-top:clamp(28px,4vh,40px);padding-left:20px;border-left:2px solid var(--ochre);font-size:clamp(17px,1.4vw,20px);color:var(--ink)!important}
+.wk-more .bgrid{margin-top:var(--h2gap)}
+.wk-more .bcard .cviz{aspect-ratio:595 / 476;margin-bottom:16px;box-shadow:none}
+@media(max-width:860px){.wk-body{grid-template-columns:1fr}.wk-side{position:static}.wk-stats{grid-template-columns:1fr}.wk-stats div + div{border-left:0;border-top:1px solid var(--sand);padding-left:0}
+  .wk-viz .cviz{aspect-ratio:595 / 476}.wk-viz .cviz svg{width:100%;height:auto}}
+/* ── hero strands ── */
+.rope{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;transition:opacity .2s linear}
+.rshade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(27,32,28,.82) 0%,rgba(27,32,28,.5) 34%,rgba(27,32,28,0) 62%),linear-gradient(0deg,rgba(27,32,28,.6),rgba(27,32,28,0) 30%)}
+.hero-card::after{display:none}
+.hweek{z-index:1}
+@media(max-width:860px){.rshade{background:linear-gradient(0deg,rgba(27,32,28,.88) 0%,rgba(27,32,28,.55) 55%,rgba(27,32,28,.25) 100%)}}
+@media(prefers-reduced-motion:reduce){.rope{opacity:.7}}
 </style></head><body>
 <header class="nav" id="nav">
   <a class="brand" href="#top">Loose Ends</a>
@@ -1557,6 +1627,7 @@ html.js:not(.hready) .hp1 h1{clip-path:inset(0 0 100% 0);transform:translateY(30
 <div class="hero-track" id="pin">
 <div class="hero-stage">
 <div class="hero-card">
+  <canvas class="rope" id="rope" aria-hidden="true"></canvas><div class="rshade" aria-hidden="true"></div>
   <div class="hweek" id="hweek">
     <div class="grid">
       <div class="hrs"><span>08</span><span>10</span><span>12</span><span>14</span><span>16</span><span>18</span><span>20</span></div>
@@ -1608,28 +1679,28 @@ html.js:not(.hready) .hp1 h1{clip-path:inset(0 0 100% 0);transform:translateY(30
 <li><a href="#case-4">Candidates ranked, with the reasoning behind every score.<small>Vero. Recruiting software</small></a></li>
 <li><a href="#case-5">A daily risk score for stocks, funds and crypto.<small>ZonedInOut. Market analytics</small></a></li></ol>
     <div class="cases"><article class="case" id="case-0">
-  <div class="ctext"><p class="meta">Executive search, Washington D.C.</p><h3>Open roles entered once, live everywhere.</h3><p class="did">Roles go into the firm&#x27;s recruiting system and appear on its eighteen-page website without anyone retyping them. Candidate CVs are put into the firm&#x27;s format in one step. The same database now answers the team&#x27;s questions through their AI assistant.</p><p class="proof">Website live. Candidate scoring in development.</p></div>
+  <div class="ctext"><p class="meta">Executive search, Washington D.C.</p><h3>Open roles entered once, live everywhere.</h3><p class="did">Roles go into the firm&#x27;s recruiting system and appear on its eighteen-page website without anyone retyping them. Candidate CVs are put into the firm&#x27;s format in one step. The same database now answers the team&#x27;s questions through their AI assistant.</p><p class="proof">Website live. Candidate scoring in development.</p><p class="clink"><a class="tl" href="/work/open-roles-entered-once/">Read the case</a></p></div>
   <div class="cviz" aria-hidden="true"><svg viewBox="0 0 595 476"><rect class="d" style="--j:0" x="70" y="104" width="180" height="24" rx="3" fill="var(--door)"/><line class="d" style="--j:3" x1="262" y1="116" x2="333" y2="116" stroke="var(--ochre)" stroke-width="1.6" stroke-dasharray="3 5"/><rect class="d" style="--j:5" x="345" y="104" width="180" height="24" rx="3" fill="var(--door)"/><rect class="d" style="--j:1" x="70" y="162" width="180" height="24" rx="3" fill="var(--door)"/><line class="d" style="--j:4" x1="262" y1="174" x2="333" y2="174" stroke="var(--ochre)" stroke-width="1.6" stroke-dasharray="3 5"/><rect class="d" style="--j:6" x="345" y="162" width="150" height="24" rx="3" fill="var(--ochre)"/><rect class="d" style="--j:2" x="70" y="220" width="180" height="24" rx="3" fill="var(--door)"/><line class="d" style="--j:5" x1="262" y1="232" x2="333" y2="232" stroke="var(--ochre)" stroke-width="1.6" stroke-dasharray="3 5"/><rect class="d" style="--j:7" x="345" y="220" width="168" height="24" rx="3" fill="var(--door)"/><rect class="d" style="--j:3" x="70" y="278" width="180" height="24" rx="3" fill="var(--door)"/><line class="d" style="--j:6" x1="262" y1="290" x2="333" y2="290" stroke="var(--ochre)" stroke-width="1.6" stroke-dasharray="3 5"/><rect class="d" style="--j:8" x="345" y="278" width="124" height="24" rx="3" fill="var(--door)"/><rect class="d" style="--j:4" x="70" y="336" width="180" height="24" rx="3" fill="var(--door)"/><line class="d" style="--j:7" x1="262" y1="348" x2="333" y2="348" stroke="var(--ochre)" stroke-width="1.6" stroke-dasharray="3 5"/><rect class="d" style="--j:9" x="345" y="336" width="172" height="24" rx="3" fill="var(--door)"/></svg></div>
  </article>
 <article class="case" id="case-1">
-  <div class="ctext"><p class="meta">Maison d&#x27;hôte, La Marsa</p><h3>A nineteenth-century house that looks like itself online.</h3><p class="did">An identity drawn by hand from the house&#x27;s own tiles, doors and objects. It runs through a website in French and English and the printed pieces guests hold, from the room card to the table d&#x27;hôte menu.</p><p class="proof">Identity and print delivered. Website in development.</p></div>
+  <div class="ctext"><p class="meta">Maison d&#x27;hôte, La Marsa</p><h3>A nineteenth-century house that looks like itself online.</h3><p class="did">An identity drawn by hand from the house&#x27;s own tiles, doors and objects. It runs through a website in French and English and the printed pieces guests hold, from the room card to the table d&#x27;hôte menu.</p><p class="proof">Identity and print delivered. Website in development.</p><p class="clink"><a class="tl" href="/work/a-house-that-looks-like-itself-online/">Read the case</a></p></div>
   <div class="cviz" aria-hidden="true"><svg viewBox="0 0 595 476"><rect x="57.5" y="78" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:0" d="M137.5,158 L57.5,158 A80,80 0 0 0 137.5,78 Z" fill="var(--door)"/><rect x="137.5" y="78" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:1" d="M137.5,158 L137.5,78 A80,80 0 0 0 217.5,158 Z" fill="var(--door)"/><rect x="217.5" y="78" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:2" d="M297.5,158 L217.5,158 A80,80 0 0 0 297.5,78 Z" fill="var(--door)"/><rect x="297.5" y="78" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:3" d="M297.5,158 L297.5,78 A80,80 0 0 0 377.5,158 Z" fill="var(--door)"/><rect x="377.5" y="78" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:4" d="M457.5,158 L377.5,158 A80,80 0 0 0 457.5,78 Z" fill="var(--door)"/><rect x="457.5" y="78" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:5" d="M457.5,158 L457.5,78 A80,80 0 0 0 537.5,158 Z" fill="var(--door)"/><rect x="57.5" y="158" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:1" d="M137.5,158 L137.5,238 A80,80 0 0 0 57.5,158 Z" fill="var(--door)"/><rect x="137.5" y="158" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:2" d="M137.5,158 L217.5,158 A80,80 0 0 0 137.5,238 Z" fill="var(--door)"/><rect x="217.5" y="158" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:3" d="M297.5,158 L297.5,238 A80,80 0 0 0 217.5,158 Z" fill="var(--ochre)"/><rect x="297.5" y="158" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:4" d="M297.5,158 L377.5,158 A80,80 0 0 0 297.5,238 Z" fill="var(--ochre)"/><rect x="377.5" y="158" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:5" d="M457.5,158 L457.5,238 A80,80 0 0 0 377.5,158 Z" fill="var(--door)"/><rect x="457.5" y="158" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:6" d="M457.5,158 L537.5,158 A80,80 0 0 0 457.5,238 Z" fill="var(--door)"/><rect x="57.5" y="238" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:2" d="M137.5,318 L57.5,318 A80,80 0 0 0 137.5,238 Z" fill="var(--door)"/><rect x="137.5" y="238" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:3" d="M137.5,318 L137.5,238 A80,80 0 0 0 217.5,318 Z" fill="var(--door)"/><rect x="217.5" y="238" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:4" d="M297.5,318 L217.5,318 A80,80 0 0 0 297.5,238 Z" fill="var(--ochre)"/><rect x="297.5" y="238" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:5" d="M297.5,318 L297.5,238 A80,80 0 0 0 377.5,318 Z" fill="var(--ochre)"/><rect x="377.5" y="238" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:6" d="M457.5,318 L377.5,318 A80,80 0 0 0 457.5,238 Z" fill="var(--door)"/><rect x="457.5" y="238" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:7" d="M457.5,318 L457.5,238 A80,80 0 0 0 537.5,318 Z" fill="var(--door)"/><rect x="57.5" y="318" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:3" d="M137.5,318 L137.5,398 A80,80 0 0 0 57.5,318 Z" fill="var(--door)"/><rect x="137.5" y="318" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:4" d="M137.5,318 L217.5,318 A80,80 0 0 0 137.5,398 Z" fill="var(--door)"/><rect x="217.5" y="318" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:5" d="M297.5,318 L297.5,398 A80,80 0 0 0 217.5,318 Z" fill="var(--door)"/><rect x="297.5" y="318" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:6" d="M297.5,318 L377.5,318 A80,80 0 0 0 297.5,398 Z" fill="var(--door)"/><rect x="377.5" y="318" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:7" d="M457.5,318 L457.5,398 A80,80 0 0 0 377.5,318 Z" fill="var(--door)"/><rect x="457.5" y="318" width="80" height="80" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><path class="d" style="--j:8" d="M457.5,318 L537.5,318 A80,80 0 0 0 457.5,398 Z" fill="var(--door)"/></svg></div>
  </article>
 <article class="case" id="case-2">
-  <div class="ctext"><p class="meta">Yoga studio</p><h3>A class booked on one screen, not in a message thread.</h3><p class="did">Schedule, places and payment sit on a single phone screen, in French and English. Bookings moved out of Instagram messages and into one place.</p><p class="proof">Live.</p></div>
+  <div class="ctext"><p class="meta">Yoga studio</p><h3>A class booked on one screen, not in a message thread.</h3><p class="did">Schedule, places and payment sit on a single phone screen, in French and English. Bookings moved out of Instagram messages and into one place.</p><p class="proof">Live.</p><p class="clink"><a class="tl" href="/work/a-class-booked-on-one-screen/">Read the case</a></p></div>
   <div class="cviz" aria-hidden="true"><svg viewBox="0 0 595 476"><rect x="187" y="40" width="221" height="396" rx="28" fill="var(--wall)" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:0" x="211" y="72" width="96" height="12" rx="3" fill="var(--door)"/><rect class="d" style="--j:1" x="211" y="92" width="58" height="7" rx="3" fill="var(--sand)"/><rect class="d" style="--j:2" x="207" y="124" width="181" height="46" rx="8" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:3" x="219" y="137" width="44" height="8" rx="3" fill="var(--door)"/><rect class="d" style="--j:3" x="219" y="151" width="74" height="6" rx="3" fill="var(--sand)"/><circle class="d" style="--j:4" cx="366" cy="147" r="7" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:3" x="207" y="182" width="181" height="46" rx="8" fill="var(--door)"/><rect class="d" style="--j:4" x="219" y="195" width="44" height="8" rx="3" fill="var(--wall)"/><rect class="d" style="--j:4" x="219" y="209" width="74" height="6" rx="3" fill="var(--sand)"/><circle class="d" style="--j:5" cx="366" cy="205" r="7" fill="var(--ochre)"/><rect class="d" style="--j:4" x="207" y="240" width="181" height="46" rx="8" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:5" x="219" y="253" width="44" height="8" rx="3" fill="var(--door)"/><rect class="d" style="--j:5" x="219" y="267" width="74" height="6" rx="3" fill="var(--sand)"/><circle class="d" style="--j:6" cx="366" cy="263" r="7" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:5" x="207" y="298" width="181" height="46" rx="8" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:6" x="219" y="311" width="44" height="8" rx="3" fill="var(--door)"/><rect class="d" style="--j:6" x="219" y="325" width="74" height="6" rx="3" fill="var(--sand)"/><circle class="d" style="--j:7" cx="366" cy="321" r="7" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:8" x="207" y="372" width="181" height="38" rx="19" fill="var(--ochre)"/></svg></div>
  </article>
 <article class="case" id="case-3">
-  <div class="ctext"><p class="meta">Journalist, video production</p><h3>An AI assistant that works the way he does.</h3><p class="did">His assistant is set up around his editorial week, not the software&#x27;s defaults. The tasks he repeats now run the same way every time, with video production at the centre.</p><p class="proof">Delivered 2026.</p></div>
+  <div class="ctext"><p class="meta">Journalist, video production</p><h3>An AI assistant that works the way he does.</h3><p class="did">His assistant is set up around his editorial week, not the software&#x27;s defaults. The tasks he repeats now run the same way every time, with video production at the centre.</p><p class="proof">Delivered 2026.</p><p class="clink"><a class="tl" href="/work/an-ai-assistant-that-works-his-way/">Read the case</a></p></div>
   <div class="cviz" aria-hidden="true"><svg viewBox="0 0 595 476"><line x1="62" y1="388" x2="533" y2="388" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:0" x="70" y="92" width="46" height="64" rx="3" fill="var(--door)"/><rect class="d" style="--j:1" x="70" y="164" width="46" height="34" rx="3" fill="var(--ochre)"/><rect class="d" style="--j:2" x="70" y="206" width="46" height="96" rx="3" fill="var(--door)"/><rect class="d" style="--j:3" x="70" y="310" width="46" height="64" rx="3" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:1" x="136" y="92" width="46" height="64" rx="3" fill="var(--door)"/><rect class="d" style="--j:2" x="136" y="164" width="46" height="34" rx="3" fill="var(--ochre)"/><rect class="d" style="--j:3" x="136" y="206" width="46" height="96" rx="3" fill="var(--door)"/><rect class="d" style="--j:4" x="136" y="310" width="46" height="64" rx="3" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:2" x="202" y="92" width="46" height="64" rx="3" fill="var(--door)"/><rect class="d" style="--j:3" x="202" y="164" width="46" height="34" rx="3" fill="var(--ochre)"/><rect class="d" style="--j:4" x="202" y="206" width="46" height="96" rx="3" fill="var(--door)"/><rect class="d" style="--j:5" x="202" y="310" width="46" height="64" rx="3" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:3" x="268" y="92" width="46" height="64" rx="3" fill="var(--door)"/><rect class="d" style="--j:4" x="268" y="164" width="46" height="34" rx="3" fill="var(--ochre)"/><rect class="d" style="--j:5" x="268" y="206" width="46" height="96" rx="3" fill="var(--door)"/><rect class="d" style="--j:6" x="268" y="310" width="46" height="64" rx="3" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:4" x="334" y="92" width="46" height="64" rx="3" fill="var(--door)"/><rect class="d" style="--j:5" x="334" y="164" width="46" height="34" rx="3" fill="var(--ochre)"/><rect class="d" style="--j:6" x="334" y="206" width="46" height="96" rx="3" fill="var(--door)"/><rect class="d" style="--j:7" x="334" y="310" width="46" height="64" rx="3" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect x="400" y="92" width="46" height="282" rx="3" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect x="466" y="92" width="46" height="282" rx="3" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/></svg></div>
  </article>
 <p class="lab sublab">Products</p>
 <article class="case" id="case-4">
-  <div class="ctext"><p class="meta">Vero. Recruiting software</p><h3>Candidates ranked, with the reasoning behind every score.</h3><p class="did">The platform reads a batch of résumés against a role and ranks the candidates. Every score shows its reasoning and the source text it came from. Outreach is drafted from each candidate&#x27;s own work, and the decision stays with the recruiter.</p><p class="proof">In use.</p></div>
+  <div class="ctext"><p class="meta">Vero. Recruiting software</p><h3>Candidates ranked, with the reasoning behind every score.</h3><p class="did">The platform reads a batch of résumés against a role and ranks the candidates. Every score shows its reasoning and the source text it came from. Outreach is drafted from each candidate&#x27;s own work, and the decision stays with the recruiter.</p><p class="proof">In use.</p><p class="clink"><a class="tl" href="/work/vero-recruiting-software/">Read the case</a></p></div>
   <div class="cviz" aria-hidden="true"><svg viewBox="0 0 595 476"><rect class="d" style="--j:0" x="70" y="86" width="330" height="20" rx="3" fill="var(--ochre)"/><rect class="d" style="--j:1" x="70" y="113" width="204.6" height="5" rx="3" fill="var(--sand)"/><circle class="d" style="--j:2" cx="505" cy="99" r="13" fill="var(--ochre)"/><rect class="d" style="--j:1" x="70" y="140" width="286" height="20" rx="3" fill="var(--door)"/><rect class="d" style="--j:2" x="70" y="167" width="177.32" height="5" rx="3" fill="var(--sand)"/><circle class="d" style="--j:3" cx="505" cy="153" r="13" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:2" x="70" y="194" width="250" height="20" rx="3" fill="var(--door)"/><rect class="d" style="--j:3" x="70" y="221" width="155" height="5" rx="3" fill="var(--sand)"/><circle class="d" style="--j:4" cx="505" cy="207" r="13" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:3" x="70" y="248" width="196" height="20" rx="3" fill="var(--door)"/><rect class="d" style="--j:4" x="70" y="275" width="121.52" height="5" rx="3" fill="var(--sand)"/><circle class="d" style="--j:5" cx="505" cy="261" r="13" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:4" x="70" y="302" width="150" height="20" rx="3" fill="var(--door)"/><rect class="d" style="--j:5" x="70" y="329" width="93" height="5" rx="3" fill="var(--sand)"/><circle class="d" style="--j:6" cx="505" cy="315" r="13" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:5" x="70" y="356" width="96" height="20" rx="3" fill="var(--door)"/><rect class="d" style="--j:6" x="70" y="383" width="59.52" height="5" rx="3" fill="var(--sand)"/><circle class="d" style="--j:7" cx="505" cy="369" r="13" fill="none" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/></svg></div>
  </article>
 <article class="case" id="case-5">
-  <div class="ctext"><p class="meta">ZonedInOut. Market analytics</p><h3>A daily risk score for stocks, funds and crypto.</h3><p class="did">Each trading day, stocks, funds and cryptocurrencies are scored on how far the price has moved from its average, with an entry zone and a stop level. Past calls are published and graded. It is a scoring system, not financial advice.</p><p class="proof">In use.</p></div>
+  <div class="ctext"><p class="meta">ZonedInOut. Market analytics</p><h3>A daily risk score for stocks, funds and crypto.</h3><p class="did">Each trading day, stocks, funds and cryptocurrencies are scored on how far the price has moved from its average, with an entry zone and a stop level. Past calls are published and graded. It is a scoring system, not financial advice.</p><p class="proof">In use.</p><p class="clink"><a class="tl" href="/work/zonedinout-market-analytics/">Read the case</a></p></div>
   <div class="cviz" aria-hidden="true"><svg viewBox="0 0 595 476"><line x1="70" y1="92" x2="70" y2="388" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><line x1="70" y1="388" x2="525" y2="388" stroke="rgba(27,32,28,.2)" stroke-width="1.2"/><rect class="d" style="--j:0" x="70" y="236" width="455" height="62" rx="0" fill="var(--ochre)" fill-opacity=".22"/><line class="d" style="--j:2" x1="70" y1="338" x2="525" y2="338" stroke="var(--ochre)" stroke-width="1.6" stroke-dasharray="4 6"/><polyline class="draw" pathLength="1" points="70,300 112,284 150,310 196,252 238,268 282,206 324,228 368,170 412,196 458,138 525,156" fill="none" stroke="var(--door)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/><circle class="d" style="--j:12" cx="525" cy="156" r="7" fill="var(--door)"/></svg></div>
  </article></div>
   </div>
@@ -1808,6 +1879,28 @@ html.js:not(.hready) .hp1 h1{clip-path:inset(0 0 100% 0);transform:translateY(30
   <p class="lead">Contact details will be added here shortly.</p>
 </div></section>
 </main>
+<div class="fx" id="fx" hidden>
+  <div class="fx-bg" data-fclose></div>
+  <form class="fx-card" id="fxf" role="dialog" aria-modal="true" aria-labelledby="fx-t" novalidate>
+    <button type="button" class="sx-x" data-fclose aria-label="Close">&times;</button>
+    <p class="lab">Free review</p>
+    <h2 id="fx-t">Send a line about the firm.</h2>
+    <p class="fx-sub">A one-page review comes back, free, with the first three places to look. A reply within 24 hours.</p>
+    <div class="fx-row"><label>Name<input name="name" autocomplete="name" required></label><label>Work email<input name="email" type="email" autocomplete="email" required></label></div>
+    <label>Firm<input name="firm" autocomplete="organization"></label>
+    <fieldset><legend>Interested in</legend><div class="fx-chips">
+      <label><input type="checkbox" name="topic" value="Websites and online shops"><span>Websites and online shops</span></label>
+      <label><input type="checkbox" name="topic" value="Automation"><span>Automation</span></label>
+      <label><input type="checkbox" name="topic" value="AI assistant setup"><span>AI assistant and skills</span></label>
+      <label><input type="checkbox" name="topic" value="Connections"><span>Connections</span></label>
+      <label><input type="checkbox" name="topic" value="Brand and content"><span>Brand and content</span></label>
+      <label><input type="checkbox" name="topic" value="Not sure yet"><span>Not sure yet</span></label>
+    </div></fieldset>
+    <label>What takes the most time each week?<textarea name="brief" rows="4"></textarea></label>
+    <label>How did the firm find Loose Ends? <small>Optional</small><select name="source"><option value="">Select one</option><option>Search</option><option>An AI assistant</option><option>LinkedIn</option><option>A referral</option><option>Other</option></select></label>
+    <div class="fx-foot"><p class="fx-msg" id="fxm" role="status"></p><button type="submit" class="btn">Send</button></div>
+  </form>
+</div>
 <div class="sx" id="sx" hidden>
   <div class="sx-bg" data-close></div>
   <div class="sx-card" role="dialog" aria-modal="true" aria-labelledby="sx-t">
@@ -1847,6 +1940,38 @@ html.js:not(.hready) .hp1 h1{clip-path:inset(0 0 100% 0);transform:translateY(30
   var hrs=$('#hrs'), target=22, wk=$('#week'), sw=$('#sw'), pin=$('#pin'), man=$$('i.m',wk), maxK=Math.max(1,man.length-1),
       hw=$('#hweek'), hp1=$('#hp1'), hp2=$('#hp2'), hp4=$('#hp4'), hcount=$('#hcount'), hscr=$('#hscroll'), sp=0, lastCleared=-1, lastSw='';
   function panel(el,o,y){el.style.opacity=o.toFixed(3);el.style.transform='translateY('+y.toFixed(1)+'px)';el.style.pointerEvents=o>.6?'auto':'none';}
+  /* hero: a twisted bundle of strands, work moving along them; it turns with the scroll and leans toward the pointer */
+  var rcv=$('#rope'), ropeP=0;
+  (function(){if(!rcv||!rcv.getContext)return;var cx=rcv.getContext('2d'),W=0,H=0,DPR=Math.min(1.5,window.devicePixelRatio||1),SM=innerWidth<860,
+    N=SM?64:120,SEG=SM?40:64,ST=[],PT=[],vis=true,mx=0,my=0,tx=0,ty=0,last=0,TAU=Math.PI*2,rnd=Math.random;
+    for(var k=0;k<N;k++)ST.push({a:rnd()*TAU,r:.22+.78*Math.sqrt(rnd()),o:rnd()*TAU});
+    for(var j=0;j<(SM?26:54);j++)PT.push({k:(rnd()*N)|0,u:rnd(),s:.000035+rnd()*.00006});
+    var sp=d.createElement('canvas');sp.width=sp.height=64;var sg=sp.getContext('2d'),g=sg.createRadialGradient(32,32,0,32,32,32);
+    g.addColorStop(0,'rgba(255,214,160,1)');g.addColorStop(.18,'rgba(222,150,82,.95)');g.addColorStop(.45,'rgba(180,116,58,.35)');g.addColorStop(1,'rgba(180,116,58,0)');
+    sg.fillStyle=g;sg.fillRect(0,0,64,64);
+    function size(){W=rcv.clientWidth;H=rcv.clientHeight;rcv.width=Math.round(W*DPR);rcv.height=Math.round(H*DPR);cx.setTransform(DPR,0,0,DPR,0,0);}
+    function pos(st,u,t){var x=-.12*W+u*1.24*W,R=Math.min(W,H)*(SM?.19:.15)*(1+.22*Math.sin(u*4.2+t*.00021)),
+      ay=H*(SM?.9:.98)-u*H*(SM?.62:.86)+Math.sin(u*2.6+t*.00017)*H*.05+ty*28*(1-u),
+      an=st.a+u*8.5+t*.00028+ropeP*7+tx*.8, c=Math.cos(an), z=Math.sin(an)*st.r;
+      return [x+z*R*.42+tx*24*u, ay+c*R*st.r, z];}
+    function draw(t){cx.clearRect(0,0,W,H);var P0=new Path2D(),P1=new Path2D(),P2=new Path2D(),P=[P0,P1,P2];
+      for(var k=0;k<N;k++){var st=ST[k],pr=pos(st,0,t);for(var i=1;i<=SEG;i++){var q=pos(st,i/SEG,t),z=(pr[2]+q[2])/2,b=z<-.3?0:z<.35?1:2;P[b].moveTo(pr[0],pr[1]);P[b].lineTo(q[0],q[1]);pr=q;}}
+      cx.lineCap='round';cx.strokeStyle='rgba(92,124,168,.16)';cx.lineWidth=.7;cx.stroke(P0);
+      cx.strokeStyle='rgba(132,160,198,.30)';cx.lineWidth=.8;cx.stroke(P1);
+      cx.strokeStyle='rgba(196,210,232,.55)';cx.lineWidth=1;cx.stroke(P2);
+      cx.globalCompositeOperation='lighter';
+      for(var j=0;j<PT.length;j++){var pt=PT[j],q=pos(ST[pt.k],pt.u,t),f=(q[2]+1)/2,sz=7+20*f*f;cx.globalAlpha=.18+.82*f;cx.drawImage(sp,q[0]-sz/2,q[1]-sz/2,sz,sz);}
+      cx.globalAlpha=1;cx.globalCompositeOperation='source-over';}
+    function tick(now){if(!vis||d.hidden){last=0;return;}var dt=last?Math.min(50,now-last):16;last=now;
+      for(var j=0;j<PT.length;j++){var pt=PT[j];pt.u+=pt.s*dt;if(pt.u>1){pt.u=0;pt.k=(Math.random()*N)|0;}}
+      tx+=(mx-tx)*.04;ty+=(my-ty)*.04;draw(now);requestAnimationFrame(tick);}
+    size();addEventListener('resize',function(){size();if(RM)draw(0);});
+    if(RM){draw(0);return;}
+    addEventListener('pointermove',function(e){if(e.pointerType==='mouse'){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;}},{passive:true});
+    new IntersectionObserver(function(es){var v=es[0].isIntersecting;if(v&&!vis){vis=true;requestAnimationFrame(tick);}vis=v;},{threshold:0}).observe(rcv);
+    d.addEventListener('visibilitychange',function(){if(!d.hidden&&vis){last=0;requestAnimationFrame(tick);}});
+    requestAnimationFrame(tick);})();
+
   /* hero feed: handled work arrives one item at a time, each one approved before it is sent */
   var FEED=[["Enquiry answered","Reply drafted, approved and sent","Inbox"],["Invoice followed up","Reminder approved and sent","Accounting"],
     ["Booking confirmed","Reminder set for the day before","Calendar"],["Weekly figures sent","Dashboard shared with the team","Slack"],
@@ -1870,6 +1995,7 @@ html.js:not(.hready) .hp1 h1{clip-path:inset(0 0 100% 0);transform:translateY(30
   hfi=HFMAX;hfTimes();hfHours=Math.round(target*.4);hfh.textContent=RM?target:hfHours;
 
   function heroPaint(p){
+    ropeP=p;if(rcv)rcv.style.opacity=(1-.6*clamp((p-.12)/.12)).toFixed(3);
     var o1=1-clamp((p-.14)/.10); panel(hp1,o1,-26*(1-o1));
     var i2=clamp((p-.26)/.08), x2=1-clamp((p-.44)/.12); panel(hp2,Math.min(i2,x2),26*(1-i2)-26*(1-x2));
     var o4=clamp((p-.88)/.10); panel(hp4,o4,26*(1-o4));
@@ -2007,4 +2133,22 @@ html.js:not(.hready) .hp1 h1{clip-path:inset(0 0 100% 0);transform:translateY(30
   requestAnimationFrame(frame);
 })();
 </script>
+<script>(function(){var d=document,fx=d.getElementById('fx');if(!fx)return;var f=d.getElementById('fxf'),m=d.getElementById('fxm'),last=null,
+  TO="",ACT="",RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function open(brief,from){last=from;fx.hidden=false;d.documentElement.classList.add('sxlock');m.textContent='';
+    if(brief)f.brief.value=brief;requestAnimationFrame(function(){fx.classList.add('open');});setTimeout(function(){f.name.focus();},RM?0:300);}
+  function close(){fx.classList.remove('open');setTimeout(function(){fx.hidden=true;d.documentElement.classList.remove('sxlock');if(last)last.focus();},RM?0:300);}
+  d.addEventListener('click',function(e){var a=e.target.closest('a[href="#contact"],a[href="/#contact"],[data-brief]');if(!a||a.closest('.fx'))return;
+    e.preventDefault();open(a.getAttribute('data-brief')||'',a);});
+  [].forEach.call(fx.querySelectorAll('[data-fclose]'),function(b){b.addEventListener('click',close);});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape'&&!fx.hidden)close();});
+  f.addEventListener('submit',function(e){e.preventDefault();
+    if(!f.name.value.trim()||!/.+@.+[.].+/.test(f.email.value)){m.textContent='Please add a name and a work email.';return;}
+    var t=[].map.call(f.querySelectorAll('[name=topic]:checked'),function(x){return x.value;}).join(', ');
+    var body='Name: '+f.name.value+'\nEmail: '+f.email.value+'\nFirm: '+f.firm.value+'\nInterested in: '+t+'\nSource: '+f.source.value+'\n\n'+f.brief.value;
+    if(ACT.indexOf('http')===0){fetch(ACT,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)}).then(function(r){
+        m.textContent=r.ok?'Thank you. A reply comes within 24 hours.':'Something went wrong. Please try again.';if(r.ok)f.reset();}).catch(function(){m.textContent='Something went wrong. Please try again.';});}
+    else if(TO.indexOf('@')>0){location.href='mailto:'+TO+'?subject='+encodeURIComponent('Free review request')+'&body='+encodeURIComponent(body);m.textContent='Your email app opens with the message ready to send.';}
+    else{m.textContent='The enquiry address is being set up. Please check back shortly.';}});
+})();</script>
 </body></html>

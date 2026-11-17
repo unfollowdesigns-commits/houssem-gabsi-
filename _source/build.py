@@ -93,7 +93,8 @@ systems = "\n".join('<article class="sys"><div><h3>%s</h3><p class="prob">%s</p>
 rules = "\n".join('<div><h3>%s</h3><p>%s</p></div>' % (e(a), e(b)) for a,b in RULES)
 faq = "\n".join('<div><h3>%s</h3><p>%s</p></div>' % (e(a), e(b)) for a,b in FAQ)
 SITE = "https://houssem-gabsi.vercel.app/"
-EMAIL = ""   # contact address shown on the site. Left empty for now at Houssem's request. Set it and the review buttons become email links again.
+EMAIL = ""
+FORM_ACTION = ""   # optional: an https form endpoint that receives the enquiry form (for example a Formspree address). Takes priority over EMAIL.   # contact address shown on the site. Left empty for now at Houssem's request. Set it and the review buttons become email links again.
 HEAD = HEAD_TEXT
 HEAD_ACCENT = 3   # how many closing words of the headline take the accent colour
 TITLE = PAGE_TITLE
@@ -1350,6 +1351,76 @@ html.sxlock,html.sxlock body{overflow:hidden}
 html.js:not(.hready) .hp1 h1{clip-path:inset(0 0 100% 0);transform:translateY(30px)}
 .hp1 h1{transition:clip-path 1.1s cubic-bezier(.2,.8,.2,1),transform 1.1s cubic-bezier(.2,.8,.2,1),opacity .9s var(--ease)}
 @media(prefers-reduced-motion:reduce){html.js .hp1 h1{clip-path:none!important;transform:none!important}}
+/* ── enquiry form dialog ── */
+.fx{position:fixed;inset:0;z-index:210;display:grid;place-items:center;padding:clamp(12px,3vw,32px)}
+.fx[hidden]{display:none}
+.fx-bg{position:absolute;inset:0;background:rgba(20,24,21,.45);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);opacity:0;transition:opacity .35s var(--ease)}
+.fx-card{position:relative;width:min(680px,100%);max-height:calc(100vh - 2 * clamp(12px,3vw,32px));overflow:auto;overscroll-behavior:contain;border-radius:22px;
+  background:#F3F1EA;color:var(--ink);padding:clamp(24px,4vw,44px);box-shadow:0 70px 140px -50px rgba(0,0,0,.55);
+  opacity:0;transform:translateY(24px) scale(.97);transition:opacity .4s var(--ease),transform .55s cubic-bezier(.2,.9,.2,1)}
+.fx.open .fx-bg{opacity:1}.fx.open .fx-card{opacity:1;transform:none}
+.fx-card h2{font-size:clamp(1.9rem,3.6vw,2.6rem);line-height:1.06;letter-spacing:-.02em;font-weight:300;max-width:20ch}
+.fx-card h2::before{content:none!important}
+.fx-sub{margin-top:12px;color:var(--ink-soft);font-size:15.5px;max-width:52ch}
+.fx-card label{display:grid;gap:7px;margin-top:18px;font-size:14px;font-weight:500}
+.fx-card label small{font-weight:400;color:var(--ink-soft)}
+.fx-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fx-card input:not([type=checkbox]),.fx-card textarea,.fx-card select{font:inherit;font-weight:400;font-size:16px;width:100%;padding:12px 14px;border-radius:12px;
+  border:1px solid rgba(27,32,28,.16);background:#fff;color:var(--ink);transition:border-color .2s var(--ease),box-shadow .2s var(--ease)}
+.fx-card input:focus,.fx-card textarea:focus,.fx-card select:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(43,76,111,.15)}
+.fx-card fieldset{border:0;margin:18px 0 0;padding:0}.fx-card legend{font-size:14px;font-weight:500;margin-bottom:9px}
+.fx-chips{display:flex;flex-wrap:wrap;gap:8px}
+.fx-chips label{margin:0;display:inline-block;cursor:pointer}
+.fx-chips input{position:absolute;opacity:0;pointer-events:none}
+.fx-chips span{display:inline-block;padding:9px 14px;border-radius:999px;border:1px solid rgba(27,32,28,.18);background:#fff;font-weight:400;font-size:14px;transition:background-color .2s var(--ease),color .2s var(--ease)}
+.fx-chips input:checked + span{background:var(--ink);color:var(--wall);border-color:var(--ink)}
+.fx-chips input:focus-visible + span{outline:2px solid var(--ochre);outline-offset:2px}
+.fx-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:26px;padding-top:20px;border-top:1px solid var(--sand)}
+.fx-msg{font-size:14px;color:var(--door);margin:0}
+@media(max-width:560px){.fx-row{grid-template-columns:1fr;gap:0}}
+@media(prefers-reduced-motion:reduce){.fx-card,.fx-bg{transition:none}}
+/* ── case pages ── */
+.wk-hero{padding:calc(var(--inset) + 16px + 62px + clamp(48px,8vh,96px)) 0 clamp(36px,6vh,64px)}
+.wk-hero .crumb{margin-bottom:clamp(22px,3vh,32px)}
+.wk-h1{font-size:clamp(2.5rem,5.6vw,5.1rem);line-height:1.02;letter-spacing:-.025em;font-weight:300;max-width:16ch;text-wrap:balance}
+.wk-lead{margin-top:clamp(22px,3vh,32px);max-width:58ch;font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:var(--ink-soft)}
+.wk-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.wk-chips span{font-size:14px;padding:7px 14px;border-radius:999px;border:1px solid rgba(27,32,28,.16);background:#F7F5EF}
+.wk-viz{margin:0 var(--inset);border-radius:var(--r-panel);overflow:hidden;background:linear-gradient(160deg,#E6E3D9,var(--wall-2) 60%)}
+.wk-viz .cviz{max-width:1100px;margin:0 auto;aspect-ratio:16 / 7.2;box-shadow:none;background:none;border-radius:0}
+.wk-viz .cviz svg{height:100%;width:auto;margin:0 auto}
+.wk-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--sand)}
+.wk-stats div{padding:clamp(28px,4vw,48px) clamp(16px,2.4vw,32px) clamp(28px,4vw,44px) 0}
+.wk-stats div + div{border-left:1px solid var(--sand);padding-left:clamp(16px,2.4vw,32px)}
+.wk-stats b{display:block;font-family:Fraunces,serif;font-weight:300;font-size:clamp(2.2rem,4.4vw,4rem);line-height:1;letter-spacing:-.025em}
+.wk-stats span{display:block;margin-top:14px;font-size:14.5px;color:var(--ink-soft);max-width:30ch}
+.wk-body{display:grid;grid-template-columns:minmax(0,.38fr) minmax(0,1fr);gap:clamp(32px,7vw,110px);padding:clamp(56px,9vh,110px) 0}
+.wk-side{position:sticky;top:110px;align-self:start}
+.wk-side dl{margin:0}
+.wk-side dt{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);padding-top:16px}
+.wk-side dd{margin:6px 0 0;padding-bottom:16px;border-bottom:1px solid var(--sand);font-size:15.5px}
+.wk-side .btn{margin-top:26px}
+.wk-sec + .wk-sec{margin-top:clamp(56px,9vh,104px)}
+.wk-sec h2{font-size:var(--t-h2);line-height:1.04;letter-spacing:-.02em;font-weight:300;max-width:20ch}
+.wk-sec h2::before{content:none!important}
+.wk-sec p:not(.lab){margin-top:18px;max-width:62ch;font-size:clamp(16.5px,1.2vw,18px);line-height:1.6;color:var(--ink-soft)}
+.wk-steps{list-style:none;margin:clamp(24px,4vh,36px) 0 0;padding:0;border-top:1px solid var(--sand)}
+.wk-steps li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:0 20px;padding:22px 0;border-bottom:1px solid var(--sand)}
+.wk-steps li > span{font-size:12px;font-weight:500;letter-spacing:.1em;color:var(--ink-soft);padding-top:6px}
+.wk-steps h3{font-size:var(--t-h3s);font-weight:300;letter-spacing:-.015em;line-height:1.15}
+.wk-steps li p{grid-column:2;margin-top:8px!important}
+.wk-pull{margin-top:clamp(28px,4vh,40px);padding-left:20px;border-left:2px solid var(--ochre);font-size:clamp(17px,1.4vw,20px);color:var(--ink)!important}
+.wk-more .bgrid{margin-top:var(--h2gap)}
+.wk-more .bcard .cviz{aspect-ratio:595 / 476;margin-bottom:16px;box-shadow:none}
+@media(max-width:860px){.wk-body{grid-template-columns:1fr}.wk-side{position:static}.wk-stats{grid-template-columns:1fr}.wk-stats div + div{border-left:0;border-top:1px solid var(--sand);padding-left:0}
+  .wk-viz .cviz{aspect-ratio:595 / 476}.wk-viz .cviz svg{width:100%;height:auto}}
+/* ── hero strands ── */
+.rope{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;transition:opacity .2s linear}
+.rshade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(27,32,28,.82) 0%,rgba(27,32,28,.5) 34%,rgba(27,32,28,0) 62%),linear-gradient(0deg,rgba(27,32,28,.6),rgba(27,32,28,0) 30%)}
+.hero-card::after{display:none}
+.hweek{z-index:1}
+@media(max-width:860px){.rshade{background:linear-gradient(0deg,rgba(27,32,28,.88) 0%,rgba(27,32,28,.55) 55%,rgba(27,32,28,.25) 100%)}}
+@media(prefers-reduced-motion:reduce){.rope{opacity:.7}}
 </style></head><body>
 <header class="nav" id="nav">
   <a class="brand" href="#top">Loose Ends</a>
@@ -1361,6 +1432,7 @@ html.js:not(.hready) .hp1 h1{clip-path:inset(0 0 100% 0);transform:translateY(30
 <div class="hero-track" id="pin">
 <div class="hero-stage">
 <div class="hero-card">
+  <canvas class="rope" id="rope" aria-hidden="true"></canvas><div class="rshade" aria-hidden="true"></div>
   <div class="hweek" id="hweek">
     <div class="grid">
       <div class="hrs">HOURSCOL</div>
@@ -1495,6 +1567,28 @@ DIVHERE
   MAILLINE
 </div></section>
 </main>
+<div class="fx" id="fx" hidden>
+  <div class="fx-bg" data-fclose></div>
+  <form class="fx-card" id="fxf" role="dialog" aria-modal="true" aria-labelledby="fx-t" novalidate>
+    <button type="button" class="sx-x" data-fclose aria-label="Close">&times;</button>
+    <p class="lab">Free review</p>
+    <h2 id="fx-t">Send a line about the firm.</h2>
+    <p class="fx-sub">A one-page review comes back, free, with the first three places to look. A reply within 24 hours.</p>
+    <div class="fx-row"><label>Name<input name="name" autocomplete="name" required></label><label>Work email<input name="email" type="email" autocomplete="email" required></label></div>
+    <label>Firm<input name="firm" autocomplete="organization"></label>
+    <fieldset><legend>Interested in</legend><div class="fx-chips">
+      <label><input type="checkbox" name="topic" value="Websites and online shops"><span>Websites and online shops</span></label>
+      <label><input type="checkbox" name="topic" value="Automation"><span>Automation</span></label>
+      <label><input type="checkbox" name="topic" value="AI assistant setup"><span>AI assistant and skills</span></label>
+      <label><input type="checkbox" name="topic" value="Connections"><span>Connections</span></label>
+      <label><input type="checkbox" name="topic" value="Brand and content"><span>Brand and content</span></label>
+      <label><input type="checkbox" name="topic" value="Not sure yet"><span>Not sure yet</span></label>
+    </div></fieldset>
+    <label>What takes the most time each week?<textarea name="brief" rows="4"></textarea></label>
+    <label>How did the firm find Loose Ends? <small>Optional</small><select name="source"><option value="">Select one</option><option>Search</option><option>An AI assistant</option><option>LinkedIn</option><option>A referral</option><option>Other</option></select></label>
+    <div class="fx-foot"><p class="fx-msg" id="fxm" role="status"></p><button type="submit" class="btn">Send</button></div>
+  </form>
+</div>
 <div class="sx" id="sx" hidden>
   <div class="sx-bg" data-close></div>
   <div class="sx-card" role="dialog" aria-modal="true" aria-labelledby="sx-t">
@@ -1534,6 +1628,38 @@ FOOTERHERE
   var hrs=$('#hrs'), target=HOURSVAL, wk=$('#week'), sw=$('#sw'), pin=$('#pin'), man=$$('i.m',wk), maxK=Math.max(1,man.length-1),
       hw=$('#hweek'), hp1=$('#hp1'), hp2=$('#hp2'), hp4=$('#hp4'), hcount=$('#hcount'), hscr=$('#hscroll'), sp=0, lastCleared=-1, lastSw='';
   function panel(el,o,y){el.style.opacity=o.toFixed(3);el.style.transform='translateY('+y.toFixed(1)+'px)';el.style.pointerEvents=o>.6?'auto':'none';}
+  /* hero: a twisted bundle of strands, work moving along them; it turns with the scroll and leans toward the pointer */
+  var rcv=$('#rope'), ropeP=0;
+  (function(){if(!rcv||!rcv.getContext)return;var cx=rcv.getContext('2d'),W=0,H=0,DPR=Math.min(1.5,window.devicePixelRatio||1),SM=innerWidth<860,
+    N=SM?64:120,SEG=SM?40:64,ST=[],PT=[],vis=true,mx=0,my=0,tx=0,ty=0,last=0,TAU=Math.PI*2,rnd=Math.random;
+    for(var k=0;k<N;k++)ST.push({a:rnd()*TAU,r:.22+.78*Math.sqrt(rnd()),o:rnd()*TAU});
+    for(var j=0;j<(SM?26:54);j++)PT.push({k:(rnd()*N)|0,u:rnd(),s:.000035+rnd()*.00006});
+    var sp=d.createElement('canvas');sp.width=sp.height=64;var sg=sp.getContext('2d'),g=sg.createRadialGradient(32,32,0,32,32,32);
+    g.addColorStop(0,'rgba(255,214,160,1)');g.addColorStop(.18,'rgba(222,150,82,.95)');g.addColorStop(.45,'rgba(180,116,58,.35)');g.addColorStop(1,'rgba(180,116,58,0)');
+    sg.fillStyle=g;sg.fillRect(0,0,64,64);
+    function size(){W=rcv.clientWidth;H=rcv.clientHeight;rcv.width=Math.round(W*DPR);rcv.height=Math.round(H*DPR);cx.setTransform(DPR,0,0,DPR,0,0);}
+    function pos(st,u,t){var x=-.12*W+u*1.24*W,R=Math.min(W,H)*(SM?.19:.15)*(1+.22*Math.sin(u*4.2+t*.00021)),
+      ay=H*(SM?.9:.98)-u*H*(SM?.62:.86)+Math.sin(u*2.6+t*.00017)*H*.05+ty*28*(1-u),
+      an=st.a+u*8.5+t*.00028+ropeP*7+tx*.8, c=Math.cos(an), z=Math.sin(an)*st.r;
+      return [x+z*R*.42+tx*24*u, ay+c*R*st.r, z];}
+    function draw(t){cx.clearRect(0,0,W,H);var P0=new Path2D(),P1=new Path2D(),P2=new Path2D(),P=[P0,P1,P2];
+      for(var k=0;k<N;k++){var st=ST[k],pr=pos(st,0,t);for(var i=1;i<=SEG;i++){var q=pos(st,i/SEG,t),z=(pr[2]+q[2])/2,b=z<-.3?0:z<.35?1:2;P[b].moveTo(pr[0],pr[1]);P[b].lineTo(q[0],q[1]);pr=q;}}
+      cx.lineCap='round';cx.strokeStyle='rgba(92,124,168,.16)';cx.lineWidth=.7;cx.stroke(P0);
+      cx.strokeStyle='rgba(132,160,198,.30)';cx.lineWidth=.8;cx.stroke(P1);
+      cx.strokeStyle='rgba(196,210,232,.55)';cx.lineWidth=1;cx.stroke(P2);
+      cx.globalCompositeOperation='lighter';
+      for(var j=0;j<PT.length;j++){var pt=PT[j],q=pos(ST[pt.k],pt.u,t),f=(q[2]+1)/2,sz=7+20*f*f;cx.globalAlpha=.18+.82*f;cx.drawImage(sp,q[0]-sz/2,q[1]-sz/2,sz,sz);}
+      cx.globalAlpha=1;cx.globalCompositeOperation='source-over';}
+    function tick(now){if(!vis||d.hidden){last=0;return;}var dt=last?Math.min(50,now-last):16;last=now;
+      for(var j=0;j<PT.length;j++){var pt=PT[j];pt.u+=pt.s*dt;if(pt.u>1){pt.u=0;pt.k=(Math.random()*N)|0;}}
+      tx+=(mx-tx)*.04;ty+=(my-ty)*.04;draw(now);requestAnimationFrame(tick);}
+    size();addEventListener('resize',function(){size();if(RM)draw(0);});
+    if(RM){draw(0);return;}
+    addEventListener('pointermove',function(e){if(e.pointerType==='mouse'){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;}},{passive:true});
+    new IntersectionObserver(function(es){var v=es[0].isIntersecting;if(v&&!vis){vis=true;requestAnimationFrame(tick);}vis=v;},{threshold:0}).observe(rcv);
+    d.addEventListener('visibilitychange',function(){if(!d.hidden&&vis){last=0;requestAnimationFrame(tick);}});
+    requestAnimationFrame(tick);})();
+
   /* hero feed: handled work arrives one item at a time, each one approved before it is sent */
   var FEED=[["Enquiry answered","Reply drafted, approved and sent","Inbox"],["Invoice followed up","Reminder approved and sent","Accounting"],
     ["Booking confirmed","Reminder set for the day before","Calendar"],["Weekly figures sent","Dashboard shared with the team","Slack"],
@@ -1557,6 +1683,7 @@ FOOTERHERE
   hfi=HFMAX;hfTimes();hfHours=Math.round(target*.4);hfh.textContent=RM?target:hfHours;
 
   function heroPaint(p){
+    ropeP=p;if(rcv)rcv.style.opacity=(1-.6*clamp((p-.12)/.12)).toFixed(3);
     var o1=1-clamp((p-.14)/.10); panel(hp1,o1,-26*(1-o1));
     var i2=clamp((p-.26)/.08), x2=1-clamp((p-.44)/.12); panel(hp2,Math.min(i2,x2),26*(1-i2)-26*(1-x2));
     var o4=clamp((p-.88)/.10); panel(hp4,o4,26*(1-o4));
@@ -1694,6 +1821,24 @@ FOOTERHERE
   requestAnimationFrame(frame);
 })();
 </script>
+<script>(function(){var d=document,fx=d.getElementById('fx');if(!fx)return;var f=d.getElementById('fxf'),m=d.getElementById('fxm'),last=null,
+  TO="FORMEMAIL",ACT="FORMACTION",RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function open(brief,from){last=from;fx.hidden=false;d.documentElement.classList.add('sxlock');m.textContent='';
+    if(brief)f.brief.value=brief;requestAnimationFrame(function(){fx.classList.add('open');});setTimeout(function(){f.name.focus();},RM?0:300);}
+  function close(){fx.classList.remove('open');setTimeout(function(){fx.hidden=true;d.documentElement.classList.remove('sxlock');if(last)last.focus();},RM?0:300);}
+  d.addEventListener('click',function(e){var a=e.target.closest('a[href="#contact"],a[href="/#contact"],[data-brief]');if(!a||a.closest('.fx'))return;
+    e.preventDefault();open(a.getAttribute('data-brief')||'',a);});
+  [].forEach.call(fx.querySelectorAll('[data-fclose]'),function(b){b.addEventListener('click',close);});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape'&&!fx.hidden)close();});
+  f.addEventListener('submit',function(e){e.preventDefault();
+    if(!f.name.value.trim()||!/.+@.+[.].+/.test(f.email.value)){m.textContent='Please add a name and a work email.';return;}
+    var t=[].map.call(f.querySelectorAll('[name=topic]:checked'),function(x){return x.value;}).join(', ');
+    var body='Name: '+f.name.value+'\\nEmail: '+f.email.value+'\\nFirm: '+f.firm.value+'\\nInterested in: '+t+'\\nSource: '+f.source.value+'\\n\\n'+f.brief.value;
+    if(ACT.indexOf('http')===0){fetch(ACT,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)}).then(function(r){
+        m.textContent=r.ok?'Thank you. A reply comes within 24 hours.':'Something went wrong. Please try again.';if(r.ok)f.reset();}).catch(function(){m.textContent='Something went wrong. Please try again.';});}
+    else if(TO.indexOf('@')>0){location.href='mailto:'+TO+'?subject='+encodeURIComponent('Free review request')+'&body='+encodeURIComponent(body);m.textContent='Your email app opens with the message ready to send.';}
+    else{m.textContent='The enquiry address is being set up. Please check back shortly.';}});
+})();</script>
 </body></html>"""
 
 # services: each card has a closed face (index and title) and an open face (mark, title, text, points, page links)
@@ -1802,15 +1947,15 @@ def viz_zone():       # a price line, the entry zone and the stop level
             + '<circle class="d" style="--j:12" cx="525" cy="156" r="7" fill="var(--door)"/>')
 VIZ = [viz_roles, viz_tiles, viz_booking, viz_week, viz_rank, viz_zone]
 def viz(i): return '<div class="cviz" aria-hidden="true"><svg viewBox="0 0 595 476">%s</svg></div>' % VIZ[i % len(VIZ)]()
-def visit(c):
-    if not c.get("link"): return ""
-    return '<p class="clink"><a class="tl" href="%s" target="_blank" rel="noopener">Visit %s</a></p>' % (e(c["link"]), e(c["link"].split("//")[1].strip("/")))
+from work import WORKPAGES
+def visit(c, i=0):
+    return '<p class="clink"><a class="tl" href="/work/%s/">Read the case</a></p>' % WORKPAGES[i]["slug"]
 cases = "\n".join(
  ('<p class="lab sublab">%s</p>\n' % e(PRODUCTS_LABEL) if i == len(CASES) else "") +
  """<article class="case" id="case-%d">
   <div class="ctext"><p class="meta">%s</p><h3>%s</h3><p class="did">%s</p><p class="proof">%s</p>%s</div>
   %s
- </article>""" % (i, e(c["kind"]), e(c["who"]), e(c["did"]), e(c["now"]), visit(c), viz(i))
+ </article>""" % (i, e(c["kind"]), e(c["who"]), e(c["did"]), e(c["now"]), visit(c, i), viz(i))
  for i,c in enumerate(WORK))
 windex = "\n".join('<li><a href="#case-%d">%s<small>%s</small></a></li>' % (i, e(c["who"]), e(c["kind"])) for i,c in enumerate(WORK))
 from scenes import scene
@@ -1857,7 +2002,7 @@ HTML = (HTML.replace("HEADLINE", HEAD_HTML).replace("INTROHERE", e(INTRO)).repla
             .replace("DAYSHERE", DAYLBL).replace("HOURSCOL", HOURS_COL).replace("WHATHERE", what)
             .replace("CASESHERE", cases).replace("WINDEXHERE", windex).replace("HOWHERE", how)
             .replace("AGENTSHERE", agents).replace("CONNECTSHERE", connects).replace("MAILTOHERE", MAILTO).replace("MAILLINE", MAILLINE).replace("FOOTERHERE", footer_html("")).replace("STMTHERE", " ".join('<span style="--i:%d">%s</span>' % (i, e(w)) for i, w in enumerate(STATEMENT.split()))).replace("CTANOTE", e(CTA_NOTE)).replace("CTACONNECT", e(CTA_CONNECT)).replace("DAYHOURS", json.dumps(DAY_HOURS)).replace("CONNINTRO", e(CONNECT_INTRO)).replace("CONNLABEL", e(CONNECT_LABEL)).replace("ANYNOTE", e(ANY_NOTE)).replace("CONNHEAD", e(CONNECT_HEAD)).replace("CONNNOTE", e(CONNECT_NOTE)).replace("FLOWHERE", flow).replace("RULESHERE", rules).replace("SYSHERE", systems).replace("FAQHERE", faq).replace("ENSOHERE", HEROMARK).replace("LDHERE", LD).replace("OGTITLEHERE", e(OG_TITLE)).replace("OGDESCHERE", e(OG_DESC)).replace("OGALTHERE", e(OG_ALT)).replace("TITLEHERE", e(TITLE)).replace("DESCHERE", e(DESC)).replace("SITEHERE", SITE).replace("HOURSVAL", str(HOURS)))
-HTML = HTML.replace("DIVHERE", "")   # the animated cell dividers are removed in the v2 structure
+HTML = HTML.replace("DIVHERE", "").replace("FORMEMAIL", EMAIL).replace("FORMACTION", FORM_ACTION)   # the animated cell dividers are removed in the v2 structure
 open("../index.html","w").write(HTML)
 open("../llms.txt","w").write(LLMS)
 open("../index.md","w").write(PAGE_MD)
@@ -1962,11 +2107,51 @@ for pg in PAGES:
 </div></section>
 </main>
 %(footer)s
+<div class="fx" id="fx" hidden>
+  <div class="fx-bg" data-fclose></div>
+  <form class="fx-card" id="fxf" role="dialog" aria-modal="true" aria-labelledby="fx-t" novalidate>
+    <button type="button" class="sx-x" data-fclose aria-label="Close">&times;</button>
+    <p class="lab">Free review</p>
+    <h2 id="fx-t">Send a line about the firm.</h2>
+    <p class="fx-sub">A one-page review comes back, free, with the first three places to look. A reply within 24 hours.</p>
+    <div class="fx-row"><label>Name<input name="name" autocomplete="name" required></label><label>Work email<input name="email" type="email" autocomplete="email" required></label></div>
+    <label>Firm<input name="firm" autocomplete="organization"></label>
+    <fieldset><legend>Interested in</legend><div class="fx-chips">
+      <label><input type="checkbox" name="topic" value="Websites and online shops"><span>Websites and online shops</span></label>
+      <label><input type="checkbox" name="topic" value="Automation"><span>Automation</span></label>
+      <label><input type="checkbox" name="topic" value="AI assistant setup"><span>AI assistant and skills</span></label>
+      <label><input type="checkbox" name="topic" value="Connections"><span>Connections</span></label>
+      <label><input type="checkbox" name="topic" value="Brand and content"><span>Brand and content</span></label>
+      <label><input type="checkbox" name="topic" value="Not sure yet"><span>Not sure yet</span></label>
+    </div></fieldset>
+    <label>What takes the most time each week?<textarea name="brief" rows="4"></textarea></label>
+    <label>How did the firm find Loose Ends? <small>Optional</small><select name="source"><option value="">Select one</option><option>Search</option><option>An AI assistant</option><option>LinkedIn</option><option>A referral</option><option>Other</option></select></label>
+    <div class="fx-foot"><p class="fx-msg" id="fxm" role="status"></p><button type="submit" class="btn">Send</button></div>
+  </form>
+</div>
+<script>(function(){var d=document,fx=d.getElementById('fx');if(!fx)return;var f=d.getElementById('fxf'),m=d.getElementById('fxm'),last=null,
+  TO="FORMEMAIL",ACT="FORMACTION",RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function open(brief,from){last=from;fx.hidden=false;d.documentElement.classList.add('sxlock');m.textContent='';
+    if(brief)f.brief.value=brief;requestAnimationFrame(function(){fx.classList.add('open');});setTimeout(function(){f.name.focus();},RM?0:300);}
+  function close(){fx.classList.remove('open');setTimeout(function(){fx.hidden=true;d.documentElement.classList.remove('sxlock');if(last)last.focus();},RM?0:300);}
+  d.addEventListener('click',function(e){var a=e.target.closest('a[href="#contact"],a[href="/#contact"],[data-brief]');if(!a||a.closest('.fx'))return;
+    e.preventDefault();open(a.getAttribute('data-brief')||'',a);});
+  [].forEach.call(fx.querySelectorAll('[data-fclose]'),function(b){b.addEventListener('click',close);});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape'&&!fx.hidden)close();});
+  f.addEventListener('submit',function(e){e.preventDefault();
+    if(!f.name.value.trim()||!/.+@.+[.].+/.test(f.email.value)){m.textContent='Please add a name and a work email.';return;}
+    var t=[].map.call(f.querySelectorAll('[name=topic]:checked'),function(x){return x.value;}).join(', ');
+    var body='Name: '+f.name.value+'\\nEmail: '+f.email.value+'\\nFirm: '+f.firm.value+'\\nInterested in: '+t+'\\nSource: '+f.source.value+'\\n\\n'+f.brief.value;
+    if(ACT.indexOf('http')===0){fetch(ACT,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)}).then(function(r){
+        m.textContent=r.ok?'Thank you. A reply comes within 24 hours.':'Something went wrong. Please try again.';if(r.ok)f.reset();}).catch(function(){m.textContent='Something went wrong. Please try again.';});}
+    else if(TO.indexOf('@')>0){location.href='mailto:'+TO+'?subject='+encodeURIComponent('Free review request')+'&body='+encodeURIComponent(body);m.textContent='Your email app opens with the message ready to send.';}
+    else{m.textContent='The enquiry address is being set up. Please check back shortly.';}});
+})();</script>
 </body></html>""" % dict(title=e(ptitle), desc=e(pg["desc"]), url=url, ogtitle=e(pg["title"]), site=SITE, ld=ld, style=STYLE, lpcss=LP_CSS,
         navlinks=NAVLINKS, mailto=MAILTO, nav=e(pg["nav"]), h1=e(pg["h1"]), lead=e(pg["lead"]), ctanote=e(CTA_NOTE),
         short="".join("<li>%s</li>" % e(x) for x in pg["short"]), body=body, faq=faqh, rel=rel, mailline=MAILLINE, footer=footer_html("/"), closehead=e(CLOSE_HEAD), closetext=e(CLOSE_TEXT), closebtn=e(CLOSE_BTN), closenote=e(CLOSE_NOTE))
     os.makedirs("../" + pg["slug"], exist_ok=True)
-    open("../%s/index.html" % pg["slug"], "w").write(doc)
+    open("../%s/index.html" % pg["slug"], "w").write(doc.replace("FORMEMAIL", EMAIL).replace("FORMACTION", FORM_ACTION))
 
 # ── blog: posts live as JSON files in _source/posts/, one list per file. Same rules as the rest of the wording. ──
 import glob, re as _re
@@ -2091,10 +2276,50 @@ for i, po in enumerate(POSTS):
 %s
 </main>
 %s
+<div class="fx" id="fx" hidden>
+  <div class="fx-bg" data-fclose></div>
+  <form class="fx-card" id="fxf" role="dialog" aria-modal="true" aria-labelledby="fx-t" novalidate>
+    <button type="button" class="sx-x" data-fclose aria-label="Close">&times;</button>
+    <p class="lab">Free review</p>
+    <h2 id="fx-t">Send a line about the firm.</h2>
+    <p class="fx-sub">A one-page review comes back, free, with the first three places to look. A reply within 24 hours.</p>
+    <div class="fx-row"><label>Name<input name="name" autocomplete="name" required></label><label>Work email<input name="email" type="email" autocomplete="email" required></label></div>
+    <label>Firm<input name="firm" autocomplete="organization"></label>
+    <fieldset><legend>Interested in</legend><div class="fx-chips">
+      <label><input type="checkbox" name="topic" value="Websites and online shops"><span>Websites and online shops</span></label>
+      <label><input type="checkbox" name="topic" value="Automation"><span>Automation</span></label>
+      <label><input type="checkbox" name="topic" value="AI assistant setup"><span>AI assistant and skills</span></label>
+      <label><input type="checkbox" name="topic" value="Connections"><span>Connections</span></label>
+      <label><input type="checkbox" name="topic" value="Brand and content"><span>Brand and content</span></label>
+      <label><input type="checkbox" name="topic" value="Not sure yet"><span>Not sure yet</span></label>
+    </div></fieldset>
+    <label>What takes the most time each week?<textarea name="brief" rows="4"></textarea></label>
+    <label>How did the firm find Loose Ends? <small>Optional</small><select name="source"><option value="">Select one</option><option>Search</option><option>An AI assistant</option><option>LinkedIn</option><option>A referral</option><option>Other</option></select></label>
+    <div class="fx-foot"><p class="fx-msg" id="fxm" role="status"></p><button type="submit" class="btn">Send</button></div>
+  </form>
+</div>
+<script>(function(){var d=document,fx=d.getElementById('fx');if(!fx)return;var f=d.getElementById('fxf'),m=d.getElementById('fxm'),last=null,
+  TO="FORMEMAIL",ACT="FORMACTION",RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function open(brief,from){last=from;fx.hidden=false;d.documentElement.classList.add('sxlock');m.textContent='';
+    if(brief)f.brief.value=brief;requestAnimationFrame(function(){fx.classList.add('open');});setTimeout(function(){f.name.focus();},RM?0:300);}
+  function close(){fx.classList.remove('open');setTimeout(function(){fx.hidden=true;d.documentElement.classList.remove('sxlock');if(last)last.focus();},RM?0:300);}
+  d.addEventListener('click',function(e){var a=e.target.closest('a[href="#contact"],a[href="/#contact"],[data-brief]');if(!a||a.closest('.fx'))return;
+    e.preventDefault();open(a.getAttribute('data-brief')||'',a);});
+  [].forEach.call(fx.querySelectorAll('[data-fclose]'),function(b){b.addEventListener('click',close);});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape'&&!fx.hidden)close();});
+  f.addEventListener('submit',function(e){e.preventDefault();
+    if(!f.name.value.trim()||!/.+@.+[.].+/.test(f.email.value)){m.textContent='Please add a name and a work email.';return;}
+    var t=[].map.call(f.querySelectorAll('[name=topic]:checked'),function(x){return x.value;}).join(', ');
+    var body='Name: '+f.name.value+'\\nEmail: '+f.email.value+'\\nFirm: '+f.firm.value+'\\nInterested in: '+t+'\\nSource: '+f.source.value+'\\n\\n'+f.brief.value;
+    if(ACT.indexOf('http')===0){fetch(ACT,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)}).then(function(r){
+        m.textContent=r.ok?'Thank you. A reply comes within 24 hours.':'Something went wrong. Please try again.';if(r.ok)f.reset();}).catch(function(){m.textContent='Something went wrong. Please try again.';});}
+    else if(TO.indexOf('@')>0){location.href='mailto:'+TO+'?subject='+encodeURIComponent('Free review request')+'&body='+encodeURIComponent(body);m.textContent='Your email app opens with the message ready to send.';}
+    else{m.textContent='The enquiry address is being set up. Please check back shortly.';}});
+})();</script>
 </body></html>""" % (e(po["category"]), e(po["h1"]), e(po["category"]), po["mins"], BLOG_DATE, e(po["lead"]),
         "".join("<li>%s</li>" % e(x) for x in po["short"]), body, faqh, "".join(blog_card(q, j) for j, q in enumerate(rel)), CLOSE_BLOCK, footer_html("/"))
     os.makedirs("../blog/" + po["slug"], exist_ok=True)
-    open("../blog/%s/index.html" % po["slug"], "w").write(doc)
+    open("../blog/%s/index.html" % po["slug"], "w").write(doc.replace("FORMEMAIL", EMAIL).replace("FORMACTION", FORM_ACTION))
 if POSTS:
     url = SITE + "blog/"
     cats = [c for c in CAT_ORDER if any(po["category"] == c for po in POSTS)]
@@ -2121,10 +2346,50 @@ if POSTS:
 [].forEach.call(b,function(x){x.addEventListener('click',function(){var k=x.getAttribute('data-cat');
 [].forEach.call(b,function(y){y.setAttribute('aria-pressed',String(y===x));});
 [].forEach.call(c,function(z){z.hidden=!!k&&z.getAttribute('data-cat')!==k;});});});})();</script>
+<div class="fx" id="fx" hidden>
+  <div class="fx-bg" data-fclose></div>
+  <form class="fx-card" id="fxf" role="dialog" aria-modal="true" aria-labelledby="fx-t" novalidate>
+    <button type="button" class="sx-x" data-fclose aria-label="Close">&times;</button>
+    <p class="lab">Free review</p>
+    <h2 id="fx-t">Send a line about the firm.</h2>
+    <p class="fx-sub">A one-page review comes back, free, with the first three places to look. A reply within 24 hours.</p>
+    <div class="fx-row"><label>Name<input name="name" autocomplete="name" required></label><label>Work email<input name="email" type="email" autocomplete="email" required></label></div>
+    <label>Firm<input name="firm" autocomplete="organization"></label>
+    <fieldset><legend>Interested in</legend><div class="fx-chips">
+      <label><input type="checkbox" name="topic" value="Websites and online shops"><span>Websites and online shops</span></label>
+      <label><input type="checkbox" name="topic" value="Automation"><span>Automation</span></label>
+      <label><input type="checkbox" name="topic" value="AI assistant setup"><span>AI assistant and skills</span></label>
+      <label><input type="checkbox" name="topic" value="Connections"><span>Connections</span></label>
+      <label><input type="checkbox" name="topic" value="Brand and content"><span>Brand and content</span></label>
+      <label><input type="checkbox" name="topic" value="Not sure yet"><span>Not sure yet</span></label>
+    </div></fieldset>
+    <label>What takes the most time each week?<textarea name="brief" rows="4"></textarea></label>
+    <label>How did the firm find Loose Ends? <small>Optional</small><select name="source"><option value="">Select one</option><option>Search</option><option>An AI assistant</option><option>LinkedIn</option><option>A referral</option><option>Other</option></select></label>
+    <div class="fx-foot"><p class="fx-msg" id="fxm" role="status"></p><button type="submit" class="btn">Send</button></div>
+  </form>
+</div>
+<script>(function(){var d=document,fx=d.getElementById('fx');if(!fx)return;var f=d.getElementById('fxf'),m=d.getElementById('fxm'),last=null,
+  TO="FORMEMAIL",ACT="FORMACTION",RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function open(brief,from){last=from;fx.hidden=false;d.documentElement.classList.add('sxlock');m.textContent='';
+    if(brief)f.brief.value=brief;requestAnimationFrame(function(){fx.classList.add('open');});setTimeout(function(){f.name.focus();},RM?0:300);}
+  function close(){fx.classList.remove('open');setTimeout(function(){fx.hidden=true;d.documentElement.classList.remove('sxlock');if(last)last.focus();},RM?0:300);}
+  d.addEventListener('click',function(e){var a=e.target.closest('a[href="#contact"],a[href="/#contact"],[data-brief]');if(!a||a.closest('.fx'))return;
+    e.preventDefault();open(a.getAttribute('data-brief')||'',a);});
+  [].forEach.call(fx.querySelectorAll('[data-fclose]'),function(b){b.addEventListener('click',close);});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape'&&!fx.hidden)close();});
+  f.addEventListener('submit',function(e){e.preventDefault();
+    if(!f.name.value.trim()||!/.+@.+[.].+/.test(f.email.value)){m.textContent='Please add a name and a work email.';return;}
+    var t=[].map.call(f.querySelectorAll('[name=topic]:checked'),function(x){return x.value;}).join(', ');
+    var body='Name: '+f.name.value+'\\nEmail: '+f.email.value+'\\nFirm: '+f.firm.value+'\\nInterested in: '+t+'\\nSource: '+f.source.value+'\\n\\n'+f.brief.value;
+    if(ACT.indexOf('http')===0){fetch(ACT,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)}).then(function(r){
+        m.textContent=r.ok?'Thank you. A reply comes within 24 hours.':'Something went wrong. Please try again.';if(r.ok)f.reset();}).catch(function(){m.textContent='Something went wrong. Please try again.';});}
+    else if(TO.indexOf('@')>0){location.href='mailto:'+TO+'?subject='+encodeURIComponent('Free review request')+'&body='+encodeURIComponent(body);m.textContent='Your email app opens with the message ready to send.';}
+    else{m.textContent='The enquiry address is being set up. Please check back shortly.';}});
+})();</script>
 </body></html>""" % ("".join('<button type="button" aria-pressed="false" data-cat="%s">%s</button>' % (e(c), e(c)) for c in cats),
         "".join(blog_card(po, i) for i, po in enumerate(POSTS)), CLOSE_BLOCK, footer_html("/"))
     os.makedirs("../blog", exist_ok=True)
-    open("../blog/index.html", "w").write(doc)
+    open("../blog/index.html", "w").write(doc.replace("FORMEMAIL", EMAIL).replace("FORMACTION", FORM_ACTION))
     _ll = open("../llms.txt").read()
     _ll += "\n## Blog\n\n" + "\n".join("- [%s](%sblog/%s/): %s" % (po["title"], SITE, po["slug"], po["desc"]) for po in POSTS) + "\n"
     open("../llms.txt", "w").write(_ll)
@@ -2145,6 +2410,56 @@ if POSTS:
 INDEXNOW_KEY = "6f1c2b9e4a7d4e0b8c3f5a2d9e1b7c40"
 open("../%s.txt" % INDEXNOW_KEY, "w").write(INDEXNOW_KEY)
 print("posts", len(POSTS))
+WK_LIST = list(zip(WORK, WORKPAGES))
+_fi = HTML.index('<div class="fx" id="fx" hidden>'); FORM = HTML[_fi:HTML.index('</form>\n</div>', _fi) + len('</form>\n</div>')]
+_ji = HTML.index('<script>(function(){var d=document,fx='); JS = HTML[_ji:HTML.index('</script>', _ji) + len('</script>')]
+for i, (c, w) in enumerate(WK_LIST):
+    url = SITE + "work/" + w["slug"] + "/"
+    title = c["who"].rstrip(".")
+    desc = (c["did"][:150].rsplit(" ", 1)[0] + "...") if len(c["did"]) > 155 else c["did"]
+    ld = json.dumps({"@context":"https://schema.org","@graph":[
+      {"@type":"CreativeWork","@id":url+"#work","name":title,"headline":title,"description":c["did"],"url":url,"inLanguage":"en",
+       "about":w["industry"],"keywords":", ".join([w["industry"]] + w["tools"]),"creator":{"@id":SITE+"#studio"},
+       "publisher":{"@type":"ProfessionalService","@id":SITE+"#studio","name":"Loose Ends","url":SITE},"image":SITE+"og.png"},
+      {"@type":"BreadcrumbList","itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Loose Ends","item":SITE},
+        {"@type":"ListItem","position":2,"name":"Work","item":SITE+"#work"},
+        {"@type":"ListItem","position":3,"name":title,"item":url}]}]}, ensure_ascii=False, indent=1)
+    steps = "".join('<li><span>%02d</span><h3>%s</h3><p>%s</p></li>' % (k + 1, e(a), e(b)) for k, (a, b) in enumerate(w["ap"][1]))
+    more = "".join(['<a class="bcard" href="/work/%s/">%s<small>%s</small><h3>%s</h3><p>%s</p><span>Read the case</span></a>'
+                   % (w2["slug"], viz(j), e(c2["kind"]), e(c2["who"]), e(c2["now"])) for j, (c2, w2) in enumerate(WK_LIST) if j != i][:3])
+    doc = page_head(title + " | Loose Ends work", desc, url, "article", ld) + """<main>
+<article>
+<div class="wk-hero"><div class="wrap">
+  <p class="crumb"><a href="/#work">Work</a><i>/</i>%s</p>
+  <h1 class="wk-h1">%s</h1>
+  <p class="wk-lead">%s</p>
+  <div class="wk-chips"><span>%s</span><span>%s</span></div>
+</div></div>
+<div class="wk-viz">%s</div>
+<div class="wrap"><div class="wk-stats">%s</div>
+<div class="wk-body">
+  <aside class="wk-side"><dl><dt>Client</dt><dd>%s</dd><dt>Industry</dt><dd>%s</dd><dt>Practices</dt><dd>%s</dd><dt>Works with</dt><dd>%s</dd><dt>Status</dt><dd>%s</dd></dl>
+    <a class="btn" href="/#contact" data-brief="A case like: %s">Discuss a similar case</a></aside>
+  <div>
+    <section class="wk-sec"><p class="lab">The challenge</p><h2>%s</h2>%s</section>
+    <section class="wk-sec"><p class="lab">The approach</p><h2>%s</h2><ol class="wk-steps">%s</ol></section>
+    <section class="wk-sec"><p class="lab">The impact</p><h2>%s</h2>%s<p class="wk-pull">%s</p><div class="wk-chips">%s</div></section>
+  </div>
+</div></div>
+</article>
+<section class="wk-more"><div class="wrap"><p class="lab">More work</p><h2>Each started with one thing done by hand.</h2><div class="bgrid">%s</div></div></section>
+%s
+</main>
+%s""" % (e(w["industry"]), e(title + "."), e(c["did"]), e(w["industry"]), e(w["practices"].split(",")[0].capitalize()), viz(i),
+        "".join("<div><b>%s</b><span>%s</span></div>" % (e(a), e(b)) for a, b in w["stats"]),
+        e(w["client"]), e(w["industry"]), e(w["practices"].capitalize()), e(", ".join(w["tools"])), e(c["now"]), e(title),
+        e(w["ch"][0]), "".join("<p>%s</p>" % e(x) for x in w["ch"][1]), e(w["ap"][0]), steps,
+        e(w["im"][0]), "".join("<p>%s</p>" % e(x) for x in w["im"][1]), e(w["pull"]), "".join("<span>%s</span>" % e(t) for t in w["tools"]),
+        more, CLOSE_BLOCK, footer_html("/")) + FORM + JS + "\n</body></html>"
+    os.makedirs("../work/" + w["slug"], exist_ok=True)
+    open("../work/%s/index.html" % w["slug"], "w").write(doc.replace("FORMEMAIL", EMAIL).replace("FORMACTION", FORM_ACTION))
+print("case pages", len(WK_LIST))
 
 TODAY = "2026-11-16"   # update when the pages change
 SM = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
@@ -2152,6 +2467,7 @@ SM = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitem
 SM += ['  <url><loc>%s%s/</loc><lastmod>%s</lastmod></url>' % (SITE, pg["slug"], TODAY) for pg in PAGES]
 SM += ['  <url><loc>%sblog/</loc><lastmod>%s</lastmod></url>' % (SITE, BLOG_DATE)] if POSTS else []
 SM += ['  <url><loc>%sblog/%s/</loc><lastmod>%s</lastmod></url>' % (SITE, po['slug'], BLOG_DATE) for po in POSTS]
+SM += ['  <url><loc>%swork/%s/</loc><lastmod>%s</lastmod></url>' % (SITE, w['slug'], BLOG_DATE) for w in WORKPAGES]
 SM += ['  <url><loc>%stools/stock-sales-production-tracker/</loc><lastmod>2026-10-26</lastmod></url>' % SITE, '</urlset>', '']
 open("../sitemap.xml","w").write("\n".join(SM))
 print("pages", len(PAGES))
