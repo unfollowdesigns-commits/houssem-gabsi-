@@ -2047,7 +2047,7 @@ for i, po in enumerate(POSTS):
     ]}, ensure_ascii=False, indent=1)
     body = "".join('<section><div class="wrap"><h2>%s</h2>%s</div></section>\n' % (e(sec["h2"]), "".join(lp_block(x) for x in sec["body"])) for sec in po["sections"])
     faqh = "".join("<div><h3>%s</h3><p>%s</p></div>" % (e(f["q"]), e(f["a"])) for f in po["faq"])
-    doc = page_head(po["title"] + " | Loose Ends", po["desc"], url, "article", ld) + """<main class="bpost">
+    doc = page_head(po["title"] + (" | Loose Ends" if len(po["title"]) <= 52 else ""), po["desc"], url, "article", ld) + """<main class="bpost">
 <article>
 <div class="lphero"><div class="wrap">
   <p class="crumb"><a href="/">Loose Ends</a><i>/</i><a href="/blog/">Blog</a><i>/</i>%s</p>
@@ -2076,7 +2076,7 @@ if POSTS:
        "blogPost":[{"@type":"BlogPosting","headline":po["title"],"url":url+po["slug"]+"/","datePublished":BLOG_DATE} for po in POSTS]},
       {"@type":"BreadcrumbList","itemListElement":[
         {"@type":"ListItem","position":1,"name":"Loose Ends","item":SITE},{"@type":"ListItem","position":2,"name":"Blog","item":url}]}]}, ensure_ascii=False, indent=1)
-    doc = page_head("Blog: AI assistants, automation, connections and AI visibility | Loose Ends",
+    doc = page_head("Blog: AI assistants, automation and AI visibility",
         "How firms set up AI assistants, connect their tools with MCP and APIs, automate repeated work, and get found in search and AI answers.", url, "website", ld) + """<main>
 <div class="lphero"><div class="wrap">
   <p class="crumb"><a href="/">Loose Ends</a><i>/</i>Blog</p>
